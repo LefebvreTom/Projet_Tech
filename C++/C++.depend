@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1615917037 source:c:\users\user\desktop\projet tech\c++\de.cpp
+	"De.h"
+	<stdlib.h>
+	<time.h>
+
+1615916895 c:\users\user\desktop\projet tech\c++\de.h
+
+1615919399 source:c:\users\user\desktop\projet tech\c++\main.cpp
+	<iostream>
+	"De.h"
+	"Marchandise.h"
+
+1615919179 source:c:\users\user\desktop\projet tech\c++\marchandise.cpp
+	"Marchandise.h"
+
+1615919243 c:\users\user\desktop\projet tech\c++\marchandise.h
+	<string>
+
+1615917037 source:c:\users\user\desktop\projet tech\projet_tech\c++\de.cpp
+	"De.h"
+	<stdlib.h>
+	<time.h>
+
+1615916895 c:\users\user\desktop\projet tech\projet_tech\c++\de.h
+
+1615919595 source:c:\users\user\desktop\projet tech\projet_tech\c++\main.cpp
+	<iostream>
+	"De.h"
+	"Marchandise.h"
+
+1615919243 c:\users\user\desktop\projet tech\projet_tech\c++\marchandise.h
+	<string>
+
+1615919179 source:c:\users\user\desktop\projet tech\projet_tech\c++\marchandise.cpp
+	"Marchandise.h"
+
