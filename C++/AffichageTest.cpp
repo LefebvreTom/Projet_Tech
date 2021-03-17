@@ -1,27 +1,27 @@
 #include "AffichageTest.h"
 
-using namespace std;
+    using namespace std;
 
-AffichageTest::AffichageTest()
-{
-}
+    AffichageTest::AffichageTest()
+    {
+    }
 
 
-void AffichageTest::AffichageMarch(Marchandise march)
-{
-    cout<<"Marchandise couleur:"<<march.getCouleur()<<" id:"<<march.getIdCouleur()<<endl;
+    void AffichageTest::AffichageMarch(Marchandise march)
+    {
+        cout<<"Marchandise couleur:"<<march.getCouleur()<<" id:"<<march.getIdCouleur()<<endl;
 
-}
-void AffichageTest::AffichageDe(De de)
+    }
+    void AffichageTest::AffichageDe(De de)
 
-{
-    int resultatDe = de.getResultat();
-    cout<<"resultat:"<<resultatDe<<endl;
-}
+    {
+        int resultatDe = de.getResultat();
+        cout<<"resultat:"<<resultatDe<<endl;
+    }
 
-void AffichageTest::AffichagePile(stack<Marchandise> Stack)
-{
+    void AffichageTest::AffichagePile(stack<Marchandise> Stack)
+    {
 
-    Marchandise march = Stack.top();
-    cout << "La pile contient " << Stack.size() << " marchandises de couleur : " << march.getCouleur();
-}
+        Marchandise march = Stack.top();
+        cout << "La pile contient " << Stack.size() << " marchandises de couleur : " << march.getCouleur();
+    }
