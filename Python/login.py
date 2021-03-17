@@ -52,8 +52,10 @@ def extraireMarchandise(data):
         return None
 
 def extraireOuvrier(data):
+    #print data[len(data)-1]
     ouvrier = re.sub("<.*?>","",data[len(data)-1])
-    data.pop(0)
+    #print ouvrier
+    #data.pop(0)
     return ouvrier
 
 def tout():
@@ -61,7 +63,7 @@ def tout():
     page=data.read().decode('utf-8')
     joueurActif = re.findall("<li class=\"active\""+".*?"+"</li>", page,re.DOTALL)
     if(re.search("AstroBreak",joueurActif[0])!=None):
-        dataJoueur = re.findall("<div class=\"tab-pane active\""+".*?"+"</td>", page)
+        dataJoueur = re.findall("<div class=\"tab-pane active\""+".*?"+"<div class=\"tab-pane \"", page)
         dataJoueurSplit = re.findall("<div " + ".*?" + "/div>", dataJoueur[0])
         dataJoueurSplit.pop(0)
         d1 = extraireDe(dataJoueurSplit)
@@ -92,6 +94,6 @@ def tout():
         print "Vous avez " + ouvrier + " ouvrier"
         #print dataJoueurSplit[0]
         """for i in range (len(dataJoueurSplit)-1,len(dataJoueurSplit)):
-            print dataJoueurSplit[i] """
+            print dataJoueurSplit[i]"""
 
 tout()
