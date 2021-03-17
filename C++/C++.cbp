@@ -32,11 +32,11 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="AffichageTest.cpp" />
 		<Unit filename="De.cpp" />
 		<Unit filename="De.h" />
 		<Unit filename="Marchandise.cpp" />
 		<Unit filename="Marchandise.h" />
-		<Unit filename="affichageTest.cpp" />
 		<Unit filename="affichageTest.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>

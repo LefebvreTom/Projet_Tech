@@ -1,16 +1,16 @@
 #include "De.h"
 
+    //constructeur
+    De::De()
+    {
 
-De::De()
-{
+        //premier random
+        resultat=(rand()%6)+1;
 
-    //premier random
-    resultat=(rand()%6)+1;
+    }
 
-}
-
-
-int De::getResultat()
-{
-    return resultat;
-}
+    //accesseur
+        int De::getResultat()
+    {
+        return resultat;
+    }

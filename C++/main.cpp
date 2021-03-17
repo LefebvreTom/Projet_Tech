@@ -20,12 +20,15 @@ int main()
     //section de test
     AffichageTest affichetest;
 
+
+    //lancer de 10 dés pour voir si le random marche
     De tabDe[10];
     for(int i=0;i<10;i++){
         tabDe[i]=De();
         affichetest.AffichageDe(tabDe[i]);
     }
 
+    //creation de marchandises pour montrer les attributs
     Marchandise tabMarchandise[6];
     for(int i=0;i<6;i++){
         tabMarchandise[i] = Marchandise(i+1);
@@ -33,10 +36,14 @@ int main()
 
     }
 
+    //creation d'une pile de marchandises de type 1
     Marchandise Stack;
     stack <Marchandise> testStack = Stack.initStackMarchandise(1);
 
     affichetest.AffichagePile(testStack);
 
+
+
+//----------------------------------------------------------------------------------------
 
 }
