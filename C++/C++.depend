@@ -17,21 +17,34 @@
 1615919243 c:\users\user\desktop\projet tech\c++\marchandise.h
 	<string>
 
-1615917037 source:c:\users\user\desktop\projet tech\projet_tech\c++\de.cpp
+1615996863 source:c:\users\user\desktop\projet tech\projet_tech\c++\de.cpp
 	"De.h"
+
+1615996875 c:\users\user\desktop\projet tech\projet_tech\c++\de.h
 	<stdlib.h>
-	<time.h>
 
-1615916895 c:\users\user\desktop\projet tech\projet_tech\c++\de.h
-
-1615919595 source:c:\users\user\desktop\projet tech\projet_tech\c++\main.cpp
+1616001066 source:c:\users\user\desktop\projet tech\projet_tech\c++\main.cpp
 	<iostream>
 	"De.h"
 	"Marchandise.h"
+	"affichageTest.h"
+	<time.h>
+	<stdlib.h>
 
-1615919243 c:\users\user\desktop\projet tech\projet_tech\c++\marchandise.h
+1616000293 c:\users\user\desktop\projet tech\projet_tech\c++\marchandise.h
 	<string>
+	<stack>
 
-1615919179 source:c:\users\user\desktop\projet tech\projet_tech\c++\marchandise.cpp
+1616001502 source:c:\users\user\desktop\projet tech\projet_tech\c++\marchandise.cpp
 	"Marchandise.h"
+
+1615994061 source:c:\users\user\desktop\projet tech\projet_tech\c++\affichagetest.cpp
+	"AffichageTest.h"
+
+1616000718 c:\users\user\desktop\projet tech\projet_tech\c++\affichagetest.h
+	<iostream>
+	<string>
+	<stack>
+	"Marchandise.h"
+	"De.h"
 

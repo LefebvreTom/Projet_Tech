@@ -2,6 +2,9 @@
 
 using namespace std;
 
+Marchandise::Marchandise(){
+}
+
 Marchandise::Marchandise(int idCouleur)
 {
     id_Couleur = idCouleur;
@@ -42,6 +45,18 @@ Marchandise::Marchandise(int idCouleur)
     {
         return id_Couleur;
     }
+
+
+    stack <Marchandise> Marchandise::initStackMarchandise(int idMarch)
+    {
+        Marchandise march = Marchandise(idMarch);
+        stack<Marchandise> StackMarch;
+        for(int i=0;i<7;i++){
+            StackMarch.push(march);
+            }
+        return StackMarch;
+    }
+
 
 
 

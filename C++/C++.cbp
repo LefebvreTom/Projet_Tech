@@ -36,6 +36,8 @@
 		<Unit filename="De.h" />
 		<Unit filename="Marchandise.cpp" />
 		<Unit filename="Marchandise.h" />
+		<Unit filename="affichageTest.cpp" />
+		<Unit filename="affichageTest.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
