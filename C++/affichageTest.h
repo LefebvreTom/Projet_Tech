@@ -7,6 +7,9 @@
 
 #include "Marchandise.h"
 #include "De.h"
+#include "Chateau.h"
+#include "Bateau.h"
+#include "Mine.h"
 
 
 class AffichageTest
@@ -18,7 +21,11 @@ class AffichageTest
     //Méthodes
     void AffichageMarch(Marchandise march);
     void AffichageDe(De de);
-    void AffichagePile(std::stack<Marchandise> Stack);
+    void AffichagePileMarch(std::stack<Marchandise> Stack);
+    void AffichagePileChateau(std::stack<Chateau> Stack);
+    void AffichagePileBateau(std::stack<Bateau> Stack);
+    void AffichagePileMine(std::stack<Mine> Stack);
+
 
     //Attributs
     protected :

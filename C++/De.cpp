@@ -9,6 +9,14 @@
 
     }
 
+    De::De(int face)
+    {
+
+        //premier random
+        resultat=face;
+
+    }
+
     //accesseur
         int De::getResultat()
     {

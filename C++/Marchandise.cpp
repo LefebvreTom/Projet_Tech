@@ -50,6 +50,8 @@
     }
 
 
+    //Methodes
+
     // f°creation des piles
     stack <Marchandise> Marchandise::initStackMarchandise(int idMarch)
     {

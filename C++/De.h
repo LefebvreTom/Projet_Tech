@@ -8,6 +8,7 @@ class De
     //Constructeur
     public :
         De();
+        De(int face);
     //Destructeur
 
 
