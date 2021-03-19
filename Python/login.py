@@ -1,99 +1,220 @@
 from requests import session
-import urllib
+from urllib import request
 import re
+import sys
 
-def connexion():
-
-    payload = {
+"""payload = {
         'p': '',
         'pAction': 'login',
-        'username': 'adebeddes',
-        'password': 'poussin36'
-    }
+        'username': 'kraken_eilco',
+        'password': 'krakeneilco'
+}"""
+"""payload = {
+        'p': '',
+        'pAction': 'login',
+        'username': 'Pepita_eilco',
+        'password': 'pepita62'
+}"""
+def connexion(payload):
+
 
     with session() as c:
         response = c.post('http://www.boiteajeux.net/gestion.php',data=payload)
         return response.content
 
-def lancerPartie():
+def lancerPartie(payload):
 
-    html = connexion()
+    connexion(payload)
     partie = "http://www.boiteajeux.net/jeux/cdb/partie.php?id="
-    idpartie = raw_input("Entrez un id de partie : ")
-    url=urllib.urlopen(partie + idpartie)
+    #idpartie = input("Entrez un id de partie : ")
+    idpartie = "530217"
+    url = request.urlopen(partie + idpartie)
     return url
 
-def extraireDe(data):
-    if(len(re.findall("img/de.png", data[0])) == 1):
+def listeJoueur(page):    
+    joueurActif = re.findall("<li"+".*?"+"</li>", page)
+    for i in range (0,len(joueurActif)):
+        idJoueur = re.findall("mini[0-3]",joueurActif[i])
+        nomJoueur = re.sub("<.*?>","",joueurActif[i])
+        print ("id: " + idJoueur[0] + " nom : " + nomJoueur) 
+
+def extraireDe(donnee):
+    if(len(re.findall("img/de.png", donnee[0])) == 1):
         couleur= "blanc"
-    if(len(re.findall("img/der.png", data[0])) == 1):
+    if(len(re.findall("img/der.png", donnee[0])) == 1):
         couleur= "rouge"
-    if(len(re.findall("img/dev.png", data[0])) == 1):
+    if(len(re.findall("img/dev.png", donnee[0])) == 1):
         couleur= "vert"
-    de = re.split("src", data[0])
+    de = re.split("src", donnee[0])
     valeur = re.findall("[1-6]", de[1])
-    print "Vous avez un de de couleur " + couleur + " et de valeur " + valeur[0]
-    data.pop(0)
+    print ("Vous avez un de de couleur " + couleur + " et de valeur " + valeur[0])
+    donnee.pop(0)
 
-def extrairePepite(data):
-    pepite = re.sub("<.*?>","",data[0])
-    data.pop(0)
-    return pepite
+def extrairePepite(donnee):
+    isPepite = re.findall("pepite", donnee[0])
+    pepite= "0"
+    if len(isPepite) > 0:
+        pepite = re.sub("<.*?>","",donnee[0])
+        donnee.pop(0)
+    print ("Vous avez " + pepite + " pepite")
+    #return pepite
 
-def extraireMarchandise(data):
-    marchandise = re.findall("\(.*?\)", data[0])
+def extraireMarchandise(donnee):
+    marchandise = re.findall("m[1-6]", donnee[0])
     if len(marchandise) > 0:
         valeur = re.findall("[1-6]", marchandise[0])
-        quantite = re.sub("<.*?>","",data[0])
-        print "Vous avez une marchandise de valeur " + valeur[0] + " en " + quantite[0] + " quantite"
-        data.pop(0)
+        quantite = re.sub("<.*?>","",donnee[0])
+        print ("Vous avez une marchandise de valeur " + valeur[0] + " en " + quantite[0] + " quantite")
+        donnee.pop(0)
         return marchandise
     else:
         return None
 
-def extraireOuvrier(data):
-    #print data[len(data)-1]
-    ouvrier = re.sub("<.*?>","",data[len(data)-1])
-    #print ouvrier
-    #data.pop(0)
+#Va devenir obselète
+def extraireMarchandiseVendue(donnee):
+    marchandise = re.findall("m[1-6]", donnee[0])
+    if len(marchandise) > 0:
+        valeur = re.findall("[1-6]", marchandise[0])
+        quantite = re.sub("<.*?>","",donnee[0])
+        print ("Vous avez une marchandise vendue de valeur " + valeur[0] + " en " + quantite[0] + " quantite")
+        donnee.pop(0)
+        return marchandise
+    else:
+        return None
+
+def extraireOuvrier(donnee):
+    ouvrier = re.sub("<.*?>","",donnee[len(donnee)-1])
+    #donnee.pop(0)
     return ouvrier
 
-def tout():
-    data=lancerPartie()
-    page=data.read().decode('utf-8')
-    joueurActif = re.findall("<li class=\"active\""+".*?"+"</li>", page,re.DOTALL)
-    if(re.search("AstroBreak",joueurActif[0])!=None):
-        dataJoueur = re.findall("<div class=\"tab-pane active\""+".*?"+"<div class=\"tab-pane \"", page)
-        dataJoueurSplit = re.findall("<div " + ".*?" + "/div>", dataJoueur[0])
-        dataJoueurSplit.pop(0)
-        d1 = extraireDe(dataJoueurSplit)
-        d2 = extraireDe(dataJoueurSplit)
-        pepite = extrairePepite(dataJoueurSplit)
-        print "Vous avez " + pepite + " pepite"
-        m1 = extraireMarchandise(dataJoueurSplit)
-        m2 = extraireMarchandise(dataJoueurSplit)
-        m3 = extraireMarchandise(dataJoueurSplit)
-        dataJoueurSplit.pop(0)
-        ouvrier = extraireOuvrier(dataJoueurSplit)
-        print "Vous avez " + ouvrier + " ouvrier"
-        """for i in range (0,len(dataJoueurSplit)):
-            print dataJoueurSplit[i]"""
-    else:
-        dataJoueur = re.findall("<div class=\"tab-pane \""+".*?"+"</td>", page)
-        dataJoueurSplit = re.findall("<div " + ".*?" + "/div>", dataJoueur[0])
-        dataJoueurSplit.pop(0)
-        d1 = extraireDe(dataJoueurSplit)
-        d2 = extraireDe(dataJoueurSplit)
-        pepite = extrairePepite(dataJoueurSplit)
-        print "Vous avez " + pepite + " pepite"
-        m1 = extraireMarchandise(dataJoueurSplit)
-        m2 = extraireMarchandise(dataJoueurSplit)
-        m3 = extraireMarchandise(dataJoueurSplit)
-        dataJoueurSplit.pop(0)
-        ouvrier = extraireOuvrier(dataJoueurSplit)
-        print "Vous avez " + ouvrier + " ouvrier"
-        #print dataJoueurSplit[0]
-        """for i in range (len(dataJoueurSplit)-1,len(dataJoueurSplit)):
-            print dataJoueurSplit[i]"""
+def extraireTuile(donnee):
+    case = {
+        'cs' : 'Navires',
+        'cb' : 'Batiments',
+        'cm' : 'Mines',
+        'ca' : 'Animaux',
+        'ck' : 'Connaissance',
+        'cc' : 'Chateaux'
+    }
+    typeTuile = {
+        'ts' : 'Navire Normale',
+        'tsb' : 'Navire Noire',
+        'tb1' : 'Entrepot',
+        'tb1b' : 'Entrepot(Noire)',
+        'tb2' : 'Atelier de menuiserie',
+        'tb2b' : 'Atelier de menuiserie(Noire)',
+        'tb3' : 'Eglise',
+        'tb4' : 'Marche',
+        'tb5' : 'Pension',
+        'tb5b' : 'Pension (Noire)',
+        'tb7' : 'Hotel de ville',
+        'tb7b' : 'Hotel de ville(Noire)',
+        'tb8' : 'Tour de guet',
+        'tb8b' : 'Tour de guet(Noire)',
+        'tm' : 'Mine normale',
+        'tac4' : '4 cochon',
+        'tam3' : '3 mouton',
+        'tap3b' : '3 poule(Noire)',
+        'tav3' : '3 vache',
+        'tav4' : '4 vache',
+        'tk5' : 'Boost navires',
+        'tk8' : 'Boost ouvrier',
+        'tk9' : 'Boost ajustement batiments',
+        'tk10' : 'Boost ajustement navires/animaux',
+        'tk14b' : 'Boost vente des De (Noire)',
+        'tk19' : 'Boost point victoire eglise',
+        'tk20' : 'Boost point victoire banque',
+        'tk22' : 'Boost point victoire marche',
+        'tk23' : 'Boost point victoire hotel de ville',
+        'tk25' : 'Boost point victoire marchandise vendu',
+        'tk26' : 'Boost point victoire tuile bonus',
+        'tc' : 'Chateau normale',
+        'tcb' : 'Chateau noire',
+        'd1' : 'Vide (1)',
+        'd2' : 'Vide (2)',
+        'd3' : 'Vide (3)',
+        'd4' : 'Vide (4)',
+        'd5' : 'Vide (5)',
+        'd6' : 'Vide (6)'
+    }
+    tuile = re.split("img/",donnee[0])
+    couleurTemp = re.split(".png",tuile[1])
+    valeurTemp = re.split(".png",tuile[2])
+    couleur = couleurTemp[0]
+    valeur = valeurTemp[0]
+    print("Case : "+case.get(couleur,"Case inconnue")+"\nValeur : "+typeTuile.get(valeur,"Tuile inconnue")+"\n========================================")
+    donnee.pop(0)
 
-tout()
+def extrairePlateau(donnee):
+    for i in range(37):
+        extraireTuile(donnee)
+
+def extraireDonneeJoueur(page):
+    joueurActif = re.findall("<li class="+".*?"+"</li>", page,re.DOTALL)
+    #print (joueurActif[0])
+    if(re.search("adebeddes",joueurActif[0])!=None):
+        donneeJoueur = re.findall("<div class=\"tab-pane active\""+".*?"+"<div class=\"tab-pane \"", page)
+        donneeJoueurSplit = re.findall("<div " + ".*?" + "/div>", donneeJoueur[0])
+        donneeJoueurSplit.pop(0)
+        extraireDe(donneeJoueurSplit)
+        extraireDe(donneeJoueurSplit)
+        extrairePepite(donneeJoueurSplit)
+        listeMarchandise = re.findall("dvGoods",donneeJoueurSplit[0])
+        while(len(listeMarchandise)!=1):
+            extraireMarchandise(donneeJoueurSplit)
+            listeMarchandise = re.findall("dvGoods",donneeJoueurSplit[0])
+        listeMarchandise = re.findall("clmar",donneeJoueurSplit[0])
+        while(len(listeMarchandise)!=1):
+            extraireMarchandiseVendue(donneeJoueurSplit)
+            listeMarchandise = re.findall("clMar",donneeJoueurSplit[0])
+        donneeJoueurSplit.pop(0)
+        reserve = re.findall("url",donneeJoueurSplit[0])
+        while(len(reserve)!=1):
+            donneeJoueurSplit.pop(0)
+            reserve = re.findall("url",donneeJoueurSplit[0])
+        extrairePlateau(donneeJoueurSplit)
+        ouvrier = extraireOuvrier(donneeJoueurSplit)
+        print ("Vous avez " + ouvrier + " ouvrier")
+        """for i in range (0,len(donneeJoueurSplit)):
+            print donneeJoueurSplit[i]"""
+    else:
+        donneeJoueur = re.findall("<div class=\"tab-pane \""+".*?"+"</td>", page)
+        donneeJoueurSplit = re.findall("<div " + ".*?" + "/div>", donneeJoueur[0])
+        donneeJoueurSplit.pop(0)
+        extraireDe(donneeJoueurSplit)
+        extraireDe(donneeJoueurSplit)
+        extrairePepite(donneeJoueurSplit)
+        listeMarchandise = re.findall("dvGoods",donneeJoueurSplit[0])
+        while(len(listeMarchandise)!=1):
+            extraireMarchandise(donneeJoueurSplit)
+            listeMarchandise = re.findall("dvGoods",donneeJoueurSplit[0])
+        listeMarchandise = re.findall("clmar",donneeJoueurSplit[0])
+        while(len(listeMarchandise)!=1):
+            extraireMarchandiseVendue(donneeJoueurSplit)
+            listeMarchandise = re.findall("clMar",donneeJoueurSplit[0])
+        donneeJoueurSplit.pop(0)
+        reserve = re.findall("url",donneeJoueurSplit[0])
+        while(len(reserve)!=1):
+            donneeJoueurSplit.pop(0)
+            reserve = re.findall("url",donneeJoueurSplit[0])
+        extrairePlateau(donneeJoueurSplit)
+        ouvrier = extraireOuvrier(donneeJoueurSplit)
+        print ("Vous avez " + ouvrier + " ouvrier")
+        #print donneeJoueurSplit[0]
+        """for i in range (len(donneeJoueurSplit)-1,len(donneeJoueurSplit)):
+            print donneeJoueurSplit[i]"""
+
+def tout(payload):
+    donnee=lancerPartie(payload)
+    page=donnee.read().decode('utf-8')
+    listeJoueur(page)
+    extraireDonneeJoueur(page)
+    
+
+payload = {
+    'p': '',
+    'pAction': 'login',
+    'username': 'adebeddes',
+    'password': 'poussin36'
+}
+tout(payload)
