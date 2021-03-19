@@ -1,7 +1,15 @@
 from requests import session
 from urllib import request
+import numpy as np
 import re
 import sys
+
+"""
+findall= trouve toute occu d'un patern et les mets dans un tableau
+split= prend un string et le coupe en suivant une séparation précisé
+sub= retire les carac en parametre
+"""
+
 
 """payload = {
         'p': '',
@@ -142,12 +150,67 @@ def extraireTuile(donnee):
     valeurTemp = re.split(".png",tuile[2])
     couleur = couleurTemp[0]
     valeur = valeurTemp[0]
-    print("Case : "+case.get(couleur,"Case inconnue")+"\nValeur : "+typeTuile.get(valeur,"Tuile inconnue")+"\n========================================")
+    #print("Case : "+case.get(couleur,"Case inconnue")+"\nValeur : "+typeTuile.get(valeur,"Tuile inconnue")+"\n========================================")
     donnee.pop(0)
+    return (case.get(couleur,"Case inconnue"),typeTuile.get(valeur,"Tuile inconnue"))
 
 def extrairePlateau(donnee):
+    tableauPlateauJoueur=[]
+    for j in range(7):
+        tableauPlateauJoueur.append([['',''],['',''],['',''],['',''],['',''],['',''],['',''],['',''],['',''],['',''],['',''],['',''],['','']])
     for i in range(37):
-        extraireTuile(donnee)
+        couleur,valeur=extraireTuile(donnee)
+        coord=extraireCoordonnee(i)
+        tableauPlateauJoueur=remplissageTableau(tableauPlateauJoueur, coord, couleur, valeur)
+        print("Case : " + couleur +"\nValeur : " + valeur + "\nLigne :" + str(coord//13) + "\nColonne :" + str(coord%13) + "\n========================================")
+
+def remplissageTableau(tab, coordonnee, c, v):
+    tab[coordonnee//13][coordonnee%13]=[ c, v]
+    return(tab)
+
+def extraireCoordonnee(valeur):
+    selectionneur = {
+        0 : 39,
+        1 : 53,
+        2 : 67,
+        3 : 81,
+        4 : 27,
+        5 : 41,
+        6 : 55,
+        7 : 69,
+        8 : 83,
+        9 : 15,
+        10 : 29,
+        11 : 43,
+        12 : 57,
+        13 : 71,
+        14 : 85,
+        15 : 3,
+        16 : 17,
+        17 : 31,
+        18 : 45,
+        19 : 59,
+        20 : 73,
+        21 : 87,
+        22 : 5,
+        23 : 19,
+        24 : 33,
+        25 : 47,
+        26 : 61,
+        27 : 75,
+        28 : 7,
+        29 : 21,
+        30 : 35,
+        31 : 49,
+        32 : 63,
+        33 : 9,
+        34 : 23,
+        35 : 37,
+        36 : 51,
+    }
+    return selectionneur.get(valeur,"Coordonnée invalide")
+
+
 
 def extraireDonneeJoueur(page):
     joueurActif = re.findall("<li class="+".*?"+"</li>", page,re.DOTALL)
