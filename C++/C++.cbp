@@ -35,10 +35,14 @@
 		<Unit filename="AffichageTest.cpp" />
 		<Unit filename="Bateau.cpp" />
 		<Unit filename="Bateau.h" />
+		<Unit filename="Batiment.cpp" />
+		<Unit filename="Batiment.h" />
 		<Unit filename="Chateau.cpp" />
 		<Unit filename="Chateau.h" />
 		<Unit filename="De.cpp" />
 		<Unit filename="De.h" />
+		<Unit filename="Initialisation.cpp" />
+		<Unit filename="Initialisation.h" />
 		<Unit filename="Marchandise.cpp" />
 		<Unit filename="Marchandise.h" />
 		<Unit filename="Mine.cpp" />

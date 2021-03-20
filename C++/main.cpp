@@ -5,6 +5,7 @@
 #include "Chateau.h"
 #include "Bateau.h"
 #include "Mine.h"
+#include "Initialisation.h"
 
 #include <time.h>
 #include <stdlib.h>
@@ -15,23 +16,30 @@ int main()
 {
     srand(time(NULL));
 
-
-
-
-
 //----------------------------------------------------------------------------------------
     //section de test
     AffichageTest affichetest;
-
 
     //lancer de 10 dés pour voir si le random marche
     De tabDe[10];
     for(int i=0;i<10;i++){
         tabDe[i]=De();
         affichetest.AffichageDe(tabDe[i]);
+        cout<<endl;
     }
 
-    //creation de marchandises pour montrer les attributs
+    //Initialisation
+    Initialisation init;
+
+
+//----------------------------------------------------------------------------------------
+
+}
+
+
+
+//obsolète
+//creation de marchandises pour montrer les attributs
     /*
     Marchandise tabMarchandise[6];
     for(int i=0;i<6;i++){
@@ -49,7 +57,8 @@ int main()
     affichetest.AffichagePile(testStack);
     */
 
-    //tableau regroupant les 6 stacks de marchandises
+
+    /*
     stack <Marchandise> tabMarchandise[6];
     for(int i=0;i<6;i++){
         Marchandise Stack;
@@ -59,25 +68,4 @@ int main()
         affichetest.AffichagePileMarch(tabMarchandise[i]);
 
     }
-
-    //pile de chateau
-    Chateau StackChateau;
-    stack <Chateau> StackCastle = StackChateau.initStackChateau();
-    affichetest.AffichagePileChateau(StackCastle);
-
-    //pile de bateau
-    Bateau StackBateau;
-    stack <Bateau> StackBoat = StackBateau.initStackBateau();
-    affichetest.AffichagePileBateau(StackBoat);
-
-    //pile de mines
-    Mine StackMine;
-    stack <Mine> StackMines = StackMine.initStackMine();
-    affichetest.AffichagePileMine(StackMines);
-
-
-
-
-//----------------------------------------------------------------------------------------
-
-}
+    */

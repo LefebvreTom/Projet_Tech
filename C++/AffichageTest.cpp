@@ -26,6 +26,16 @@
         cout << "La pile contient " << Stack.size() << " marchandises de couleur : " << march.getCouleur()<<" et d'id :"<<march.getIdCouleur()<<endl;
     }
 
+
+    void AffichageTest::AffichagePileBatiment(stack<Batiment> Stack)
+    {
+
+        Batiment bat = Stack.top();
+        cout << "La pile contient " << Stack.size() << " Batiment de type : " << bat.getType()<<" et d'id :"<<bat.getIdType()<<endl;
+    }
+
+
+
     void AffichageTest::AffichagePileChateau(stack<Chateau> Stack)
     {
 
@@ -46,3 +56,10 @@
         Mine mine = Stack.top();
         cout << "La pile contient " << Stack.size() << " mines de couleur : " << mine.getCouleur()<<endl;
     }
+
+
+
+//-------------------------------------------------------------------------------------------------------------------------
+
+
+

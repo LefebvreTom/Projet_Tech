@@ -78,3 +78,86 @@
 1616083326 source:c:\users\user\desktop\projet tech\projet_tech\c++\mine.cpp
 	"Mine.h"
 
+1616082388 source:c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\bateau.cpp
+	"Bateau.h"
+
+1616082363 c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\bateau.h
+	<stdlib.h>
+	<string>
+	<stack>
+
+1616081492 source:c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\chateau.cpp
+	"Chateau.h"
+
+1616081521 c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\chateau.h
+	<stdlib.h>
+	<string>
+	<stack>
+
+1616079085 source:c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\de.cpp
+	"De.h"
+
+1616079087 c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\de.h
+	<stdlib.h>
+
+1616083326 source:c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\mine.cpp
+	"Mine.h"
+
+1616083326 c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\mine.h
+	<stdlib.h>
+	<string>
+	<stack>
+
+1616245839 source:c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\batiment.cpp
+	"Batiment.h"
+
+1616245838 c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\batiment.h
+	<string>
+	<stack>
+
+1616246783 source:c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\main.cpp
+	<iostream>
+	"De.h"
+	"Marchandise.h"
+	"affichageTest.h"
+	"Chateau.h"
+	"Bateau.h"
+	"Mine.h"
+	"Initialisation.h"
+	<time.h>
+	<stdlib.h>
+
+1616241551 c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\marchandise.h
+	<string>
+	<stack>
+
+1616246703 c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\affichagetest.h
+	<iostream>
+	<string>
+	<stack>
+	"Marchandise.h"
+	"Batiment.h"
+	"De.h"
+	"Chateau.h"
+	"Bateau.h"
+	"Mine.h"
+
+1616242720 source:c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\marchandise.cpp
+	"Marchandise.h"
+
+1616246685 source:c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\affichagetest.cpp
+	"AffichageTest.h"
+
+1616246685 c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\initialisation.h
+	"affichageTest.h"
+	"Marchandise.h"
+	"Chateau.h"
+	"Bateau.h"
+	"Mine.h"
+	"Batiment.h"
+	<string>
+	<stack>
+
+1616246783 source:c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\initialisation.cpp
+	"Initialisation.h"
+
