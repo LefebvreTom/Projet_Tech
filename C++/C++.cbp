@@ -33,6 +33,8 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="AffichageTest.cpp" />
+		<Unit filename="Animal.cpp" />
+		<Unit filename="Animal.h" />
 		<Unit filename="Bateau.cpp" />
 		<Unit filename="Bateau.h" />
 		<Unit filename="Batiment.cpp" />

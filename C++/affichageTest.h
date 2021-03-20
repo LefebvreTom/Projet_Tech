@@ -7,6 +7,7 @@
 
 #include "Marchandise.h"
 #include "Batiment.h"
+#include "Animal.h"
 #include "De.h"
 #include "Chateau.h"
 #include "Bateau.h"
@@ -24,6 +25,7 @@ class AffichageTest
     void AffichageDe(De de);
     void AffichagePileMarch(std::stack<Marchandise> Stack);
     void AffichagePileBatiment(std::stack<Batiment> Stack);
+    void AffichagePileAnimal(std::stack<Animal> Stack);
     void AffichagePileChateau(std::stack<Chateau> Stack);
     void AffichagePileBateau(std::stack<Bateau> Stack);
     void AffichagePileMine(std::stack<Mine> Stack);

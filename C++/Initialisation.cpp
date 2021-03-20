@@ -14,7 +14,13 @@
         InitPileBateau();
         cout<<endl;
         InitPileMines();
+        cout<<endl;
+        InitTabAnimal();
 
+        /*
+        Animal animaltest;
+        animaltest.initStackAnimal(1);
+        */
 
     }
 
@@ -51,6 +57,19 @@
 
     }
 
+    //init du tableau d'animaux
+    void Initialisation::InitTabAnimal(){
+
+        for(int i=0;i<4;i++){
+            Animal Stack;
+            stack <Animal> StackAnimal = Stack.initStackAnimal(i+1);
+            TabAnimal[i] = StackAnimal;
+            cout<<"tabAnimal ("<<i<<"):"<<endl;
+            affichetest.AffichagePileAnimal(TabAnimal[i]);
+
+        }
+
+    }
 
 
     //initialisation des piles

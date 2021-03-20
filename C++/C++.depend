@@ -131,12 +131,13 @@
 	<string>
 	<stack>
 
-1616246703 c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\affichagetest.h
+1616259493 c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\affichagetest.h
 	<iostream>
 	<string>
 	<stack>
 	"Marchandise.h"
 	"Batiment.h"
+	"Animal.h"
 	"De.h"
 	"Chateau.h"
 	"Bateau.h"
@@ -145,19 +146,29 @@
 1616242720 source:c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\marchandise.cpp
 	"Marchandise.h"
 
-1616246685 source:c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\affichagetest.cpp
+1616259584 source:c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\affichagetest.cpp
 	"AffichageTest.h"
 
-1616246685 c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\initialisation.h
+1616259467 c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\initialisation.h
 	"affichageTest.h"
 	"Marchandise.h"
 	"Chateau.h"
 	"Bateau.h"
 	"Mine.h"
 	"Batiment.h"
+	"Animal.h"
 	<string>
 	<stack>
 
-1616246783 source:c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\initialisation.cpp
+1616259467 source:c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\initialisation.cpp
 	"Initialisation.h"
+
+1616258873 c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\animal.h
+	<iostream>
+	<stdlib.h>
+	<string>
+	<stack>
+
+1616259467 source:c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\animal.cpp
+	"Animal.h"
 

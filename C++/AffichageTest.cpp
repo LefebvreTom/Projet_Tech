@@ -17,6 +17,7 @@
     {
         int resultatDe = de.getResultat();
         cout<<"resultat:"<<resultatDe<<endl;
+        cout<<endl;
     }
 
     void AffichageTest::AffichagePileMarch(stack<Marchandise> Stack)
@@ -24,6 +25,7 @@
 
         Marchandise march = Stack.top();
         cout << "La pile contient " << Stack.size() << " marchandises de couleur : " << march.getCouleur()<<" et d'id :"<<march.getIdCouleur()<<endl;
+        cout<<endl;
     }
 
 
@@ -32,8 +34,16 @@
 
         Batiment bat = Stack.top();
         cout << "La pile contient " << Stack.size() << " Batiment de type : " << bat.getType()<<" et d'id :"<<bat.getIdType()<<endl;
+        cout<<endl;
     }
 
+    void AffichageTest::AffichagePileAnimal(stack<Animal> Stack)
+    {
+
+        Animal animal = Stack.top();
+        cout << "La pile contient " << Stack.size() << " Animal de type : " << animal.getRace()<<" et d'id :"<<animal.getIdRace()<<endl;
+        cout<<endl;
+    }
 
 
     void AffichageTest::AffichagePileChateau(stack<Chateau> Stack)
@@ -41,6 +51,7 @@
 
         Chateau castle = Stack.top();
         cout << "La pile contient " << Stack.size() << " chateaux de couleur : " << castle.getCouleur()<<endl;
+        cout<<endl;
     }
 
     void AffichageTest::AffichagePileBateau(stack<Bateau> Stack)
@@ -48,6 +59,7 @@
 
         Bateau boat = Stack.top();
         cout << "La pile contient " << Stack.size() << " bateaux de couleur : " << boat.getCouleur()<<endl;
+        cout<<endl;
     }
 
     void AffichageTest::AffichagePileMine(stack<Mine> Stack)
@@ -55,6 +67,7 @@
 
         Mine mine = Stack.top();
         cout << "La pile contient " << Stack.size() << " mines de couleur : " << mine.getCouleur()<<endl;
+        cout<<endl;
     }
 
 

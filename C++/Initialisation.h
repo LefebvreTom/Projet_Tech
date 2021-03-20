@@ -8,6 +8,7 @@
 #include "Bateau.h"
 #include "Mine.h"
 #include "Batiment.h"
+#include "Animal.h"
 
 #include <string>
 #include <stack>
@@ -23,6 +24,7 @@ class Initialisation
     //Méthodes
         void InitTabMarchandise();
         void InitTabBatiment();
+        void InitTabAnimal();
         void InitPileChateau();
         void InitPileBateau();
         void InitPileMines();
@@ -30,6 +32,7 @@ class Initialisation
     protected :
         std::stack <Marchandise> TabMarchandise[6];
         std::stack <Batiment> TabBatiment[8];
+        std::stack <Animal> TabAnimal[4];
         Chateau StackChateau;
         Bateau StackBateau;
         Mine StackMine;
