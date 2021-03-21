@@ -149,7 +149,7 @@
 1616259584 source:c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\affichagetest.cpp
 	"AffichageTest.h"
 
-1616259467 c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\initialisation.h
+1616338126 c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\initialisation.h
 	"affichageTest.h"
 	"Marchandise.h"
 	"Chateau.h"
@@ -157,10 +157,11 @@
 	"Mine.h"
 	"Batiment.h"
 	"Animal.h"
+	"Connaissance.h"
 	<string>
 	<stack>
 
-1616259467 source:c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\initialisation.cpp
+1616338030 source:c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\initialisation.cpp
 	"Initialisation.h"
 
 1616258873 c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\animal.h
@@ -171,4 +172,13 @@
 
 1616259467 source:c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\animal.cpp
 	"Animal.h"
+
+1616338090 c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\connaissance.h
+	<iostream>
+	<stdlib.h>
+	<string>
+	<stack>
+
+1616339321 source:c:\users\user\desktop\projet tech\projet_tech - pour bosser\c++\connaissance.cpp
+	"Connaissance.h"
 

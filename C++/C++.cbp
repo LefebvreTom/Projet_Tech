@@ -41,6 +41,8 @@
 		<Unit filename="Batiment.h" />
 		<Unit filename="Chateau.cpp" />
 		<Unit filename="Chateau.h" />
+		<Unit filename="Connaissance.cpp" />
+		<Unit filename="Connaissance.h" />
 		<Unit filename="De.cpp" />
 		<Unit filename="De.h" />
 		<Unit filename="Initialisation.cpp" />

@@ -16,6 +16,8 @@
         InitPileMines();
         cout<<endl;
         InitTabAnimal();
+        cout<<endl;
+        InitPileConnaissance();
 
         /*
         Animal animaltest;
@@ -92,6 +94,13 @@
 
         stack <Mine> StackMines = StackMine.initStackMine();
         affichetest.AffichagePileMine(StackMines);
+    }
+
+    //pile de mines
+    void Initialisation::InitPileConnaissance(){
+
+        stack <Connaissance> StackConnaissances = StackConnaissance.initStackConnaissance();
+        //affichetest.AffichagePileMine(StackMines);
     }
 
 
