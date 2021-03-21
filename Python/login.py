@@ -23,12 +23,16 @@ sub= retire les carac en parametre
         'username': 'Pepita_eilco',
         'password': 'pepita62'
 }"""
+
+
 def connexion(payload):
 
 
     with session() as c:
         response = c.post('http://www.boiteajeux.net/gestion.php',data=payload)
         return response.content
+
+
 
 def lancerPartie(payload):
 
@@ -39,12 +43,16 @@ def lancerPartie(payload):
     url = request.urlopen(partie + idpartie)
     return url
 
+
+
 def listeJoueur(page):    
     joueurActif = re.findall("<li"+".*?"+"</li>", page)
     for i in range (0,len(joueurActif)):
         idJoueur = re.findall("mini[0-3]",joueurActif[i])
         nomJoueur = re.sub("<.*?>","",joueurActif[i])
         print ("id: " + idJoueur[0] + " nom : " + nomJoueur) 
+
+
 
 def extraireDe(donnee):
     if(len(re.findall("img/de.png", donnee[0])) == 1):
@@ -58,6 +66,8 @@ def extraireDe(donnee):
     print ("Vous avez un de de couleur " + couleur + " et de valeur " + valeur[0])
     donnee.pop(0)
 
+
+
 def extrairePepite(donnee):
     isPepite = re.findall("pepite", donnee[0])
     pepite= "0"
@@ -66,6 +76,8 @@ def extrairePepite(donnee):
         donnee.pop(0)
     print ("Vous avez " + pepite + " pepite")
     #return pepite
+
+
 
 def extraireMarchandise(donnee):
     marchandise = re.findall("m[1-6]", donnee[0])
@@ -77,6 +89,8 @@ def extraireMarchandise(donnee):
         return marchandise
     else:
         return None
+
+
 
 #Va devenir obselète
 def extraireMarchandiseVendue(donnee):
@@ -90,12 +104,23 @@ def extraireMarchandiseVendue(donnee):
     else:
         return None
 
+
+
 def extraireOuvrier(donnee):
+    """
+        On retourne la valeur des ouvriers du joueur
+    """
     ouvrier = re.sub("<.*?>","",donnee[len(donnee)-1])
     #donnee.pop(0)
     return ouvrier
 
+
+
 def extraireTuile(donnee):
+    """
+        on extrait les balises du code html pour déterminer les types de chaque case
+        pour par la suite les rentrer dans un tableau et les envoyer à l'ia
+    """
     case = {
         'cs' : 'Navires',
         'cb' : 'Batiments',
@@ -154,21 +179,39 @@ def extraireTuile(donnee):
     donnee.pop(0)
     return (case.get(couleur,"Case inconnue"),typeTuile.get(valeur,"Tuile inconnue"))
 
+
+
 def extrairePlateau(donnee):
+    """
+        On retourne la tableau  des tuiles du domaine en remplissant de façon à correspondre la valeur et la couleur 
+        et en le faisant en sorte d'avoir une forme héxagonal pour garder la logique de 6 voisins
+    """
     tableauPlateauJoueur=[]
     for j in range(7):
         tableauPlateauJoueur.append([['',''],['',''],['',''],['',''],['',''],['',''],['',''],['',''],['',''],['',''],['',''],['',''],['','']])
-    for i in range(37):
+    for i in range(37):-
         couleur,valeur=extraireTuile(donnee)
         coord=extraireCoordonnee(i)
         tableauPlateauJoueur=remplissageTableau(tableauPlateauJoueur, coord, couleur, valeur)
         print("Case : " + couleur +"\nValeur : " + valeur + "\nLigne :" + str(coord//13) + "\nColonne :" + str(coord%13) + "\n========================================")
+    return (tableauPlateauJoueur)
+
+
 
 def remplissageTableau(tab, coordonnee, c, v):
+    """
+        On retourne la tableau rempli avec le contenue de chaque case rentré aux bonnes coordonnées
+    """
     tab[coordonnee//13][coordonnee%13]=[ c, v]
     return(tab)
 
+
+
 def extraireCoordonnee(valeur):
+    """
+        On retourne la valeur de la case correspondant à l'ordre des cases dans le jeu
+        afin d'avoir ses coordonnées dans le tableau que l'on va créer puis retourner
+    """
     selectionneur = {
         0 : 39,
         1 : 53,
@@ -210,6 +253,14 @@ def extraireCoordonnee(valeur):
     }
     return selectionneur.get(valeur,"Coordonnée invalide")
 
+def extrairePlateauCentrale(index,tableau):
+    tableau[index]=[,,,,,,,,,]
+    #on regarde le nombre de joueur pour 0 et 3
+    #on teste si il y a des marchandises pour remplir 4 à 9
+    """
+        on doit aussi voir les les bonus et piles de marchandises non utilisé encore
+    """
+    return (tableau)
 
 
 def extraireDonneeJoueur(page):
@@ -219,9 +270,13 @@ def extraireDonneeJoueur(page):
         donneeJoueur = re.findall("<div class=\"tab-pane active\""+".*?"+"<div class=\"tab-pane \"", page)
         donneeJoueurSplit = re.findall("<div " + ".*?" + "/div>", donneeJoueur[0])
         donneeJoueurSplit.pop(0)
+
+        extraireDe(donneeJoueurSplit) #On recupère les dés
         extraireDe(donneeJoueurSplit)
-        extraireDe(donneeJoueurSplit)
-        extrairePepite(donneeJoueurSplit)
+
+        extrairePepite(donneeJoueurSplit) #On recupère les pépites
+
+         #On recupère les marchandises
         listeMarchandise = re.findall("dvGoods",donneeJoueurSplit[0])
         while(len(listeMarchandise)!=1):
             extraireMarchandise(donneeJoueurSplit)
@@ -235,8 +290,11 @@ def extraireDonneeJoueur(page):
         while(len(reserve)!=1):
             donneeJoueurSplit.pop(0)
             reserve = re.findall("url",donneeJoueurSplit[0])
-        extrairePlateau(donneeJoueurSplit)
-        ouvrier = extraireOuvrier(donneeJoueurSplit)
+
+        tableauPlateauJoueur=[]
+        tableauPlateauJoueur=extrairePlateau(donneeJoueurSplit)  #On recupere le tableau des tuiles du domaine
+
+        ouvrier = extraireOuvrier(donneeJoueurSplit) #On recupère les ouvriers
         print ("Vous avez " + ouvrier + " ouvrier")
         """for i in range (0,len(donneeJoueurSplit)):
             print donneeJoueurSplit[i]"""
@@ -244,9 +302,13 @@ def extraireDonneeJoueur(page):
         donneeJoueur = re.findall("<div class=\"tab-pane \""+".*?"+"</td>", page)
         donneeJoueurSplit = re.findall("<div " + ".*?" + "/div>", donneeJoueur[0])
         donneeJoueurSplit.pop(0)
+
         extraireDe(donneeJoueurSplit)
-        extraireDe(donneeJoueurSplit)
-        extrairePepite(donneeJoueurSplit)
+        extraireDe(donneeJoueurSplit) #On recupère les dés
+
+        extrairePepite(donneeJoueurSplit) #On recupère les pépites
+
+        #On recupère les marchandises
         listeMarchandise = re.findall("dvGoods",donneeJoueurSplit[0])
         while(len(listeMarchandise)!=1):
             extraireMarchandise(donneeJoueurSplit)
@@ -260,12 +322,23 @@ def extraireDonneeJoueur(page):
         while(len(reserve)!=1):
             donneeJoueurSplit.pop(0)
             reserve = re.findall("url",donneeJoueurSplit[0])
-        extrairePlateau(donneeJoueurSplit)
-        ouvrier = extraireOuvrier(donneeJoueurSplit)
+        
+        tableauPlateauJoueur=[]
+        tableauPlateauJoueur=extrairePlateau(donneeJoueurSplit) #On recupere le tableau des tuiles du domaine
+        
+        ouvrier = extraireOuvrier(donneeJoueurSplit) #On recupère les ouvriers
         print ("Vous avez " + ouvrier + " ouvrier")
         #print donneeJoueurSplit[0]
         """for i in range (len(donneeJoueurSplit)-1,len(donneeJoueurSplit)):
             print donneeJoueurSplit[i]"""
+
+        #On extrait les tuiles et informations du plateau centrale
+        listeTuiteCentrale=[[],[],[],[],[],[],[]] #liste contenant les tuiles des dés et la boutique du centre
+        for j in range(6) #tuile et marchandise associé au dés 1 à 6
+            listeTuiteCentrale=extrairePlateauCentrale(j,listeTuiteCentrale)
+        listeTuiteCentrale[6]=[,,,,,,] #boutique centrale
+
+
 
 def tout(payload):
     donnee=lancerPartie(payload)
