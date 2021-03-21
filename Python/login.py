@@ -23,6 +23,69 @@ sub= retire les carac en parametre
         'username': 'Pepita_eilco',
         'password': 'pepita62'
 }"""
+payload = {
+    'p': '',
+    'pAction': 'login',
+    'username': 'adebeddes',
+    'password': 'poussin36'
+}
+
+
+case = {
+    'cs' : 'Navires',
+    'cb' : 'Batiments',
+    'cm' : 'Mines',
+    'ca' : 'Animaux',
+    'ck' : 'Connaissance',
+    'cc' : 'Chateaux'
+}
+
+
+
+typeTuile = {
+    'ts' : 'Navire Normale',
+    'tsb' : 'Navire Noire',
+    'tb1' : 'Entrepot',
+    'tb1b' : 'Entrepot(Noire)',
+    'tb2' : 'Atelier de menuiserie',
+    'tb2b' : 'Atelier de menuiserie(Noire)',
+    'tb3' : 'Eglise',
+    'tb4' : 'Marche',
+    'tb5' : 'Pension',
+    'tb5b' : 'Pension (Noire)',
+    'tb7' : 'Hotel de ville',
+    'tb7b' : 'Hotel de ville(Noire)',
+    'tb8' : 'Tour de guet',
+    'tb8b' : 'Tour de guet(Noire)',
+    'tm' : 'Mine normale',
+    'tac4' : '4 cochon',
+    'tam2' : '2 mouton',
+    'tam3' : '3 mouton',
+    'tap3b' : '3 poule(Noire)',
+    'tav3' : '3 vache',
+    'tav4' : '4 vache',
+    'tk5' : 'Boost navires',
+    'tk8' : 'Boost ouvrier',
+    'tk9' : 'Boost ajustement batiments',
+    'tk10' : 'Boost ajustement navires/animaux',
+    'tk14b' : 'Boost vente des De (Noire)',
+    'tk19' : 'Boost point victoire eglise',
+    'tk20' : 'Boost point victoire banque',
+    'tk22' : 'Boost point victoire marche',
+    'tk23' : 'Boost point victoire hotel de ville',
+    'tk25' : 'Boost point victoire marchandise vendu',
+    'tk25b' : 'Boost point victoire marchandise vendu(Noire)',
+    'tk26' : 'Boost point victoire tuile bonus',
+    'tc' : 'Chateau normale',
+    'tcb' : 'Chateau noire',
+    'd1' : 'Vide (1)',
+    'd2' : 'Vide (2)',
+    'd3' : 'Vide (3)',
+    'd4' : 'Vide (4)',
+    'd5' : 'Vide (5)',
+    'd6' : 'Vide (6)'
+}
+
 
 
 def connexion(payload):
@@ -39,18 +102,21 @@ def lancerPartie(payload):
     connexion(payload)
     partie = "http://www.boiteajeux.net/jeux/cdb/partie.php?id="
     #idpartie = input("Entrez un id de partie : ")
-    idpartie = "530217"
+    #idpartie = "530217"
+    idpartie = "530531"
     url = request.urlopen(partie + idpartie)
     return url
 
 
 
 def listeJoueur(page):    
+    joueurs = {}
     joueurActif = re.findall("<li"+".*?"+"</li>", page)
     for i in range (0,len(joueurActif)):
         idJoueur = re.findall("mini[0-3]",joueurActif[i])
         nomJoueur = re.sub("<.*?>","",joueurActif[i])
-        print ("id: " + idJoueur[0] + " nom : " + nomJoueur) 
+        joueurs[nomJoueur] = idJoueur[0]
+    return joueurs 
 
 
 
@@ -110,8 +176,8 @@ def extraireOuvrier(donnee):
     """
         On retourne la valeur des ouvriers du joueur
     """
-    ouvrier = re.sub("<.*?>","",donnee[len(donnee)-1])
-    #donnee.pop(0)
+    ouvrier = re.sub("<.*?>","",donnee[0])
+    donnee.pop(0)
     return ouvrier
 
 
@@ -121,55 +187,6 @@ def extraireTuile(donnee):
         on extrait les balises du code html pour déterminer les types de chaque case
         pour par la suite les rentrer dans un tableau et les envoyer à l'ia
     """
-    case = {
-        'cs' : 'Navires',
-        'cb' : 'Batiments',
-        'cm' : 'Mines',
-        'ca' : 'Animaux',
-        'ck' : 'Connaissance',
-        'cc' : 'Chateaux'
-    }
-    typeTuile = {
-        'ts' : 'Navire Normale',
-        'tsb' : 'Navire Noire',
-        'tb1' : 'Entrepot',
-        'tb1b' : 'Entrepot(Noire)',
-        'tb2' : 'Atelier de menuiserie',
-        'tb2b' : 'Atelier de menuiserie(Noire)',
-        'tb3' : 'Eglise',
-        'tb4' : 'Marche',
-        'tb5' : 'Pension',
-        'tb5b' : 'Pension (Noire)',
-        'tb7' : 'Hotel de ville',
-        'tb7b' : 'Hotel de ville(Noire)',
-        'tb8' : 'Tour de guet',
-        'tb8b' : 'Tour de guet(Noire)',
-        'tm' : 'Mine normale',
-        'tac4' : '4 cochon',
-        'tam3' : '3 mouton',
-        'tap3b' : '3 poule(Noire)',
-        'tav3' : '3 vache',
-        'tav4' : '4 vache',
-        'tk5' : 'Boost navires',
-        'tk8' : 'Boost ouvrier',
-        'tk9' : 'Boost ajustement batiments',
-        'tk10' : 'Boost ajustement navires/animaux',
-        'tk14b' : 'Boost vente des De (Noire)',
-        'tk19' : 'Boost point victoire eglise',
-        'tk20' : 'Boost point victoire banque',
-        'tk22' : 'Boost point victoire marche',
-        'tk23' : 'Boost point victoire hotel de ville',
-        'tk25' : 'Boost point victoire marchandise vendu',
-        'tk26' : 'Boost point victoire tuile bonus',
-        'tc' : 'Chateau normale',
-        'tcb' : 'Chateau noire',
-        'd1' : 'Vide (1)',
-        'd2' : 'Vide (2)',
-        'd3' : 'Vide (3)',
-        'd4' : 'Vide (4)',
-        'd5' : 'Vide (5)',
-        'd6' : 'Vide (6)'
-    }
     tuile = re.split("img/",donnee[0])
     couleurTemp = re.split(".png",tuile[1])
     valeurTemp = re.split(".png",tuile[2])
@@ -181,6 +198,15 @@ def extraireTuile(donnee):
 
 
 
+def extraireReserve(donnee):
+    donnee.pop(0)
+    tuile = re.split("img/",donnee[0])
+    valeur = re.split(".png",tuile[1])
+    print(typeTuile.get(valeur[0],"Tuile inconnue"))
+    donnee.pop(0)
+
+
+
 def extrairePlateau(donnee):
     """
         On retourne la tableau  des tuiles du domaine en remplissant de façon à correspondre la valeur et la couleur 
@@ -189,11 +215,11 @@ def extrairePlateau(donnee):
     tableauPlateauJoueur=[]
     for j in range(7):
         tableauPlateauJoueur.append([['',''],['',''],['',''],['',''],['',''],['',''],['',''],['',''],['',''],['',''],['',''],['',''],['','']])
-    for i in range(37):-
+    for i in range(37):
         couleur,valeur=extraireTuile(donnee)
         coord=extraireCoordonnee(i)
         tableauPlateauJoueur=remplissageTableau(tableauPlateauJoueur, coord, couleur, valeur)
-        print("Case : " + couleur +"\nValeur : " + valeur + "\nLigne :" + str(coord//13) + "\nColonne :" + str(coord%13) + "\n========================================")
+        #print("Case : " + couleur +"\nValeur : " + valeur + "\nLigne :" + str(coord//13) + "\nColonne :" + str(coord%13) + "\n========================================")
     return (tableauPlateauJoueur)
 
 
@@ -253,8 +279,10 @@ def extraireCoordonnee(valeur):
     }
     return selectionneur.get(valeur,"Coordonnée invalide")
 
+
+
 def extrairePlateauCentrale(index,tableau):
-    tableau[index]=[,,,,,,,,,]
+    #tableau[index]=[,,,,,,,,,]
     #on regarde le nombre de joueur pour 0 et 3
     #on teste si il y a des marchandises pour remplir 4 à 9
     """
@@ -263,94 +291,123 @@ def extrairePlateauCentrale(index,tableau):
     return (tableau)
 
 
-def extraireDonneeJoueur(page):
-    joueurActif = re.findall("<li class="+".*?"+"</li>", page,re.DOTALL)
-    #print (joueurActif[0])
-    if(re.search("adebeddes",joueurActif[0])!=None):
-        donneeJoueur = re.findall("<div class=\"tab-pane active\""+".*?"+"<div class=\"tab-pane \"", page)
-        donneeJoueurSplit = re.findall("<div " + ".*?" + "/div>", donneeJoueur[0])
-        donneeJoueurSplit.pop(0)
 
-        extraireDe(donneeJoueurSplit) #On recupère les dés
-        extraireDe(donneeJoueurSplit)
+def extraireDonneeJoueur(listeJoueurs,joueur,page):
+    donneeJoueur = re.findall(listeJoueurs[joueur]+"\">"+ ".*?" + "<div class=\"tab-pane",page)
+    if(len(donneeJoueur)==0):
+        donneeJoueur = re.findall(listeJoueurs[joueur]+"\">"+ ".*?" + "</td>",page)
+    donneeJoueurSplit = re.findall("<div " + ".*?" + "/div>", donneeJoueur[0])
+    donneeJoueurSplit.pop(0)
 
-        extrairePepite(donneeJoueurSplit) #On recupère les pépites
+    extraireDe(donneeJoueurSplit) #On recupère les dés
+    extraireDe(donneeJoueurSplit)
 
-         #On recupère les marchandises
+    extrairePepite(donneeJoueurSplit) #On recupère les pépites
+    
+    #On recupère les marchandises
+    listeMarchandise = re.findall("dvGoods",donneeJoueurSplit[0])
+    while(len(listeMarchandise)!=1):
+        extraireMarchandise(donneeJoueurSplit)
         listeMarchandise = re.findall("dvGoods",donneeJoueurSplit[0])
-        while(len(listeMarchandise)!=1):
-            extraireMarchandise(donneeJoueurSplit)
-            listeMarchandise = re.findall("dvGoods",donneeJoueurSplit[0])
-        listeMarchandise = re.findall("clmar",donneeJoueurSplit[0])
-        while(len(listeMarchandise)!=1):
-            extraireMarchandiseVendue(donneeJoueurSplit)
-            listeMarchandise = re.findall("clMar",donneeJoueurSplit[0])
-        donneeJoueurSplit.pop(0)
+    listeMarchandise = re.findall("clmar",donneeJoueurSplit[0])
+    while(len(listeMarchandise)!=1):
+        extraireMarchandiseVendue(donneeJoueurSplit)
+        listeMarchandise = re.findall("clMar",donneeJoueurSplit[0])
+    donneeJoueurSplit.pop(0)
+    reserve = re.findall("url",donneeJoueurSplit[0])
+    print("Votre reserve:")
+    while(len(reserve)!=1):
+        extraireReserve(donneeJoueurSplit)
         reserve = re.findall("url",donneeJoueurSplit[0])
-        while(len(reserve)!=1):
-            donneeJoueurSplit.pop(0)
-            reserve = re.findall("url",donneeJoueurSplit[0])
 
-        tableauPlateauJoueur=[]
-        tableauPlateauJoueur=extrairePlateau(donneeJoueurSplit)  #On recupere le tableau des tuiles du domaine
+    tableauPlateauJoueur=[]
+    tableauPlateauJoueur=extrairePlateau(donneeJoueurSplit) #On recupere le tableau des tuiles du domaine
 
-        ouvrier = extraireOuvrier(donneeJoueurSplit) #On recupère les ouvriers
-        print ("Vous avez " + ouvrier + " ouvrier")
-        """for i in range (0,len(donneeJoueurSplit)):
-            print donneeJoueurSplit[i]"""
-    else:
-        donneeJoueur = re.findall("<div class=\"tab-pane \""+".*?"+"</td>", page)
-        donneeJoueurSplit = re.findall("<div " + ".*?" + "/div>", donneeJoueur[0])
+    ouvrier = extraireOuvrier(donneeJoueurSplit) #On recupère les ouvriers
+    print ("Vous avez " + ouvrier + " ouvrier")
+
+
+
+def extraireMarche(page,joueurs):
+    #On extrait les tuiles et informations du plateau centrale
+    donneeJoueur = re.split("<td style=\"vertical-align:top;padding-left:8px\">",page)
+    donneeJoueurSplit = re.findall("<div " + ".*?" + "/div>", donneeJoueur[1])
+    donneeJoueurSplit.pop(len(donneeJoueurSplit)-1)
+    donneeJoueurSplit[0] = re.sub("<div style=\"position:relative;width:580px;height:650px;background-image:url\(img/plateau.jpg\);\">","",donneeJoueurSplit[0])
+    print("Tuile Noire:")
+    for i in range (0,len(joueurs)*2):
+        #print(donneeJoueurSplit[i])
+        tuile = re.split("img/",donneeJoueurSplit[0])
+        couleurTemp = re.split(".png",tuile[1])
         donneeJoueurSplit.pop(0)
-
-        extraireDe(donneeJoueurSplit)
-        extraireDe(donneeJoueurSplit) #On recupère les dés
-
-        extrairePepite(donneeJoueurSplit) #On recupère les pépites
-
-        #On recupère les marchandises
-        listeMarchandise = re.findall("dvGoods",donneeJoueurSplit[0])
-        while(len(listeMarchandise)!=1):
-            extraireMarchandise(donneeJoueurSplit)
-            listeMarchandise = re.findall("dvGoods",donneeJoueurSplit[0])
-        listeMarchandise = re.findall("clmar",donneeJoueurSplit[0])
-        while(len(listeMarchandise)!=1):
-            extraireMarchandiseVendue(donneeJoueurSplit)
-            listeMarchandise = re.findall("clMar",donneeJoueurSplit[0])
+        print(typeTuile.get(couleurTemp[0],"Case inconnue"))
+    print("========================================")
+    print("Tuile De 1:")
+    for i in range (0,len(joueurs)):
+        #print(donneeJoueurSplit[0])
+        tuile = re.split("img/",donneeJoueurSplit[0])
+        couleurTemp = re.split(".png",tuile[1])
         donneeJoueurSplit.pop(0)
-        reserve = re.findall("url",donneeJoueurSplit[0])
-        while(len(reserve)!=1):
-            donneeJoueurSplit.pop(0)
-            reserve = re.findall("url",donneeJoueurSplit[0])
-        
-        tableauPlateauJoueur=[]
-        tableauPlateauJoueur=extrairePlateau(donneeJoueurSplit) #On recupere le tableau des tuiles du domaine
-        
-        ouvrier = extraireOuvrier(donneeJoueurSplit) #On recupère les ouvriers
-        print ("Vous avez " + ouvrier + " ouvrier")
-        #print donneeJoueurSplit[0]
-        """for i in range (len(donneeJoueurSplit)-1,len(donneeJoueurSplit)):
-            print donneeJoueurSplit[i]"""
-
-        #On extrait les tuiles et informations du plateau centrale
-        listeTuiteCentrale=[[],[],[],[],[],[],[]] #liste contenant les tuiles des dés et la boutique du centre
-        for j in range(6) #tuile et marchandise associé au dés 1 à 6
-            listeTuiteCentrale=extrairePlateauCentrale(j,listeTuiteCentrale)
-        listeTuiteCentrale[6]=[,,,,,,] #boutique centrale
+        print(typeTuile.get(couleurTemp[0],"Case inconnue"))
+    print("========================================")
+    print("Tuile De 2:")
+    for i in range (0,len(joueurs)):
+        #print(donneeJoueurSplit[0])
+        tuile = re.split("img/",donneeJoueurSplit[0])
+        couleurTemp = re.split(".png",tuile[1])
+        donneeJoueurSplit.pop(0)
+        print(typeTuile.get(couleurTemp[0],"Case inconnue"))
+    print("========================================")
+    print("Tuile De 3:")
+    for i in range (0,len(joueurs)):
+        #print(donneeJoueurSplit[0])
+        tuile = re.split("img/",donneeJoueurSplit[0])
+        couleurTemp = re.split(".png",tuile[1])
+        donneeJoueurSplit.pop(0)
+        print(typeTuile.get(couleurTemp[0],"Case inconnue"))
+    print("========================================")
+    print("Tuile De 4:")
+    for i in range (0,len(joueurs)):
+        #print(donneeJoueurSplit[0])
+        tuile = re.split("img/",donneeJoueurSplit[0])
+        couleurTemp = re.split(".png",tuile[1])
+        donneeJoueurSplit.pop(0)
+        print(typeTuile.get(couleurTemp[0],"Case inconnue"))
+    print("========================================")
+    print("Tuile De 5:")
+    for i in range (0,len(joueurs)):
+        #print(donneeJoueurSplit[0])
+        tuile = re.split("img/",donneeJoueurSplit[0])
+        couleurTemp = re.split(".png",tuile[1])
+        donneeJoueurSplit.pop(0)
+        print(typeTuile.get(couleurTemp[0],"Case inconnue"))
+    print("========================================")
+    print("Tuile De 6:")
+    for i in range (0,len(joueurs)):
+        #print(donneeJoueurSplit[0])
+        tuile = re.split("img/",donneeJoueurSplit[0])
+        couleurTemp = re.split(".png",tuile[1])
+        donneeJoueurSplit.pop(0)
+        print(typeTuile.get(couleurTemp[0],"Case inconnue"))
+    """for i in range (0,len(donneeJoueurSplit)):
+        print(donneeJoueurSplit[i])"""
+    listeTuiteCentrale=[[],[],[],[],[],[],[]] #liste contenant les tuiles des dés et la boutique du centre
+    for j in range(6): #tuile et marchandise associé au dés 1 à 6
+        listeTuiteCentrale=extrairePlateauCentrale(j,listeTuiteCentrale)
+    #listeTuiteCentrale[6]=[,,,,,,] #boutique centrale
 
 
 
 def tout(payload):
     donnee=lancerPartie(payload)
     page=donnee.read().decode('utf-8')
-    listeJoueur(page)
-    extraireDonneeJoueur(page)
+    joueurs = listeJoueur(page)
+    """for joueur in joueurs.keys():
+        print("Plateau : "+joueur)
+        extraireDonneeJoueur(joueurs,joueur,page)"""
+    #print(page)
+    extraireMarche(page,joueurs)
     
 
-payload = {
-    'p': '',
-    'pAction': 'login',
-    'username': 'adebeddes',
-    'password': 'poussin36'
-}
+
 tout(payload)
