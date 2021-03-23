@@ -31,6 +31,7 @@ payload = {
 }
 
 
+
 case = {
     'cs' : 'Navires',
     'cb' : 'Batiments',
@@ -102,8 +103,8 @@ def lancerPartie(payload):
     connexion(payload)
     partie = "http://www.boiteajeux.net/jeux/cdb/partie.php?id="
     #idpartie = input("Entrez un id de partie : ")
-    #idpartie = "530217"
-    idpartie = "530531"
+    idpartie = "530217"
+    #idpartie = "530531"
     url = request.urlopen(partie + idpartie)
     return url
 
@@ -328,69 +329,96 @@ def extraireDonneeJoueur(listeJoueurs,joueur,page):
 
 
 
+def topLeft(donneeJoueurSplit):
+    coordonee = re.split(";",donneeJoueurSplit[0])  
+    top = re.sub("rel=.*? style","",coordonee[0])
+    top = re.findall(r"\d+",top)
+    top = int(top[0])
+    left = re.sub("rel=.*? style","",coordonee[1])
+    left = re.findall(r"\d+",left)
+    left = int(left[0])
+    return (top,left)
+
 def extraireMarche(page,joueurs):
     #On extrait les tuiles et informations du plateau centrale
+    tuile1=[]
+    tuile2=[]
+    tuile3=[]
+    tuile4=[]
+    tuile5=[]
+    tuile6=[]
+    tuileNoire=[]
+    marchandise1=[]
+    marchandise2=[]
+    marchandise3=[]
+    marchandise4=[]
+    marchandise5=[]
+    marchandise6=[]
     donneeJoueur = re.split("<td style=\"vertical-align:top;padding-left:8px\">",page)
-    donneeJoueurSplit = re.findall("<div " + ".*?" + "/div>", donneeJoueur[1])
+    donneeJoueurSplit = re.findall("<div " + ".*?" + "/div>", donneeJoueur[1],re.DOTALL)
     donneeJoueurSplit.pop(len(donneeJoueurSplit)-1)
     donneeJoueurSplit[0] = re.sub("<div style=\"position:relative;width:580px;height:650px;background-image:url\(img/plateau.jpg\);\">","",donneeJoueurSplit[0])
-    print("Tuile Noire:")
-    for i in range (0,len(joueurs)*2):
-        #print(donneeJoueurSplit[i])
+    tuile = re.split("img/",donneeJoueurSplit[0])
+    couleurTemp = re.split(".png",tuile[1])
+    while re.search("t",couleurTemp[0])!=None:
+        coordoneeTuile = topLeft(donneeJoueurSplit)
+        if(coordoneeTuile[1]<150):
+            if(coordoneeTuile[0]<300):
+                tuile6.append(couleurTemp[0])
+            elif(coordoneeTuile[0]>300):
+                tuile5.append(couleurTemp[0])
+            else:
+                print("Inconnue")
+        elif(coordoneeTuile[1]>350):
+            if(coordoneeTuile[0]<300):
+                tuile2.append(couleurTemp[0])
+            elif(coordoneeTuile[0]>300):
+                tuile3.append(couleurTemp[0])
+            else:
+                print("Inconnue")
+        elif(coordoneeTuile[1]>150 and coordoneeTuile[1]<350):
+            if(coordoneeTuile[0]<250):
+                tuile1.append(couleurTemp[0])
+            elif(coordoneeTuile[0]>350):
+                tuile4.append(couleurTemp[0])
+            elif(coordoneeTuile[0]<350 and coordoneeTuile[0]>250):
+                tuileNoire.append(couleurTemp[0])
+            else:
+                print("Inconnue")
+        else:
+            print("Inconnue")
+        donneeJoueurSplit.pop(0)
         tuile = re.split("img/",donneeJoueurSplit[0])
         couleurTemp = re.split(".png",tuile[1])
+    coordoneeMarchandise = topLeft(donneeJoueurSplit)
+    while coordoneeMarchandise[0]!=22:
+        marchandise = re.split("img/",donneeJoueurSplit[0])
+        couleurTemp = re.split(".png",marchandise[1])
+        if(coordoneeMarchandise[1]<150):
+            if(coordoneeMarchandise[0]<300):
+                marchandise6.append(couleurTemp[0])
+            elif(coordoneeMarchandise[0]>300):
+                marchandise5.append(couleurTemp[0])
+            else:
+                print("Inconnue")
+        elif(coordoneeMarchandise[1]>350):
+            if(coordoneeMarchandise[0]<300):
+                marchandise2.append(couleurTemp[0])
+            elif(coordoneeMarchandise[0]>300):
+                marchandise3.append(couleurTemp[0])
+            else:
+                print("Inconnue")
+        elif(coordoneeMarchandise[1]>150 and coordoneeMarchandise[1]<350):
+            if(coordoneeMarchandise[0]<250):
+                marchandise1.append(couleurTemp[0])
+            elif(coordoneeMarchandise[0]>350):
+                marchandise4.append(couleurTemp[0])
+            else:
+                print("Inconnue")
+        else:
+            print("Inconnue")
         donneeJoueurSplit.pop(0)
-        print(typeTuile.get(couleurTemp[0],"Case inconnue"))
-    print("========================================")
-    print("Tuile De 1:")
-    for i in range (0,len(joueurs)):
-        #print(donneeJoueurSplit[0])
-        tuile = re.split("img/",donneeJoueurSplit[0])
-        couleurTemp = re.split(".png",tuile[1])
-        donneeJoueurSplit.pop(0)
-        print(typeTuile.get(couleurTemp[0],"Case inconnue"))
-    print("========================================")
-    print("Tuile De 2:")
-    for i in range (0,len(joueurs)):
-        #print(donneeJoueurSplit[0])
-        tuile = re.split("img/",donneeJoueurSplit[0])
-        couleurTemp = re.split(".png",tuile[1])
-        donneeJoueurSplit.pop(0)
-        print(typeTuile.get(couleurTemp[0],"Case inconnue"))
-    print("========================================")
-    print("Tuile De 3:")
-    for i in range (0,len(joueurs)):
-        #print(donneeJoueurSplit[0])
-        tuile = re.split("img/",donneeJoueurSplit[0])
-        couleurTemp = re.split(".png",tuile[1])
-        donneeJoueurSplit.pop(0)
-        print(typeTuile.get(couleurTemp[0],"Case inconnue"))
-    print("========================================")
-    print("Tuile De 4:")
-    for i in range (0,len(joueurs)):
-        #print(donneeJoueurSplit[0])
-        tuile = re.split("img/",donneeJoueurSplit[0])
-        couleurTemp = re.split(".png",tuile[1])
-        donneeJoueurSplit.pop(0)
-        print(typeTuile.get(couleurTemp[0],"Case inconnue"))
-    print("========================================")
-    print("Tuile De 5:")
-    for i in range (0,len(joueurs)):
-        #print(donneeJoueurSplit[0])
-        tuile = re.split("img/",donneeJoueurSplit[0])
-        couleurTemp = re.split(".png",tuile[1])
-        donneeJoueurSplit.pop(0)
-        print(typeTuile.get(couleurTemp[0],"Case inconnue"))
-    print("========================================")
-    print("Tuile De 6:")
-    for i in range (0,len(joueurs)):
-        #print(donneeJoueurSplit[0])
-        tuile = re.split("img/",donneeJoueurSplit[0])
-        couleurTemp = re.split(".png",tuile[1])
-        donneeJoueurSplit.pop(0)
-        print(typeTuile.get(couleurTemp[0],"Case inconnue"))
-    """for i in range (0,len(donneeJoueurSplit)):
-        print(donneeJoueurSplit[i])"""
+        coordoneeMarchandise = topLeft(donneeJoueurSplit)
     listeTuiteCentrale=[[],[],[],[],[],[],[]] #liste contenant les tuiles des dés et la boutique du centre
     for j in range(6): #tuile et marchandise associé au dés 1 à 6
         listeTuiteCentrale=extrairePlateauCentrale(j,listeTuiteCentrale)
