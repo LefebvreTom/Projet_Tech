@@ -281,18 +281,6 @@ def extraireCoordonnee(valeur):
     return selectionneur.get(valeur,"Coordonnée invalide")
 
 
-
-def extrairePlateauCentrale(index,tableau):
-    #tableau[index]=[,,,,,,,,,]
-    #on regarde le nombre de joueur pour 0 et 3
-    #on teste si il y a des marchandises pour remplir 4 à 9
-    """
-        on doit aussi voir les les bonus et piles de marchandises non utilisé encore
-    """
-    return (tableau)
-
-
-
 def extraireDonneeJoueur(listeJoueurs,joueur,page):
     donneeJoueur = re.findall(listeJoueurs[joueur]+"\">"+ ".*?" + "<div class=\"tab-pane",page)
     if(len(donneeJoueur)==0):
@@ -330,14 +318,28 @@ def extraireDonneeJoueur(listeJoueurs,joueur,page):
 
 
 def topLeft(donneeJoueurSplit):
-    coordonee = re.split(";",donneeJoueurSplit[0])  
-    top = re.sub("rel=.*? style","",coordonee[0])
-    top = re.findall(r"\d+",top)
-    top = int(top[0])
-    left = re.sub("rel=.*? style","",coordonee[1])
-    left = re.findall(r"\d+",left)
-    left = int(left[0])
-    return (top,left)
+    if(re.search("img/p",donneeJoueurSplit[0])!=None): #si on a un pion, on s'adapte au format de balise, spécifique
+        coordonee = re.split(";",donneeJoueurSplit[0])  
+        top = re.sub("rel=.*? style","",coordonee[2])
+        top = re.findall(r"\d+",top)
+        top = int(top[0])
+        left = re.sub("rel=.*? style","",coordonee[1])
+        left = re.findall(r"\d+",left)
+        left = int(left[0])
+        return (top,left)
+    elif(re.search("img/p",donneeJoueurSplit[0])==None): #si non, on utilise le cas des balises générales
+        coordonee = re.split(";",donneeJoueurSplit[0])  
+        top = re.sub("rel=.*? style","",coordonee[0])
+        top = re.findall(r"\d+",top)
+        top = int(top[0])
+        left = re.sub("rel=.*? style","",coordonee[1])
+        left = re.findall(r"\d+",left)
+        left = int(left[0])
+        return (top,left)
+    else:
+        print("Inconnue")
+        return(None)
+    
 
 def extraireMarche(page,joueurs):
     #On extrait les tuiles et informations du plateau centrale
@@ -419,10 +421,62 @@ def extraireMarche(page,joueurs):
             print("Inconnue")
         donneeJoueurSplit.pop(0)
         coordoneeMarchandise = topLeft(donneeJoueurSplit)
-    listeTuiteCentrale=[[],[],[],[],[],[],[]] #liste contenant les tuiles des dés et la boutique du centre
-    for j in range(6): #tuile et marchandise associé au dés 1 à 6
-        listeTuiteCentrale=extrairePlateauCentrale(j,listeTuiteCentrale)
-    #listeTuiteCentrale[6]=[,,,,,,] #boutique centrale
+    
+    #on enregistre les marchandises qui vont etre placé aléatoirement aux débuts des prochains tours
+    coordoneeMarchandise = topLeft(donneeJoueurSplit)
+    marchandiseTours=[]
+    while coordoneeMarchandise[0]==22:
+        marchandise = re.split("img/",donneeJoueurSplit[0])
+        couleurTemp = re.split(".png",marchandise[1])
+        if(coordoneeMarchandise[1]>250):
+            marchandiseTours.append(couleurTemp[0])
+            donneeJoueurSplit.pop(0)
+        elif(coordoneeMarchandise[1]<250):
+            donneeJoueurSplit.pop(0)
+        else:
+            print("Inconnue")
+            donneeJoueurSplit.pop(0)
+        coordoneeMarchandise = topLeft(donneeJoueurSplit)
+
+    coordoneePion = topLeft(donneeJoueurSplit)
+    pions=[]
+    while re.search("img/p",donneeJoueurSplit[0])!=None:
+        pion = re.split("img/",donneeJoueurSplit[0])
+        ordreTemp = re.split(".png",pion[1])
+        
+        pions.append([coordoneePion[1],coordoneePion[0],ordreTemp[0]])
+        donneeJoueurSplit.pop(0)
+    
+        coordoneePion = topLeft(donneeJoueurSplit)
+    pions.sort(reverse=True)
+    print(pions)
+
+
+    bonus=[]
+    while len(donneeJoueurSplit)>0 and re.search("img/b",donneeJoueurSplit[0])!=None:
+        coordoneeBonus = topLeft(donneeJoueurSplit)
+        b = re.split("img/",donneeJoueurSplit[0])
+        bonusTemp = re.split(".png",b[1])
+        
+        bonus.append([bonusTemp[0]])
+        donneeJoueurSplit.pop(0)
+    
+    print(bonus)
+
+
+
+    #on prépare le renvoie des données sous une forme interessante pour leur utilisation
+    listeTuileCentrale=[[],[],[],[],[],[],[]] #liste contenant les tuiles des dés et la boutique du centre
+    #tuile et marchandise du dés de 1 à 6
+    listeTuileCentrale[0] = tuile1 + marchandise1
+    listeTuileCentrale[1] = tuile2 + marchandise2
+    listeTuileCentrale[2] = tuile3 + marchandise3
+    listeTuileCentrale[3] = tuile4 + marchandise4
+    listeTuileCentrale[4] = tuile5 + marchandise5
+    listeTuileCentrale[5] = tuile6 + marchandise6
+    #boutique centrale
+    listeTuileCentrale[6]=tuileNoire
+
 
 
 
