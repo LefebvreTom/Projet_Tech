@@ -4,26 +4,28 @@
 #include <string>
 #include <stack>
 
+#include "Tuiles.h"
 
-class Batiment
+
+class Batiment : public Tuiles
 {
     //Constructeur
     public :
         Batiment();
         Batiment(int idType);
+    //destructeur
+        ~Batiment();
 
     //Méthodes
-        std::string getType();
-        int getIdType();
         std::stack <Batiment> initStackBatiment(int idType);
 
     //Attributs
     protected :
-        std::string Type;
-        int id_Type;
+
 
 };
 
 
 #endif
+
 

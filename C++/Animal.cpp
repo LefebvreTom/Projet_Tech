@@ -8,24 +8,24 @@
 
     Animal::Animal(int idRace,int Nb)
     {
-        id_Race = idRace;
+        Id = idRace;
 
         switch(idRace)
         {
         case 1:
-            Race = "poulet";
+            Type = "poulet";
             Nombre=Nb;
             break;
         case 2:
-            Race = "cochon";
+            Type = "cochon";
             Nombre=Nb;
             break;
         case 3:
-            Race = "vache";
+            Type = "vache";
             Nombre=Nb;
             break;
         case 4:
-            Race = "mouton";
+            Type = "mouton";
             Nombre=Nb;
             break;
 
@@ -36,17 +36,10 @@
         }
     }
 
+    //destructeur
+        Animal::~Animal(){}
+
     //accesseurs
-
-    string Animal::getRace()
-    {
-        return Race;
-    }
-
-    int Animal::getIdRace()
-    {
-        return id_Race;
-    }
 
     int Animal::getNombre()
     {
@@ -73,7 +66,7 @@
                         Animal animal = Animal(idRace,2);
                         StackAnimal.push(animal);
                         testNb2=testNb2-1;
-                        cout<<"on push un animal :"<<animal.getRace()<<" de nombre :"<<animal.getNombre()<<endl;
+                        cout<<"on push un animal :"<<animal.getType()<<" de nombre :"<<animal.getNombre()<<endl;
                     }
                     break;
                 case 3:
@@ -81,7 +74,7 @@
                         Animal animal = Animal(idRace,3);
                         StackAnimal.push(animal);
                         testNb3=testNb3-1;
-                        cout<<"on push un animal :"<<animal.getRace()<<" de nombre :"<<animal.getNombre()<<endl;
+                        cout<<"on push un animal :"<<animal.getType()<<" de nombre :"<<animal.getNombre()<<endl;
                     }
                     break;
                 case 4:
@@ -89,7 +82,7 @@
                         Animal animal = Animal(idRace,4);
                         StackAnimal.push(animal);
                         testNb4=testNb4-1;
-                        cout<<"on push un animal :"<<animal.getRace()<<" de nombre :"<<animal.getNombre()<<endl;
+                        cout<<"on push un animal :"<<animal.getType()<<" de nombre :"<<animal.getNombre()<<endl;
                     }
                     break;
                 default:
@@ -101,6 +94,7 @@
         //cout<<"la pile fait :"<<StackAnimal.size()<<endl;
         return StackAnimal;
     }
+
 
 
 

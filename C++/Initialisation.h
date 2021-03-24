@@ -1,10 +1,10 @@
 #ifndef INITIALISATION_H
 #define INITIALISATION_H
 
-
+#include "Tuiles.h"
 #include "affichageTest.h"
 #include "Marchandise.h"
-#include "Chateau.h"
+#include "Chateaux.h"
 #include "Bateau.h"
 #include "Mine.h"
 #include "Batiment.h"
@@ -44,4 +44,5 @@ class Initialisation
 };
 
 #endif
+
 

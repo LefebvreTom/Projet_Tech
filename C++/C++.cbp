@@ -32,15 +32,14 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="AffichageTest.cpp" />
 		<Unit filename="Animal.cpp" />
 		<Unit filename="Animal.h" />
 		<Unit filename="Bateau.cpp" />
 		<Unit filename="Bateau.h" />
 		<Unit filename="Batiment.cpp" />
 		<Unit filename="Batiment.h" />
-		<Unit filename="Chateau.cpp" />
-		<Unit filename="Chateau.h" />
+		<Unit filename="Chateaux.cpp" />
+		<Unit filename="Chateaux.h" />
 		<Unit filename="Connaissance.cpp" />
 		<Unit filename="Connaissance.h" />
 		<Unit filename="De.cpp" />
@@ -51,12 +50,16 @@
 		<Unit filename="Marchandise.h" />
 		<Unit filename="Mine.cpp" />
 		<Unit filename="Mine.h" />
+		<Unit filename="Tuiles.cpp" />
+		<Unit filename="Tuiles.h" />
+		<Unit filename="affichageTest.cpp" />
 		<Unit filename="affichageTest.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
 			<debugger />
+			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

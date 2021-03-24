@@ -8,7 +8,7 @@
 
     Connaissance::Connaissance(int idType)
     {
-        id_Type = idType;
+        Id = idType;
         switch(idType)
         {
         case 1:
@@ -108,17 +108,10 @@
         }
     }
 
+    //destructeur
+        Connaissance::~Connaissance(){}
+
     //accesseurs
-
-    string Connaissance::getType()
-    {
-        return Type;
-    }
-
-    int Connaissance::getIdType()
-    {
-        return id_Type;
-    }
 
 
     //Methodes
@@ -323,6 +316,7 @@
         cout<<"taille de la pile: "<<StackConnaissance.size()<<endl;
         return StackConnaissance;
     }
+
 
 
 

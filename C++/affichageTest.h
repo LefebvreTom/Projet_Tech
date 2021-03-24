@@ -1,3 +1,4 @@
+
 #ifndef AFFICHAGETEST_H
 #define AFFICHAGETEST_H
 
@@ -5,11 +6,12 @@
 #include <string>
 #include <stack>
 
+#include "Tuiles.h"
 #include "Marchandise.h"
 #include "Batiment.h"
 #include "Animal.h"
 #include "De.h"
-#include "Chateau.h"
+#include "Chateaux.h"
 #include "Bateau.h"
 #include "Mine.h"
 
@@ -29,7 +31,6 @@ class AffichageTest
     void AffichagePileChateau(std::stack<Chateau> Stack);
     void AffichagePileBateau(std::stack<Bateau> Stack);
     void AffichagePileMine(std::stack<Mine> Stack);
-
 
 
     //Attributs

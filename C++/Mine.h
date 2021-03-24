@@ -1,3 +1,4 @@
+
 #ifndef MINE_H
 #define MINE_H
 
@@ -5,22 +6,22 @@
 #include <string>
 #include <stack>
 
-class Mine
+#include "Tuiles.h"
+
+class Mine : public Tuiles
 {
     //Constructeur
     public :
         Mine();
     //Destructeur
-
+        ~Mine();
 
     //Méthodes
     public :
-        std::string getCouleur();
         std::stack <Mine> initStackMine();
 
     //Attributs
     protected :
-        std::string Couleur;
 
 };
 

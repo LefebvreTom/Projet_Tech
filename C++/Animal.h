@@ -6,29 +6,30 @@
 #include <string>
 #include <stack>
 
+#include "Tuiles.h"
 
-class Animal
+class Animal : public Tuiles
 {
     //Constructeur
     public :
         Animal();
         Animal(int idRace, int Nb);
+    //destructeur
+        ~Animal();
 
     //Méthodes
-        std::string getRace();
-        int getIdRace();
         int getNombre();
         std::stack <Animal> initStackAnimal(int idRace);
 
     //Attributs
     protected :
-        std::string Race;
         int Nombre;
-        int id_Race;
+
 
 };
 
 
 #endif
+
 
 

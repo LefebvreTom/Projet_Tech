@@ -1,3 +1,4 @@
+
 #include "Batiment.h"
 
     using namespace std;
@@ -8,7 +9,7 @@
 
     Batiment::Batiment(int idType)
     {
-        id_Type = idType;
+        Id = idType;
 
         switch(idType)
         {
@@ -44,18 +45,10 @@
         }
     }
 
+    //destructeur
+    Batiment::~Batiment(){}
+
     //accesseurs
-
-    std::string Batiment::getType()
-    {
-        return Type;
-    }
-
-    int Batiment::getIdType()
-    {
-        return id_Type;
-    }
-
 
     //Methodes
 

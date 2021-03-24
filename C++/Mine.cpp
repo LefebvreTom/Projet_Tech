@@ -1,3 +1,4 @@
+
 #include "Mine.h"
 
 using namespace std;
@@ -8,12 +9,10 @@ using namespace std;
         Couleur="gris";
     }
 
+    //destructeur
+    Mine::~Mine(){}
 
     //accesseur
-    string Mine::getCouleur()
-    {
-        return Couleur;
-    }
 
     //Methodes
     // f°creation des piles

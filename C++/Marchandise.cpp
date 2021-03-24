@@ -1,3 +1,4 @@
+
 #include "Marchandise.h"
 
     using namespace std;
@@ -8,7 +9,7 @@
 
     Marchandise::Marchandise(int idCouleur)
     {
-        id_Couleur = idCouleur;
+        Id = idCouleur;
 
         switch(idCouleur)
         {
@@ -37,22 +38,15 @@
         }
     }
 
+    //destructeur
+    Marchandise::~Marchandise(){}
+
     //accesseurs
-
-    std::string Marchandise::getCouleur()
-    {
-        return Couleur;
-    }
-
-    int Marchandise::getIdCouleur()
-    {
-        return id_Couleur;
-    }
 
 
     //Methodes
 
-    // f°creation des piles
+    // fÂ°creation des piles
     stack <Marchandise> Marchandise::initStackMarchandise(int idMarch)
     {
         Marchandise march = Marchandise(idMarch);

@@ -6,23 +6,24 @@
 #include <string>
 #include <stack>
 
-class Bateau
+#include "Tuiles.h"
+
+class Bateau : public Tuiles
 {
     //Constructeur
     public :
         Bateau();
     //Destructeur
-
+        ~Bateau();
 
     //Méthodes
     public :
-        std::string getCouleur();
         std::stack <Bateau> initStackBateau();
 
     //Attributs
     protected :
-        std::string Couleur;
 
 };
 
 #endif
+

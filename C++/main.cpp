@@ -1,14 +1,13 @@
 #include <iostream>
-#include "De.h"
-#include "Marchandise.h"
-#include "affichageTest.h"
-#include "Chateau.h"
-#include "Bateau.h"
-#include "Mine.h"
-#include "Initialisation.h"
-
+#include <string>
+#include <stack>
 #include <time.h>
 #include <stdlib.h>
+#include "Tuiles.h"
+#include "De.h"
+#include "Initialisation.h"
+#include "affichageTest.h"
+
 
 using namespace std;
 
@@ -30,42 +29,6 @@ int main()
 
     //Initialisation
     Initialisation init;
-
-
-//----------------------------------------------------------------------------------------
-
+        cout<<endl;
+        return 0;
 }
-
-
-
-//obsolète
-//creation de marchandises pour montrer les attributs
-    /*
-    Marchandise tabMarchandise[6];
-    for(int i=0;i<6;i++){
-        tabMarchandise[i] = Marchandise(i+1);
-        affichetest.AffichageMarch(tabMarchandise[i]);
-
-    }
-    */
-
-    //creation d'une pile de marchandises de type 1
-    /*
-    Marchandise Stack;
-    stack <Marchandise> testStack = Stack.initStackMarchandise(1);
-
-    affichetest.AffichagePile(testStack);
-    */
-
-
-    /*
-    stack <Marchandise> tabMarchandise[6];
-    for(int i=0;i<6;i++){
-        Marchandise Stack;
-        stack <Marchandise> StackMarch = Stack.initStackMarchandise(i+1);
-        tabMarchandise[i] = StackMarch;
-        cout<<"tabMarchandise ("<<i<<"):"<<endl;
-        affichetest.AffichagePileMarch(tabMarchandise[i]);
-
-    }
-    */

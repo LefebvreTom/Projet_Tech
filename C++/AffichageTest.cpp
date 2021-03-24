@@ -9,7 +9,7 @@
 
     void AffichageTest::AffichageMarch(Marchandise march)
     {
-        cout<<"Marchandise couleur:"<<march.getCouleur()<<" id:"<<march.getIdCouleur()<<endl;
+        cout<<"Marchandise couleur:"<<march.getCouleur()<<" id:"<<march.getId()<<endl;
 
     }
     void AffichageTest::AffichageDe(De de)
@@ -24,7 +24,7 @@
     {
 
         Marchandise march = Stack.top();
-        cout << "La pile contient " << Stack.size() << " marchandises de couleur : " << march.getCouleur()<<" et d'id :"<<march.getIdCouleur()<<endl;
+        cout << "La pile contient " << Stack.size() << " marchandises de couleur : " << march.getCouleur()<<" et d'id :"<<march.getId()<<endl;
         cout<<endl;
     }
 
@@ -33,7 +33,7 @@
     {
 
         Batiment bat = Stack.top();
-        cout << "La pile contient " << Stack.size() << " Batiment de type : " << bat.getType()<<" et d'id :"<<bat.getIdType()<<endl;
+        cout << "La pile contient " << Stack.size() << " Batiment de type : " << bat.getType()<<" et d'id :"<<bat.getId()<<endl;
         cout<<endl;
     }
 
@@ -41,7 +41,7 @@
     {
 
         Animal animal = Stack.top();
-        cout << "La pile contient " << Stack.size() << " Animal de type : " << animal.getRace()<<" et d'id :"<<animal.getIdRace()<<endl;
+        cout << "La pile contient " << Stack.size() << " Animal de type : " << animal.getType()<<" et d'id :"<<animal.getId()<<endl;
         cout<<endl;
     }
 
@@ -73,6 +73,7 @@
 
 
 //-------------------------------------------------------------------------------------------------------------------------
+
 
 
 

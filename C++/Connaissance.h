@@ -6,28 +6,28 @@
 #include <stdlib.h>
 #include <string>
 #include <stack>
+#include "Tuiles.h"
 
 
-class Connaissance
+class Connaissance : public Tuiles
 {
     //Constructeur
     public :
         Connaissance();
         Connaissance(int idType);
+    //destructeur
+        ~Connaissance();
 
     //Méthodes
-        std::string getType();
-        int getIdType();
         std::stack <Connaissance> initStackConnaissance();
 
     //Attributs
     protected :
-        std::string Type;
-        int id_Type;
 
 };
 
 
 #endif
+
 
 

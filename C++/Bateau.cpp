@@ -8,12 +8,10 @@ using namespace std;
         Couleur="bleu";
     }
 
+    //destructeur
+    Bateau::~Bateau(){}
 
     //accesseur
-    string Bateau::getCouleur()
-    {
-        return Couleur;
-    }
 
     //Methodes
     // f°creation des piles
