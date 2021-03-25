@@ -6,6 +6,8 @@
 #include <string>
 #include <stack>
 
+#include <sstream>
+
 #include "Tuiles.h"
 
 class Animal : public Tuiles

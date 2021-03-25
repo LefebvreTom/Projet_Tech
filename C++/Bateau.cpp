@@ -6,6 +6,7 @@ using namespace std;
     Bateau::Bateau()
     {
         Couleur="bleu";
+        Id_Site="ts";
     }
 
     //destructeur

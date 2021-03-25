@@ -15,12 +15,14 @@ public:
         void setCouleur(std::string couleur);
         std::string getType();
         int getId();
+        std::string getIdSite();
 
 protected:
         std::string Type;
         std::string Couleur;
         int Id;
-        std::string MarcheNoir;
+        std::string Id_Site;
+        //bool MarcheNoir = false;
 
 };
 

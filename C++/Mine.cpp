@@ -7,6 +7,7 @@ using namespace std;
     Mine::Mine()
     {
         Couleur="gris";
+        Id_Site="tm";
     }
 
     //destructeur

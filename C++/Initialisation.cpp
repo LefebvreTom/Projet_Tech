@@ -18,6 +18,8 @@
         InitTabAnimal();
         cout<<endl;
         InitPileConnaissance();
+        cout<<endl;
+        InitPileMarcheNoir();
 
         /*
         Animal animaltest;
@@ -101,6 +103,12 @@
 
         stack <Connaissance> StackConnaissances = StackConnaissance.initStackConnaissance();
         //affichetest.AffichagePileMine(StackMines);
+    }
+
+    //pile du marché noir
+
+    void Initialisation::InitPileMarcheNoir(){
+        vector<Tuiles*> MarcheNoir = dosNoir.initStackDosNoir();
     }
 
 

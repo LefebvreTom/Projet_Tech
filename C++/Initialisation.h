@@ -10,9 +10,11 @@
 #include "Batiment.h"
 #include "Animal.h"
 #include "Connaissance.h"
+#include "DosNoir.h"
 
 #include <string>
 #include <stack>
+#include <vector>
 
 class Initialisation
 {
@@ -30,6 +32,7 @@ class Initialisation
         void InitPileBateau();
         void InitPileMines();
         void InitPileConnaissance();
+        void InitPileMarcheNoir();
     //Attributs
     protected :
         std::stack <Marchandise> TabMarchandise[6];
@@ -40,6 +43,7 @@ class Initialisation
         Mine StackMine;
         AffichageTest affichetest;
         Connaissance StackConnaissance;
+        DosNoir dosNoir;
 
 };
 

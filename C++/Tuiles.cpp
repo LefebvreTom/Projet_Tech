@@ -19,6 +19,11 @@ using namespace std;
         return Id;
     }
 
+    string Tuiles::getIdSite()
+    {
+        return Id_Site;
+    }
+
     void Tuiles::setType(string type){
         Type=type;
     }

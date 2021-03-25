@@ -120,3 +120,144 @@
 1616593728 source:c:\users\user\desktop\projet tech\envie de crever\c++\connaissance.cpp
 	"Connaissance.h"
 
+1616684890 source:c:\users\user\desktop\projet tech\pour bosser\c++\affichagetest.cpp
+	"AffichageTest.h"
+
+1616593125 c:\users\user\desktop\projet tech\pour bosser\c++\affichagetest.h
+	<iostream>
+	<string>
+	<stack>
+	"Tuiles.h"
+	"Marchandise.h"
+	"Batiment.h"
+	"Animal.h"
+	"De.h"
+	"Chateaux.h"
+	"Bateau.h"
+	"Mine.h"
+
+1616688566 c:\users\user\desktop\projet tech\pour bosser\c++\tuiles.h
+	<iostream>
+	<stdlib.h>
+	<string>
+
+1616593258 c:\users\user\desktop\projet tech\pour bosser\c++\marchandise.h
+	"Tuiles.h"
+	<string>
+	<stack>
+
+1616592303 c:\users\user\desktop\projet tech\pour bosser\c++\batiment.h
+	<string>
+	<stack>
+	"Tuiles.h"
+
+1616683537 c:\users\user\desktop\projet tech\pour bosser\c++\animal.h
+	<iostream>
+	<stdlib.h>
+	<string>
+	<stack>
+	<sstream>
+	"Tuiles.h"
+
+1616592027 c:\users\user\desktop\projet tech\pour bosser\c++\de.h
+	<stdlib.h>
+
+1616591692 c:\users\user\desktop\projet tech\pour bosser\c++\chateaux.h
+	<iostream>
+	<stdlib.h>
+	<string>
+	<stack>
+	"Tuiles.h"
+
+1616592497 c:\users\user\desktop\projet tech\pour bosser\c++\bateau.h
+	<stdlib.h>
+	<string>
+	<stack>
+	"Tuiles.h"
+
+1616591891 c:\users\user\desktop\projet tech\pour bosser\c++\mine.h
+	<stdlib.h>
+	<string>
+	<stack>
+	"Tuiles.h"
+
+1616683844 source:c:\users\user\desktop\projet tech\pour bosser\c++\animal.cpp
+	"Animal.h"
+
+1616683263 source:c:\users\user\desktop\projet tech\pour bosser\c++\bateau.cpp
+	"Bateau.h"
+
+1616683262 source:c:\users\user\desktop\projet tech\pour bosser\c++\batiment.cpp
+	"Batiment.h"
+
+1616684171 source:c:\users\user\desktop\projet tech\pour bosser\c++\chateaux.cpp
+	"Chateaux.h"
+
+1616684727 source:c:\users\user\desktop\projet tech\pour bosser\c++\connaissance.cpp
+	"Connaissance.h"
+
+1616593821 c:\users\user\desktop\projet tech\pour bosser\c++\connaissance.h
+	<iostream>
+	<stdlib.h>
+	<string>
+	<stack>
+	"Tuiles.h"
+
+1616592028 source:c:\users\user\desktop\projet tech\pour bosser\c++\de.cpp
+	"De.h"
+
+1616691638 source:c:\users\user\desktop\projet tech\pour bosser\c++\initialisation.cpp
+	"Initialisation.h"
+
+1616691638 c:\users\user\desktop\projet tech\pour bosser\c++\initialisation.h
+	"Tuiles.h"
+	"affichageTest.h"
+	"Marchandise.h"
+	"Chateaux.h"
+	"Bateau.h"
+	"Mine.h"
+	"Batiment.h"
+	"Animal.h"
+	"Connaissance.h"
+	"DosNoir.h"
+	<string>
+	<stack>
+	<vector>
+
+1616593929 source:c:\users\user\desktop\projet tech\pour bosser\c++\main.cpp
+	<iostream>
+	<string>
+	<stack>
+	<time.h>
+	<stdlib.h>
+	"Tuiles.h"
+	"De.h"
+	"Initialisation.h"
+	"affichageTest.h"
+
+1616684171 source:c:\users\user\desktop\projet tech\pour bosser\c++\marchandise.cpp
+	"Marchandise.h"
+
+1616683262 source:c:\users\user\desktop\projet tech\pour bosser\c++\mine.cpp
+	"Mine.h"
+
+1616680874 source:c:\users\user\desktop\projet tech\pour bosser\c++\tuiles.cpp
+	"Tuiles.h"
+
+1616690288 c:\users\user\desktop\projet tech\pour bosser\c++\dosnoir.h
+	<stdlib.h>
+	<string>
+	<stack>
+	"Tuiles.h"
+	"Marchandise.h"
+	"Chateaux.h"
+	"Bateau.h"
+	"Mine.h"
+	"Batiment.h"
+	"Animal.h"
+	"Connaissance.h"
+	<vector>
+
+1616692099 source:c:\users\user\desktop\projet tech\pour bosser\c++\dosnoir.cpp
+	"DosNoir.h"
+

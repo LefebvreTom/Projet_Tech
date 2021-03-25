@@ -44,6 +44,8 @@
 		<Unit filename="Connaissance.h" />
 		<Unit filename="De.cpp" />
 		<Unit filename="De.h" />
+		<Unit filename="DosNoir.cpp" />
+		<Unit filename="DosNoir.h" />
 		<Unit filename="Initialisation.cpp" />
 		<Unit filename="Initialisation.h" />
 		<Unit filename="Marchandise.cpp" />

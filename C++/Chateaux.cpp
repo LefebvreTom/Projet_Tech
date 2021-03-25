@@ -7,6 +7,7 @@ using namespace std;
     {
         Type="chateau";
         Couleur="vert";
+        Id_Site="tc";
     }
 
     Chateau::~Chateau(){}

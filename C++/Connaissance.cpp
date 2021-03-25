@@ -13,90 +13,117 @@
         {
         case 1:
             Type = "pas de restriction de batiment";
+            Id_Site ="tk1";
             break;
         case 2:
             Type = "+1 ouvrier par mines a la fin de phase";
+            Id_Site ="tk2";
             break;
         case 3:
             Type = "1 pepite de plus a la vente de machandises";
+            Id_Site ="tk3";
             break;
         case 4:
             Type = "+1 ouvrier par vente de marchandises";
+            Id_Site ="tk4";
             break;
         case 5:
             Type = "prendre d autres marchandises en posant un bateau";
+            Id_Site ="tk5";
             break;
         case 6:
             Type = "achat au depot noir ou aux autres depots";
+            Id_Site ="tk6";
             break;
         case 7:
             Type = "+1pts pour chaque tuile animal qui donne des pts";
+            //dos noir
+            Id_Site ="tk7b";
             break;
         case 8:
             Type = "jusqu'a +/-2 a un de avec un ouvrier quand pose";
+            Id_Site ="tk8";
             break;
         case 9:
             Type = "+/-1 pour placer des batiments";
+            Id_Site ="tk9";
             break;
         case 10:
             Type = "+/-1 pour placer des bateaux ou animaux";
+            Id_Site ="tk10";
             break;
         case 11:
             Type = "+/-1 pour placer des chateaux, mines ou connaissances";
+            Id_Site ="tk11";
             break;
         case 12:
             Type = "+-1 pour prendre des tuiles hexagonales";
             //dos noir
+            Id_Site ="tk12b";
             break;
         case 13:
             Type = "+1 a chaque fois pepites en vendant un de";
+            Id_Site ="tk13";
             break;
         case 14:
             Type = "+4 a chaque fois (au lieu de 2) ouvriers en vendant un de";
             //dos noir
+            Id_Site ="tk14b";
             break;
         case 15:
             Type = "+3pts a la fin pour chaque types de marchandises vendus";
             //dos noir
+            Id_Site ="tk15b";
             break;
         case 16:
             Type = "+4pts a la fin pour chaque entreprot ";
+            Id_Site ="tk16";
             break;
         case 17:
             Type = "+4pts a la fin pour chaque tour";
+            Id_Site ="tk17";
             break;
         case 18:
             Type = "+4pts a la fin pour chaque menuiserie";
+            Id_Site ="tk18";
             break;
         case 19:
             Type = "+4pts a la fin pour chaque eglise";
+            Id_Site ="tk19";
             break;
         case 20:
             Type = "+4pts a la fin pour chaque marche";
+            Id_Site ="tk20";
             break;
         case 21:
             Type = "+4pts a la fin pour chaque pension";
+            Id_Site ="tk21";
             break;
 
         case 22:
             Type = "+4pts a la fin pour chaque banque";
+            Id_Site ="tk22";
             break;
 
         case 23:
             Type = "+4pts a la fin pour chaque mairie";
+            Id_Site ="tk23";
             break;
         case 24:
             Type = "+4pts a la fin pour chaque type d animal";
             //dos noir
+            Id_Site ="tk24b";
             break;
 
         case 25:
             Type = "+1pts a la fin pour chaque marchandises vendues";
             //dos noir
+            Id_Site ="tk25b";
             break;
 
         case 26:
             Type = "+2pts a la fin pour chaque tuiles bonus";
+            Id_Site ="tk26";
             break;
 
 
@@ -174,12 +201,7 @@
                     }
                     break;
                 case 7:
-                    if(testcas[7]>0){
-                        Connaissance connaissance = Connaissance(7);
-                        StackConnaissance.push(connaissance);
-                        testcas[7]=0;
-                        cout<<"on push :"<<connaissance.getType()<<endl;
-                    }
+                    //dos noir
                     break;
                 case 8:
                     if(testcas[8]>0){
