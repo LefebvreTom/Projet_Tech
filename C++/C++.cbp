@@ -48,6 +48,8 @@
 		<Unit filename="De.h" />
 		<Unit filename="DosNoir.cpp" />
 		<Unit filename="DosNoir.h" />
+		<Unit filename="FinDePartie.cpp" />
+		<Unit filename="FinDePartie.h" />
 		<Unit filename="Initialisation.cpp" />
 		<Unit filename="Initialisation.h" />
 		<Unit filename="Marchandise.cpp" />

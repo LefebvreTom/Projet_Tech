@@ -8,6 +8,9 @@
 #include "Initialisation.h"
 #include "affichageTest.h"
 
+#include "FinDePartie.h"
+
+
 
 using namespace std;
 
@@ -30,5 +33,11 @@ int main()
     //Initialisation
     Initialisation init;
         cout<<endl;
-        return 0;
+
+    //fin de partie
+    FinDePartie fin;
+    fin.Fin();
+
+
+    return 0;
 }

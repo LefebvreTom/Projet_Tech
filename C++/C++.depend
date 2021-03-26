@@ -206,10 +206,10 @@
 1616592028 source:c:\users\user\desktop\projet tech\pour bosser\c++\de.cpp
 	"De.h"
 
-1616745780 source:c:\users\user\desktop\projet tech\pour bosser\c++\initialisation.cpp
+1616749655 source:c:\users\user\desktop\projet tech\pour bosser\c++\initialisation.cpp
 	"Initialisation.h"
 
-1616745780 c:\users\user\desktop\projet tech\pour bosser\c++\initialisation.h
+1616749446 c:\users\user\desktop\projet tech\pour bosser\c++\initialisation.h
 	"Tuiles.h"
 	"affichageTest.h"
 	"Marchandise.h"
@@ -225,7 +225,7 @@
 	<stack>
 	<vector>
 
-1616593929 source:c:\users\user\desktop\projet tech\pour bosser\c++\main.cpp
+1616748501 source:c:\users\user\desktop\projet tech\pour bosser\c++\main.cpp
 	<iostream>
 	<string>
 	<stack>
@@ -235,6 +235,7 @@
 	"De.h"
 	"Initialisation.h"
 	"affichageTest.h"
+	"FinDePartie.h"
 
 1616684171 source:c:\users\user\desktop\projet tech\pour bosser\c++\marchandise.cpp
 	"Marchandise.h"
@@ -269,4 +270,13 @@
 
 1616746031 source:c:\users\user\desktop\projet tech\pour bosser\c++\bonus.cpp
 	"Bonus.h"
+
+1616748501 c:\users\user\desktop\projet tech\pour bosser\c++\findepartie.h
+	<iostream>
+	<stdlib.h>
+	<string>
+	"Initialisation.h"
+
+1616749446 source:c:\users\user\desktop\projet tech\pour bosser\c++\findepartie.cpp
+	"FinDePartie.h"
 

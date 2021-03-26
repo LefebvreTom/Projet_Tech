@@ -23,11 +23,17 @@
         cout<<endl;
         InitTabBonus();
 
+
+
         /*
         Animal animaltest;
         animaltest.initStackAnimal(1);
         */
 
+    }
+
+    Initialisation::Initialisation(int fin){
+        cout<<"fin de partie"<<endl;
     }
 
     //accesseur
@@ -123,7 +129,15 @@
     //pile du marché noir
 
     void Initialisation::InitPileMarcheNoir(){
-        vector<Tuiles*> MarcheNoir = dosNoir.initStackDosNoir();
+        MarcheNoir = dosNoir.initStackDosNoir();
+    }
+
+    void Initialisation::ClearMarcheNoir(){
+        while(MarcheNoir.size()>0){
+            delete(MarcheNoir.back());
+        }
+        MarcheNoir.clear();
+        cout<<"la taille de marche noir est de :"<<MarcheNoir.size()<<endl;
     }
 
 

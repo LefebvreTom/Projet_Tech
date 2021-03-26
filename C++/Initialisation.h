@@ -22,6 +22,7 @@ class Initialisation
     //Constructeur
     public :
         Initialisation();
+        Initialisation(int fin);
     //Destructeur
 
 
@@ -35,6 +36,7 @@ class Initialisation
         void InitPileConnaissance();
         void InitPileMarcheNoir();
         void InitTabBonus();
+        void ClearMarcheNoir();
     //Attributs
     protected :
         std::stack <Marchandise> TabMarchandise[6];
@@ -47,6 +49,7 @@ class Initialisation
         AffichageTest affichetest;
         Connaissance StackConnaissance;
         DosNoir dosNoir;
+        std::vector<Tuiles*> MarcheNoir;
 
 };
 
