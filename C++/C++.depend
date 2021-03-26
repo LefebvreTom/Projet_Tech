@@ -206,10 +206,10 @@
 1616592028 source:c:\users\user\desktop\projet tech\pour bosser\c++\de.cpp
 	"De.h"
 
-1616691638 source:c:\users\user\desktop\projet tech\pour bosser\c++\initialisation.cpp
+1616745780 source:c:\users\user\desktop\projet tech\pour bosser\c++\initialisation.cpp
 	"Initialisation.h"
 
-1616691638 c:\users\user\desktop\projet tech\pour bosser\c++\initialisation.h
+1616745780 c:\users\user\desktop\projet tech\pour bosser\c++\initialisation.h
 	"Tuiles.h"
 	"affichageTest.h"
 	"Marchandise.h"
@@ -220,6 +220,7 @@
 	"Animal.h"
 	"Connaissance.h"
 	"DosNoir.h"
+	"Bonus.h"
 	<string>
 	<stack>
 	<vector>
@@ -260,4 +261,12 @@
 
 1616692099 source:c:\users\user\desktop\projet tech\pour bosser\c++\dosnoir.cpp
 	"DosNoir.h"
+
+1616745840 c:\users\user\desktop\projet tech\pour bosser\c++\bonus.h
+	"Tuiles.h"
+	<string>
+	<stack>
+
+1616746031 source:c:\users\user\desktop\projet tech\pour bosser\c++\bonus.cpp
+	"Bonus.h"
 

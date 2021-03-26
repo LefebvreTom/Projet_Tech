@@ -11,6 +11,7 @@
 #include "Animal.h"
 #include "Connaissance.h"
 #include "DosNoir.h"
+#include "Bonus.h"
 
 #include <string>
 #include <stack>
@@ -33,11 +34,13 @@ class Initialisation
         void InitPileMines();
         void InitPileConnaissance();
         void InitPileMarcheNoir();
+        void InitTabBonus();
     //Attributs
     protected :
         std::stack <Marchandise> TabMarchandise[6];
         std::stack <Batiment> TabBatiment[8];
         std::stack <Animal> TabAnimal[4];
+        std::stack <Bonus> TabBonus[6];
         Chateau StackChateau;
         Bateau StackBateau;
         Mine StackMine;

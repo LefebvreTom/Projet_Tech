@@ -20,6 +20,8 @@
         InitPileConnaissance();
         cout<<endl;
         InitPileMarcheNoir();
+        cout<<endl;
+        InitTabBonus();
 
         /*
         Animal animaltest;
@@ -75,6 +77,20 @@
 
     }
 
+    void Initialisation::InitTabBonus(){
+
+        for(int i=0;i<6;i++){
+            Bonus Stack;
+            cout<<"tabBonus ("<<i<<"):"<<endl;
+            stack <Bonus> StackBonus = Stack.initStackBonus(i+1);
+            TabBonus[i] = StackBonus;
+
+        }
+
+    }
+
+    //init du tableau de bonus
+
 
     //initialisation des piles
 
@@ -98,11 +114,10 @@
         affichetest.AffichagePileMine(StackMines);
     }
 
-    //pile de mines
+    //pile de Connaissance
     void Initialisation::InitPileConnaissance(){
 
         stack <Connaissance> StackConnaissances = StackConnaissance.initStackConnaissance();
-        //affichetest.AffichagePileMine(StackMines);
     }
 
     //pile du marché noir
@@ -110,6 +125,7 @@
     void Initialisation::InitPileMarcheNoir(){
         vector<Tuiles*> MarcheNoir = dosNoir.initStackDosNoir();
     }
+
 
 
 
