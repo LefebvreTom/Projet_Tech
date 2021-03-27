@@ -56,6 +56,10 @@
 		<Unit filename="Marchandise.h" />
 		<Unit filename="Mine.cpp" />
 		<Unit filename="Mine.h" />
+		<Unit filename="Plateau.cpp" />
+		<Unit filename="Plateau.h" />
+		<Unit filename="PlateauJoueur.cpp" />
+		<Unit filename="PlateauJoueur.h" />
 		<Unit filename="Tuiles.cpp" />
 		<Unit filename="Tuiles.h" />
 		<Unit filename="affichageTest.cpp" />

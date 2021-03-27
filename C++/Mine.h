@@ -13,6 +13,7 @@ class Mine : public Tuiles
     //Constructeur
     public :
         Mine();
+        Mine(std::string noir);
     //Destructeur
         ~Mine();
 

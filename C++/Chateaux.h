@@ -13,6 +13,7 @@ public:
     //Constructeur
     public :
         Chateau();
+        Chateau(std::string noir);
     //destructeur
         ~Chateau();
     //methode

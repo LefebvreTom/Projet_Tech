@@ -54,6 +54,53 @@
         }
     }
 
+    Animal::Animal(int idRace,int Nb,string noir)
+    {
+        Id = idRace;
+        stringstream sstm;
+        string concac;
+
+        switch(idRace)
+        {
+        case 1:
+            Type = "poulet";
+            Nombre=Nb;
+
+            sstm<<"tap"<<Nb<<"b";
+            concac = sstm.str();
+            Id_Site=concac;
+            break;
+        case 2:
+            Type = "cochon";
+            Nombre=Nb;
+
+            sstm<<"tac"<<Nb<<"b";
+            concac = sstm.str();
+            Id_Site=concac;
+            break;
+        case 3:
+            Type = "vache";
+            Nombre=Nb;
+
+            sstm<<"tav"<<Nb<<"b";
+            concac = sstm.str();
+            Id_Site=concac;
+            break;
+        case 4:
+            Type = "mouton";
+            Nombre=Nb;
+
+            sstm<<"tam"<<Nb<<"b";
+            concac = sstm.str();
+            Id_Site=concac;
+            break;
+
+        default :
+            break;
+
+
+        }
+    }
     //destructeur
         Animal::~Animal(){}
 

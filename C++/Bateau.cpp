@@ -9,6 +9,12 @@ using namespace std;
         Id_Site="ts";
     }
 
+    Bateau::Bateau(string noir)
+    {
+        Couleur="bleu";
+        Id_Site="tsb";
+    }
+
     //destructeur
     Bateau::~Bateau(){}
 

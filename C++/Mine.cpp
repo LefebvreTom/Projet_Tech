@@ -9,6 +9,11 @@ using namespace std;
         Couleur="gris";
         Id_Site="tm";
     }
+    Mine::Mine(string noir)
+    {
+        Couleur="gris";
+        Id_Site="tmb";
+    }
 
     //destructeur
     Mine::~Mine(){}

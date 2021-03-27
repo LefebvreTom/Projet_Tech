@@ -136,7 +136,7 @@
 	"Bateau.h"
 	"Mine.h"
 
-1616688566 c:\users\user\desktop\projet tech\pour bosser\c++\tuiles.h
+1616837937 c:\users\user\desktop\projet tech\pour bosser\c++\tuiles.h
 	<iostream>
 	<stdlib.h>
 	<string>
@@ -146,12 +146,12 @@
 	<string>
 	<stack>
 
-1616592303 c:\users\user\desktop\projet tech\pour bosser\c++\batiment.h
+1616839071 c:\users\user\desktop\projet tech\pour bosser\c++\batiment.h
 	<string>
 	<stack>
 	"Tuiles.h"
 
-1616683537 c:\users\user\desktop\projet tech\pour bosser\c++\animal.h
+1616839072 c:\users\user\desktop\projet tech\pour bosser\c++\animal.h
 	<iostream>
 	<stdlib.h>
 	<string>
@@ -162,35 +162,35 @@
 1616592027 c:\users\user\desktop\projet tech\pour bosser\c++\de.h
 	<stdlib.h>
 
-1616591692 c:\users\user\desktop\projet tech\pour bosser\c++\chateaux.h
+1616839072 c:\users\user\desktop\projet tech\pour bosser\c++\chateaux.h
 	<iostream>
 	<stdlib.h>
 	<string>
 	<stack>
 	"Tuiles.h"
 
-1616592497 c:\users\user\desktop\projet tech\pour bosser\c++\bateau.h
+1616839072 c:\users\user\desktop\projet tech\pour bosser\c++\bateau.h
 	<stdlib.h>
 	<string>
 	<stack>
 	"Tuiles.h"
 
-1616591891 c:\users\user\desktop\projet tech\pour bosser\c++\mine.h
+1616839072 c:\users\user\desktop\projet tech\pour bosser\c++\mine.h
 	<stdlib.h>
 	<string>
 	<stack>
 	"Tuiles.h"
 
-1616683844 source:c:\users\user\desktop\projet tech\pour bosser\c++\animal.cpp
+1616839072 source:c:\users\user\desktop\projet tech\pour bosser\c++\animal.cpp
 	"Animal.h"
 
-1616683263 source:c:\users\user\desktop\projet tech\pour bosser\c++\bateau.cpp
+1616839072 source:c:\users\user\desktop\projet tech\pour bosser\c++\bateau.cpp
 	"Bateau.h"
 
-1616683262 source:c:\users\user\desktop\projet tech\pour bosser\c++\batiment.cpp
+1616839072 source:c:\users\user\desktop\projet tech\pour bosser\c++\batiment.cpp
 	"Batiment.h"
 
-1616684171 source:c:\users\user\desktop\projet tech\pour bosser\c++\chateaux.cpp
+1616839071 source:c:\users\user\desktop\projet tech\pour bosser\c++\chateaux.cpp
 	"Chateaux.h"
 
 1616684727 source:c:\users\user\desktop\projet tech\pour bosser\c++\connaissance.cpp
@@ -240,10 +240,10 @@
 1616684171 source:c:\users\user\desktop\projet tech\pour bosser\c++\marchandise.cpp
 	"Marchandise.h"
 
-1616683262 source:c:\users\user\desktop\projet tech\pour bosser\c++\mine.cpp
+1616839072 source:c:\users\user\desktop\projet tech\pour bosser\c++\mine.cpp
 	"Mine.h"
 
-1616680874 source:c:\users\user\desktop\projet tech\pour bosser\c++\tuiles.cpp
+1616837937 source:c:\users\user\desktop\projet tech\pour bosser\c++\tuiles.cpp
 	"Tuiles.h"
 
 1616690288 c:\users\user\desktop\projet tech\pour bosser\c++\dosnoir.h
@@ -260,7 +260,7 @@
 	"Connaissance.h"
 	<vector>
 
-1616692099 source:c:\users\user\desktop\projet tech\pour bosser\c++\dosnoir.cpp
+1616839092 source:c:\users\user\desktop\projet tech\pour bosser\c++\dosnoir.cpp
 	"DosNoir.h"
 
 1616745840 c:\users\user\desktop\projet tech\pour bosser\c++\bonus.h
@@ -277,6 +277,23 @@
 	<string>
 	"Initialisation.h"
 
-1616749446 source:c:\users\user\desktop\projet tech\pour bosser\c++\findepartie.cpp
+1616749836 source:c:\users\user\desktop\projet tech\pour bosser\c++\findepartie.cpp
 	"FinDePartie.h"
+
+1616839586 source:c:\users\user\desktop\projet tech\pour bosser\c++\plateau.cpp
+	"Plateau.h"
+
+1616837937 c:\users\user\desktop\projet tech\pour bosser\c++\plateau.h
+	<iostream>
+	<stdlib.h>
+	<string>
+
+1616839586 source:c:\users\user\desktop\projet tech\pour bosser\c++\plateaujoueur.cpp
+	"PlateauJoueur.h"
+
+1616839602 c:\users\user\desktop\projet tech\pour bosser\c++\plateaujoueur.h
+	"Plateau.h"
+	<iostream>
+	<stdlib.h>
+	<string>
 

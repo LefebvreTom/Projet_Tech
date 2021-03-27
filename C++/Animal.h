@@ -16,6 +16,7 @@ class Animal : public Tuiles
     public :
         Animal();
         Animal(int idRace, int Nb);
+        Animal(int idRace, int Nb,std::string noir);
     //destructeur
         ~Animal();
 

@@ -1,26 +1,24 @@
-#ifndef TUILES_H
-#define TUILES_H
+
+#ifndef PLATEAU_H
+#define PLATEAU_H
 
 #include <iostream>
 #include <stdlib.h>
 #include <string>
 
 
-class Tuiles{
+class Plateau{
 
 public:
-        virtual ~Tuiles()=0;
-        std::string getCouleur();
+        virtual ~Plateau()=0;
         std::string getType();
-        int getId();
+        int getIdJoueur();
         std::string getIdSite();
 
 protected:
         std::string Type;
-        std::string Couleur;
-        int Id;
+        int Id_Joueur;
         std::string Id_Site;
-        //bool MarcheNoir = false;
 
 };
 

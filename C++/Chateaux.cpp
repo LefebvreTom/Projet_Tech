@@ -10,6 +10,13 @@ using namespace std;
         Id_Site="tc";
     }
 
+    Chateau::Chateau(string noir)
+    {
+        Type="chateau";
+        Couleur="vert";
+        Id_Site="tcb";
+    }
+
     Chateau::~Chateau(){}
 
     //Methodes

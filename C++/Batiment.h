@@ -13,6 +13,7 @@ class Batiment : public Tuiles
     public :
         Batiment();
         Batiment(int idType);
+        Batiment(int idType,std::string noir);
     //destructeur
         ~Batiment();
 

@@ -53,6 +53,52 @@
         }
     }
 
+    Batiment::Batiment(int idType,string noir)
+    {
+        Id = idType;
+
+        switch(idType)
+        {
+        case 1:
+            Type = "eglise";
+            Id_Site="tb3b";
+            break;
+        case 2:
+            Type = "banque";
+            Id_Site="tb6b";
+            break;
+        case 3:
+            Type = "pension";
+            Id_Site="tb5b";
+            break;
+        case 4:
+            Type = "entrepot";
+            Id_Site="tb1b";
+            break;
+        case 5:
+            Type = "menuisier";
+            Id_Site="tb2b";
+            break;
+        case 6:
+            Type = "marche";
+            Id_Site="tb4b";
+            break;
+        case 7:
+            Type = "mairie";
+            Id_Site="tb7b";
+            break;
+        case 8:
+            Type = "tour";
+            Id_Site="tb8b";
+            break;
+
+        default :
+            break;
+
+
+        }
+    }
+
     //destructeur
     Batiment::~Batiment(){}
 

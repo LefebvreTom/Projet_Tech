@@ -13,6 +13,7 @@ class Bateau : public Tuiles
     //Constructeur
     public :
         Bateau();
+        Bateau(std::string noir);
     //Destructeur
         ~Bateau();
 
