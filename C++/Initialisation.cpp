@@ -22,6 +22,11 @@
         InitPileMarcheNoir();
         cout<<endl;
         InitTabBonus();
+        cout<<endl;
+        PlateauJoueur test = PlateauJoueur(1);
+        cout<<"test du plateau"<<endl;
+        cout<<test.getCase(0).getnumDe();
+        cout<<test.getCase(1).getnumDe();
 
 
 

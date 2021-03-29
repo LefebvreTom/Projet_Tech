@@ -12,6 +12,7 @@
 #include "Connaissance.h"
 #include "DosNoir.h"
 #include "Bonus.h"
+#include "PlateauJoueur.h"
 
 #include <string>
 #include <stack>
