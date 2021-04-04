@@ -121,7 +121,7 @@ def listeJoueur(page):
 
 
 
-def extraireDe(donnee):
+def extraireDe(donnee,fichier):
     if(len(re.findall("img/de.png", donnee[0])) == 1):
         couleur= "blanc"
     if(len(re.findall("img/der.png", donnee[0])) == 1):
@@ -130,28 +130,30 @@ def extraireDe(donnee):
         couleur= "vert"
     de = re.split("src", donnee[0])
     valeur = re.findall("[1-6]", de[1])
-    print ("Vous avez un de de couleur " + couleur + " et de valeur " + valeur[0])
+    #print ("Vous avez un de de couleur " + couleur + " et de valeur " + valeur[0])
+    fichier.write(couleur+";"+valeur[0]+"\n")
     donnee.pop(0)
 
 
 
-def extrairePepite(donnee):
+def extrairePepite(donnee,fichier):
     isPepite = re.findall("pepite", donnee[0])
     pepite= "0"
     if len(isPepite) > 0:
         pepite = re.sub("<.*?>","",donnee[0])
         donnee.pop(0)
-    print ("Vous avez " + pepite + " pepite")
-    #return pepite
+    fichier.write("pepite:\n"+pepite+"\n")
+    #print ("Vous avez " + pepite + " pepite")
 
 
 
-def extraireMarchandise(donnee):
+def extraireMarchandise(donnee,fichier):
     marchandise = re.findall("m[1-6]", donnee[0])
     if len(marchandise) > 0:
         valeur = re.findall("[1-6]", marchandise[0])
         quantite = re.sub("<.*?>","",donnee[0])
-        print ("Vous avez une marchandise de valeur " + valeur[0] + " en " + quantite[0] + " quantite")
+        fichier.write(valeur[0]+";"+quantite[0]+"\n")
+        #print ("Vous avez une marchandise de valeur " + valeur[0] + " en " + quantite[0] + " quantite")
         donnee.pop(0)
         return marchandise
     else:
@@ -160,7 +162,7 @@ def extraireMarchandise(donnee):
 
 
 #Va devenir obselète
-def extraireMarchandiseVendue(donnee):
+"""def extraireMarchandiseVendue(donnee):
     marchandise = re.findall("m[1-6]", donnee[0])
     if len(marchandise) > 0:
         valeur = re.findall("[1-6]", marchandise[0])
@@ -169,7 +171,7 @@ def extraireMarchandiseVendue(donnee):
         donnee.pop(0)
         return marchandise
     else:
-        return None
+        return None"""
 
 
 
@@ -195,15 +197,16 @@ def extraireTuile(donnee):
     valeur = valeurTemp[0]
     #print("Case : "+case.get(couleur,"Case inconnue")+"\nValeur : "+typeTuile.get(valeur,"Tuile inconnue")+"\n========================================")
     donnee.pop(0)
-    return (case.get(couleur,"Case inconnue"),typeTuile.get(valeur,"Tuile inconnue"))
+    return (couleur,valeur)
 
 
 
-def extraireReserve(donnee):
+def extraireReserve(donnee,fichier):
     donnee.pop(0)
     tuile = re.split("img/",donnee[0])
     valeur = re.split(".png",tuile[1])
-    print(typeTuile.get(valeur[0],"Tuile inconnue"))
+    fichier.write(valeur[0]+"\n")
+    #print(typeTuile.get(valeur[0],"Tuile inconnue"))
     donnee.pop(0)
 
 
@@ -281,39 +284,43 @@ def extraireCoordonnee(valeur):
     return selectionneur.get(valeur,"Coordonnée invalide")
 
 
-def extraireDonneeJoueur(listeJoueurs,joueur,page):
+def extraireDonneeJoueur(listeJoueurs,joueur,page,fichier):
     donneeJoueur = re.findall(listeJoueurs[joueur]+"\">"+ ".*?" + "<div class=\"tab-pane",page)
     if(len(donneeJoueur)==0):
         donneeJoueur = re.findall(listeJoueurs[joueur]+"\">"+ ".*?" + "</td>",page)
     donneeJoueurSplit = re.findall("<div " + ".*?" + "/div>", donneeJoueur[0])
     donneeJoueurSplit.pop(0)
 
-    extraireDe(donneeJoueurSplit) #On recupère les dés
-    extraireDe(donneeJoueurSplit)
+    fichier.write("de:\n")
+    extraireDe(donneeJoueurSplit,fichier) #On recupère les dés
+    extraireDe(donneeJoueurSplit,fichier)
 
-    extrairePepite(donneeJoueurSplit) #On recupère les pépites
+    extrairePepite(donneeJoueurSplit,fichier) #On recupère les pépites
     
     #On recupère les marchandises
     listeMarchandise = re.findall("dvGoods",donneeJoueurSplit[0])
+    fichier.write("marchandise:\n")
     while(len(listeMarchandise)!=1):
-        extraireMarchandise(donneeJoueurSplit)
+        extraireMarchandise(donneeJoueurSplit,fichier)
         listeMarchandise = re.findall("dvGoods",donneeJoueurSplit[0])
     listeMarchandise = re.findall("clmar",donneeJoueurSplit[0])
+    fichier.write("marchandise_vendu:\n")
     while(len(listeMarchandise)!=1):
-        extraireMarchandiseVendue(donneeJoueurSplit)
+        extraireMarchandise(donneeJoueurSplit,fichier)
         listeMarchandise = re.findall("clMar",donneeJoueurSplit[0])
     donneeJoueurSplit.pop(0)
     reserve = re.findall("url",donneeJoueurSplit[0])
-    print("Votre reserve:")
+    #print("Votre reserve:")
+    fichier.write("reserve:\n")
     while(len(reserve)!=1):
-        extraireReserve(donneeJoueurSplit)
+        extraireReserve(donneeJoueurSplit,fichier)
         reserve = re.findall("url",donneeJoueurSplit[0])
-
     tableauPlateauJoueur=[]
     tableauPlateauJoueur=extrairePlateau(donneeJoueurSplit) #On recupere le tableau des tuiles du domaine
-
+    fichier.write("plateau:\n"+str(tableauPlateauJoueur)+"\n")
     ouvrier = extraireOuvrier(donneeJoueurSplit) #On recupère les ouvriers
-    print ("Vous avez " + ouvrier + " ouvrier")
+    fichier.write("ouvrier:\n"+str(ouvrier))
+    #print ("Vous avez " + ouvrier + " ouvrier")
 
 
 
@@ -341,7 +348,7 @@ def topLeft(donneeJoueurSplit):
         return(None)
     
 
-def extraireMarche(page,joueurs):
+def extraireMarche(page,joueurs,fichier):
     #On extrait les tuiles et informations du plateau centrale
     tuile1=[]
     tuile2=[]
@@ -422,6 +429,19 @@ def extraireMarche(page,joueurs):
         donneeJoueurSplit.pop(0)
         coordoneeMarchandise = topLeft(donneeJoueurSplit)
     
+    #on prépare le renvoie des données sous une forme interessante pour leur utilisation
+    listeTuileCentrale=[[],[],[],[],[],[],[]] #liste contenant les tuiles des dés et la boutique du centre
+    #tuile et marchandise du dés de 1 à 6
+    listeTuileCentrale[0] = tuile1 + marchandise1
+    listeTuileCentrale[1] = tuile2 + marchandise2
+    listeTuileCentrale[2] = tuile3 + marchandise3
+    listeTuileCentrale[3] = tuile4 + marchandise4
+    listeTuileCentrale[4] = tuile5 + marchandise5
+    listeTuileCentrale[5] = tuile6 + marchandise6
+    #boutique centrale
+    listeTuileCentrale[6]=tuileNoire
+    fichier.write("tuile_centrale:\n"+str(listeTuileCentrale)+"\n")
+
     #on enregistre les marchandises qui vont etre placé aléatoirement aux débuts des prochains tours
     coordoneeMarchandise = topLeft(donneeJoueurSplit)
     marchandiseTours=[]
@@ -449,7 +469,8 @@ def extraireMarche(page,joueurs):
     
         coordoneePion = topLeft(donneeJoueurSplit)
     pions.sort(reverse=True)
-    print(pions)
+    fichier.write("pions:\n"+str(pions)+"\n")
+    #print(pions)
 
 
     bonus=[]
@@ -460,23 +481,8 @@ def extraireMarche(page,joueurs):
         
         bonus.append([bonusTemp[0]])
         donneeJoueurSplit.pop(0)
-    
-    print(bonus)
-
-
-
-    #on prépare le renvoie des données sous une forme interessante pour leur utilisation
-    listeTuileCentrale=[[],[],[],[],[],[],[]] #liste contenant les tuiles des dés et la boutique du centre
-    #tuile et marchandise du dés de 1 à 6
-    listeTuileCentrale[0] = tuile1 + marchandise1
-    listeTuileCentrale[1] = tuile2 + marchandise2
-    listeTuileCentrale[2] = tuile3 + marchandise3
-    listeTuileCentrale[3] = tuile4 + marchandise4
-    listeTuileCentrale[4] = tuile5 + marchandise5
-    listeTuileCentrale[5] = tuile6 + marchandise6
-    #boutique centrale
-    listeTuileCentrale[6]=tuileNoire
-
+    fichier.write("bonus:\n"+str(bonus)+"\n")
+    #print(bonus)
 
 
 
@@ -484,11 +490,16 @@ def tout(payload):
     donnee=lancerPartie(payload)
     page=donnee.read().decode('utf-8')
     joueurs = listeJoueur(page)
-    """for joueur in joueurs.keys():
-        print("Plateau : "+joueur)
-        extraireDonneeJoueur(joueurs,joueur,page)"""
+    i = 1
+    for joueur in joueurs.keys():
+        #print("Plateau : "+joueur)
+        fichier = open("projet_tech/Donnes/J"+str(i)+".txt", "w")
+        extraireDonneeJoueur(joueurs,joueur,page,fichier)
+        fichier.close()
+        i += 1
     #print(page)
-    extraireMarche(page,joueurs)
+    fichier = open("projet_tech/Donnes/marche.txt", "w")
+    extraireMarche(page,joueurs,fichier)
     
 
 
