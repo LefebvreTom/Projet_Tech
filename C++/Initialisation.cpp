@@ -5,6 +5,8 @@
     //constructeur
     Initialisation::Initialisation()
     {
+
+        //on appelle les methodes d'initialisations des piles et tableaux necessaires au demarrage du jeu
         InitTabMarchandise();
         cout<<endl;
         InitTabBatiment();
@@ -18,12 +20,24 @@
         InitTabAnimal();
         cout<<endl;
         InitPileConnaissance();
+        cout<<endl;
+        InitPileMarcheNoir();
+        cout<<endl;
+        InitTabBonus();
+        cout<<endl;
+        PlateauJoueur test = PlateauJoueur(1);
 
-        /*
-        Animal animaltest;
-        animaltest.initStackAnimal(1);
-        */
+        //section de test
+        cout<<"test du plateau"<<endl;
+        cout<<"le num du de de la case 0 est :"<<test.getCase(0).getnumDe()<<endl;
+        cout<<"le num du de de la case 1 est :"<<test.getCase(1).getnumDe()<<endl;
 
+
+
+    }
+
+    Initialisation::Initialisation(int fin){
+        cout<<"fin de partie"<<endl;
     }
 
     //accesseur
@@ -73,6 +87,20 @@
 
     }
 
+    void Initialisation::InitTabBonus(){
+
+        for(int i=0;i<6;i++){
+            Bonus Stack;
+            cout<<"tabBonus ("<<i<<"):"<<endl;
+            stack <Bonus> StackBonus = Stack.initStackBonus(i+1);
+            TabBonus[i] = StackBonus;
+
+        }
+
+    }
+
+    //init du tableau de bonus
+
 
     //initialisation des piles
 
@@ -96,12 +124,26 @@
         affichetest.AffichagePileMine(StackMines);
     }
 
-    //pile de mines
+    //pile de Connaissance
     void Initialisation::InitPileConnaissance(){
 
         stack <Connaissance> StackConnaissances = StackConnaissance.initStackConnaissance();
-        //affichetest.AffichagePileMine(StackMines);
     }
+
+    //pile du marché noir
+
+    void Initialisation::InitPileMarcheNoir(){
+        MarcheNoir = dosNoir.initStackDosNoir();
+    }
+
+    void Initialisation::ClearMarcheNoir(){
+        while(MarcheNoir.size()>0){
+            delete(MarcheNoir.back());
+        }
+        MarcheNoir.clear();
+        cout<<"la taille de marche noir est de :"<<MarcheNoir.size()<<endl;
+    }
+
 
 
 

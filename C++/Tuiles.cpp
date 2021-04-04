@@ -19,9 +19,7 @@ using namespace std;
         return Id;
     }
 
-    void Tuiles::setType(string type){
-        Type=type;
-    }
-
-    void Tuiles::setCouleur(string couleur){
+    string Tuiles::getIdSite()
+    {
+        return Id_Site;
     }

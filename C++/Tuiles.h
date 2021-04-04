@@ -11,16 +11,16 @@ class Tuiles{
 public:
         virtual ~Tuiles()=0;
         std::string getCouleur();
-        void setType(std::string type);
-        void setCouleur(std::string couleur);
         std::string getType();
         int getId();
+        std::string getIdSite();
 
 protected:
         std::string Type;
         std::string Couleur;
         int Id;
-        std::string MarcheNoir;
+        std::string Id_Site;
+        //bool MarcheNoir = false;
 
 };
 

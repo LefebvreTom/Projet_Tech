@@ -7,6 +7,16 @@ using namespace std;
     {
         Type="chateau";
         Couleur="vert";
+        Id_Site="tc";
+    }
+
+    Chateau::Chateau(string noir)
+    {
+        //tuiles du marche noir
+        //id different
+        Type="chateau";
+        Couleur="vert";
+        Id_Site="tcb";
     }
 
     Chateau::~Chateau(){}
@@ -17,7 +27,7 @@ using namespace std;
     {
         Chateau castle =Chateau();
         stack<Chateau> StackCastle;
-
+        //on cree une pile de 14 tuiles chateaux
         for(int i=0;i<14;i++){
             StackCastle.push(castle);
             }

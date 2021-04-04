@@ -24,7 +24,7 @@
     {
 
         Marchandise march = Stack.top();
-        cout << "La pile contient " << Stack.size() << " marchandises de couleur : " << march.getCouleur()<<" et d'id :"<<march.getId()<<endl;
+        cout << "La pile contient " << Stack.size() << " marchandises de couleur : " << march.getCouleur()<<" et d'id_site :"<<march.getIdSite()<<endl;
         cout<<endl;
     }
 
@@ -33,7 +33,7 @@
     {
 
         Batiment bat = Stack.top();
-        cout << "La pile contient " << Stack.size() << " Batiment de type : " << bat.getType()<<" et d'id :"<<bat.getId()<<endl;
+        cout << "La pile contient " << Stack.size() << " Batiment de type : " << bat.getType()<<" et d'id_site :"<<bat.getIdSite()<<endl;
         cout<<endl;
     }
 
@@ -50,7 +50,7 @@
     {
 
         Chateau castle = Stack.top();
-        cout << "La pile contient " << Stack.size() << " chateaux de couleur : " << castle.getCouleur()<<endl;
+        cout << "La pile contient " << Stack.size() << " chateaux de couleur : " << castle.getCouleur()<<" d'id_site:"<<castle.getIdSite()<<endl;
         cout<<endl;
     }
 
@@ -58,7 +58,7 @@
     {
 
         Bateau boat = Stack.top();
-        cout << "La pile contient " << Stack.size() << " bateaux de couleur : " << boat.getCouleur()<<endl;
+        cout << "La pile contient " << Stack.size() << " bateaux de couleur : " << boat.getCouleur()<<" d'id_site:"<<boat.getIdSite()<<endl;
         cout<<endl;
     }
 
@@ -66,7 +66,7 @@
     {
 
         Mine mine = Stack.top();
-        cout << "La pile contient " << Stack.size() << " mines de couleur : " << mine.getCouleur()<<endl;
+        cout << "La pile contient " << Stack.size() << " mines de couleur : " << mine.getCouleur()<<" d'id_site:"<<mine.getIdSite()<<endl;
         cout<<endl;
     }
 

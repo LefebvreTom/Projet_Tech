@@ -11,12 +11,15 @@ class Marchandise : public Tuiles{
     //Constructeur
     public :
         Marchandise();
+
+        //constructeur d'une marchandise d'une couleur
         Marchandise(int idCouleur);
+
     //destructeur
         ~Marchandise();
 
     //Méthodes
-        std::stack <Marchandise> initStackMarchandise(int idMarch);
+        std::stack <Marchandise> initStackMarchandise(int idMarch);//initialisation d'une pile de marchandises d'une couleur
 
     //Attributs
     protected :

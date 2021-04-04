@@ -19,7 +19,7 @@ class Connaissance : public Tuiles
         ~Connaissance();
 
     //Méthodes
-        std::stack <Connaissance> initStackConnaissance();
+        std::stack <Connaissance> initStackConnaissance();//initialisation de la pile de connaisance (hors celle marche noir)
 
     //Attributs
     protected :

@@ -7,6 +7,14 @@ using namespace std;
     Mine::Mine()
     {
         Couleur="gris";
+        Id_Site="tm";
+    }
+    Mine::Mine(string noir)
+    {
+        //tuiles du marche noir
+        //id different
+        Couleur="gris";
+        Id_Site="tmb";
     }
 
     //destructeur
@@ -20,6 +28,7 @@ using namespace std;
     {
         Mine mine = Mine();
         stack<Mine> StackMine;
+        //creation de la pile des mines
         for(int i=0;i<10;i++){
             StackMine.push(mine);
             }
