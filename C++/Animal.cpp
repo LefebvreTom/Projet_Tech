@@ -12,12 +12,14 @@
         stringstream sstm;
         string concac;
 
+        //on cree une tuile animal selon son type et son nombre sur la tuile
         switch(idRace)
         {
         case 1:
             Type = "poulet";
             Nombre=Nb;
 
+            //on concatene son nom de reperage sur le site avec le nombre pour former le bon id present sur le site
             sstm<<"tap"<<Nb;
             concac = sstm.str();
             Id_Site=concac;
@@ -26,6 +28,7 @@
             Type = "cochon";
             Nombre=Nb;
 
+            //on concatene son nom de reperage sur le site avec le nombre pour former le bon id present sur le site
             sstm<<"tac"<<Nb;
             concac = sstm.str();
             Id_Site=concac;
@@ -34,6 +37,7 @@
             Type = "vache";
             Nombre=Nb;
 
+            //on concatene son nom de reperage sur le site avec le nombre pour former le bon id present sur le site
             sstm<<"tav"<<Nb;
             concac = sstm.str();
             Id_Site=concac;
@@ -42,6 +46,7 @@
             Type = "mouton";
             Nombre=Nb;
 
+            //on concatene son nom de reperage sur le site avec le nombre pour former le bon id present sur le site
             sstm<<"tam"<<Nb;
             concac = sstm.str();
             Id_Site=concac;
@@ -60,12 +65,14 @@
         stringstream sstm;
         string concac;
 
+        //ici on cree les tuiles animaux pour le marche noir
         switch(idRace)
         {
         case 1:
             Type = "poulet";
             Nombre=Nb;
 
+            //on concatene son nom de reperage sur le site avec le nombre pour former le bon id present sur le site
             sstm<<"tap"<<Nb<<"b";
             concac = sstm.str();
             Id_Site=concac;
@@ -74,6 +81,7 @@
             Type = "cochon";
             Nombre=Nb;
 
+            //on concatene son nom de reperage sur le site avec le nombre pour former le bon id present sur le site
             sstm<<"tac"<<Nb<<"b";
             concac = sstm.str();
             Id_Site=concac;
@@ -82,6 +90,7 @@
             Type = "vache";
             Nombre=Nb;
 
+            //on concatene son nom de reperage sur le site avec le nombre pour former le bon id present sur le site
             sstm<<"tav"<<Nb<<"b";
             concac = sstm.str();
             Id_Site=concac;
@@ -90,6 +99,7 @@
             Type = "mouton";
             Nombre=Nb;
 
+            //on concatene son nom de reperage sur le site avec le nombre pour former le bon id present sur le site
             sstm<<"tam"<<Nb<<"b";
             concac = sstm.str();
             Id_Site=concac;
@@ -116,12 +126,18 @@
 
     // f°creation random de la pile
     stack <Animal> Animal::initStackAnimal(int idRace){
+
+        //int de test pour compter le nombre de tuiles animaux qui doivent etre present
         int testNb2=2;
         int testNb3=2;
         int testNb4=1;
+
+
         stack<Animal> StackAnimal;
 
         while(StackAnimal.size()<5){
+
+            //on randomise l'apparation des tuiles dans la pile
             int resultat=(rand()%3)+2;
 
             switch(resultat)

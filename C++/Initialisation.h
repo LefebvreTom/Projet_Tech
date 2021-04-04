@@ -28,6 +28,8 @@ class Initialisation
 
 
     //Méthodes
+
+        //methodes permettant l'initialisation de chaque composantes du jeu en debut de partie
         void InitTabMarchandise();
         void InitTabBatiment();
         void InitTabAnimal();
@@ -37,7 +39,10 @@ class Initialisation
         void InitPileConnaissance();
         void InitPileMarcheNoir();
         void InitTabBonus();
+
+        //methode pour vider le vecteur du marche noir
         void ClearMarcheNoir();
+
     //Attributs
     protected :
         std::stack <Marchandise> TabMarchandise[6];

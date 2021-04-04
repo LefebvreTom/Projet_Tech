@@ -9,6 +9,10 @@
     Connaissance::Connaissance(int idType)
     {
         Id = idType;
+
+        //on cree une tuiles batiments selon son type
+        //les tuiles  d'id 7,12,14,15,24,25 son du marche noir
+
         switch(idType)
         {
         case 1:
@@ -146,9 +150,13 @@
     // f°creation random de la pile
     stack <Connaissance> Connaissance::initStackConnaissance(){
         stack<Connaissance> StackConnaissance;
+
+        //il ne doit y avoir qu'une tuiles de chaque type, on test alors avec ce tableau de test s'il reste 1 tuile a cree du type
         int testcas[27]={1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
 
         while(StackConnaissance.size()<20){
+
+            //on randomise l'ordre d'apparation, les tuiles du marche noir ne rentre pas dans la pile
             int resultat=(rand()%26)+1;
             switch(resultat){
 
@@ -335,6 +343,7 @@
 
 
         }
+        //on test la taille de la pile
         cout<<"taille de la pile: "<<StackConnaissance.size()<<endl;
         return StackConnaissance;
     }

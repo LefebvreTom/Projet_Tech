@@ -10,12 +10,14 @@ class Bonus : public Tuiles{
     //Constructeur
     public :
         Bonus();
+        //constructeur de la tuile bonus
         Bonus(int idCouleur,std::string type);
+
     //destructeur
         ~Bonus();
 
     //Méthodes
-        std::stack <Bonus> initStackBonus(int idCouleur);
+        std::stack <Bonus> initStackBonus(int idCouleur);//on cree la pile contenant une grande et une petite tuile bonus d'une couleur
 
     //Attributs
     protected :

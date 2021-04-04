@@ -11,7 +11,6 @@
 
     De::De(int face)
     {
-
         //premier random
         resultat=face;
 

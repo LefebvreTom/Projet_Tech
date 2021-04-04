@@ -10,37 +10,39 @@
     {
         Id = idCouleur;
 
+        //on cree une tuile bonus servant lors de la completion d'un quartier entier
+        //le type correspond a une tuile soit grande soit petite
         switch(idCouleur)
         {
         case 1:
             Couleur = "bleu";
             Type = type;
-            //Id_Site = "m1";
+
             break;
         case 2:
             Couleur = "violet";
             Type = type;
-            //Id_Site = "m2";
+
             break;
         case 3:
             Couleur = "rose";
             Type = type;
-            //Id_Site = "m3";
+
             break;
         case 4:
             Couleur = "rouge";
             Type = type;
-            //Id_Site = "m4";
+
             break;
         case 5:
             Couleur = "marron";
             Type = type;
-            //Id_Site = "m5";
+
             break;
         case 6:
             Couleur = "jaune";
             Type = type;
-            //Id_Site = "m6";
+
             break;
         default :
             break;

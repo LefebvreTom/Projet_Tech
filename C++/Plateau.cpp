@@ -9,9 +9,9 @@ using namespace std;
         return Type;
     }
 
-    int Plateau::getIdJoueur()
+    int Plateau::getId()
     {
-        return Id_Joueur;
+        return Id;
     }
 
     string Plateau::getIdSite()

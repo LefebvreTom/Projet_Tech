@@ -16,14 +16,22 @@ using namespace std;
     // f°creation des piles
     vector <Tuiles*> DosNoir::initStackDosNoir()
     {
+
+        //on passe par un vector car les tuiles sont polymorphes car la classe mere Tuiles est abstraite
         vector<Tuiles*> StackDosNoir;
+
+        //on test le nombre de tuiles du type qu'il reste a cree
         int testcas[26]={0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,6}; //8*1+10*2+6*1+6
         cout<<"La pile du Marche Noir"<<endl;
 
         while(StackDosNoir.size()<40){
+
+            //on randomise l'apparition dans la pile
             int resultat=(rand()%25)+1;
+
             switch(resultat){
 
+                //pour chaque cas on appelle le constructeur speciale marche noir de chaque tuiles
                 case 1:
                     if(testcas[1]>0){
 
@@ -255,6 +263,8 @@ using namespace std;
             }
 
         }
+
+        //on test la taille de la pile a la fin de sa creation
         cout<<"taille pile :"<<StackDosNoir.size()<<endl;
 
         return StackDosNoir;

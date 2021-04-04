@@ -19,12 +19,12 @@ public:
        ~Case();
 
     //methode
-        int getnumDe();
+        int getnumDe();//methode pour recuperer le numero du dé necessaire pour poser une tuile sur cette case
 
 protected:
-        int Id;
-        std::string Couleur;
-        int NumeroDe;
+        int Id;//id de la case
+        std::string Couleur;//sa couleur
+        int NumeroDe;//le numero du de associe
 
 
 };

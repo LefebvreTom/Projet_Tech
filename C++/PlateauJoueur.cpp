@@ -5,9 +5,11 @@ using namespace std;
     //constructeur
     PlateauJoueur ::PlateauJoueur(int idJoueur)
     {
-        Id_Joueur=idJoueur;
+        Id=idJoueur;
         Type = "joueur";
 
+        //on remplie les cases du tableaux avec les cases definit du plateau d'un joueur (voir image)
+        //Case(id de la case, numero du dé pour poser la tuile sur la case, couleur de la case)
         tabCase[0] = Case(0,6,"bleu");
         tabCase[1] = Case(1,2,"marron");
         tabCase[2] = Case(2,6,"marron");
@@ -46,6 +48,7 @@ using namespace std;
         tabCase[35] = Case(35,3,"marron");
         tabCase[36] = Case(36,1,"bleu");
 
+        //création de la reserve de tuiles et de marchandises
         for(int i=0;i<3;i++){
             tabReserve[i]=Case();
             tabMarch[i]=Marchandise();

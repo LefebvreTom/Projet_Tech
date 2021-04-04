@@ -28,7 +28,7 @@ class DosNoir
 
     //Méthodes
     public :
-        std::vector <Tuiles*> initStackDosNoir();
+        std::vector <Tuiles*> initStackDosNoir();//initialisation du vecteur contenant toutes les tuiles du marche noir
 
     //Attributs
     protected :

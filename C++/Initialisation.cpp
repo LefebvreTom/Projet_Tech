@@ -5,6 +5,8 @@
     //constructeur
     Initialisation::Initialisation()
     {
+
+        //on appelle les methodes d'initialisations des piles et tableaux necessaires au demarrage du jeu
         InitTabMarchandise();
         cout<<endl;
         InitTabBatiment();
@@ -24,16 +26,13 @@
         InitTabBonus();
         cout<<endl;
         PlateauJoueur test = PlateauJoueur(1);
+
+        //section de test
         cout<<"test du plateau"<<endl;
-        cout<<test.getCase(0).getnumDe();
-        cout<<test.getCase(1).getnumDe();
+        cout<<"le num du de de la case 0 est :"<<test.getCase(0).getnumDe()<<endl;
+        cout<<"le num du de de la case 1 est :"<<test.getCase(1).getnumDe()<<endl;
 
 
-
-        /*
-        Animal animaltest;
-        animaltest.initStackAnimal(1);
-        */
 
     }
 

@@ -11,6 +11,7 @@
     {
         Id = idType;
 
+        //on cree les tuiles des batiments selon leur type
         switch(idType)
         {
         case 1:
@@ -57,6 +58,8 @@
     {
         Id = idType;
 
+        //creation des tuiles batiments pour le marche noir
+        //id different
         switch(idType)
         {
         case 1:
@@ -111,6 +114,7 @@
     {
         Batiment bat = Batiment(idType);
         stack<Batiment> StackBat;
+        //on cree une pile de tuiles batiments d'un type donnee
         for(int i=0;i<5;i++){
             StackBat.push(bat);
             }

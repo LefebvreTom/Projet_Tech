@@ -13,13 +13,14 @@ class Mine : public Tuiles
     //Constructeur
     public :
         Mine();
+        //celui du marche noir
         Mine(std::string noir);
     //Destructeur
         ~Mine();
 
     //Méthodes
     public :
-        std::stack <Mine> initStackMine();
+        std::stack <Mine> initStackMine();//creation de la pile de tuiles mines
 
     //Attributs
     protected :

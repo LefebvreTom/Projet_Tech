@@ -60,6 +60,8 @@
 		<Unit filename="Mine.h" />
 		<Unit filename="Plateau.cpp" />
 		<Unit filename="Plateau.h" />
+		<Unit filename="PlateauCentral.cpp" />
+		<Unit filename="PlateauCentral.h" />
 		<Unit filename="PlateauJoueur.cpp" />
 		<Unit filename="PlateauJoueur.h" />
 		<Unit filename="Tuiles.cpp" />

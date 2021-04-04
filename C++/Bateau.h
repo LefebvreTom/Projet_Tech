@@ -13,13 +13,16 @@ class Bateau : public Tuiles
     //Constructeur
     public :
         Bateau();
+
+        //celui pour le marche noir
         Bateau(std::string noir);
+
     //Destructeur
         ~Bateau();
 
     //Méthodes
     public :
-        std::stack <Bateau> initStackBateau();
+        std::stack <Bateau> initStackBateau();//initialisation de la pile
 
     //Attributs
     protected :

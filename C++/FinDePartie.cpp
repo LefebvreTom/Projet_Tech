@@ -12,6 +12,8 @@ using namespace std;
 
         if(quit=='O'||quit=='o'){
             Initialisation init = Initialisation(0);
+
+            //on clear le vector du mache noir en desalouant les pointeurs.
             init.ClearMarcheNoir();
             exit(0);
         }

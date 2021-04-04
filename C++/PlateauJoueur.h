@@ -24,11 +24,11 @@ public:
         Case getCase(int id);
 
 protected:
-        int Ouvrier;
-        int Pepite;
-        Case tabCase[37];
-        Case tabReserve[3];
-        Marchandise tabMarch[3];
+        int Ouvrier; //nbr d'ouvrier du joueur
+        int Pepite; //nbr de pepite
+        Case tabCase[37]; //son tableau representant son plateau
+        Case tabReserve[3]; //reserve des tuiles non posé encore
+        Marchandise tabMarch[3]; //reserve des marchandises non vendues
 
 
 };

@@ -11,6 +11,7 @@
     {
         Id = idCouleur;
 
+        //creation d'une marchandises selon sa couleur
         switch(idCouleur)
         {
         case 1:
@@ -57,6 +58,8 @@
     {
         Marchandise march = Marchandise(idMarch);
         stack<Marchandise> StackMarch;
+
+        //creation d'une pile de marchandises d'une couleur
         for(int i=0;i<7;i++){
             StackMarch.push(march);
             }

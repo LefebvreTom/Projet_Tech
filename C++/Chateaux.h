@@ -13,11 +13,14 @@ public:
     //Constructeur
     public :
         Chateau();
+
+        //celui du marche noir
         Chateau(std::string noir);
+
     //destructeur
         ~Chateau();
     //methode
-        std::stack <Chateau> initStackChateau();
+        std::stack <Chateau> initStackChateau();//initialisationde la pile
 
     protected:
 

@@ -23,6 +23,8 @@ class AffichageTest
         AffichageTest();
 
     //Méthodes
+
+    //methodes appellees pour verifier les piles, tableaux etc
     void AffichageMarch(Marchandise march);
     void AffichageDe(De de);
     void AffichagePileMarch(std::stack<Marchandise> Stack);
