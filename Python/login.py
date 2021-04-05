@@ -211,20 +211,17 @@ def extraireReserve(donnee,fichier):
 
 
 
-def extrairePlateau(donnee):
+def extrairePlateau(donnee,fichier):
     """
         On retourne la tableau  des tuiles du domaine en remplissant de façon à correspondre la valeur et la couleur 
         et en le faisant en sorte d'avoir une forme héxagonal pour garder la logique de 6 voisins
     """
-    tableauPlateauJoueur=[]
-    for j in range(7):
-        tableauPlateauJoueur.append([['',''],['',''],['',''],['',''],['',''],['',''],['',''],['',''],['',''],['',''],['',''],['',''],['','']])
+    """for j in range(7):
+        tableauPlateauJoueur.append([['',''],['',''],['',''],['',''],['',''],['',''],['',''],['',''],['',''],['',''],['',''],['',''],['','']])"""
+    fichier.write("plateau:\n")
     for i in range(37):
         couleur,valeur=extraireTuile(donnee)
-        coord=extraireCoordonnee(i)
-        tableauPlateauJoueur=remplissageTableau(tableauPlateauJoueur, coord, couleur, valeur)
-        #print("Case : " + couleur +"\nValeur : " + valeur + "\nLigne :" + str(coord//13) + "\nColonne :" + str(coord%13) + "\n========================================")
-    return (tableauPlateauJoueur)
+        fichier.write(couleur+";"+valeur+"\n")
 
 
 
@@ -315,9 +312,7 @@ def extraireDonneeJoueur(listeJoueurs,joueur,page,fichier):
     while(len(reserve)!=1):
         extraireReserve(donneeJoueurSplit,fichier)
         reserve = re.findall("url",donneeJoueurSplit[0])
-    tableauPlateauJoueur=[]
-    tableauPlateauJoueur=extrairePlateau(donneeJoueurSplit) #On recupere le tableau des tuiles du domaine
-    fichier.write("plateau:\n"+str(tableauPlateauJoueur)+"\n")
+    extrairePlateau(donneeJoueurSplit,fichier) #On recupere le tableau des tuiles du domaine
     ouvrier = extraireOuvrier(donneeJoueurSplit) #On recupère les ouvriers
     fichier.write("ouvrier:\n"+str(ouvrier))
     #print ("Vous avez " + ouvrier + " ouvrier")
@@ -440,7 +435,11 @@ def extraireMarche(page,joueurs,fichier):
     listeTuileCentrale[5] = tuile6 + marchandise6
     #boutique centrale
     listeTuileCentrale[6]=tuileNoire
-    fichier.write("tuile_centrale:\n"+str(listeTuileCentrale)+"\n")
+
+    fichier.write("tuile_centrale:\n")
+    for i in range(len(listeTuileCentrale)):
+        fichier.write(str(listeTuileCentrale[i])+"\n")
+    
 
     #on enregistre les marchandises qui vont etre placé aléatoirement aux débuts des prochains tours
     coordoneeMarchandise = topLeft(donneeJoueurSplit)
@@ -469,7 +468,9 @@ def extraireMarche(page,joueurs,fichier):
     
         coordoneePion = topLeft(donneeJoueurSplit)
     pions.sort(reverse=True)
-    fichier.write("pions:\n"+str(pions)+"\n")
+    fichier.write("pions:\n")
+    for i in range(len(pions)):
+        fichier.write(str(pions[i])+"\n") 
     #print(pions)
 
 
@@ -481,7 +482,9 @@ def extraireMarche(page,joueurs,fichier):
         
         bonus.append([bonusTemp[0]])
         donneeJoueurSplit.pop(0)
-    fichier.write("bonus:\n"+str(bonus)+"\n")
+    fichier.write("bonus:\n")
+    for i in range(len(bonus)):
+        fichier.write(str(bonus[i])+"\n") 
     #print(bonus)
 
 
