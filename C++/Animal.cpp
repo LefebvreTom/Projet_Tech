@@ -9,6 +9,7 @@
     Animal::Animal(int idRace,int Nb)
     {
         Id = idRace;
+        Couleur = "vert";
         stringstream sstm;
         string concac;
 
@@ -62,6 +63,7 @@
     Animal::Animal(int idRace,int Nb,string noir)
     {
         Id = idRace;
+        Couleur = "vert";
         stringstream sstm;
         string concac;
 

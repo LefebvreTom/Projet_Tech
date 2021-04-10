@@ -25,12 +25,12 @@
         cout<<endl;
         InitTabBonus();
         cout<<endl;
-        PlateauJoueur test = PlateauJoueur(1);
+        J1 = PlateauJoueur(1);
+        J2 = PlateauJoueur(2);
 
-        //section de test
-        cout<<"test du plateau"<<endl;
-        cout<<"le num du de de la case 0 est :"<<test.getCase(0).getnumDe()<<endl;
-        cout<<"le num du de de la case 1 est :"<<test.getCase(1).getnumDe()<<endl;
+        //recuperation du plateau marche
+        marche = PlateauCentral();
+        marche.recupPlateau();
 
 
 
@@ -142,6 +142,25 @@
         }
         MarcheNoir.clear();
         cout<<"la taille de marche noir est de :"<<MarcheNoir.size()<<endl;
+    }
+
+    PlateauJoueur Initialisation::getJoueur(int id){
+        PlateauJoueur resultat;
+        if (id==1){
+            resultat=J1;
+        }
+        if(id==2){
+            resultat=J2;
+        }
+        return resultat;
+    }
+    void Initialisation::setJoueur(int id,PlateauJoueur joueur){
+        if (id==1){
+            J1=joueur;
+        }
+        if(id==2){
+            J2=joueur;
+        }
     }
 
 

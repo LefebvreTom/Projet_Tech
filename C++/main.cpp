@@ -9,6 +9,7 @@
 #include "affichageTest.h"
 
 #include "FinDePartie.h"
+#include "Partie.h"
 
 
 
@@ -31,8 +32,15 @@ int main()
     }
 
     //Initialisation
-    Initialisation init;
-        cout<<endl;
+
+    cout<<endl;
+
+    //partie
+    Partie partie;
+    partie.MajPlateauJoueur("J1");
+    partie.MajPlateauJoueur("J2");
+
+
 
     //fin de partie
     FinDePartie fin;

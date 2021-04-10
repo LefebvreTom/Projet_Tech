@@ -10,6 +10,7 @@
     Batiment::Batiment(int idType)
     {
         Id = idType;
+        Couleur = "marron";
 
         //on cree les tuiles des batiments selon leur type
         switch(idType)
@@ -57,6 +58,7 @@
     Batiment::Batiment(int idType,string noir)
     {
         Id = idType;
+        Couleur = "marron";
 
         //creation des tuiles batiments pour le marche noir
         //id different

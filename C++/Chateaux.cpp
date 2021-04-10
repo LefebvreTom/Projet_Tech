@@ -6,7 +6,7 @@ using namespace std;
     Chateau::Chateau()
     {
         Type="chateau";
-        Couleur="vert";
+        Couleur="vert fonce";
         Id_Site="tc";
     }
 
@@ -15,7 +15,7 @@ using namespace std;
         //tuiles du marche noir
         //id different
         Type="chateau";
-        Couleur="vert";
+        Couleur="vert fonce";
         Id_Site="tcb";
     }
 

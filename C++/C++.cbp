@@ -58,6 +58,8 @@
 		<Unit filename="Marchandise.h" />
 		<Unit filename="Mine.cpp" />
 		<Unit filename="Mine.h" />
+		<Unit filename="Partie.cpp" />
+		<Unit filename="Partie.h" />
 		<Unit filename="Plateau.cpp" />
 		<Unit filename="Plateau.h" />
 		<Unit filename="PlateauCentral.cpp" />

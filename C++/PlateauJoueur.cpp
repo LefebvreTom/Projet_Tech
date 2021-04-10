@@ -3,6 +3,9 @@
 using namespace std;
 
     //constructeur
+
+    PlateauJoueur::PlateauJoueur(){}
+
     PlateauJoueur ::PlateauJoueur(int idJoueur)
     {
         Id=idJoueur;
@@ -48,10 +51,19 @@ using namespace std;
         tabCase[35] = Case(35,3,"marron");
         tabCase[36] = Case(36,1,"bleu");
 
-        //création de la reserve de tuiles et de marchandises
+        //création du tableau de marchandises du joueur et de la reserve
         for(int i=0;i<3;i++){
-            tabReserve[i]=Case();
-            tabMarch[i]=Marchandise();
+            tabMarch[i][0]=0;
+            tabMarch[i][1]=0;
+            Reserve[i]="";
+
+        }
+
+
+
+        //tableau de marchandises vendues
+        for(int i=0;i<6;i++){
+            tabVendu[i]=0;
         }
 
 
@@ -65,4 +77,57 @@ using namespace std;
         return tabCase[id];
     }
 
-    //Methodes
+
+    int PlateauJoueur::getde(int i){
+        int resultat;
+        if (i==1){
+           resultat=de1;
+        }
+        if (i==2){
+           resultat=de2;
+        }
+        return resultat;
+    }
+
+    int PlateauJoueur::getMarch(int i){
+        return tabMarch[i][0];
+    }
+
+    int PlateauJoueur::getNbMarch(int i){
+        return tabMarch[i][1];
+    }
+
+
+    int PlateauJoueur::getNbMarchVendu(int i){
+        return tabVendu[i];
+    }
+
+    string PlateauJoueur::getReserve(int i){
+        return Reserve[i];
+    }
+
+
+    //setter
+
+    void PlateauJoueur::setde(int i,int resultat){
+        if (i==1){
+           de1=resultat;
+        }
+        if (i==2){
+           de2=resultat;
+        }
+    }
+
+    void PlateauJoueur::setMarch(int i,int j,int resultat){
+        tabMarch[i][j]=resultat;
+    }
+
+    void PlateauJoueur::setVendu(int i,int resultat){
+        tabVendu[i]=resultat;
+    }
+
+    void PlateauJoueur::setReserve(int i,string resultat){
+        Reserve[i]=resultat;
+    }
+
+

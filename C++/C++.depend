@@ -181,19 +181,19 @@
 	<stack>
 	"Tuiles.h"
 
-1617541161 source:c:\users\user\desktop\projet tech\pour bosser\c++\animal.cpp
+1617623908 source:c:\users\user\desktop\projet tech\pour bosser\c++\animal.cpp
 	"Animal.h"
 
 1617541228 source:c:\users\user\desktop\projet tech\pour bosser\c++\bateau.cpp
 	"Bateau.h"
 
-1617541304 source:c:\users\user\desktop\projet tech\pour bosser\c++\batiment.cpp
+1617623908 source:c:\users\user\desktop\projet tech\pour bosser\c++\batiment.cpp
 	"Batiment.h"
 
-1617541447 source:c:\users\user\desktop\projet tech\pour bosser\c++\chateaux.cpp
+1617623908 source:c:\users\user\desktop\projet tech\pour bosser\c++\chateaux.cpp
 	"Chateaux.h"
 
-1617541612 source:c:\users\user\desktop\projet tech\pour bosser\c++\connaissance.cpp
+1617623908 source:c:\users\user\desktop\projet tech\pour bosser\c++\connaissance.cpp
 	"Connaissance.h"
 
 1617543451 c:\users\user\desktop\projet tech\pour bosser\c++\connaissance.h
@@ -206,10 +206,10 @@
 1617541701 source:c:\users\user\desktop\projet tech\pour bosser\c++\de.cpp
 	"De.h"
 
-1617542758 source:c:\users\user\desktop\projet tech\pour bosser\c++\initialisation.cpp
+1617877355 source:c:\users\user\desktop\projet tech\pour bosser\c++\initialisation.cpp
 	"Initialisation.h"
 
-1617543639 c:\users\user\desktop\projet tech\pour bosser\c++\initialisation.h
+1617877348 c:\users\user\desktop\projet tech\pour bosser\c++\initialisation.h
 	"Tuiles.h"
 	"affichageTest.h"
 	"Marchandise.h"
@@ -222,11 +222,12 @@
 	"DosNoir.h"
 	"Bonus.h"
 	"PlateauJoueur.h"
+	"PlateauCentral.h"
 	<string>
 	<stack>
 	<vector>
 
-1616752101 source:c:\users\user\desktop\projet tech\pour bosser\c++\main.cpp
+1617893786 source:c:\users\user\desktop\projet tech\pour bosser\c++\main.cpp
 	<iostream>
 	<string>
 	<stack>
@@ -237,11 +238,12 @@
 	"Initialisation.h"
 	"affichageTest.h"
 	"FinDePartie.h"
+	"Partie.h"
 
-1616687771 source:c:\users\user\desktop\projet tech\pour bosser\c++\marchandise.cpp
+1617542931 source:c:\users\user\desktop\projet tech\pour bosser\c++\marchandise.cpp
 	"Marchandise.h"
 
-1616842672 source:c:\users\user\desktop\projet tech\pour bosser\c++\mine.cpp
+1617542968 source:c:\users\user\desktop\projet tech\pour bosser\c++\mine.cpp
 	"Mine.h"
 
 1616841537 source:c:\users\user\desktop\projet tech\pour bosser\c++\tuiles.cpp
@@ -289,16 +291,17 @@
 	<stdlib.h>
 	<string>
 
-1617540879 source:c:\users\user\desktop\projet tech\pour bosser\c++\plateaujoueur.cpp
+1618062444 source:c:\users\user\desktop\projet tech\pour bosser\c++\plateaujoueur.cpp
 	"PlateauJoueur.h"
 
-1617543909 c:\users\user\desktop\projet tech\pour bosser\c++\plateaujoueur.h
+1618062444 c:\users\user\desktop\projet tech\pour bosser\c++\plateaujoueur.h
 	"Plateau.h"
 	"Case.h"
 	"Marchandise.h"
 	<iostream>
 	<stdlib.h>
 	<string>
+	<vector>
 
 1617540879 source:c:\users\user\desktop\projet tech\pour bosser\c++\case.cpp
 	"Case.h"
@@ -308,5 +311,37 @@
 	<stdlib.h>
 	<string>
 
-1617539851 source:c:\users\user\desktop\projet tech\pour bosser\c++\plateaucentral.cpp
+1617631446 source:c:\users\user\desktop\projet tech\pour bosser\c++\plateaucentral.cpp
+	"PlateauCentral.h"
+
+1617629715 c:\users\user\desktop\projet tech\pour bosser\c++\plateaucentral.h
+	"Plateau.h"
+	<iostream>
+	<stdlib.h>
+	<fstream>
+	<string>
+
+1617876256 c:\users\user\desktop\projet tech\pour bosser\c++\partie.h
+	"Tuiles.h"
+	"affichageTest.h"
+	"Marchandise.h"
+	"Chateaux.h"
+	"Bateau.h"
+	"Mine.h"
+	"Batiment.h"
+	"Animal.h"
+	"Connaissance.h"
+	"DosNoir.h"
+	"Bonus.h"
+	"PlateauJoueur.h"
+	"PlateauCentral.h"
+	"Initialisation.h"
+	<string>
+	<stack>
+	<vector>
+	<sstream>
+	<iostream>
+
+1618062444 source:c:\users\user\desktop\projet tech\pour bosser\c++\partie.cpp
+	"Partie.h"
 

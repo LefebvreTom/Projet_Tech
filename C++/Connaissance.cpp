@@ -9,6 +9,7 @@
     Connaissance::Connaissance(int idType)
     {
         Id = idType;
+        Couleur = "jaune";
 
         //on cree une tuiles batiments selon son type
         //les tuiles  d'id 7,12,14,15,24,25 son du marche noir

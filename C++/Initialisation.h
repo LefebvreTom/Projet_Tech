@@ -13,6 +13,7 @@
 #include "DosNoir.h"
 #include "Bonus.h"
 #include "PlateauJoueur.h"
+#include "PlateauCentral.h"
 
 #include <string>
 #include <stack>
@@ -43,6 +44,10 @@ class Initialisation
         //methode pour vider le vecteur du marche noir
         void ClearMarcheNoir();
 
+        //
+        PlateauJoueur getJoueur(int id);
+        void setJoueur(int id, PlateauJoueur joueur);
+
     //Attributs
     protected :
         std::stack <Marchandise> TabMarchandise[6];
@@ -56,6 +61,9 @@ class Initialisation
         Connaissance StackConnaissance;
         DosNoir dosNoir;
         std::vector<Tuiles*> MarcheNoir;
+        PlateauCentral marche;
+        PlateauJoueur J1 ;
+        PlateauJoueur J2 ;
 
 };
 
