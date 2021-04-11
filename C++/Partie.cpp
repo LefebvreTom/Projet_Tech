@@ -80,6 +80,19 @@
                     cout <<"de2 du joueur"<<id<<"vaut:"<<joueur.getde(2)<<endl;
 
                 }
+                //LES  PEPITES
+                if(ligne.compare("pepite:")==0)
+                {
+                    cout<<"test ligne pepite"<<endl;
+                    getline(monFlux2, ligne);
+                    istringstream iss( ligne );
+                    int resultat;
+                    iss >> resultat; //resultat = nbr de pepite
+                    joueur.setPepite(resultat);
+
+                    //cout<<ligne<<endl;
+
+                }
 
                 //LES MARCHANDISES
                 if(ligne.compare("marchandise:")==0)
@@ -206,6 +219,44 @@
                 //LE PLATEAU
                 if(ligne.compare("plateau:")==0){
                     cout<<"test plateau"<<endl;
+                    for(int i=0;i<37;i++)//on travaille sur 37 lignes = 37 cases
+                    {
+                        getline(monFlux2, ligne);
+                        istringstream iss( ligne );
+                        string morceau;
+
+                        int test=0;
+                        while (getline(iss, morceau, ';' ) )//on decoupe les lignes du doc
+                        {
+                            if(test==1)//on veut recuperer que le 2eme morceau pour avoir la valeur du de ou la tuile
+                            {
+
+                                //cout<<"case du plateau:"<<morceau<<endl;
+                                if(morceau.at(0)!='d'){
+                                    //cout<<morceau<<endl;
+                                    Case chgt = joueur.getCase(i);
+                                    chgt.setType(morceau);
+                                    joueur.setCase(i,chgt);
+
+                                }
+
+
+                            }
+                            test=test+1;
+                        }
+                    }
+                }
+
+                //LES OUVRIERS
+                if(ligne.compare("ouvrier:")==0){
+                    cout<<"test ligne ouvrier"<<endl;
+                    getline(monFlux2, ligne);
+                    istringstream iss( ligne );
+                    int resultat;
+                    iss >> resultat; //resultat = nbr d'ouvrier
+                    joueur.setOuvrier(resultat);
+
+                    //cout<<ligne<<endl;
                 }
 
 
@@ -213,7 +264,17 @@
 
 
 
+
             }
+            //on test des trucs du joueurs
+            Case test =joueur.getCase(2);
+            cout<<"case 3 (id:2) du plateau :"<<test.getnumDe()<<"/"<<test.getType()<<endl;
+            test =joueur.getCase(10);
+            cout<<"case 11 (id:10) du plateau :"<<test.getnumDe()<<"/"<<test.getType()<<endl;
+            int test2=joueur.getPepite();
+            cout<<"pepite du joueur:"<<test2<<endl;
+            test2=joueur.getOuvrier();
+            cout<<"ouvrier du joueur:"<<test2<<endl;
 
             //on modifie le joueur numero id
             init.setJoueur(id,joueur);

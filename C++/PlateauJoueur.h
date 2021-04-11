@@ -31,11 +31,16 @@ public:
         int getNbMarch(int i);
         int getNbMarchVendu(int i);
         std::string getReserve(int i);
+        int getPepite();
+        int getOuvrier();
 
         void setde(int i,int resultat);
         void setMarch(int i, int j,int resultat);
         void setVendu(int i, int resultat);
         void setReserve(int i,std::string resultat);
+        void setCase(int i,Case resultat);
+        void setPepite(int resultat);
+        void setOuvrier(int resultat);
 
 
 

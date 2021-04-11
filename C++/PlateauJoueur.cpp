@@ -106,6 +106,14 @@ using namespace std;
         return Reserve[i];
     }
 
+    int PlateauJoueur::getPepite(){
+        return Pepite;
+    }
+
+    int PlateauJoueur::getOuvrier(){
+        return Ouvrier;
+    }
+
 
     //setter
 
@@ -128,6 +136,18 @@ using namespace std;
 
     void PlateauJoueur::setReserve(int i,string resultat){
         Reserve[i]=resultat;
+    }
+
+    void PlateauJoueur::setCase(int i,Case resultat){
+        tabCase[i]=resultat;
+    }
+
+    void PlateauJoueur::setPepite(int resultat){
+        Pepite=resultat;
+    }
+
+    void PlateauJoueur::setOuvrier(int resultat){
+        Ouvrier=resultat;
     }
 
 
