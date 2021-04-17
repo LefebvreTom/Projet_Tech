@@ -496,12 +496,12 @@ def tout(payload):
     i = 1
     for joueur in joueurs.keys():
         #print("Plateau : "+joueur)
-        fichier = open("projet_tech/Donnes/J"+str(i)+".txt", "w")
+        fichier = open("../Donnes/J"+str(i)+".txt", "w")
         extraireDonneeJoueur(joueurs,joueur,page,fichier)
         fichier.close()
         i += 1
     #print(page)
-    fichier = open("projet_tech/Donnes/marche.txt", "w")
+    fichier = open("../Donnes/marche.txt", "w")
     extraireMarche(page,joueurs,fichier)
     
 

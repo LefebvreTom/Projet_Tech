@@ -45,8 +45,8 @@ class Initialisation
         void ClearMarcheNoir();
 
         //
-        PlateauJoueur getJoueur(int id);
-        void setJoueur(int id, PlateauJoueur joueur);
+        //PlateauJoueur getJoueur(int id);
+        //void setJoueur(int id, PlateauJoueur joueur);
 
     //Attributs
     protected :
@@ -61,9 +61,7 @@ class Initialisation
         Connaissance StackConnaissance;
         DosNoir dosNoir;
         std::vector<Tuiles*> MarcheNoir;
-        PlateauCentral marche;
-        PlateauJoueur J1 ;
-        PlateauJoueur J2 ;
+
 
 };
 

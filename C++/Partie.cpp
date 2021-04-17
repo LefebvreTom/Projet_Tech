@@ -4,24 +4,32 @@
 
     //constructeur
     Partie::Partie(){
+        J1 = PlateauJoueur(1);
+        J2 = PlateauJoueur(2);
+        marche = PlateauCentral();
+
     }
 
 
     //methode
-    void Partie::MajPlateauJoueur(string Joueur){
+    void Partie::MajPlateauJoueur(string Joueur)
+    {
+        //recuperation du plateau marche
+        marche.recupPlateau();
 
-        int id;
+        //recuperation de l'ensemble des donnees d'un joueur
+        PlateauJoueur joueur;
         if(Joueur.compare("J1")==0)
         {
-            id=1;
+            joueur=J1;
         }
         if(Joueur.compare("J2")==0)
         {
-            id=2;
+            joueur=J2;
         }
 
-        PlateauJoueur joueur;
-        joueur=init.getJoueur(id);
+        //PlateauJoueur joueur;
+        //joueur=init.getJoueur(id);
 
 
         string fichier="../Donnes/";
@@ -76,8 +84,8 @@
                             test=test+1;
                         }
                     }
-                    cout <<"de1 du joueur"<<id<<"vaut:"<<joueur.getde(1)<<endl;
-                    cout <<"de2 du joueur"<<id<<"vaut:"<<joueur.getde(2)<<endl;
+                    cout <<"de1 du joueur vaut:"<<joueur.getde(1)<<endl;
+                    cout <<"de2 du joueur vaut:"<<joueur.getde(2)<<endl;
 
                 }
                 //LES  PEPITES
@@ -276,8 +284,17 @@
             test2=joueur.getOuvrier();
             cout<<"ouvrier du joueur:"<<test2<<endl;
 
-            //on modifie le joueur numero id
-            init.setJoueur(id,joueur);
+            //on modifie le joueur
+            if(Joueur.compare("J1")==0)
+            {
+                J1=joueur;
+            }
+            if(Joueur.compare("J2")==0)
+            {
+                J2=joueur;
+            }
+
+            //init.setJoueur(id,joueur);
 
             //on ferme le fichier
             monFlux2.close();
@@ -287,4 +304,22 @@
         {
             cout << "ERREUR: Impossible d'ouvrir le fichier en lecture." << endl;
         }
+    }
+
+    PlateauJoueur Partie::getJoueur(int id)
+    {
+        PlateauJoueur joueur;
+        if(id==1){
+            joueur=J1;
+        }
+        else
+        {
+            joueur=J2;
+        }
+        return joueur;
+    }
+
+    PlateauCentral Partie::getMarche()
+    {
+        return marche;
     }

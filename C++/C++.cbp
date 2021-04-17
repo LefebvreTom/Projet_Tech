@@ -31,7 +31,14 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
+			<Add option="-IPython39" />
 		</Compiler>
+		<ResourceCompiler>
+			<Add directory="C:/Users/user/AppData/Local/Programs/Python/Python39/include" />
+		</ResourceCompiler>
+		<Linker>
+			<Add directory="C:/Users/user/AppData/Local/Programs/Python/Python39/include" />
+		</Linker>
 		<Unit filename="Animal.cpp" />
 		<Unit filename="Animal.h" />
 		<Unit filename="Bateau.cpp" />
@@ -66,6 +73,8 @@
 		<Unit filename="PlateauCentral.h" />
 		<Unit filename="PlateauJoueur.cpp" />
 		<Unit filename="PlateauJoueur.h" />
+		<Unit filename="Simulateur.cpp" />
+		<Unit filename="Simulateur.h" />
 		<Unit filename="Tuiles.cpp" />
 		<Unit filename="Tuiles.h" />
 		<Unit filename="affichageTest.cpp" />

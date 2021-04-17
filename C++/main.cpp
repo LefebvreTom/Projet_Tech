@@ -10,6 +10,7 @@
 
 #include "FinDePartie.h"
 #include "Partie.h"
+#include "Simulateur.h"
 
 
 
@@ -36,11 +37,13 @@ int main()
     cout<<endl;
 
     //partie
-    Partie partie;
+    /*Partie partie;
     partie.MajPlateauJoueur("J1");
-    partie.MajPlateauJoueur("J2");
+    partie.MajPlateauJoueur("J2");*/
 
-
+    //simulateur
+    Simulateur simulateur;
+    simulateur.jouer();
 
     //fin de partie
     FinDePartie fin;

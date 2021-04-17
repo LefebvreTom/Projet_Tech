@@ -7,6 +7,7 @@ using namespace std;
 
     void FinDePartie::Fin(){
         char quit;
+        cout<<"--------------------------------------------------------------------------------"<<endl;
         cout<<"Voulez vous quitter ? O/N : "<<endl;
         cin>>quit;
 

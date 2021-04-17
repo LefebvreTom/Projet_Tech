@@ -34,10 +34,15 @@ class Partie
     //methode
 
         void MajPlateauJoueur(std::string Joueur);
+        PlateauJoueur getJoueur(int id);
+        PlateauCentral getMarche();
 
     //attribut
-    std::ifstream monFlux2;
-    Initialisation init;
+    protected:
+        std::ifstream monFlux2;
+        PlateauCentral marche;
+        PlateauJoueur J1 ;
+        PlateauJoueur J2 ;
 
 };
 
