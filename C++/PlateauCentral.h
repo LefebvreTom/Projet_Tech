@@ -6,6 +6,8 @@
 #include <stdlib.h>
 #include <fstream>
 #include <string>
+#include <sstream>
+
 
 
 
@@ -22,10 +24,14 @@ public:
 
     //methode
        void recupPlateau();
+       int recupJoueur(int id);
 
 protected:
     //tableau des references au id_site des tuiles posées sur le plateau commun
     std::string listeTuileCentrale [7];
+    int premierajouer;
+    int deuxiemeajouer;
+
 
 };
 

@@ -20,6 +20,7 @@ class Simulateur
 
     //methode
     void jouer();
+    void testVenteMarch(PlateauJoueur joueur, int de1, int de2);
 
     //attribut
     //int tour

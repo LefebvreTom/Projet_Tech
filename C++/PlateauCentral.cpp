@@ -33,6 +33,38 @@ using namespace std;
                     }
 
                 }
+
+                if(ligne.compare("pions:")==0){
+                    getline(monFlux, ligne);
+                    cout<<ligne<<endl;
+                    istringstream iss( ligne );
+                    string morceau;
+                    int test=0;
+                    while (getline(iss, morceau, ',' ) )//on decoupe les lignes du doc
+                    {
+                        if(test==2)//on veut recuperer que le 3eme morceau pour avoir le joueur
+                        {
+                            string resultat;
+                            morceau.erase(0,3);
+                            morceau.erase(morceau.size()-2,2);
+                            resultat=morceau;
+                            if(resultat.compare("0")==0){
+                                premierajouer=1;
+                                deuxiemeajouer=2;
+                            }
+                            else{
+                                premierajouer=2;
+                                deuxiemeajouer=1;
+                            }
+                            //cout<<resultat<<endl;
+                            cout<<"1er joueur: "<<premierajouer<<endl;
+                            cout<<"2eme joueur: "<<deuxiemeajouer<<endl;
+
+                        }
+                        test=test+1;
+                    }
+
+                }
               }
 
             //affichage test
@@ -45,4 +77,15 @@ using namespace std;
         {
             cout << "ERREUR: Impossible d'ouvrir le fichier en lecture." << endl;
         }
+    }
+
+    int PlateauCentral::recupJoueur(int i){
+        int Joueur;
+        if(i==1){
+            Joueur=premierajouer;
+        }
+        else{
+            Joueur=deuxiemeajouer;
+        }
+        return Joueur;
     }

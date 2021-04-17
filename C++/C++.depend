@@ -312,15 +312,16 @@
 	<stdlib.h>
 	<string>
 
-1617631446 source:c:\users\user\desktop\projet tech\pour bosser\c++\plateaucentral.cpp
+1618664499 source:c:\users\user\desktop\projet tech\pour bosser\c++\plateaucentral.cpp
 	"PlateauCentral.h"
 
-1617629715 c:\users\user\desktop\projet tech\pour bosser\c++\plateaucentral.h
+1618664499 c:\users\user\desktop\projet tech\pour bosser\c++\plateaucentral.h
 	"Plateau.h"
 	<iostream>
 	<stdlib.h>
 	<fstream>
 	<string>
+	<sstream>
 
 1618324130 c:\users\user\desktop\projet tech\pour bosser\c++\partie.h
 	"Tuiles.h"
@@ -346,10 +347,10 @@
 1618324130 source:c:\users\user\desktop\projet tech\pour bosser\c++\partie.cpp
 	"Partie.h"
 
-1618656688 source:c:\users\user\desktop\projet tech\pour bosser\c++\simulateur.cpp
+1618669629 source:c:\users\user\desktop\projet tech\pour bosser\c++\simulateur.cpp
 	"Simulateur.h"
 
-1618657459 c:\users\user\desktop\projet tech\pour bosser\c++\simulateur.h
+1618671790 c:\users\user\desktop\projet tech\pour bosser\c++\simulateur.h
 	"PlateauJoueur.h"
 	"PlateauCentral.h"
 	"Partie.h"
