@@ -89,3 +89,8 @@ using namespace std;
         }
         return Joueur;
     }
+
+    string PlateauCentral::getTuileMarche(int i){
+        string tuile=listeTuileCentrale[i];
+        return tuile;
+    }

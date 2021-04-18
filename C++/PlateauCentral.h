@@ -24,6 +24,7 @@ public:
 
     //methode
        void recupPlateau();
+       std::string getTuileMarche(int i);
        int recupJoueur(int id);
 
 protected:

@@ -62,23 +62,142 @@
             int de1=joueurcourant.getde(1) ;
             int de2=joueurcourant.getde(2);
 
-            testVenteMarch(joueurcourant,de1,de2);
+            //les pepites de bases
+            int pepite=joueurcourant.getPepite();
 
-
-
+            testVenteMarch(joueurcourant,de1,de2,marche);
 
 
             //test sur les ouvriers
-            int ouvrier = joueurcourant.getOuvrier();
+            cout<<"*******************"<<endl;
+            testOuvrier(joueurcourant,de1,de2,false,false,marche);
 
-            //si on a des ouvriers
-            if(ouvrier>0){
+            //test vente de de
+            cout<<"*******************"<<endl;
+            cout<<"en vendant le de1"<<endl;
+            testOuvrier(joueurcourant,de1,de2,true,false,marche);
+
+            cout<<"*******************"<<endl;
+            cout<<"en vendant le de2"<<endl;
+            testOuvrier(joueurcourant,de1,de2,false,true,marche);
+
+            cout<<"*******************"<<endl;
+            cout<<"en vendant les 2 des"<<endl;
+            testOuvrier(joueurcourant,de1,de2,true,true,marche);
+
+            //test sur les pepites
+            cout<<"*******************"<<endl;
+            testPepite(joueurcourant,marche,pepite);
+
+
+
+
+
+
+
+
+        }
+
+
+    }
+
+    void Simulateur::testOuvrier(PlateauJoueur joueurcourant,int de1, int de2,bool de1vendu,bool de2vendu,PlateauCentral marche){
+        int ouvrier = joueurcourant.getOuvrier();
+
+        //si on a vendu les 2 des
+        if(de1vendu && de2vendu){
+            ouvrier=ouvrier+2;
+            cout<<"vous avez plus de des"<<endl;
+        }
+
+        //si le de1 est vendu mais pas le de2
+        if(de1vendu && !de2vendu){
+            ouvrier=ouvrier+1;
+            cout<<"vous avez "<<ouvrier<<"ouvriers"<<endl;
+            cout<<endl;
+            for(int i=1;i<=ouvrier;i++){
+                cout<<"en utilisant "<<i<<" ouvriers :"<<endl;
+                //le de 2 modifie
+                de2=joueurcourant.getde(2);
+                cout<<"votre de 2="<<de2<<endl;
+                int de21=de2;
+                int de22=de2;
+
+                if((de21-i)%6==0){
+                    de21=6;
+                }
+                else{
+                    de21=(de21-i)%6;
+                    de21=(6+de21)%6;
+                }
+                if((de22+i)%6==0){
+                    de22=6;
+                }
+                else{
+                    de22=(de22+i)%6;
+                }
+                cout<<" peut devenir un :"<<de21<<" ou "<<de22<<endl;
+                testVenteMarch(joueurcourant,de21,de22,marche);
+
+                cout<<endl;
+
+            }
+
+
+        }
+
+        //si le de2 est vendu mais pas le de1
+        if(de2vendu && !de1vendu){
+            ouvrier=ouvrier+1;
+            cout<<"vous avez "<<ouvrier<<"ouvriers"<<endl;
+            cout<<endl;
+            for(int i=1;i<=ouvrier;i++){
+                cout<<"en utilisant "<<i<<" ouvriers :"<<endl;
+                //le de 1 modifie
+                de1=joueurcourant.getde(1);
+                cout<<"votre de 1="<<de1<<endl;
+                int de11=de1;
+                int de12=de1;
+
+                if((de11-i)%6==0){
+                    de11=6;
+
+                }
+                else{
+                    de11=(de11-i)%6;
+                    de11=(6+de11)%6;
+
+                }
+                if((de12+i)%6==0){
+                    de12=6;
+                }
+                else{
+                    de12=(de12+i)%6;
+                }
+                cout<<" peut devenir un :"<<de11<<" ou "<<de12<<endl;
+                testVenteMarch(joueurcourant,de11,de12,marche);
+
+                cout<<endl;
+
+            }
+
+
+        }
+
+
+
+
+        //si on a des ouvriers et qu'aucun des 2 de n'est vendu
+        if(ouvrier>0){
+            if(!de1vendu && !de2vendu){
+                cout<<"pas de des vendus"<<endl;
                 cout<<"vous avez "<<ouvrier<<"ouvriers"<<endl;
                 cout<<endl;
                 for(int i=1;i<=ouvrier;i++){
-                        cout<<"en utilisant "<<i<<" ouvriers :"<<endl;
+                    cout<<"en utilisant "<<i<<" ouvriers :"<<endl;
 
-
+                    //si le de1 n'est pas vendu
+                    if(!de1vendu){
                         //le de 1 modifie
                         de1=joueurcourant.getde(1);
                         cout<<"votre de 1="<<de1<<endl;
@@ -89,6 +208,7 @@
                         }
                         else{
                             de11=(de11-i)%6;
+                            de11=(6+de11)%6;
                         }
                         if((de1+i)%6==0){
                             de12=6;
@@ -97,10 +217,13 @@
                             de12=(de12+i)%6;
                         }
                         cout<<" peut devenir un :"<<de11<<" ou "<<de12<<endl;
-                        testVenteMarch(joueurcourant,de11,de12);
-
+                        testVenteMarch(joueurcourant,de11,de12,marche);
                         cout<<endl;
 
+                    }
+
+                    //si le de2 n'est pas vendu
+                    if(!de2vendu){
                         //le de 2 modifie
                         de2=joueurcourant.getde(2);
                         cout<<"votre de 2="<<de2<<endl;
@@ -112,6 +235,7 @@
                         }
                         else{
                             de21=(de21-i)%6;
+                            de21=(6+de21)%6;
                         }
                         if((de22+i)%6==0){
                             de22=6;
@@ -120,26 +244,25 @@
                             de22=(de22+i)%6;
                         }
                         cout<<" peut devenir un :"<<de21<<" ou "<<de22<<endl;
-                        testVenteMarch(joueurcourant,de21,de22);
+                        testVenteMarch(joueurcourant,de21,de22,marche);
 
                         cout<<endl;
+
+
+                    }
+
+
+
                 }
+
             }
 
-
         }
-
-
-
-
-
-
-
-
     }
 
 
-    void Simulateur::testVenteMarch(PlateauJoueur joueur, int de1, int de2){
+    void Simulateur::testVenteMarch(PlateauJoueur joueur, int de1, int de2,PlateauCentral marche){
+        int pepite=joueur.getPepite();
         int tabMarch[3][2];
         for(int i=0;i<3;i++){
             tabMarch[i][0]=joueur.getMarch(i);
@@ -147,14 +270,43 @@
 
             if(tabMarch[i][0]==de1){
                 cout<<"vous pouvez vendre les marchandise d'id:"<<tabMarch[i][0]<<" avec le de de valeur "<<de1<<endl;
+                cout<<"alors vous obtiendrez 1 pepite de plus"<<endl;
+                pepite=pepite+1;
+                testPepite(joueur,marche,pepite);
             }
             else if(tabMarch[i][0]==de2){
                 cout<<"vous pouvez vendre les marchandise d'id:"<<tabMarch[i][0]<<" avec le de de valeur "<<de2<<endl;
+                cout<<"alors vous obtiendrez 1 pepite de plus"<<endl;
+                pepite=pepite+1;
+                testPepite(joueur,marche,pepite);
             }
 
         }
         cout<<endl;
 
+
+    }
+
+    void Simulateur::testPepite(PlateauJoueur joueur,PlateauCentral marche,int pepite){
+        cout<<endl;
+
+        if(pepite==0){
+            cout<<"vous n'avez pas de pepite"<<endl;
+        }
+
+        if(pepite>0){
+            cout<<"vous avez "<<pepite<<" pepites"<<endl;
+            int nbrAchat=pepite/2;
+            if(nbrAchat>0){
+                cout<<"vous pouvez acheter "<<nbrAchat<<" tuiles au marche noir parmis :"<<endl;
+                cout<<marche.getTuileMarche(6)<<endl;
+
+            }
+            else{
+                cout<<"vous ne pouvez rien acheter"<<endl;
+            }
+
+        }
 
     }
 
