@@ -159,8 +159,10 @@
 	<sstream>
 	"Tuiles.h"
 
-1616595627 c:\users\user\desktop\projet tech\pour bosser\c++\de.h
+1619361876 c:\users\user\desktop\projet tech\pour bosser\c++\de.h
 	<stdlib.h>
+	<random>
+	<ctime>
 
 1617543417 c:\users\user\desktop\projet tech\pour bosser\c++\chateaux.h
 	<iostream>
@@ -203,7 +205,7 @@
 	<stack>
 	"Tuiles.h"
 
-1617541701 source:c:\users\user\desktop\projet tech\pour bosser\c++\de.cpp
+1619361876 source:c:\users\user\desktop\projet tech\pour bosser\c++\de.cpp
 	"De.h"
 
 1618322265 source:c:\users\user\desktop\projet tech\pour bosser\c++\initialisation.cpp
@@ -227,7 +229,7 @@
 	<stack>
 	<vector>
 
-1618324439 source:c:\users\user\desktop\projet tech\pour bosser\c++\main.cpp
+1619361820 source:c:\users\user\desktop\projet tech\pour bosser\c++\main.cpp
 	<iostream>
 	<string>
 	<stack>
@@ -347,7 +349,7 @@
 1618324130 source:c:\users\user\desktop\projet tech\pour bosser\c++\partie.cpp
 	"Partie.h"
 
-1618755577 source:c:\users\user\desktop\projet tech\pour bosser\c++\simulateur.cpp
+1619358250 source:c:\users\user\desktop\projet tech\pour bosser\c++\simulateur.cpp
 	"Simulateur.h"
 
 1618755530 c:\users\user\desktop\projet tech\pour bosser\c++\simulateur.h

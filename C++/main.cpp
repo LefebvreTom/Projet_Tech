@@ -19,6 +19,8 @@ using namespace std;
 int main()
 {
     srand(time(NULL));
+    mt19937 rgen(time(0));
+
 
 //----------------------------------------------------------------------------------------
     //section de test
@@ -27,10 +29,12 @@ int main()
     //lancer de 10 dés pour voir si le random marche
     De tabDe[10];
     for(int i=0;i<10;i++){
-        tabDe[i]=De();
+        tabDe[i]=De(rgen);
         affichetest.AffichageDe(tabDe[i]);
         cout<<endl;
     }
+
+
 
     //Initialisation
 
