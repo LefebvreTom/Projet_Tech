@@ -29,14 +29,14 @@ using namespace std;
                     {
                         getline(monFlux, ligne);
                         listeTuileCentrale[i]=ligne;
-                        cout<<ligne<<endl;
+                        //cout<<ligne<<endl;
                     }
 
                 }
 
                 if(ligne.compare("pions:")==0){
                     getline(monFlux, ligne);
-                    cout<<ligne<<endl;
+                    //cout<<ligne<<endl;
                     istringstream iss( ligne );
                     string morceau;
                     int test=0;
@@ -57,8 +57,8 @@ using namespace std;
                                 deuxiemeajouer=1;
                             }
                             //cout<<resultat<<endl;
-                            cout<<"1er joueur: "<<premierajouer<<endl;
-                            cout<<"2eme joueur: "<<deuxiemeajouer<<endl;
+                            //cout<<"1er joueur: "<<premierajouer<<endl;
+                            //cout<<"2eme joueur: "<<deuxiemeajouer<<endl;
 
                         }
                         test=test+1;

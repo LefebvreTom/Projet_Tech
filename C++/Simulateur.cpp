@@ -15,8 +15,10 @@
         cout<<endl;
         cout<<endl;
 
-        system("python ../Python/login.py ");
+        //lancement du programme python qui met à jour depuis le site
+        //system("python ../Python/login.py ");
 
+        //initialisation des plateaux etc
         Partie partie;
 
         PlateauJoueur joueur1;
@@ -89,17 +91,24 @@
             cout<<"*******************"<<endl;
             testPepite(joueurcourant,marche,pepite);
 
+            //test sur la reserve
+            cout<<"*******************"<<endl;
+            testPosage(joueurcourant,de1,de2);
 
 
-
-
-
-
-
+            //test plateau
+            cout<<"*******************"<<endl;
+            cout<<"*******************"<<endl;
+            cout<<"*******************"<<endl;
+            Case test=joueurcourant.getCase(10);
+            cout<<"type="<<test.getType()<<" de="<<test.getnumDe()<<endl;
         }
 
 
     }
+
+    //----------------------------------------------------------------------------------------------------------------------
+
 
     void Simulateur::testOuvrier(PlateauJoueur joueurcourant,int de1, int de2,bool de1vendu,bool de2vendu,PlateauCentral marche){
         int ouvrier = joueurcourant.getOuvrier();
@@ -267,17 +276,20 @@
         for(int i=0;i<3;i++){
             tabMarch[i][0]=joueur.getMarch(i);
             tabMarch[i][1]=joueur.getNbMarch(i);
+            cout<<endl;
 
             if(tabMarch[i][0]==de1){
                 cout<<"vous pouvez vendre les marchandise d'id:"<<tabMarch[i][0]<<" avec le de de valeur "<<de1<<endl;
                 cout<<"alors vous obtiendrez 1 pepite de plus"<<endl;
                 pepite=pepite+1;
+                cout<<" ---> "<<pepite<<endl;
                 testPepite(joueur,marche,pepite);
             }
             else if(tabMarch[i][0]==de2){
                 cout<<"vous pouvez vendre les marchandise d'id:"<<tabMarch[i][0]<<" avec le de de valeur "<<de2<<endl;
                 cout<<"alors vous obtiendrez 1 pepite de plus"<<endl;
                 pepite=pepite+1;
+                cout<<" ---> "<<pepite<<endl;
                 testPepite(joueur,marche,pepite);
             }
 
@@ -286,6 +298,7 @@
 
 
     }
+
 
     void Simulateur::testPepite(PlateauJoueur joueur,PlateauCentral marche,int pepite){
         cout<<endl;
@@ -296,9 +309,8 @@
 
         if(pepite>0){
             cout<<"vous avez "<<pepite<<" pepites"<<endl;
-            int nbrAchat=pepite/2;
-            if(nbrAchat>0){
-                cout<<"vous pouvez acheter "<<nbrAchat<<" tuiles au marche noir parmis :"<<endl;
+            if(pepite>=2){
+                cout<<"vous pouvez acheter 1 tuile au marche noir parmis :"<<endl;
                 cout<<marche.getTuileMarche(6)<<endl;
 
             }
@@ -307,6 +319,120 @@
             }
 
         }
+
+    }
+
+
+    void Simulateur::testPosage(PlateauJoueur joueur,int de1,int de2){
+
+        string Reserve[3];
+        int test=0;
+        for(int i=0;i<3;i++){
+            Reserve[i]=joueur.getReserve(i);
+            if(Reserve[i].compare("")!=0){
+                test=test+1;
+            }
+        }
+
+        if(Reserve[0].compare("")==0 && Reserve[1].compare("")==0 && Reserve[0].compare("")==0){
+            cout<<"vous n'avez pas de tuiles en reserve"<<endl;
+        }
+        else{
+                for(int i=0;i<test;i++){
+                    cout<<"vous avez des tuiles en reserve"<<endl;
+                    if(Reserve[i].at(1)=='a'){
+                        cout<<"c'est une tuile animal"<<endl;
+                        for(int j=0;j<37;j++){
+                            if(joueur.getCase(j).getType().compare("vert")==0){
+                                if(joueur.getCase(j).getnumDe()==de1){
+                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<"avec votre de:"<<de1<<endl;
+                                }
+                                if(joueur.getCase(j).getnumDe()==de2){
+                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<"avec votre de:"<<de2<<endl;
+                                }
+                            }
+                        }
+                    }
+                    if(Reserve[i].at(1)=='s'){
+                        cout<<"c'est une tuile bateau"<<endl;
+                        for(int j=0;j<37;j++){
+                            if(joueur.getCase(j).getType().compare("bleu")==0){
+                                if(joueur.getCase(j).getnumDe()==de1){
+                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<"avec votre de:"<<de1<<endl;
+                                }
+                                if(joueur.getCase(j).getnumDe()==de2){
+                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<"avec votre de:"<<de2<<endl;
+                                }
+                            }
+                        }
+                    }
+
+                    if(Reserve[i].at(1)=='k'){
+                        cout<<"c'est une tuile connaissance"<<endl;
+                        for(int j=0;j<37;j++){
+                            if(joueur.getCase(j).getType().compare("jaune")==0){
+                                if(joueur.getCase(j).getnumDe()==de1){
+                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<"avec votre de:"<<de1<<endl;
+                                }
+                                if(joueur.getCase(j).getnumDe()==de2){
+                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<"avec votre de:"<<de2<<endl;
+                                }
+                            }
+                        }
+                    }
+
+                    if(Reserve[i].at(1)=='c'){
+                        cout<<"c'est une tuile chateau"<<endl;
+                        for(int j=0;j<37;j++){
+                            if(joueur.getCase(j).getType().compare("vert fonce")==0){
+                                if(joueur.getCase(j).getnumDe()==de1){
+                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<"avec votre de:"<<de1<<endl;
+                                }
+                                if(joueur.getCase(j).getnumDe()==de2){
+                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<"avec votre de:"<<de2<<endl;
+                                }
+                            }
+                        }
+                    }
+
+                    if(Reserve[i].at(1)=='b'){
+                        cout<<"c'est une tuile batiment"<<endl;
+                        for(int j=0;j<37;j++){
+                            if(joueur.getCase(j).getType().compare("marron")==0){
+                                if(joueur.getCase(j).getnumDe()==de1){
+                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<"avec votre de:"<<de1<<endl;
+                                }
+                                if(joueur.getCase(j).getnumDe()==de2){
+                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<"avec votre de:"<<de2<<endl;
+                                }
+                            }
+                        }
+                    }
+
+                    if(Reserve[i].at(1)=='m'){
+                        cout<<"c'est une tuile mines"<<endl;
+                        for(int j=0;j<37;j++){
+                            if(joueur.getCase(j).getType().compare("gris")==0){
+                                if(joueur.getCase(j).getnumDe()==de1){
+                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<"avec votre de:"<<de1<<endl;
+                                }
+                                if(joueur.getCase(j).getnumDe()==de2){
+                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<"avec votre de:"<<de2<<endl;
+                                }
+                            }
+                        }
+                    }
+
+                    cout<<endl;
+                }
+
+
+
+        }
+
+
+
+
 
     }
 

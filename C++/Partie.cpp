@@ -84,14 +84,14 @@
                             test=test+1;
                         }
                     }
-                    cout <<"de1 du joueur vaut:"<<joueur.getde(1)<<endl;
-                    cout <<"de2 du joueur vaut:"<<joueur.getde(2)<<endl;
+                    //cout <<"de1 du joueur vaut:"<<joueur.getde(1)<<endl;
+                    //cout <<"de2 du joueur vaut:"<<joueur.getde(2)<<endl;
 
                 }
                 //LES  PEPITES
                 if(ligne.compare("pepite:")==0)
                 {
-                    cout<<"test ligne pepite"<<endl;
+                    //cout<<"test ligne pepite"<<endl;
                     getline(monFlux2, ligne);
                     istringstream iss( ligne );
                     int resultat;
@@ -105,7 +105,7 @@
                 //LES MARCHANDISES
                 if(ligne.compare("marchandise:")==0)
                 {
-                    cout<<"test ligne march"<<endl;
+                    //cout<<"test ligne march"<<endl;
 
                     int testNbMarch=0; //le test pour savoir si c'est la 1,2 ou 3e marchandises sur le plateau du joueur
                     while(ligne.compare("marchandise_vendu:")!=0)
@@ -123,7 +123,7 @@
                                 {
                                     int resultat;
                                     istringstream (morceau) >> resultat; //resultat = num du de
-                                    cout<<"num du de :"<<resultat<<endl;
+                                    //cout<<"num du de :"<<resultat<<endl;
                                     joueur.setMarch(testNbMarch,0,resultat);
 
                                 }
@@ -131,7 +131,7 @@
                                 {
                                     int resultat;
                                     istringstream (morceau) >> resultat; //resultat = nbr de marchandises
-                                    cout<<"nbr de marchandises :"<<resultat<<endl;
+                                    //cout<<"nbr de marchandises :"<<resultat<<endl;
                                     joueur.setMarch(testNbMarch,1,resultat);
                                 }
                                 testmorceau=testmorceau+1;
@@ -144,15 +144,15 @@
                     }
 
                     //test d'acces au marchandises du joueurs
-                    cout<<"tabMarch[0] :"<<joueur.getMarch(0)<<" et nbr:"<<joueur.getNbMarch(0)<<endl;
-                    cout<<"tabMarch[1] :"<<joueur.getMarch(1)<<" et nbr:"<<joueur.getNbMarch(1)<<endl;
-                    cout<<"tabMarch[2] :"<<joueur.getMarch(2)<<" et nbr:"<<joueur.getNbMarch(2)<<endl;
+                    //cout<<"tabMarch[0] :"<<joueur.getMarch(0)<<" et nbr:"<<joueur.getNbMarch(0)<<endl;
+                    //cout<<"tabMarch[1] :"<<joueur.getMarch(1)<<" et nbr:"<<joueur.getNbMarch(1)<<endl;
+                    //cout<<"tabMarch[2] :"<<joueur.getMarch(2)<<" et nbr:"<<joueur.getNbMarch(2)<<endl;
 
                 }
 
                 //LES MARCHANDISES VENDUES
                 if(ligne.compare("marchandise_vendu:")==0){
-                    cout<<"test ligne marchandises Vendues"<<endl;
+                    //cout<<"test ligne marchandises Vendues"<<endl;
                     while(ligne.compare("reserve:")!=0)
                     {
                         getline(monFlux2, ligne);
@@ -171,7 +171,7 @@
                                 {
 
                                     istringstream (morceau) >> idVendu; //resultat = num du de
-                                    cout<<"num du de :"<<idVendu<<endl;
+                                    //cout<<"num du de :"<<idVendu<<endl;
 
 
                                 }
@@ -179,7 +179,7 @@
                                 {
 
                                     istringstream (morceau) >> resultatVendu; //resultat = nbr de marchandises
-                                    cout<<"nbr de marchandises :"<<resultatVendu<<endl;
+                                    //cout<<"nbr de marchandises :"<<resultatVendu<<endl;
                                     joueur.setVendu(idVendu-1,resultatVendu);
 
                                 }
@@ -194,20 +194,20 @@
 
                     }
                      //test d'acces au marchandises Vendues du joueurs
-                    cout<<"tabVendu[0]= march1 :"<<joueur.getNbMarchVendu(0)<<endl;
-                    cout<<"tabVendu[1]= march2 :"<<joueur.getNbMarchVendu(1)<<endl;
-                    cout<<"tabVendu[2]= march3 :"<<joueur.getNbMarchVendu(2)<<endl;
-                    cout<<"tabVendu[3]= march4 :"<<joueur.getNbMarchVendu(3)<<endl;
-                    cout<<"tabVendu[4]= march5 :"<<joueur.getNbMarchVendu(4)<<endl;
-                    cout<<"tabVendu[5]= march6 :"<<joueur.getNbMarchVendu(5)<<endl;
+                    //cout<<"tabVendu[0]= march1 :"<<joueur.getNbMarchVendu(0)<<endl;
+                    //cout<<"tabVendu[1]= march2 :"<<joueur.getNbMarchVendu(1)<<endl;
+                    //cout<<"tabVendu[2]= march3 :"<<joueur.getNbMarchVendu(2)<<endl;
+                    //cout<<"tabVendu[3]= march4 :"<<joueur.getNbMarchVendu(3)<<endl;
+                    //cout<<"tabVendu[4]= march5 :"<<joueur.getNbMarchVendu(4)<<endl;
+                    //cout<<"tabVendu[5]= march6 :"<<joueur.getNbMarchVendu(5)<<endl;
 
-                    cout<<ligne<<endl;
+                    //cout<<ligne<<endl;
 
                 }
 
                 //LA RESERVE
                 if(ligne.compare("reserve:")==0){
-                    cout<<"test reserve"<<endl;
+                    //cout<<"test reserve"<<endl;
                     int testNbTuiles=0; //le test pour savoir si c'est la 1,2 ou 3e tuiles dans la reserve du joueur
                     while(ligne.compare("plateau:")!=0)
                     {
@@ -218,15 +218,15 @@
                         testNbTuiles=testNbTuiles+1;
                     }
 
-                cout<<"Reserve[0] :"<<joueur.getReserve(0)<<endl;
-                cout<<"Reserve[1] :"<<joueur.getReserve(1)<<endl;
-                cout<<"Reserve[2] :"<<joueur.getReserve(2)<<endl;
+                //cout<<"Reserve[0] :"<<joueur.getReserve(0)<<endl;
+                //cout<<"Reserve[1] :"<<joueur.getReserve(1)<<endl;
+                //cout<<"Reserve[2] :"<<joueur.getReserve(2)<<endl;
 
                 }
 
                 //LE PLATEAU
                 if(ligne.compare("plateau:")==0){
-                    cout<<"test plateau"<<endl;
+                    //cout<<"test plateau"<<endl;
                     for(int i=0;i<37;i++)//on travaille sur 37 lignes = 37 cases
                     {
                         getline(monFlux2, ligne);
@@ -257,7 +257,7 @@
 
                 //LES OUVRIERS
                 if(ligne.compare("ouvrier:")==0){
-                    cout<<"test ligne ouvrier"<<endl;
+                    //cout<<"test ligne ouvrier"<<endl;
                     getline(monFlux2, ligne);
                     istringstream iss( ligne );
                     int resultat;
@@ -275,14 +275,14 @@
 
             }
             //on test des trucs du joueurs
-            Case test =joueur.getCase(2);
+            /*Case test =joueur.getCase(2);
             cout<<"case 3 (id:2) du plateau :"<<test.getnumDe()<<"/"<<test.getType()<<endl;
             test =joueur.getCase(10);
             cout<<"case 11 (id:10) du plateau :"<<test.getnumDe()<<"/"<<test.getType()<<endl;
             int test2=joueur.getPepite();
             cout<<"pepite du joueur:"<<test2<<endl;
             test2=joueur.getOuvrier();
-            cout<<"ouvrier du joueur:"<<test2<<endl;
+            cout<<"ouvrier du joueur:"<<test2<<endl;*/
 
             //on modifie le joueur
             if(Joueur.compare("J1")==0)

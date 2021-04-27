@@ -23,6 +23,7 @@ class Simulateur
     void testOuvrier(PlateauJoueur joueurcourant,int de1, int de2,bool de1vendu,bool de2vendu,PlateauCentral marche);
     void testVenteMarch(PlateauJoueur joueur, int de1, int de2,PlateauCentral marche);
     void testPepite(PlateauJoueur joueur,PlateauCentral marche,int pepite);
+    void testPosage(PlateauJoueur joueur,int de1, int de2);
 
     //attribut
     //int tour

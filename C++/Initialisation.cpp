@@ -46,8 +46,9 @@
             Marchandise Stack;
             stack <Marchandise> StackMarch = Stack.initStackMarchandise(i+1);
             TabMarchandise[i] = StackMarch;
-            cout<<"tabMarchandise ("<<i<<"):"<<endl;
-            affichetest.AffichagePileMarch(TabMarchandise[i]);
+
+            //cout<<"tabMarchandise ("<<i<<"):"<<endl;
+            //affichetest.AffichagePileMarch(TabMarchandise[i]);
 
         }
 
@@ -60,8 +61,8 @@
             Batiment Stack;
             stack <Batiment> StackBat = Stack.initStackBatiment(i+1);
             TabBatiment[i] = StackBat;
-            cout<<"tabBatiment ("<<i<<"):"<<endl;
-            affichetest.AffichagePileBatiment(TabBatiment[i]);
+            //cout<<"tabBatiment ("<<i<<"):"<<endl;
+            //affichetest.AffichagePileBatiment(TabBatiment[i]);
 
         }
 
@@ -74,8 +75,8 @@
             Animal Stack;
             stack <Animal> StackAnimal = Stack.initStackAnimal(i+1);
             TabAnimal[i] = StackAnimal;
-            cout<<"tabAnimal ("<<i<<"):"<<endl;
-            affichetest.AffichagePileAnimal(TabAnimal[i]);
+            //cout<<"tabAnimal ("<<i<<"):"<<endl;
+            //affichetest.AffichagePileAnimal(TabAnimal[i]);
 
         }
 
@@ -85,7 +86,7 @@
 
         for(int i=0;i<6;i++){
             Bonus Stack;
-            cout<<"tabBonus ("<<i<<"):"<<endl;
+           // cout<<"tabBonus ("<<i<<"):"<<endl;
             stack <Bonus> StackBonus = Stack.initStackBonus(i+1);
             TabBonus[i] = StackBonus;
 
@@ -101,21 +102,21 @@
     //pile de chateau
     void Initialisation::InitPileChateau(){
         stack <Chateau> StackCastle = StackChateau.initStackChateau();
-        affichetest.AffichagePileChateau(StackCastle);
+        //affichetest.AffichagePileChateau(StackCastle);
     }
 
     //pile de bateau
     void Initialisation::InitPileBateau(){
 
         stack <Bateau> StackBoat = StackBateau.initStackBateau();
-        affichetest.AffichagePileBateau(StackBoat);
+        //affichetest.AffichagePileBateau(StackBoat);
     }
 
     //pile de mines
     void Initialisation::InitPileMines(){
 
         stack <Mine> StackMines = StackMine.initStackMine();
-        affichetest.AffichagePileMine(StackMines);
+        //affichetest.AffichagePileMine(StackMines);
     }
 
     //pile de Connaissance
