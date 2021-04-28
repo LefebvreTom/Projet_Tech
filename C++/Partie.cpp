@@ -7,6 +7,8 @@
         J1 = PlateauJoueur(1);
         J2 = PlateauJoueur(2);
         marche = PlateauCentral();
+        //recuperation du plateau marche
+        marche.recupPlateau();
 
     }
 
@@ -14,8 +16,6 @@
     //methode
     void Partie::MajPlateauJoueur(string Joueur)
     {
-        //recuperation du plateau marche
-        marche.recupPlateau();
 
         //recuperation de l'ensemble des donnees d'un joueur
         PlateauJoueur joueur;

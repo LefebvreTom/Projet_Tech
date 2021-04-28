@@ -4,7 +4,13 @@
 using namespace std;
 
     //constructeur
-    PlateauCentral::PlateauCentral(){}
+    PlateauCentral::PlateauCentral(){
+        for(int i=0;i<7;i++){
+            for(int j=0;j<6;j++){
+                listeTuileCentrale[i][j]="";
+            }
+        }
+    }
 
     //destructeur
     PlateauCentral::~PlateauCentral(){}
@@ -28,9 +34,83 @@ using namespace std;
                     for(int i=0;i<7;i++)
                     {
                         getline(monFlux, ligne);
-                        listeTuileCentrale[i]=ligne;
-                        //cout<<ligne<<endl;
+
+                        istringstream iss( ligne );
+                        string morceau;
+                        //string resultat;
+
+                        while (getline(iss, morceau, ',' ) )//on decoupe les lignes du doc
+                        {
+                            //mise en forme des donnees
+                            if(morceau.compare("[]")!=0)
+                            {
+                                //cout<<morceau<<endl;
+                                int colonne=0;
+
+                                int taille=morceau.size();
+                                //cout<<taille<<endl;
+
+                                if(morceau.at(0)=='[')
+                                {
+                                    morceau.erase(0,1);
+                                    //cout<<morceau<<endl;
+
+                                }
+
+                                else if(morceau.at(taille-1)==']')
+                                {
+
+                                    morceau.erase(taille-1,1);
+
+                                }
+                                //cout<<"test"<<endl;
+
+
+
+
+                                if(morceau.at(0)==' '){
+                                    morceau.erase(0,1);
+                                }
+
+                                morceau.erase(0,1);
+                                morceau.erase(morceau.size()-1,1);
+
+                                //cout<<"le morceau coupe: "<<morceau<<endl;
+
+                                //fin de la mise en forme
+
+                                if(morceau.at(0)=='m')
+                                {
+                                    while(listeTuileCentrale[i][colonne].compare("")!=0)
+                                    {
+                                        colonne=colonne+1;
+                                    }
+                                    listeTuileCentrale[i][colonne]=morceau;
+                                }
+
+                                if(morceau.at(0)=='t')
+                                {
+                                    if(listeTuileCentrale[i][4].compare("")==0){
+                                        listeTuileCentrale[i][4]=morceau;
+                                    }
+                                    else{
+                                        listeTuileCentrale[i][5]=morceau;
+                                    }
+                                }
+                            }
+
+
+                        }
+
+                        //listeTuileCentrale[i]=ligne;
+
+                        for (int col=0;col<6;col++){
+                            cout<<listeTuileCentrale[i][col];
+                        }
+                        cout<<endl;
+
                     }
+
 
                 }
 
@@ -90,7 +170,7 @@ using namespace std;
         return Joueur;
     }
 
-    string PlateauCentral::getTuileMarche(int i){
-        string tuile=listeTuileCentrale[i];
+    string PlateauCentral::getTuileMarche(int i,int j){
+        string tuile=listeTuileCentrale[i][j];
         return tuile;
     }

@@ -69,6 +69,18 @@
 
             testVenteMarch(joueurcourant,de1,de2,marche);
 
+            //test sur les pepites
+            cout<<"*******************"<<endl;
+            testPepite(joueurcourant,marche,pepite);
+
+            //test sur la reserve avec les dés de bases
+            cout<<"*******************"<<endl;
+            testPosage(joueurcourant,de1,de2);
+
+            //test sur l'achat avec les dés de bases
+            cout<<"*******************"<<endl;
+            testAchat(marche,de1,de2);
+
 
             //test sur les ouvriers
             cout<<"*******************"<<endl;
@@ -83,25 +95,21 @@
             cout<<"en vendant le de2"<<endl;
             testOuvrier(joueurcourant,de1,de2,false,true,marche);
 
+
             cout<<"*******************"<<endl;
             cout<<"en vendant les 2 des"<<endl;
             testOuvrier(joueurcourant,de1,de2,true,true,marche);
 
-            //test sur les pepites
-            cout<<"*******************"<<endl;
-            testPepite(joueurcourant,marche,pepite);
 
-            //test sur la reserve
-            cout<<"*******************"<<endl;
-            testPosage(joueurcourant,de1,de2);
+
 
 
             //test plateau
-            cout<<"*******************"<<endl;
+            /*cout<<"*******************"<<endl;
             cout<<"*******************"<<endl;
             cout<<"*******************"<<endl;
             Case test=joueurcourant.getCase(10);
-            cout<<"type="<<test.getType()<<" de="<<test.getnumDe()<<endl;
+            cout<<"type="<<test.getType()<<" de="<<test.getnumDe()<<endl;*/
         }
 
 
@@ -147,6 +155,8 @@
                 }
                 cout<<" peut devenir un :"<<de21<<" ou "<<de22<<endl;
                 testVenteMarch(joueurcourant,de21,de22,marche);
+                testPosage(joueurcourant,de21,de22);
+                testAchat(marche,de21,de22);
 
                 cout<<endl;
 
@@ -185,6 +195,8 @@
                 }
                 cout<<" peut devenir un :"<<de11<<" ou "<<de12<<endl;
                 testVenteMarch(joueurcourant,de11,de12,marche);
+                testPosage(joueurcourant,de11,de12);
+                testAchat(marche,de11,de12);
 
                 cout<<endl;
 
@@ -227,6 +239,8 @@
                         }
                         cout<<" peut devenir un :"<<de11<<" ou "<<de12<<endl;
                         testVenteMarch(joueurcourant,de11,de12,marche);
+                        testPosage(joueurcourant,de11,de12);
+                        testAchat(marche,de11,de12);
                         cout<<endl;
 
                     }
@@ -254,6 +268,8 @@
                         }
                         cout<<" peut devenir un :"<<de21<<" ou "<<de22<<endl;
                         testVenteMarch(joueurcourant,de21,de22,marche);
+                        testPosage(joueurcourant,de21,de22);
+                        testAchat(marche,de21,de22);
 
                         cout<<endl;
 
@@ -311,7 +327,10 @@
             cout<<"vous avez "<<pepite<<" pepites"<<endl;
             if(pepite>=2){
                 cout<<"vous pouvez acheter 1 tuile au marche noir parmis :"<<endl;
-                cout<<marche.getTuileMarche(6)<<endl;
+                for(int j=0;j<6;j++){
+                    cout<<marche.getTuileMarche(6,j)<<" ";
+                }
+
 
             }
             else{
@@ -345,10 +364,10 @@
                         for(int j=0;j<37;j++){
                             if(joueur.getCase(j).getType().compare("vert")==0){
                                 if(joueur.getCase(j).getnumDe()==de1){
-                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<"avec votre de:"<<de1<<endl;
+                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<" avec votre de:"<<de1<<endl;
                                 }
                                 if(joueur.getCase(j).getnumDe()==de2){
-                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<"avec votre de:"<<de2<<endl;
+                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<" avec votre de:"<<de2<<endl;
                                 }
                             }
                         }
@@ -358,10 +377,10 @@
                         for(int j=0;j<37;j++){
                             if(joueur.getCase(j).getType().compare("bleu")==0){
                                 if(joueur.getCase(j).getnumDe()==de1){
-                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<"avec votre de:"<<de1<<endl;
+                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<" avec votre de:"<<de1<<endl;
                                 }
                                 if(joueur.getCase(j).getnumDe()==de2){
-                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<"avec votre de:"<<de2<<endl;
+                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<" avec votre de:"<<de2<<endl;
                                 }
                             }
                         }
@@ -372,10 +391,10 @@
                         for(int j=0;j<37;j++){
                             if(joueur.getCase(j).getType().compare("jaune")==0){
                                 if(joueur.getCase(j).getnumDe()==de1){
-                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<"avec votre de:"<<de1<<endl;
+                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<" avec votre de:"<<de1<<endl;
                                 }
                                 if(joueur.getCase(j).getnumDe()==de2){
-                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<"avec votre de:"<<de2<<endl;
+                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<" avec votre de:"<<de2<<endl;
                                 }
                             }
                         }
@@ -386,10 +405,10 @@
                         for(int j=0;j<37;j++){
                             if(joueur.getCase(j).getType().compare("vert fonce")==0){
                                 if(joueur.getCase(j).getnumDe()==de1){
-                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<"avec votre de:"<<de1<<endl;
+                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<" avec votre de:"<<de1<<endl;
                                 }
                                 if(joueur.getCase(j).getnumDe()==de2){
-                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<"avec votre de:"<<de2<<endl;
+                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<" avec votre de:"<<de2<<endl;
                                 }
                             }
                         }
@@ -400,10 +419,10 @@
                         for(int j=0;j<37;j++){
                             if(joueur.getCase(j).getType().compare("marron")==0){
                                 if(joueur.getCase(j).getnumDe()==de1){
-                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<"avec votre de:"<<de1<<endl;
+                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<" avec votre de:"<<de1<<endl;
                                 }
                                 if(joueur.getCase(j).getnumDe()==de2){
-                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<"avec votre de:"<<de2<<endl;
+                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<" avec votre de:"<<de2<<endl;
                                 }
                             }
                         }
@@ -414,10 +433,10 @@
                         for(int j=0;j<37;j++){
                             if(joueur.getCase(j).getType().compare("gris")==0){
                                 if(joueur.getCase(j).getnumDe()==de1){
-                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<"avec votre de:"<<de1<<endl;
+                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<" avec votre de:"<<de1<<endl;
                                 }
                                 if(joueur.getCase(j).getnumDe()==de2){
-                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<"avec votre de:"<<de2<<endl;
+                                    cout<<"vous pouvez la poser sur la case numero:"<<j<<" avec votre de:"<<de2<<endl;
                                 }
                             }
                         }
@@ -426,12 +445,27 @@
                     cout<<endl;
                 }
 
-
-
         }
 
+    }
 
+    void Simulateur::testAchat(PlateauCentral marche,int de1, int de2)
+    {
+        if(de1>0){
+            cout<<"vous pouvez acheter une tuile de la zone "<<de1<<" parmis :"<<endl;
+            for(int col=0;col<6;col++){
+                cout<<marche.getTuileMarche(de1,col)<<" ";
+            }
+            cout<<endl;
+        }
 
+        if(de2>0){
+            cout<<"vous pouvez acheter une tuile de la zone "<<de2<<" parmis :"<<endl;
+            for(int col=0;col<6;col++){
+                cout<<marche.getTuileMarche(de2,col)<<" ";
+            }
+            cout<<endl;
+        }
 
 
     }
