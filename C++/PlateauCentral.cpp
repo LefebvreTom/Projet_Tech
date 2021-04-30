@@ -17,6 +17,10 @@ using namespace std;
 
     //methode
 
+
+
+    //
+
     void PlateauCentral::recupPlateau()
     {
         ifstream monFlux("../Donnes/marche.txt");  //Ouverture d'un fichier en lecture
@@ -90,11 +94,11 @@ using namespace std;
 
                                 if(morceau.at(0)=='t')
                                 {
-                                    if(listeTuileCentrale[i][4].compare("")==0){
-                                        listeTuileCentrale[i][4]=morceau;
+                                    if(listeTuileCentrale[i][6].compare("")==0){
+                                        listeTuileCentrale[i][6]=morceau;
                                     }
                                     else{
-                                        listeTuileCentrale[i][5]=morceau;
+                                        listeTuileCentrale[i][7]=morceau;
                                     }
                                 }
                             }
@@ -104,7 +108,7 @@ using namespace std;
 
                         //listeTuileCentrale[i]=ligne;
 
-                        for (int col=0;col<6;col++){
+                        for (int col=0;col<8;col++){
                             cout<<listeTuileCentrale[i][col];
                         }
                         cout<<endl;
