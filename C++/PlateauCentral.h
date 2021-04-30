@@ -26,6 +26,7 @@ public:
        void recupPlateau();
        std::string getTuileMarche(int i,int j);
        int recupJoueur(int id);
+       void setTuile(int i,int j,std::string chgt);
 
 protected:
     //tableau des references au id_site des tuiles posées sur le plateau commun

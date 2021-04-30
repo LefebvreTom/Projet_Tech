@@ -26,10 +26,8 @@ class Simulateur
     void testPosage(PlateauJoueur joueur,int de1, int de2);
     void testAchat(PlateauCentral marche,int de1, int de2);
 
-    void copieTabMarche(std::string Source[7][8],std::string Dest[7][8]);
-    void copieTabJoueur(Case Source[37],Case Dest[37]);
-    void copieReserveJoueur(std::string Source[3],std::string Dest[3]);
-    void copieMarchandises(int Source[3][2],int Dest[3][2]);
+    PlateauJoueur copieJoueur(PlateauJoueur joueur);
+    PlateauCentral copieMarche(PlateauCentral marche);
 
     //attribut
     //int tour

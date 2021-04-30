@@ -464,37 +464,66 @@
     }
 
 
+
     //--------------------------------------------------------------------------------------------------------------------------
     //--------------------------------------------------------------------------------------------------------------------------
 
-    void Simulateur::copieTabMarche(string Source[7][8],string Dest[7][8]){
+
+    PlateauJoueur Simulateur::copieJoueur(PlateauJoueur joueur){
+        PlateauJoueur Copie;
+
+        Copie.setde(1,joueur.getde(1));
+        Copie.setde(2,joueur.getde(2));
+
+        Copie.setOuvrier(joueur.getOuvrier());
+        Copie.setPepite(joueur.getPepite());
+
+        Case tab[37];
+
+        for (int i=0;i<37;i++){
+            tab[i]=joueur.getCase(i);
+            Copie.setCase(i,tab[i]);
+        }
+
+        string reserve[3];
+
+        for(int i=0;i<3;i++){
+            reserve[i]=joueur.getReserve(i);
+            Copie.setReserve(i,reserve[i]);
+        }
+
+        int tabMarch[3][2];
+        for(int i=0;i<3;i++){
+            tabMarch[i][1]=joueur.getMarch(i);
+            tabMarch[i][2]=joueur.getNbMarch(i);
+
+            Copie.setMarch(i,1,tabMarch[i][1]);
+            Copie.setMarch(i,2,tabMarch[i][2]);
+        }
+
+        int tabVendu[6];
+        for(int i=0;i<6;i++){
+            tabVendu[i]=joueur.getNbMarchVendu(i);
+            Copie.setVendu(i,tabVendu[i]);
+        }
+
+        return Copie;
+
+    }
+
+
+    PlateauCentral Simulateur::copieMarche(PlateauCentral marche){
+        PlateauCentral Copie;
+
+        string tuiles[7][8];
         for(int i=0;i<7;i++){
             for(int j=0;j<8;j++){
-                Dest[i][j]= Source[i][j];
+                tuiles[i][j]=marche.getTuileMarche(i,j);
+                Copie.setTuile(i,j,tuiles[i][j]);
             }
         }
 
-    }
+        return Copie;
 
-    void Simulateur::copieTabJoueur(Case Source[37],Case Dest[37]){
-        for(int i=0;i<37;i++){
-            Dest[i]=Source[i];
-        }
-    }
 
-    void Simulateur::copieReserveJoueur(string Source[3],string Dest[3]){
-        for(int i=0;i<3;i++){
-            Dest[i]=Source[i];
-        }
     }
-
-    void Simulateur::copieMarchandises(int Source[3][2],int Dest[3][2]){
-        for(int i=0;i<3;i++){
-            for(int j=0;j<2;j++){
-                Dest[i][j]=Source[i][j];
-            }
-        }
-    }
-
-    //--------------------------------------------------------------------------------------------------------------------------
-    //--------------------------------------------------------------------------------------------------------------------------

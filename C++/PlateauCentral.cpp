@@ -35,7 +35,7 @@ using namespace std;
               {
                 if(ligne.compare("tuile_centrale:")==0) //on lit le tableau du plateau commun
                 {
-                    for(int i=0;i<7;i++)
+                    for(int i=0;i<6;i++)
                     {
                         getline(monFlux, ligne);
 
@@ -115,9 +115,67 @@ using namespace std;
 
                     }
 
+                    //pour la ligne marche noir
+                    getline(monFlux, ligne);
+                    istringstream iss( ligne );
+                    string morceau;
+
+                    while (getline(iss, morceau, ',' ) )//on decoupe les lignes du doc
+                    {
+                            //mise en forme des donnees
+                            if(morceau.compare("[]")!=0)
+                            {
+                                //cout<<morceau<<endl;
+                                int colonne2=0;
+
+                                int taille=morceau.size();
+                                //cout<<taille<<endl;
+
+                                if(morceau.at(0)=='[')
+                                {
+                                    morceau.erase(0,1);
+                                    //cout<<morceau<<endl;
+
+                                }
+
+                                else if(morceau.at(taille-1)==']')
+                                {
+
+                                    morceau.erase(taille-1,1);
+
+                                }
+                                //cout<<"test"<<endl;
+
+
+
+
+                                if(morceau.at(0)==' '){
+                                    morceau.erase(0,1);
+                                }
+
+                                morceau.erase(0,1);
+                                morceau.erase(morceau.size()-1,1);
+
+                                //cout<<"le morceau coupe: "<<morceau<<endl;
+
+                                //fin de la mise en forme
+
+
+                                while(listeTuileCentrale[6][colonne2].compare("")!=0)
+                                    {
+                                        colonne2=colonne2+1;
+                                    }
+                                    listeTuileCentrale[6][colonne2]=morceau;
+                            }
+
+                    }
+                    for (int col=0;col<8;col++){
+                    cout<<listeTuileCentrale[6][col];
+                    }
+                    cout<<endl;
+
 
                 }
-
                 if(ligne.compare("pions:")==0){
                     getline(monFlux, ligne);
                     //cout<<ligne<<endl;
@@ -177,4 +235,8 @@ using namespace std;
     string PlateauCentral::getTuileMarche(int i,int j){
         string tuile=listeTuileCentrale[i][j];
         return tuile;
+    }
+
+    void PlateauCentral::setTuile(int i,int j,string chgt){
+        listeTuileCentrale[i][j]=chgt;
     }
