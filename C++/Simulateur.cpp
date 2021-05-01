@@ -49,7 +49,42 @@
 
 
         PlateauJoueur joueurcourant;
+        joueurcourant =joueur2;
 
+
+    //test achat ---------------------------------------------------------------------------------------------------------------
+        cout<<"pepite :"<<joueurcourant.getPepite()<<endl;
+        if(testReserveVide(joueurcourant)){
+            cout<<"test reserve"<<endl;
+        }
+        for(int i=0;i<3;i++){
+            cout<<joueurcourant.getReserve(i)<<endl;
+        }
+
+        cout<<"marche noir :"<<endl;
+        for(int i=0;i<4;i++){
+            cout<<marche.getTuileMarche(6,i)<<endl;
+        }
+
+        achatPepite(joueurcourant,marche,1);
+
+        cout<<"apres achat de la tuile d'id 1"<<endl;
+        cout<<"pepite :"<<joueurcourant.getPepite()<<endl;
+        cout<<"test reserve :"<<endl;
+        for(int i=0;i<3;i++){
+            cout<<joueurcourant.getReserve(i)<<endl;
+        }
+
+        cout<<"marche noir :"<<endl;
+        for(int i=0;i<4;i++){
+            cout<<marche.getTuileMarche(6,i)<<endl;
+        }
+    //test ouvrier -------------------------------------------------------------------------------------------------------------
+
+
+
+    //----------------------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------------------
        /* for(int J=1;J<=2;J++){
             cout<<"------------------------------------------------------------------------------------"<<endl;
             cout<<endl;
@@ -309,28 +344,34 @@
     }
 
 
-    void Simulateur::testPepite(PlateauJoueur joueur,PlateauCentral marche,int pepite){
+    bool Simulateur::testPepite(PlateauJoueur joueur,PlateauCentral marche,int pepite){
         cout<<endl;
 
         if(pepite==0){
-            cout<<"vous n'avez pas de pepite"<<endl;
+            //cout<<"vous n'avez pas de pepite"<<endl;
+            return false;
         }
 
         if(pepite>0){
-            cout<<"vous avez "<<pepite<<" pepites"<<endl;
+            //cout<<"vous avez "<<pepite<<" pepites"<<endl;
             if(pepite>=2){
-                cout<<"vous pouvez acheter 1 tuile au marche noir parmis :"<<endl;
+                /*cout<<"vous pouvez acheter 1 tuile au marche noir parmis :"<<endl;
                 for(int j=0;j<6;j++){
                     cout<<marche.getTuileMarche(6,j)<<" ";
                 }
-
+                cout<<endl;*/
+                return true;
 
             }
             else{
-                cout<<"vous ne pouvez rien acheter"<<endl;
+                //cout<<"vous ne pouvez rien acheter"<<endl;
+                return false;
             }
 
+
         }
+
+        return false;
 
     }
 
@@ -463,6 +504,23 @@
 
     }
 
+    bool Simulateur::testReserveVide(PlateauJoueur joueur){
+        int test=0;
+        for(int i=0;i<3;i++){
+            if(joueur.getReserve(i).compare("")!=0){
+                test=test+1;
+            }
+        }
+        if(test<3){
+            cout<<"c'est bon"<<endl;
+            return true;
+        }
+        else{
+            cout<<"c'est pas bon"<<endl;
+            return false;
+        }
+    }
+
 
 
     //--------------------------------------------------------------------------------------------------------------------------
@@ -522,8 +580,52 @@
                 Copie.setTuile(i,j,tuiles[i][j]);
             }
         }
-
         return Copie;
+
+    }
+    //--------------------------------------------------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------------------------------------------------------
+
+    void Simulateur::achatPepite(PlateauJoueur &joueur,PlateauCentral &marche,int choix){
+        int pepite =joueur.getPepite();
+        int nbrTuile=0; // nbr de tuiles presente dans le marche noir
+
+
+            if(testPepite(joueur,marche,pepite )&& testReserveVide(joueur)){
+               string marcheNoir[4];
+                for(int i=0;i<4;i++){
+                    marcheNoir[i]=marche.getTuileMarche(6,i);
+                    if(marcheNoir[i].compare("")!=0){
+                        nbrTuile=nbrTuile+1; //indique le nbr de tuiles dans le marche noir
+                    }
+                }
+
+                if(choix<nbrTuile){ //le choix doit etre inferieur au nbr car l'id commence à 0
+                    //cout<<"test"<<endl;
+                    int test=0; //test nous donnera l'endroit ou mettre la tuile en reserve
+                    for(int i=2;i>=0;i--){
+                        if(joueur.getReserve(i).compare("")==0){
+                            test=i;
+                        }
+                    }
+                    joueur.setReserve(test,marche.getTuileMarche(6,choix));
+                    joueur.setPepite(pepite-2);
+
+                    marche.setTuile(6,choix,"");
+                    for(int j=choix+1;j<4;j++){
+                        marche.setTuile(6,j-1,marche.getTuileMarche(6,j));
+                        if(j==3){
+                            marche.setTuile(6,j,"");
+                        }
+                    }
+
+                }
+
+
+            }
+            else{
+                cout<<"pas de place ou pas de pepite"<<endl;
+            }
 
 
     }

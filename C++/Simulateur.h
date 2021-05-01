@@ -22,12 +22,14 @@ class Simulateur
     void jouer();
     void testOuvrier(PlateauJoueur joueurcourant,int de1, int de2,bool de1vendu,bool de2vendu,PlateauCentral marche);
     void testVenteMarch(PlateauJoueur joueur, int de1, int de2,PlateauCentral marche);
-    void testPepite(PlateauJoueur joueur,PlateauCentral marche,int pepite);
+    bool testPepite(PlateauJoueur joueur,PlateauCentral marche,int pepite);
     void testPosage(PlateauJoueur joueur,int de1, int de2);
     void testAchat(PlateauCentral marche,int de1, int de2);
+    bool testReserveVide(PlateauJoueur joueur);
 
     PlateauJoueur copieJoueur(PlateauJoueur joueur);
     PlateauCentral copieMarche(PlateauCentral marche);
+    void achatPepite(PlateauJoueur &joueur,PlateauCentral &marche,int choix);
 
     //attribut
     //int tour
