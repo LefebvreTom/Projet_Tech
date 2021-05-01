@@ -59,7 +59,7 @@ using namespace std;
 
         }
 
-
+        score = 0;
 
         //tableau de marchandises vendues
         for(int i=0;i<6;i++){
@@ -114,6 +114,9 @@ using namespace std;
         return Ouvrier;
     }
 
+    int PlateauJoueur::getScore(){
+        return score;
+    };
 
     //setter
 
@@ -140,6 +143,7 @@ using namespace std;
 
     void PlateauJoueur::setCase(int i,Case resultat){
         tabCase[i]=resultat;
+        //if(resultat.getType())
     }
 
     void PlateauJoueur::setPepite(int resultat){
@@ -148,6 +152,10 @@ using namespace std;
 
     void PlateauJoueur::setOuvrier(int resultat){
         Ouvrier=resultat;
+    }
+
+    void PlateauJoueur::setScore(int resultat){
+        score=resultat;
     }
 
 

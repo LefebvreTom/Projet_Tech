@@ -33,6 +33,29 @@ using namespace std;
 
             while(getline(monFlux, ligne)) //Tant qu'on n'est pas à la fin, on lit
               {
+                if(ligne.compare("Phase/tours:")==0) //on lit le tableau du plateau commun
+                {
+                    getline(monFlux, ligne);
+
+                    istringstream iss( ligne );
+                    string morceau;
+                    int i = 0;
+                    while (getline(iss, morceau, ';' ) )//on decoupe les lignes du doc
+                    {
+                        if(i == 0){
+                            int resultat;
+                            istringstream (morceau) >> resultat;
+                            phase = resultat;
+                        }
+                        else{
+                            int resultat;
+                            istringstream (morceau) >> resultat;
+                            tour = resultat;
+                        }
+                        i++;
+                    }
+                }
+
                 if(ligne.compare("tuile_centrale:")==0) //on lit le tableau du plateau commun
                 {
                     for(int i=0;i<6;i++)
@@ -208,7 +231,6 @@ using namespace std;
 
                 }
               }
-
             //affichage test
             //cout<<listeTuileCentrale[0]<<listeTuileCentrale[1]<<endl;
             //on ferme le fichier
@@ -232,6 +254,14 @@ using namespace std;
         return Joueur;
     }
 
+    int PlateauCentral::getPhase(){
+        return phase;
+    }
+
+    int PlateauCentral::getTour(){
+        return tour;
+    };
+
     string PlateauCentral::getTuileMarche(int i,int j){
         string tuile=listeTuileCentrale[i][j];
         return tuile;
@@ -239,4 +269,12 @@ using namespace std;
 
     void PlateauCentral::setTuile(int i,int j,string chgt){
         listeTuileCentrale[i][j]=chgt;
+    }
+
+    void PlateauCentral::setPhase(int resultat){
+        phase=resultat;
+    }
+
+    void PlateauCentral::setTour(int resultat){
+        tour=resultat;
     }

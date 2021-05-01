@@ -1,3 +1,5 @@
+Phase/tours:
+3;3
 tuile_centrale:
 []
 ['tk10', 'm4']

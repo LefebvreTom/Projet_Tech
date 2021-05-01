@@ -33,6 +33,7 @@ public:
         std::string getReserve(int i);
         int getPepite();
         int getOuvrier();
+        int getScore();
 
         void setde(int i,int resultat);
         void setMarch(int i, int j,int resultat);
@@ -41,6 +42,7 @@ public:
         void setCase(int i,Case resultat);
         void setPepite(int resultat);
         void setOuvrier(int resultat);
+        void setScore(int resultat);
 
 
 
@@ -54,6 +56,7 @@ protected:
         std::string Reserve[3]; //reserve des tuiles non posé encore
         int tabMarch[3][2]; //reserve des marchandises non vendues (stocké comme ceci [0][0]=type de march,[0][1]=nbr de march)
         int tabVendu[6]; //ensembles des marchandises vendues (nbr de marchandises de type 1 = tabVendu[0]
+        int score;
 
 
 };

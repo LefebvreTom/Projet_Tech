@@ -29,8 +29,8 @@
         partie.MajPlateauJoueur("J1");
         partie.MajPlateauJoueur("J2");
 
-        marche=partie.getMarche();
 
+        marche=partie.getMarche();
         int quijoue=marche.recupJoueur(1);
 
         if(quijoue==1){
@@ -41,7 +41,6 @@
             joueur1=partie.getJoueur(2);
             joueur2=partie.getJoueur(1);
         }
-
         //----------------------------------------------------------------------------------------------------------------------
         //----------------------------------------------------------------------------------------------------------------------
 

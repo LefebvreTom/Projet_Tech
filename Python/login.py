@@ -102,11 +102,13 @@ def lancerPartie(payload):
 
     connexion(payload)
     partie = "http://www.boiteajeux.net/jeux/cdb/partie.php?id="
+    score = "http://www.boiteajeux.net/jeux/cdb/decompte.php?id="
     #idpartie = input("Entrez un id de partie : ")
     idpartie = "530217"
     #idpartie = "530531"
     url = request.urlopen(partie + idpartie)
-    return url
+    urlS = request.urlopen(score + idpartie)
+    return url,urlS
 
 
 
@@ -358,6 +360,18 @@ def extraireMarche(page,joueurs,fichier):
     marchandise4=[]
     marchandise5=[]
     marchandise6=[]
+
+    #On récupére la phase et le tour de jeu
+    test = re.findall("PHASE"+ ".*?" + "/div>", page)
+    test1 = re.split("/",test[0])
+    phase = test1[0]
+    indexPhase = len(phase)-1
+    phase = phase[indexPhase]
+    tour = test1[1]
+    indexTour = len(tour)-1
+    tour = tour[indexTour]
+    fichier.write("Phase/tours:"+"\n"+phase+";"+tour+"\n")
+
     donneeJoueur = re.split("<td style=\"vertical-align:top;padding-left:8px\">",page)
     donneeJoueurSplit = re.findall("<div " + ".*?" + "/div>", donneeJoueur[1],re.DOTALL)
     donneeJoueurSplit.pop(len(donneeJoueurSplit)-1)
@@ -487,20 +501,36 @@ def extraireMarche(page,joueurs,fichier):
         fichier.write(str(bonus[i])+"\n") 
     #print(bonus)
 
-
-
-def tout(payload):
-    donnee=lancerPartie(payload)
-    page=donnee.read().decode('utf-8')
-    joueurs = listeJoueur(page)
+"""
+    On récupére les scores de chaque joueurs
+"""
+def extraireScore(donneeS,joueurs):
+    pageS = donneeS.read().decode('utf-8')
+    listeScore = re.findall("<tr class="+ ".*?" + "/tr>", pageS)
     i = 1
     for joueur in joueurs.keys():
+        fichier = open("e:/Kraken/projet_tech/Donnes/J"+str(i)+".txt", "a")
+        score = re.split("bold\">",listeScore[i])
+        score = re.split("<", score[1])
+        fichier.write("\nscore:\n"+score[0])
+        fichier.close()
+        i += 1
+
+def tout(payload):
+    donnee,donneeS = lancerPartie(payload)
+    page = donnee.read().decode('utf-8')
+    joueurs = listeJoueur(page)
+    i = 1  
+    for joueur in joueurs.keys():
         #print("Plateau : "+joueur)
+        #fichier = open("e:/Kraken/projet_tech/Donnes/J"+str(i)+".txt", "w")
         fichier = open("../Donnes/J"+str(i)+".txt", "w")
         extraireDonneeJoueur(joueurs,joueur,page,fichier)
         fichier.close()
         i += 1
+    extraireScore(donneeS,joueurs)
     #print(page)
+    #fichier = open("e:/Kraken/projet_tech/Donnes/marche.txt", "w")
     fichier = open("../Donnes/marche.txt", "w")
     extraireMarche(page,joueurs,fichier)
     

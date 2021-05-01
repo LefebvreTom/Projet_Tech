@@ -945,3 +945,244 @@
 
 1530068518 c:\users\user\appdata\local\programs\python\python39\include\dtoa.h
 
+1617552217 source:e:\kraken\projet_tech\c++\affichagetest.cpp
+	"AffichageTest.h"
+
+1617552217 e:\kraken\projet_tech\c++\affichagetest.h
+	<iostream>
+	<string>
+	<stack>
+	"Tuiles.h"
+	"Marchandise.h"
+	"Batiment.h"
+	"Animal.h"
+	"De.h"
+	"Chateaux.h"
+	"Bateau.h"
+	"Mine.h"
+
+1617552218 e:\kraken\projet_tech\c++\tuiles.h
+	<iostream>
+	<stdlib.h>
+	<string>
+
+1617552218 e:\kraken\projet_tech\c++\marchandise.h
+	"Tuiles.h"
+	<string>
+	<stack>
+
+1617552217 e:\kraken\projet_tech\c++\batiment.h
+	<string>
+	<stack>
+	"Tuiles.h"
+
+1617552217 e:\kraken\projet_tech\c++\animal.h
+	<iostream>
+	<stdlib.h>
+	<string>
+	<stack>
+	<sstream>
+	"Tuiles.h"
+
+1619716070 e:\kraken\projet_tech\c++\de.h
+	<stdlib.h>
+	<random>
+	<ctime>
+
+1617552218 e:\kraken\projet_tech\c++\chateaux.h
+	<iostream>
+	<stdlib.h>
+	<string>
+	<stack>
+	"Tuiles.h"
+
+1617552217 e:\kraken\projet_tech\c++\bateau.h
+	<stdlib.h>
+	<string>
+	<stack>
+	"Tuiles.h"
+
+1617552218 e:\kraken\projet_tech\c++\mine.h
+	<stdlib.h>
+	<string>
+	<stack>
+	"Tuiles.h"
+
+1619716070 source:e:\kraken\projet_tech\c++\animal.cpp
+	"Animal.h"
+
+1617552217 source:e:\kraken\projet_tech\c++\bateau.cpp
+	"Bateau.h"
+
+1619716070 source:e:\kraken\projet_tech\c++\batiment.cpp
+	"Batiment.h"
+
+1617552217 source:e:\kraken\projet_tech\c++\bonus.cpp
+	"Bonus.h"
+
+1617552217 e:\kraken\projet_tech\c++\bonus.h
+	"Tuiles.h"
+	<string>
+	<stack>
+
+1619716070 source:e:\kraken\projet_tech\c++\case.cpp
+	"Case.h"
+
+1619716070 e:\kraken\projet_tech\c++\case.h
+	<iostream>
+	<stdlib.h>
+	<string>
+
+1619716070 source:e:\kraken\projet_tech\c++\chateaux.cpp
+	"Chateaux.h"
+
+1619716070 source:e:\kraken\projet_tech\c++\connaissance.cpp
+	"Connaissance.h"
+
+1617552218 e:\kraken\projet_tech\c++\connaissance.h
+	<iostream>
+	<stdlib.h>
+	<string>
+	<stack>
+	"Tuiles.h"
+
+1619716070 source:e:\kraken\projet_tech\c++\de.cpp
+	"De.h"
+
+1617552218 source:e:\kraken\projet_tech\c++\dosnoir.cpp
+	"DosNoir.h"
+
+1617552218 e:\kraken\projet_tech\c++\dosnoir.h
+	<stdlib.h>
+	<string>
+	<stack>
+	"Tuiles.h"
+	"Marchandise.h"
+	"Chateaux.h"
+	"Bateau.h"
+	"Mine.h"
+	"Batiment.h"
+	"Animal.h"
+	"Connaissance.h"
+	<vector>
+
+1619716070 source:e:\kraken\projet_tech\c++\findepartie.cpp
+	"FinDePartie.h"
+
+1617552218 e:\kraken\projet_tech\c++\findepartie.h
+	<iostream>
+	<stdlib.h>
+	<string>
+	"Initialisation.h"
+
+1619716070 e:\kraken\projet_tech\c++\initialisation.h
+	"Tuiles.h"
+	"affichageTest.h"
+	"Marchandise.h"
+	"Chateaux.h"
+	"Bateau.h"
+	"Mine.h"
+	"Batiment.h"
+	"Animal.h"
+	"Connaissance.h"
+	"DosNoir.h"
+	"Bonus.h"
+	"PlateauJoueur.h"
+	"PlateauCentral.h"
+	<string>
+	<stack>
+	<vector>
+
+1619905400 e:\kraken\projet_tech\c++\plateaujoueur.h
+	"Plateau.h"
+	"Case.h"
+	"Marchandise.h"
+	<iostream>
+	<stdlib.h>
+	<string>
+	<vector>
+
+1617552218 e:\kraken\projet_tech\c++\plateau.h
+	<iostream>
+	<stdlib.h>
+	<string>
+
+1619907643 e:\kraken\projet_tech\c++\plateaucentral.h
+	"Plateau.h"
+	<iostream>
+	<stdlib.h>
+	<fstream>
+	<string>
+	<sstream>
+
+1619716070 source:e:\kraken\projet_tech\c++\initialisation.cpp
+	"Initialisation.h"
+
+1619904377 source:e:\kraken\projet_tech\c++\main.cpp
+	<iostream>
+	<string>
+	<stack>
+	<time.h>
+	<stdlib.h>
+	"Tuiles.h"
+	"De.h"
+	"Initialisation.h"
+	"affichageTest.h"
+	"FinDePartie.h"
+	"Partie.h"
+	"Simulateur.h"
+
+1619716070 e:\kraken\projet_tech\c++\partie.h
+	"Tuiles.h"
+	"affichageTest.h"
+	"Marchandise.h"
+	"Chateaux.h"
+	"Bateau.h"
+	"Mine.h"
+	"Batiment.h"
+	"Animal.h"
+	"Connaissance.h"
+	"DosNoir.h"
+	"Bonus.h"
+	"PlateauJoueur.h"
+	"PlateauCentral.h"
+	"Initialisation.h"
+	<string>
+	<stack>
+	<vector>
+	<sstream>
+	<iostream>
+
+1619902036 e:\kraken\projet_tech\c++\simulateur.h
+	"PlateauJoueur.h"
+	"PlateauCentral.h"
+	"Partie.h"
+	<stdio.h>
+	<string>
+	<cstdlib>
+	<stdlib.h>
+
+1617552218 source:e:\kraken\projet_tech\c++\marchandise.cpp
+	"Marchandise.h"
+
+1617552218 source:e:\kraken\projet_tech\c++\mine.cpp
+	"Mine.h"
+
+1619911387 source:e:\kraken\projet_tech\c++\partie.cpp
+	"Partie.h"
+
+1617552218 source:e:\kraken\projet_tech\c++\plateau.cpp
+	"Plateau.h"
+
+1619908399 source:e:\kraken\projet_tech\c++\plateaucentral.cpp
+	"PlateauCentral.h"
+
+1619905428 source:e:\kraken\projet_tech\c++\plateaujoueur.cpp
+	"PlateauJoueur.h"
+
+1619908450 source:e:\kraken\projet_tech\c++\simulateur.cpp
+	"Simulateur.h"
+
+1617552218 source:e:\kraken\projet_tech\c++\tuiles.cpp
+	"Tuiles.h"
+

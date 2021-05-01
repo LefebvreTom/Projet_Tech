@@ -243,6 +243,7 @@
                                 if(morceau.at(0)!='d'){
                                     //cout<<morceau<<endl;
                                     Case chgt = joueur.getCase(i);
+                                    //cout<<"type :"<<morceau<<endl;
                                     chgt.setType(morceau);
                                     joueur.setCase(i,chgt);
 
@@ -267,7 +268,17 @@
                     //cout<<ligne<<endl;
                 }
 
+                //LE SCORE
+                if(ligne.compare("score:")==0){
+                    //cout<<"test ligne ouvrier"<<endl;
+                    getline(monFlux2, ligne);
+                    istringstream iss( ligne );
+                    int resultat;
+                    iss >> resultat; //resultat = nbr d'ouvrier
+                    joueur.setScore(resultat);
 
+                    //cout<<ligne<<endl;
+                }
 
 
 
