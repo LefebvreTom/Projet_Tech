@@ -80,6 +80,15 @@
             cout<<marche.getTuileMarche(6,i)<<endl;
         }
     //test ouvrier -------------------------------------------------------------------------------------------------------------
+        cout<<"***********************************"<<endl;
+        cout<<"ouvrier :"<<joueurcourant.getOuvrier()<<endl;
+        cout<<"de 1:"<<joueurcourant.getde(1)<<endl;
+        cout<<"chgt du de 1 :2 avec 2 ouvrier en moins pour faire un 6"<<endl;
+        utilisationOuvrier(joueurcourant,1,2,false);
+        cout<<"ouvrier :"<<joueurcourant.getOuvrier()<<endl;
+        cout<<"de 1 modif:"<<joueurcourant.getde(1)<<endl;
+
+
 
 
 
@@ -586,7 +595,7 @@
     //--------------------------------------------------------------------------------------------------------------------------
     //--------------------------------------------------------------------------------------------------------------------------
 
-    void Simulateur::achatPepite(PlateauJoueur &joueur,PlateauCentral &marche,int choix){
+    bool Simulateur::achatPepite(PlateauJoueur &joueur,PlateauCentral &marche,int choix){
         int pepite =joueur.getPepite();
         int nbrTuile=0; // nbr de tuiles presente dans le marche noir
 
@@ -618,14 +627,64 @@
                             marche.setTuile(6,j,"");
                         }
                     }
+                    return true;
 
+                }
+                else{
+                    return false;
                 }
 
 
             }
             else{
                 cout<<"pas de place ou pas de pepite"<<endl;
+                return false;
             }
+
+
+    }
+
+
+    bool Simulateur::utilisationOuvrier(PlateauJoueur &joueur,int numde,int nbr,bool chgt){
+
+        int de;
+        if (numde==1){
+            de=joueur.getde(1);
+        }
+        else{
+            de=joueur.getde(2);
+        }
+
+        if( (nbr<=joueur.getOuvrier())&& (joueur.getOuvrier()!=0)) {
+            if(chgt){ //si chgt=true -> +
+                if((de+nbr)%6==0){
+                    de=6;
+                    joueur.setde(numde,de);
+                }
+                else{
+                    de=(de+nbr)%6;
+                    joueur.setde(numde,de);
+                }
+                joueur.setOuvrier(joueur.getOuvrier()-nbr);
+            }
+            else{ //si chgt=false -> -
+                if((de-nbr)%6==0){
+                    de=6;
+                    joueur.setde(numde,de);
+                }
+                else{
+                    de=(de-nbr)%6;
+                    joueur.setde(numde,de);
+                }
+                joueur.setOuvrier(joueur.getOuvrier()-nbr);
+            }
+
+            return true;
+        }
+
+        else{
+            return false;
+        }
 
 
     }

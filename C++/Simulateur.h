@@ -29,7 +29,9 @@ class Simulateur
 
     PlateauJoueur copieJoueur(PlateauJoueur joueur);
     PlateauCentral copieMarche(PlateauCentral marche);
-    void achatPepite(PlateauJoueur &joueur,PlateauCentral &marche,int choix);
+
+    bool achatPepite(PlateauJoueur &joueur,PlateauCentral &marche,int choix);
+    bool utilisationOuvrier(PlateauJoueur &joueur,int de,int nbr,bool chgt);
 
     //attribut
     //int tour
