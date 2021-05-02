@@ -1,125 +1,4 @@
 # depslib dependency file v1.0
-1616593929 source:c:\users\user\desktop\projet tech\envie de crever\c++\main.cpp
-	<iostream>
-	<string>
-	<stack>
-	<time.h>
-	<stdlib.h>
-	"Tuiles.h"
-	"De.h"
-	"Initialisation.h"
-	"affichageTest.h"
-
-1616593258 source:c:\users\user\desktop\projet tech\envie de crever\c++\tuiles.cpp
-	"Tuiles.h"
-
-1616593258 c:\users\user\desktop\projet tech\envie de crever\c++\tuiles.h
-	<iostream>
-	<stdlib.h>
-	<string>
-
-1616582930 source:c:\users\user\desktop\projet tech\envie de crever\c++\chateaux.cpp
-	"Chateaux.h"
-
-1616591692 c:\users\user\desktop\projet tech\envie de crever\c++\chateaux.h
-	<iostream>
-	<stdlib.h>
-	<string>
-	<stack>
-	"Tuiles.h"
-
-1616594155 source:c:\users\user\desktop\projet tech\envie de crever\c++\marchandise.cpp
-	"Marchandise.h"
-
-1616593258 c:\users\user\desktop\projet tech\envie de crever\c++\marchandise.h
-	"Tuiles.h"
-	<string>
-	<stack>
-
-1616591891 source:c:\users\user\desktop\projet tech\envie de crever\c++\mine.cpp
-	"Mine.h"
-
-1616591891 c:\users\user\desktop\projet tech\envie de crever\c++\mine.h
-	<stdlib.h>
-	<string>
-	<stack>
-	"Tuiles.h"
-
-1616592028 source:c:\users\user\desktop\projet tech\envie de crever\c++\de.cpp
-	"De.h"
-
-1616592027 c:\users\user\desktop\projet tech\envie de crever\c++\de.h
-	<stdlib.h>
-
-1616592265 source:c:\users\user\desktop\projet tech\envie de crever\c++\batiment.cpp
-	"Batiment.h"
-
-1616592303 c:\users\user\desktop\projet tech\envie de crever\c++\batiment.h
-	<string>
-	<stack>
-	"Tuiles.h"
-
-1616592472 source:c:\users\user\desktop\projet tech\envie de crever\c++\bateau.cpp
-	"Bateau.h"
-
-1616592497 c:\users\user\desktop\projet tech\envie de crever\c++\bateau.h
-	<stdlib.h>
-	<string>
-	<stack>
-	"Tuiles.h"
-
-1616592860 source:c:\users\user\desktop\projet tech\envie de crever\c++\animal.cpp
-	"Animal.h"
-
-1616592699 c:\users\user\desktop\projet tech\envie de crever\c++\animal.h
-	<iostream>
-	<stdlib.h>
-	<string>
-	<stack>
-	"Tuiles.h"
-
-1616593289 source:c:\users\user\desktop\projet tech\envie de crever\c++\affichagetest.cpp
-	"AffichageTest.h"
-
-1616593125 c:\users\user\desktop\projet tech\envie de crever\c++\affichagetest.h
-	<iostream>
-	<string>
-	<stack>
-	"Tuiles.h"
-	"Marchandise.h"
-	"Batiment.h"
-	"Animal.h"
-	"De.h"
-	"Chateaux.h"
-	"Bateau.h"
-	"Mine.h"
-
-1616593434 source:c:\users\user\desktop\projet tech\envie de crever\c++\initialisation.cpp
-	"Initialisation.h"
-
-1616593434 c:\users\user\desktop\projet tech\envie de crever\c++\initialisation.h
-	"Tuiles.h"
-	"affichageTest.h"
-	"Marchandise.h"
-	"Chateaux.h"
-	"Bateau.h"
-	"Mine.h"
-	"Batiment.h"
-	"Animal.h"
-	"Connaissance.h"
-	<string>
-	<stack>
-
-1616593821 c:\users\user\desktop\projet tech\envie de crever\c++\connaissance.h
-	<iostream>
-	<stdlib.h>
-	<string>
-	<stack>
-	"Tuiles.h"
-
-1616593728 source:c:\users\user\desktop\projet tech\envie de crever\c++\connaissance.cpp
-	"Connaissance.h"
-
 1616688490 source:c:\users\user\desktop\projet tech\pour bosser\c++\affichagetest.cpp
 	"AffichageTest.h"
 
@@ -192,6 +71,22 @@
 1617623908 source:c:\users\user\desktop\projet tech\pour bosser\c++\batiment.cpp
 	"Batiment.h"
 
+1617541401 source:c:\users\user\desktop\projet tech\pour bosser\c++\bonus.cpp
+	"Bonus.h"
+
+1617543265 c:\users\user\desktop\projet tech\pour bosser\c++\bonus.h
+	"Tuiles.h"
+	<string>
+	<stack>
+
+1618148014 source:c:\users\user\desktop\projet tech\pour bosser\c++\case.cpp
+	"Case.h"
+
+1618148039 c:\users\user\desktop\projet tech\pour bosser\c++\case.h
+	<iostream>
+	<stdlib.h>
+	<string>
+
 1617623908 source:c:\users\user\desktop\projet tech\pour bosser\c++\chateaux.cpp
 	"Chateaux.h"
 
@@ -208,7 +103,30 @@
 1619361876 source:c:\users\user\desktop\projet tech\pour bosser\c++\de.cpp
 	"De.h"
 
-1619534369 source:c:\users\user\desktop\projet tech\pour bosser\c++\initialisation.cpp
+1617542376 source:c:\users\user\desktop\projet tech\pour bosser\c++\dosnoir.cpp
+	"DosNoir.h"
+
+1617543482 c:\users\user\desktop\projet tech\pour bosser\c++\dosnoir.h
+	<stdlib.h>
+	<string>
+	<stack>
+	"Tuiles.h"
+	"Marchandise.h"
+	"Chateaux.h"
+	"Bateau.h"
+	"Mine.h"
+	"Batiment.h"
+	"Animal.h"
+	"Connaissance.h"
+	<vector>
+
+1618324410 source:c:\users\user\desktop\projet tech\pour bosser\c++\findepartie.cpp
+	"FinDePartie.h"
+
+1616752101 c:\users\user\desktop\projet tech\pour bosser\c++\findepartie.h
+	<iostream>
+	<stdlib.h>
+	<string>
 	"Initialisation.h"
 
 1618322265 c:\users\user\desktop\projet tech\pour bosser\c++\initialisation.h
@@ -229,7 +147,32 @@
 	<stack>
 	<vector>
 
-1619614564 source:c:\users\user\desktop\projet tech\pour bosser\c++\main.cpp
+1619950074 c:\users\user\desktop\projet tech\pour bosser\c++\plateaujoueur.h
+	"Plateau.h"
+	"Case.h"
+	"Marchandise.h"
+	<iostream>
+	<stdlib.h>
+	<string>
+	<vector>
+
+1617543851 c:\users\user\desktop\projet tech\pour bosser\c++\plateau.h
+	<iostream>
+	<stdlib.h>
+	<string>
+
+1619950074 c:\users\user\desktop\projet tech\pour bosser\c++\plateaucentral.h
+	"Plateau.h"
+	<iostream>
+	<stdlib.h>
+	<fstream>
+	<string>
+	<sstream>
+
+1619534369 source:c:\users\user\desktop\projet tech\pour bosser\c++\initialisation.cpp
+	"Initialisation.h"
+
+1619950074 source:c:\users\user\desktop\projet tech\pour bosser\c++\main.cpp
 	<iostream>
 	<string>
 	<stack>
@@ -242,88 +185,6 @@
 	"FinDePartie.h"
 	"Partie.h"
 	"Simulateur.h"
-
-1617542931 source:c:\users\user\desktop\projet tech\pour bosser\c++\marchandise.cpp
-	"Marchandise.h"
-
-1617542968 source:c:\users\user\desktop\projet tech\pour bosser\c++\mine.cpp
-	"Mine.h"
-
-1616841537 source:c:\users\user\desktop\projet tech\pour bosser\c++\tuiles.cpp
-	"Tuiles.h"
-
-1617543482 c:\users\user\desktop\projet tech\pour bosser\c++\dosnoir.h
-	<stdlib.h>
-	<string>
-	<stack>
-	"Tuiles.h"
-	"Marchandise.h"
-	"Chateaux.h"
-	"Bateau.h"
-	"Mine.h"
-	"Batiment.h"
-	"Animal.h"
-	"Connaissance.h"
-	<vector>
-
-1617542376 source:c:\users\user\desktop\projet tech\pour bosser\c++\dosnoir.cpp
-	"DosNoir.h"
-
-1617543265 c:\users\user\desktop\projet tech\pour bosser\c++\bonus.h
-	"Tuiles.h"
-	<string>
-	<stack>
-
-1617541401 source:c:\users\user\desktop\projet tech\pour bosser\c++\bonus.cpp
-	"Bonus.h"
-
-1616752101 c:\users\user\desktop\projet tech\pour bosser\c++\findepartie.h
-	<iostream>
-	<stdlib.h>
-	<string>
-	"Initialisation.h"
-
-1618324410 source:c:\users\user\desktop\projet tech\pour bosser\c++\findepartie.cpp
-	"FinDePartie.h"
-
-1617539794 source:c:\users\user\desktop\projet tech\pour bosser\c++\plateau.cpp
-	"Plateau.h"
-
-1617543851 c:\users\user\desktop\projet tech\pour bosser\c++\plateau.h
-	<iostream>
-	<stdlib.h>
-	<string>
-
-1619874835 source:c:\users\user\desktop\projet tech\pour bosser\c++\plateaujoueur.cpp
-	"PlateauJoueur.h"
-
-1619796926 c:\users\user\desktop\projet tech\pour bosser\c++\plateaujoueur.h
-	"Plateau.h"
-	"Case.h"
-	"Marchandise.h"
-	<iostream>
-	<stdlib.h>
-	<string>
-	<vector>
-
-1618148014 source:c:\users\user\desktop\projet tech\pour bosser\c++\case.cpp
-	"Case.h"
-
-1618148039 c:\users\user\desktop\projet tech\pour bosser\c++\case.h
-	<iostream>
-	<stdlib.h>
-	<string>
-
-1619798142 source:c:\users\user\desktop\projet tech\pour bosser\c++\plateaucentral.cpp
-	"PlateauCentral.h"
-
-1619798151 c:\users\user\desktop\projet tech\pour bosser\c++\plateaucentral.h
-	"Plateau.h"
-	<iostream>
-	<stdlib.h>
-	<fstream>
-	<string>
-	<sstream>
 
 1618324130 c:\users\user\desktop\projet tech\pour bosser\c++\partie.h
 	"Tuiles.h"
@@ -346,13 +207,7 @@
 	<sstream>
 	<iostream>
 
-1619626710 source:c:\users\user\desktop\projet tech\pour bosser\c++\partie.cpp
-	"Partie.h"
-
-1619883921 source:c:\users\user\desktop\projet tech\pour bosser\c++\simulateur.cpp
-	"Simulateur.h"
-
-1619883220 c:\users\user\desktop\projet tech\pour bosser\c++\simulateur.h
+1619972326 c:\users\user\desktop\projet tech\pour bosser\c++\simulateur.h
 	"PlateauJoueur.h"
 	"PlateauCentral.h"
 	"Partie.h"
@@ -361,828 +216,27 @@
 	<cstdlib>
 	<stdlib.h>
 
-1618588779 c:\users\user\desktop\projet tech\pour bosser\c++\python.h
-	"patchlevel.h"
-	"pyconfig.h"
-	"pymacconfig.h"
-	<limits.h>
-	<stdio.h>
-	<string.h>
-	<errno.h>
-	<stdlib.h>
-	<unistd.h>
-	<crypt.h>
-	<stddef.h>
-	<assert.h>
-	"pyport.h"
-	"pymacro.h"
-	"pyatomic.h"
-	"pymath.h"
-	"pytime.h"
-	"pymem.h"
-	"object.h"
-	"objimpl.h"
-	"typeslots.h"
-	"pyhash.h"
-	"pydebug.h"
-	"bytearrayobject.h"
-	"bytesobject.h"
-	"unicodeobject.h"
-	"longobject.h"
-	"longintrepr.h"
-	"boolobject.h"
-	"floatobject.h"
-	"complexobject.h"
-	"rangeobject.h"
-	"memoryobject.h"
-	"tupleobject.h"
-	"listobject.h"
-	"dictobject.h"
-	"odictobject.h"
-	"enumobject.h"
-	"setobject.h"
-	"methodobject.h"
-	"moduleobject.h"
-	"funcobject.h"
-	"classobject.h"
-	"fileobject.h"
-	"pycapsule.h"
-	"traceback.h"
-	"sliceobject.h"
-	"cellobject.h"
-	"iterobject.h"
-	"genobject.h"
-	"descrobject.h"
-	"warnings.h"
-	"weakrefobject.h"
-	"structseq.h"
-	"namespaceobject.h"
-	"codecs.h"
-	"pyerrors.h"
-	"pystate.h"
-	"pyarena.h"
-	"modsupport.h"
-	"pythonrun.h"
-	"pylifecycle.h"
-	"ceval.h"
-	"sysmodule.h"
-	"osmodule.h"
-	"intrcheck.h"
-	"import.h"
-	"abstract.h"
-	"bltinmodule.h"
-	"compile.h"
-	"eval.h"
-	"pyctype.h"
-	"pystrtod.h"
-	"pystrcmp.h"
-	"dtoa.h"
-	"fileutils.h"
-	"pyfpe.h"
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\python.h
-	"patchlevel.h"
-	"pyconfig.h"
-	"pymacconfig.h"
-	<limits.h>
-	<stdio.h>
-	<string.h>
-	<errno.h>
-	<stdlib.h>
-	<unistd.h>
-	<crypt.h>
-	<stddef.h>
-	<assert.h>
-	"pyport.h"
-	"pymacro.h"
-	"pyatomic.h"
-	"pymath.h"
-	"pytime.h"
-	"pymem.h"
-	"object.h"
-	"objimpl.h"
-	"typeslots.h"
-	"pyhash.h"
-	"pydebug.h"
-	"bytearrayobject.h"
-	"bytesobject.h"
-	"unicodeobject.h"
-	"longobject.h"
-	"longintrepr.h"
-	"boolobject.h"
-	"floatobject.h"
-	"complexobject.h"
-	"rangeobject.h"
-	"memoryobject.h"
-	"tupleobject.h"
-	"listobject.h"
-	"dictobject.h"
-	"odictobject.h"
-	"enumobject.h"
-	"setobject.h"
-	"methodobject.h"
-	"moduleobject.h"
-	"funcobject.h"
-	"classobject.h"
-	"fileobject.h"
-	"pycapsule.h"
-	"traceback.h"
-	"sliceobject.h"
-	"cellobject.h"
-	"iterobject.h"
-	"genobject.h"
-	"descrobject.h"
-	"warnings.h"
-	"weakrefobject.h"
-	"structseq.h"
-	"namespaceobject.h"
-	"codecs.h"
-	"pyerrors.h"
-	"pystate.h"
-	"pyarena.h"
-	"modsupport.h"
-	"pythonrun.h"
-	"pylifecycle.h"
-	"ceval.h"
-	"sysmodule.h"
-	"osmodule.h"
-	"intrcheck.h"
-	"import.h"
-	"abstract.h"
-	"bltinmodule.h"
-	"compile.h"
-	"eval.h"
-	"pyctype.h"
-	"pystrtod.h"
-	"pystrcmp.h"
-	"dtoa.h"
-	"fileutils.h"
-	"pyfpe.h"
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\patchlevel.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\pyconfig.h
-	<io.h>
-	<float.h>
-	<basetsd.h>
-	<stdio.h>
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\pymacconfig.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\pyport.h
-	"pyconfig.h"
-	<inttypes.h>
-	<stdlib.h>
-	<ieeefp.h>
-	<math.h>
-	<sys/time.h>
-	<time.h>
-	<sys/time.h>
-	<time.h>
-	<sys/select.h>
-	<sys/stat.h>
-	<stat.h>
-	<sys/types.h>
-	<sys/termio.h>
-	<termios.h>
-	<osreldate.h>
-	<ctype.h>
-	<wctype.h>
-	<android/api-level.h>
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\pymacro.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\pyatomic.h
-	"dynamic_annotations.h"
-	"pyconfig.h"
-	<stdatomic.h>
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\dynamic_annotations.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\pymath.h
-	"pyconfig.h"
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\pytime.h
-	"pyconfig.h"
-	"object.h"
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\object.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\pymem.h
-	"pyport.h"
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\objimpl.h
-	"pymem.h"
-
-1535883498 c:\users\user\desktop\projet tech\pour bosser\include\typeslots.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\pyhash.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\pydebug.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\bytearrayobject.h
-	<stdarg.h>
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\bytesobject.h
-	<stdarg.h>
-
-1535883498 c:\users\user\desktop\projet tech\pour bosser\include\unicodeobject.h
-	<stdarg.h>
-	<ctype.h>
-	<time.h>
-	<wchar.h>
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\longobject.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\longintrepr.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\boolobject.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\floatobject.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\complexobject.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\rangeobject.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\memoryobject.h
-
-1535883498 c:\users\user\desktop\projet tech\pour bosser\include\tupleobject.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\listobject.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\dictobject.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\odictobject.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\enumobject.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\setobject.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\methodobject.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\moduleobject.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\funcobject.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\classobject.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\fileobject.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\pycapsule.h
-
-1535883498 c:\users\user\desktop\projet tech\pour bosser\include\traceback.h
-	"pystate.h"
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\pystate.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\sliceobject.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\cellobject.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\iterobject.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\genobject.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\descrobject.h
-
-1535883498 c:\users\user\desktop\projet tech\pour bosser\include\warnings.h
-
-1535883498 c:\users\user\desktop\projet tech\pour bosser\include\weakrefobject.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\structseq.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\namespaceobject.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\codecs.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\pyerrors.h
-	<stdarg.h>
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\pyarena.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\modsupport.h
-	<stdarg.h>
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\pythonrun.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\pylifecycle.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\ceval.h
-
-1535883498 c:\users\user\desktop\projet tech\pour bosser\include\sysmodule.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\osmodule.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\intrcheck.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\import.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\abstract.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\bltinmodule.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\compile.h
-	"code.h"
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\code.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\eval.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\pyctype.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\pystrtod.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\pystrcmp.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\dtoa.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\fileutils.h
-
-1535883496 c:\users\user\desktop\projet tech\pour bosser\include\pyfpe.h
-	<signal.h>
-	<setjmp.h>
-	<math.h>
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\patchlevel.h
-
-1617714820 c:\users\user\appdata\local\programs\python\python39\include\pyconfig.h
-	<io.h>
-	<float.h>
-	<basetsd.h>
-	<stdio.h>
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\pymacconfig.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\pyport.h
-	"pyconfig.h"
-	<inttypes.h>
-	<stdlib.h>
-	<ieeefp.h>
-	<math.h>
-	<sys/time.h>
-	<time.h>
-	<sys/time.h>
-	<time.h>
-	<sys/select.h>
-	<sys/stat.h>
-	<stat.h>
-	<sys/types.h>
-	<sys/termio.h>
-	<ctype.h>
-	<wctype.h>
-	"exports.h"
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\exports.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\pymacro.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\pymath.h
-	"pyconfig.h"
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\pytime.h
-	"pyconfig.h"
-	"object.h"
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\object.h
-	"cpython/object.h"
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\cpython\object.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\pymem.h
-	"pyport.h"
-	"cpython/pymem.h"
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\cpython\pymem.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\objimpl.h
-	"pymem.h"
-	"cpython/objimpl.h"
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\cpython\objimpl.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\typeslots.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\pyhash.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\pydebug.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\bytearrayobject.h
-	<stdarg.h>
-	"cpython/bytearrayobject.h"
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\cpython\bytearrayobject.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\bytesobject.h
-	<stdarg.h>
-	"cpython/bytesobject.h"
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\cpython\bytesobject.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\unicodeobject.h
-	<stdarg.h>
-	<ctype.h>
-	<wchar.h>
-	"cpython/unicodeobject.h"
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\cpython\unicodeobject.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\longobject.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\longintrepr.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\boolobject.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\floatobject.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\complexobject.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\rangeobject.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\memoryobject.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\tupleobject.h
-	"cpython/tupleobject.h"
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\cpython\tupleobject.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\listobject.h
-	"cpython/listobject.h"
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\cpython\listobject.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\dictobject.h
-	"cpython/dictobject.h"
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\cpython\dictobject.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\odictobject.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\enumobject.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\setobject.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\methodobject.h
-	"cpython/methodobject.h"
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\cpython\methodobject.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\moduleobject.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\funcobject.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\classobject.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\fileobject.h
-	"cpython/fileobject.h"
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\cpython\fileobject.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\pycapsule.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\traceback.h
-	"cpython/traceback.h"
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\cpython\traceback.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\sliceobject.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\cellobject.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\iterobject.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\genobject.h
-	"pystate.h"
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\pystate.h
-	"cpython/pystate.h"
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\cpython\pystate.h
-	"cpython/initconfig.h"
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\cpython\initconfig.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\descrobject.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\warnings.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\weakrefobject.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\structseq.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\namespaceobject.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\codecs.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\pyerrors.h
-	<stdarg.h>
-	"cpython/pyerrors.h"
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\cpython\pyerrors.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\pyarena.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\modsupport.h
-	<stdarg.h>
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\pythonrun.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\pylifecycle.h
-	"cpython/pylifecycle.h"
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\cpython\pylifecycle.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\ceval.h
-	"cpython/ceval.h"
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\cpython\ceval.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\sysmodule.h
-	"cpython/sysmodule.h"
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\cpython\sysmodule.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\osmodule.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\intrcheck.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\import.h
-	"cpython/import.h"
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\cpython\import.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\abstract.h
-	"cpython/abstract.h"
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\cpython\abstract.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\bltinmodule.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\compile.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\eval.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\pyctype.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\pystrtod.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\pystrcmp.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\fileutils.h
-	"cpython/fileutils.h"
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\cpython\fileutils.h
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\pyfpe.h
-
-1530068518 c:\users\user\appdata\local\programs\python\python39\include\pyatomic.h
-	"dynamic_annotations.h"
-	"pyconfig.h"
-	<stdatomic.h>
-	<intrin.h>
-	<immintrin.h>
-
-1617714816 c:\users\user\appdata\local\programs\python\python39\include\dynamic_annotations.h
-
-1530068518 c:\users\user\appdata\local\programs\python\python39\include\dtoa.h
-
-1617552217 source:e:\kraken\projet_tech\c++\affichagetest.cpp
-	"AffichageTest.h"
-
-1617552217 e:\kraken\projet_tech\c++\affichagetest.h
-	<iostream>
-	<string>
-	<stack>
-	"Tuiles.h"
+1617542931 source:c:\users\user\desktop\projet tech\pour bosser\c++\marchandise.cpp
 	"Marchandise.h"
-	"Batiment.h"
-	"Animal.h"
-	"De.h"
-	"Chateaux.h"
-	"Bateau.h"
+
+1617542968 source:c:\users\user\desktop\projet tech\pour bosser\c++\mine.cpp
 	"Mine.h"
 
-1617552218 e:\kraken\projet_tech\c++\tuiles.h
-	<iostream>
-	<stdlib.h>
-	<string>
-
-1617552218 e:\kraken\projet_tech\c++\marchandise.h
-	"Tuiles.h"
-	<string>
-	<stack>
-
-1617552217 e:\kraken\projet_tech\c++\batiment.h
-	<string>
-	<stack>
-	"Tuiles.h"
-
-1617552217 e:\kraken\projet_tech\c++\animal.h
-	<iostream>
-	<stdlib.h>
-	<string>
-	<stack>
-	<sstream>
-	"Tuiles.h"
-
-1619716070 e:\kraken\projet_tech\c++\de.h
-	<stdlib.h>
-	<random>
-	<ctime>
-
-1617552218 e:\kraken\projet_tech\c++\chateaux.h
-	<iostream>
-	<stdlib.h>
-	<string>
-	<stack>
-	"Tuiles.h"
-
-1617552217 e:\kraken\projet_tech\c++\bateau.h
-	<stdlib.h>
-	<string>
-	<stack>
-	"Tuiles.h"
-
-1617552218 e:\kraken\projet_tech\c++\mine.h
-	<stdlib.h>
-	<string>
-	<stack>
-	"Tuiles.h"
-
-1619716070 source:e:\kraken\projet_tech\c++\animal.cpp
-	"Animal.h"
-
-1617552217 source:e:\kraken\projet_tech\c++\bateau.cpp
-	"Bateau.h"
-
-1619716070 source:e:\kraken\projet_tech\c++\batiment.cpp
-	"Batiment.h"
-
-1617552217 source:e:\kraken\projet_tech\c++\bonus.cpp
-	"Bonus.h"
-
-1617552217 e:\kraken\projet_tech\c++\bonus.h
-	"Tuiles.h"
-	<string>
-	<stack>
-
-1619716070 source:e:\kraken\projet_tech\c++\case.cpp
-	"Case.h"
-
-1619716070 e:\kraken\projet_tech\c++\case.h
-	<iostream>
-	<stdlib.h>
-	<string>
-
-1619716070 source:e:\kraken\projet_tech\c++\chateaux.cpp
-	"Chateaux.h"
-
-1619716070 source:e:\kraken\projet_tech\c++\connaissance.cpp
-	"Connaissance.h"
-
-1617552218 e:\kraken\projet_tech\c++\connaissance.h
-	<iostream>
-	<stdlib.h>
-	<string>
-	<stack>
-	"Tuiles.h"
-
-1619716070 source:e:\kraken\projet_tech\c++\de.cpp
-	"De.h"
-
-1617552218 source:e:\kraken\projet_tech\c++\dosnoir.cpp
-	"DosNoir.h"
-
-1617552218 e:\kraken\projet_tech\c++\dosnoir.h
-	<stdlib.h>
-	<string>
-	<stack>
-	"Tuiles.h"
-	"Marchandise.h"
-	"Chateaux.h"
-	"Bateau.h"
-	"Mine.h"
-	"Batiment.h"
-	"Animal.h"
-	"Connaissance.h"
-	<vector>
-
-1619716070 source:e:\kraken\projet_tech\c++\findepartie.cpp
-	"FinDePartie.h"
-
-1617552218 e:\kraken\projet_tech\c++\findepartie.h
-	<iostream>
-	<stdlib.h>
-	<string>
-	"Initialisation.h"
-
-1619716070 e:\kraken\projet_tech\c++\initialisation.h
-	"Tuiles.h"
-	"affichageTest.h"
-	"Marchandise.h"
-	"Chateaux.h"
-	"Bateau.h"
-	"Mine.h"
-	"Batiment.h"
-	"Animal.h"
-	"Connaissance.h"
-	"DosNoir.h"
-	"Bonus.h"
-	"PlateauJoueur.h"
-	"PlateauCentral.h"
-	<string>
-	<stack>
-	<vector>
-
-1619905400 e:\kraken\projet_tech\c++\plateaujoueur.h
-	"Plateau.h"
-	"Case.h"
-	"Marchandise.h"
-	<iostream>
-	<stdlib.h>
-	<string>
-	<vector>
-
-1617552218 e:\kraken\projet_tech\c++\plateau.h
-	<iostream>
-	<stdlib.h>
-	<string>
-
-1619907643 e:\kraken\projet_tech\c++\plateaucentral.h
-	"Plateau.h"
-	<iostream>
-	<stdlib.h>
-	<fstream>
-	<string>
-	<sstream>
-
-1619716070 source:e:\kraken\projet_tech\c++\initialisation.cpp
-	"Initialisation.h"
-
-1619904377 source:e:\kraken\projet_tech\c++\main.cpp
-	<iostream>
-	<string>
-	<stack>
-	<time.h>
-	<stdlib.h>
-	"Tuiles.h"
-	"De.h"
-	"Initialisation.h"
-	"affichageTest.h"
-	"FinDePartie.h"
+1619950074 source:c:\users\user\desktop\projet tech\pour bosser\c++\partie.cpp
 	"Partie.h"
+
+1617539794 source:c:\users\user\desktop\projet tech\pour bosser\c++\plateau.cpp
+	"Plateau.h"
+
+1619950074 source:c:\users\user\desktop\projet tech\pour bosser\c++\plateaucentral.cpp
+	"PlateauCentral.h"
+
+1619950074 source:c:\users\user\desktop\projet tech\pour bosser\c++\plateaujoueur.cpp
+	"PlateauJoueur.h"
+
+1619968260 source:c:\users\user\desktop\projet tech\pour bosser\c++\simulateur.cpp
 	"Simulateur.h"
 
-1619716070 e:\kraken\projet_tech\c++\partie.h
-	"Tuiles.h"
-	"affichageTest.h"
-	"Marchandise.h"
-	"Chateaux.h"
-	"Bateau.h"
-	"Mine.h"
-	"Batiment.h"
-	"Animal.h"
-	"Connaissance.h"
-	"DosNoir.h"
-	"Bonus.h"
-	"PlateauJoueur.h"
-	"PlateauCentral.h"
-	"Initialisation.h"
-	<string>
-	<stack>
-	<vector>
-	<sstream>
-	<iostream>
-
-1619902036 e:\kraken\projet_tech\c++\simulateur.h
-	"PlateauJoueur.h"
-	"PlateauCentral.h"
-	"Partie.h"
-	<stdio.h>
-	<string>
-	<cstdlib>
-	<stdlib.h>
-
-1617552218 source:e:\kraken\projet_tech\c++\marchandise.cpp
-	"Marchandise.h"
-
-1617552218 source:e:\kraken\projet_tech\c++\mine.cpp
-	"Mine.h"
-
-1619911387 source:e:\kraken\projet_tech\c++\partie.cpp
-	"Partie.h"
-
-1617552218 source:e:\kraken\projet_tech\c++\plateau.cpp
-	"Plateau.h"
-
-1619908399 source:e:\kraken\projet_tech\c++\plateaucentral.cpp
-	"PlateauCentral.h"
-
-1619905428 source:e:\kraken\projet_tech\c++\plateaujoueur.cpp
-	"PlateauJoueur.h"
-
-1619908450 source:e:\kraken\projet_tech\c++\simulateur.cpp
-	"Simulateur.h"
-
-1617552218 source:e:\kraken\projet_tech\c++\tuiles.cpp
+1616841537 source:c:\users\user\desktop\projet tech\pour bosser\c++\tuiles.cpp
 	"Tuiles.h"
 

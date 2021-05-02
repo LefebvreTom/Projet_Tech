@@ -87,6 +87,39 @@
         cout<<"ouvrier :"<<joueurcourant.getOuvrier()<<endl;
         cout<<"de 1 modif:"<<joueurcourant.getde(1)<<endl;
 
+    //test venteDe -------------------------------------------------------------------------------------------------------------
+        cout<<"***********************************"<<endl;
+        cout<<"ouvrier :"<<joueurcourant.getOuvrier()<<endl;
+        cout<<"en vendant le de 1 "<<endl;
+        cout<<venteDe(joueurcourant,1)<<endl;
+        cout<<"ouvrier modif:"<<joueurcourant.getOuvrier()<<endl;
+        cout<<"de1 :"<<joueurcourant.getde(1)<<" /de 2 :"<<joueurcourant.getde(2)<<endl;
+
+    //test venteMarchandise
+        cout<<"***********************************"<<endl;
+        cout<<"pepite :"<<joueurcourant.getPepite()<<endl;
+        cout<<"tab march:"<<endl;
+        for(int i=0;i<3;i++){
+            cout<<joueurcourant.getMarch(i)<<" / "<<joueurcourant.getNbMarch(i)<<endl;
+        }
+        cout<<"tab vendu:"<<endl;
+        for(int i=0;i<6;i++){
+            cout<<"march "<<i<<":"<<joueurcourant.getNbMarchVendu(i)<<endl;
+        }
+
+        cout<<venteMarchandise(joueurcourant,4)<<endl;
+
+        cout<<"pepite modif:"<<joueurcourant.getPepite()<<endl;
+        cout<<"tab march modif:"<<endl;
+        for(int i=0;i<3;i++){
+            cout<<joueurcourant.getMarch(i)<<" / "<<joueurcourant.getNbMarch(i)<<endl;
+        }
+        cout<<"tab vendu modif:"<<endl;
+        for(int i=0;i<6;i++){
+            cout<<"march "<<i<<":"<<joueurcourant.getNbMarchVendu(i)<<endl;
+        }
+        cout<<"de1 :"<<joueurcourant.getde(1)<<" /de 2 :"<<joueurcourant.getde(2)<<endl;
+
 
 
 
@@ -687,3 +720,78 @@
 
 
     }
+
+    bool Simulateur::venteDe(PlateauJoueur &joueur,int choix){
+        int de;
+        if(choix==1){
+            de=joueur.getde(1);
+        }
+        else{
+            de=joueur.getde(2);
+            choix=2;//on le force à 2
+        }
+
+        if(de==-1){ //si le dé est deja vendu ou utilisé
+            return false;
+        }
+        else{
+            joueur.setOuvrier(joueur.getOuvrier()+2);
+            joueur.setde(choix,-1);
+            return true;
+        }
+    }
+
+    bool Simulateur::venteMarchandise(PlateauJoueur &joueur, int choix){
+        int de;
+        bool test;
+        if(choix==1){
+            de=joueur.getde(1);
+        }
+        else{
+            de=joueur.getde(2);
+            choix=2;//on le force à 2
+        }
+
+        if(de==-1){ //si le dé n'est pas vendu ou utilisé
+            return false;
+        }
+        else{
+            for(int i=0;i<3;i++){
+                if(joueur.getMarch(i)==de){
+
+                    joueur.setVendu(de,joueur.getNbMarchVendu(de)+joueur.getNbMarch(i)); //on ajoute le nbr de march vendu dans le tableau du joueur
+                    joueur.setMarch(i,0,0);//on enleve la marchandise du tableau
+                    joueur.setMarch(i,1,0);//on met le nbr de marchandise à 0
+                    joueur.setPepite(joueur.getPepite()+1);
+                    joueur.setde(choix,-1);
+
+                    //on réarrange le tableau
+                    for(int j=i;j<3;j++){
+                        if(j!=2){
+                            joueur.setMarch(j,0,joueur.getMarch(j+1));
+                            joueur.setMarch(j,1,joueur.getNbMarch(j+1));
+                        }
+                        else{
+                            joueur.setMarch(j,0,0);
+                            joueur.setMarch(j,1,0);
+                        }
+
+                    }
+
+                    return true;
+                }
+                else{
+                    test=false;
+                }
+            }
+        }
+        return test;
+    }
+
+
+
+
+
+
+
+

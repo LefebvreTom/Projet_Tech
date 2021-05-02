@@ -32,6 +32,8 @@ class Simulateur
 
     bool achatPepite(PlateauJoueur &joueur,PlateauCentral &marche,int choix);
     bool utilisationOuvrier(PlateauJoueur &joueur,int de,int nbr,bool chgt);
+    bool venteDe(PlateauJoueur &joueur,int choix);
+    bool venteMarchandise(PlateauJoueur &joueur, int choix);
 
     //attribut
     //int tour
