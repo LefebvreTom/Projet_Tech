@@ -6,15 +6,15 @@ using namespace std;
 
     De::De(){}
 
-    De::De(mt19937 &rgen)
+    De::De(mt19937 &rand_gen)
     {
 
         //premier random
         //resultat=(rand()%6)+1;
 
         //deuxieme random
-
-        resultat=getRandInt(rgen,1,6);
+        rgen = rand_gen;
+        resultat=getRandInt(rand_gen,1,6);
 
 
     }
@@ -31,7 +31,9 @@ using namespace std;
     {
         return resultat;
     }
-
+    void De::genereResultat(){
+        resultat=getRandInt(rgen,1,6);
+    }
     //methode random
 
 

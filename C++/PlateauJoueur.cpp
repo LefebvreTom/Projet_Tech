@@ -51,6 +51,54 @@ using namespace std;
         tabCase[35] = Case(35,3,"marron");
         tabCase[36] = Case(36,1,"bleu");
 
+        district_batiment1[0] = Case(1,2,"marron");
+        district_batiment1[1] = Case(2,6,"marron");
+        district_batiment1[2] = Case(6,5,"marron");
+
+        district_batiment2[0] = Case(17,3,"marron");
+
+        district_batiment3[0] = Case(19,3,"marron");
+        district_batiment3[1] = Case(20,5,"marron");
+        district_batiment3[2] = Case(21,3,"marron");
+        district_batiment3[3] = Case(26,1,"marron");
+        district_batiment3[4] = Case(27,6,"marron");
+
+        district_batiment4[0] = Case(30,2,"marron");
+        district_batiment4[1] = Case(34,4,"marron");
+        district_batiment4[2] = Case(35,3,"marron");
+
+        district_bateaux1[0] = Case(0,6,"bleu");
+        district_bateaux1[1] = Case(5,1,"bleu");
+        district_bateaux1[2] = Case(11,2,"bleu");
+
+        district_bateaux2[0] = Case(25,5,"bleu");
+        district_bateaux2[1] = Case(31,4,"bleu");
+        district_bateaux2[2] = Case(36,1,"bleu");
+
+        district_connaissance1[0] = Case(8,4,"jaune");
+        district_connaissance1[1] = Case(13,2,"jaune");
+        district_connaissance1[2] = Case(14,1,"jaune");
+
+        district_connaissance2[0] = Case(24,1,"jaune");
+        district_connaissance2[1] = Case(29,5,"jaune");
+        district_connaissance2[2] = Case(33,3,"jaune");
+
+        district_animaux1[0] = Case(4,5,"vert");
+        district_animaux1[1] = Case(9,2,"vert");
+        district_animaux1[2] = Case(10,4,"vert");
+        district_animaux1[3] = Case(15,6,"vert");
+        district_animaux1[4] = Case(16,1,"vert");
+
+        district_animaux2[0] = Case(32,2,"vert");
+
+        district_mine[0] = Case(3,3,"gris");
+        district_mine[1] = Case(7,1,"gris");
+        district_mine[2] = Case(12,4,"gris");
+
+        district_chateaux[0] = Case(22,5,"vert fonce");
+        district_chateaux[1] = Case(23,6,"vert fonce");
+        district_chateaux[2] = Case(28,4,"vert fonce");
+
         //création du tableau de marchandises du joueur et de la reserve
         for(int i=0;i<3;i++){
             tabMarch[i][0]=0;
@@ -143,7 +191,80 @@ using namespace std;
 
     void PlateauJoueur::setCase(int i,Case resultat){
         tabCase[i]=resultat;
-        //if(resultat.getType())
+        switch(i) {
+
+            case 1: case 2: case 6:
+                if(i == 1) district_batiment1[0]=resultat;
+                if(i == 2) district_batiment1[1]=resultat;
+                if(i == 6) district_batiment1[2]=resultat;
+            break;
+
+            case 17:
+                district_batiment2[0]=resultat;
+            break;
+
+            case 19: case 20: case 21: case 26: case 27:
+                if(i == 19) district_batiment3[0]=resultat;
+                if(i == 20) district_batiment3[1]=resultat;
+                if(i == 21) district_batiment3[2]=resultat;
+                if(i == 26) district_batiment3[3]=resultat;
+                if(i == 27) district_batiment3[4]=resultat;
+            break;
+
+            case 30: case 34: case 35:
+                if(i == 30) district_batiment4[0]=resultat;
+                if(i == 34) district_batiment4[1]=resultat;
+                if(i == 35) district_batiment4[2]=resultat;
+            break;
+
+            case 0: case 5: case 11:
+                if(i == 0) district_bateaux1[0]=resultat;
+                if(i == 5) district_bateaux1[1]=resultat;
+                if(i == 11) district_bateaux1[2]=resultat;
+            break;
+
+            case 25: case 31: case 36:
+                if(i == 25) district_bateaux2[0]=resultat;
+                if(i == 31) district_bateaux2[1]=resultat;
+                if(i == 36) district_bateaux2[2]=resultat;
+            break;
+
+            case 8: case 13: case 14:
+                if(i == 8) district_connaissance1[0]=resultat;
+                if(i == 13) district_connaissance1[1]=resultat;
+                if(i == 14) district_connaissance1[2]=resultat;
+            break;
+
+            case 24: case 29: case 33:
+                if(i == 24) district_connaissance2[0]=resultat;
+                if(i == 29) district_connaissance2[1]=resultat;
+                if(i == 33) district_connaissance2[2]=resultat;
+            break;
+
+            case 4: case 9: case 10: case 15: case 16:
+                if(i == 4) district_animaux1[0]=resultat;
+                if(i == 9) district_animaux1[1]=resultat;
+                if(i == 10) district_animaux1[2]=resultat;
+                if(i == 15) district_animaux1[3]=resultat;
+                if(i == 16) district_animaux1[4]=resultat;
+            break;
+
+            case 32:
+                district_animaux2[0]=resultat;
+            break;
+
+            case 3: case 7: case 12:
+                if(i == 3) district_mine[0]=resultat;
+                if(i == 7) district_mine[1]=resultat;
+                if(i == 12) district_mine[2]=resultat;
+            break;
+
+            case 22: case 23: case 28:
+                if(i == 22) district_chateaux[0]=resultat;
+                if(i == 23) district_chateaux[1]=resultat;
+                if(i == 28) district_chateaux[2]=resultat;
+            break;
+        }
     }
 
     void PlateauJoueur::setPepite(int resultat){
@@ -156,6 +277,158 @@ using namespace std;
 
     void PlateauJoueur::setScore(int resultat){
         score=resultat;
+    }
+
+    /*void PlateauJoueur::printDistrict(){
+        for(int i = 0; i < 5; i++){
+                Case test =district_animaux1[i];
+                cout<<test.getType()<<endl;
+        }
+
+    }*/
+    bool PlateauJoueur::districtPlein(int id){
+        switch(id) {
+
+            case 1: case 2: case 6:
+                for(int i = 0; i < 3; i++){
+                    if(district_batiment1[i].getType().compare("marron") == 0) return false;
+                }
+                return true;
+            break;
+
+            case 17:
+                if(district_batiment2[0].getType().compare("marron") == 0) return false;
+                return true;
+
+            break;
+
+            case 19: case 20: case 21: case 26: case 27:
+                for(int i = 0; i < 5; i++){
+                    if(district_batiment3[i].getType().compare("marron") == 0) return false;
+                }
+                return true;
+            break;
+
+            case 30: case 34: case 35:
+                for(int i = 0; i < 3; i++){
+                    if(district_batiment4[i].getType().compare("marron") == 0) return false;
+                }
+                return true;
+            break;
+
+            case 0: case 5: case 11:
+                for(int i = 0; i < 3; i++){
+                    if(district_bateaux1[i].getType().compare("bleu") == 0) return false;
+                }
+                return true;
+            break;
+
+            case 25: case 31: case 36:
+                for(int i = 0; i < 3; i++){
+                    if(district_bateaux2[i].getType().compare("bleu") == 0) return false;
+                }
+                return true;
+            break;
+
+            case 8: case 13: case 14:
+                for(int i = 0; i < 3; i++){
+                    if(district_connaissance1[i].getType().compare("jaune") == 0) return false;
+                }
+                return true;
+            break;
+
+            case 24: case 29: case 33:
+                for(int i = 0; i < 3; i++){
+                    if(district_connaissance2[i].getType().compare("jaune") == 0) return false;
+                }
+                return true;
+            break;
+
+            case 4: case 9: case 10: case 15: case 16:
+                for(int i = 0; i < 5; i++){
+                    if(district_animaux1[i].getType().compare("vert") == 0) return false;
+                }
+                return true;
+            break;
+
+            case 32:
+                if(district_animaux2[0].getType().compare("vert") == 0) return false;
+                return true;
+            break;
+
+            case 3: case 7: case 12:
+                for(int i = 0; i < 3; i++){
+                    if(district_mine[i].getType().compare("gris") == 0) return false;
+                }
+                return true;
+            break;
+
+            case 22: case 23: case 28:
+                for(int i = 0; i < 3; i++){
+                    if(district_chateaux[i].getType().compare("vert fonce") == 0) return false;
+                }
+                return true;
+            break;
+        }
+    }
+    bool PlateauJoueur::couleurPlein(int id){
+        switch(id) {
+            case 1: case 2: case 6: case 17: case 19: case 20: case 21: case 26: case 27: case 30: case 34: case 35:
+                for(int i = 0; i < 3; i++){
+                    if(district_batiment1[i].getType().compare("marron") == 0) return false;
+                }
+                if(district_batiment2[0].getType().compare("marron") == 0) return false;
+                for(int i = 0; i < 5; i++){
+                    if(district_batiment3[i].getType().compare("marron") == 0) return false;
+                }
+                for(int i = 0; i < 3; i++){
+                    if(district_batiment4[i].getType().compare("marron") == 0) return false;
+                }
+                return true;
+            break;
+
+            case 0: case 5: case 11: case 25: case 31: case 36:
+                for(int i = 0; i < 3; i++){
+                    if(district_bateaux1[i].getType().compare("bleu") == 0) return false;
+                }
+                for(int i = 0; i < 3; i++){
+                    if(district_bateaux2[i].getType().compare("bleu") == 0) return false;
+                }
+                return true;
+            break;
+
+            case 8: case 13: case 14: case 24: case 29: case 33:
+                for(int i = 0; i < 3; i++){
+                    if(district_connaissance1[i].getType().compare("jaune") == 0) return false;
+                }
+                for(int i = 0; i < 3; i++){
+                    if(district_connaissance2[i].getType().compare("jaune") == 0) return false;
+                }
+                return true;
+            break;
+
+            case 4: case 9: case 10: case 15: case 16: case 32:
+                for(int i = 0; i < 5; i++){
+                    if(district_animaux1[i].getType().compare("vert") == 0) return false;
+                }
+                if(district_animaux2[0].getType().compare("vert") == 0) return false;
+                return true;
+            break;
+
+            case 3: case 7: case 12:
+                for(int i = 0; i < 3; i++){
+                    if(district_mine[i].getType().compare("gris") == 0) return false;
+                }
+                return true;
+            break;
+
+            case 22: case 23: case 28:
+                for(int i = 0; i < 3; i++){
+                    if(district_chateaux[i].getType().compare("vert fonce") == 0) return false;
+                }
+                return true;
+            break;
+        }
     }
 
 

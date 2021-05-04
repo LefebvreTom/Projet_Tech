@@ -458,11 +458,18 @@ def extraireMarche(page,joueurs,fichier):
     #on enregistre les marchandises qui vont etre placé aléatoirement aux débuts des prochains tours
     coordoneeMarchandise = topLeft(donneeJoueurSplit)
     marchandiseTours=[]
+    fichier.write("marchandises_tours:\n")
+    debut = True
     while coordoneeMarchandise[0]==22:
         marchandise = re.split("img/",donneeJoueurSplit[0])
         couleurTemp = re.split(".png",marchandise[1])
         if(coordoneeMarchandise[1]>250):
             marchandiseTours.append(couleurTemp[0])
+            if(debut):
+                fichier.write(couleurTemp[0])
+                debut = False
+            else:
+                fichier.write(";"+couleurTemp[0])
             donneeJoueurSplit.pop(0)
         elif(coordoneeMarchandise[1]<250):
             donneeJoueurSplit.pop(0)
@@ -482,7 +489,7 @@ def extraireMarche(page,joueurs,fichier):
     
         coordoneePion = topLeft(donneeJoueurSplit)
     pions.sort(reverse=True)
-    fichier.write("pions:\n")
+    fichier.write("\npions:\n")
     for i in range(len(pions)):
         fichier.write(str(pions[i])+"\n") 
     #print(pions)
@@ -523,15 +530,15 @@ def tout(payload):
     i = 1  
     for joueur in joueurs.keys():
         #print("Plateau : "+joueur)
-        #fichier = open("e:/Kraken/projet_tech/Donnes/J"+str(i)+".txt", "w")
-        fichier = open("../Donnes/J"+str(i)+".txt", "w")
+        fichier = open("e:/Kraken/projet_tech/Donnes/J"+str(i)+".txt", "w")
+        #fichier = open("../Donnes/J"+str(i)+".txt", "w")
         extraireDonneeJoueur(joueurs,joueur,page,fichier)
         fichier.close()
         i += 1
     extraireScore(donneeS,joueurs)
     #print(page)
-    #fichier = open("e:/Kraken/projet_tech/Donnes/marche.txt", "w")
-    fichier = open("../Donnes/marche.txt", "w")
+    fichier = open("e:/Kraken/projet_tech/Donnes/marche.txt", "w")
+    #fichier = open("../Donnes/marche.txt", "w")
     extraireMarche(page,joueurs,fichier)
     
 

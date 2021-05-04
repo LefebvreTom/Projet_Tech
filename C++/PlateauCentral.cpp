@@ -24,6 +24,9 @@ using namespace std;
     void PlateauCentral::recupPlateau()
     {
         ifstream monFlux("../Donnes/marche.txt");  //Ouverture d'un fichier en lecture
+        mt19937 rgen(time(0));
+        De test(rgen);
+        deMarchandise = test;
         if(monFlux)
         {
             //Tout est prêt pour la lecture.
@@ -199,6 +202,15 @@ using namespace std;
 
 
                 }
+                if(ligne.compare("marchandises_tours:")==0){
+                    getline(monFlux, ligne);
+                    istringstream iss( ligne );
+                    string morceau;
+                    while (getline(iss, morceau, ';' ) )//on decoupe les lignes du doc
+                    {
+                        listeMarchandisesTours.push(morceau);
+                    }
+                }
                 if(ligne.compare("pions:")==0){
                     getline(monFlux, ligne);
                     //cout<<ligne<<endl;
@@ -260,7 +272,16 @@ using namespace std;
 
     int PlateauCentral::getTour(){
         return tour;
-    };
+    }
+    int PlateauCentral::getDeMarchandise(){
+        deMarchandise.genereResultat();
+        return deMarchandise.getResultat();
+    }
+    string PlateauCentral::getMarchandiseTour(){
+        string tuile = listeMarchandisesTours.front();
+        listeMarchandisesTours.pop();
+        return tuile;
+    }
 
     string PlateauCentral::getTuileMarche(int i,int j){
         string tuile=listeTuileCentrale[i][j];
@@ -277,4 +298,15 @@ using namespace std;
 
     void PlateauCentral::setTour(int resultat){
         tour=resultat;
+    }
+    void PlateauCentral::setMarchandiseTour(string marchandiseTour){
+        listeMarchandisesTours.push(marchandiseTour);
+    }
+    void PlateauCentral::addListeTuileCentrale(string tuile,int i){
+        int colonne = 0;
+        while(listeTuileCentrale[i][colonne].compare("")!=0)
+        {
+            colonne=colonne+1;
+        }
+        listeTuileCentrale[i][colonne]=tuile;
     }

@@ -8,6 +8,8 @@ tuile_centrale:
 ['tm', 'tk26']
 ['tb1', 'tav4', 'm4', 'm3']
 ['tap3b', 'tb1b', 'tb5b']
+marchandises_tours:
+m1;m6
 pions:
 [271, 596, 'p1']
 [235, 596, 'p0']

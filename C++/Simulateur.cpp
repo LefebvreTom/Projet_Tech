@@ -45,8 +45,6 @@
         //----------------------------------------------------------------------------------------------------------------------
 
         //on commence le simulateur
-
-
         PlateauJoueur joueurcourant;
         joueurcourant =joueur2;
 
@@ -120,6 +118,7 @@
         }
         cout<<"de1 :"<<joueurcourant.getde(1)<<" /de 2 :"<<joueurcourant.getde(2)<<endl;
 
+    //
 
 
 
@@ -179,10 +178,26 @@
 
 
         }*/
-
-
+        finDeTour(marche);
+        finDeTour(marche);
     }
-
+    void Simulateur::finDeTour(PlateauCentral &marche){
+        if(marche.getTour() < 5){
+            string marchandiseTour = marche.getMarchandiseTour();
+            marche.addListeTuileCentrale(marchandiseTour,marche.getDeMarchandise()-1);
+            for(int i =0; i < 7;i++){
+                cout<<"ligne : "<<i<<endl;
+                    for(int j =0; j < 8;j++){
+                        cout<<marche.getTuileMarche(i,j)<<endl;
+                    }
+            }
+            marche.setTour(marche.getTour()+1);
+        }
+        else{
+            marche.setTour(1);
+            marche.setPhase(marche.getPhase()+1);
+        }
+    }
     //--------------------------------------------------------------------------------------------------------------------------
     //--------------------------------------------------------------------------------------------------------------------------
 

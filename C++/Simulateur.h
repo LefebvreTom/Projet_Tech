@@ -4,9 +4,11 @@
 #include "PlateauJoueur.h"
 #include "PlateauCentral.h"
 #include "Partie.h"
+#include "De.h"
 
 #include<stdio.h>
 #include<string>
+#include <random>
 
 #include <cstdlib>
 #include <stdlib.h>
@@ -26,6 +28,7 @@ class Simulateur
     void testPosage(PlateauJoueur joueur,int de1, int de2);
     void testAchat(PlateauCentral marche,int de1, int de2);
     bool testReserveVide(PlateauJoueur joueur);
+    void finDeTour(PlateauCentral &marche);
 
     PlateauJoueur copieJoueur(PlateauJoueur joueur);
     PlateauCentral copieMarche(PlateauCentral marche);

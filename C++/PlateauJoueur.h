@@ -44,7 +44,8 @@ public:
         void setOuvrier(int resultat);
         void setScore(int resultat);
 
-
+        bool districtPlein(int id);
+        bool couleurPlein(int id);
 
 
 protected:
@@ -57,7 +58,18 @@ protected:
         int tabMarch[3][2]; //reserve des marchandises non vendues (stocké comme ceci [0][0]=type de march,[0][1]=nbr de march)
         int tabVendu[6]; //ensembles des marchandises vendues (nbr de marchandises de type 1 = tabVendu[0]
         int score;
-
+        Case district_batiment1[3];
+        Case district_batiment2[1];
+        Case district_batiment3[5];
+        Case district_batiment4[3];
+        Case district_bateaux1[3];
+        Case district_bateaux2[3];
+        Case district_connaissance1[3];
+        Case district_connaissance2[3];
+        Case district_animaux1[5];
+        Case district_animaux2[1];
+        Case district_mine[3];
+        Case district_chateaux[3];
 
 };
 
