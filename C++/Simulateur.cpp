@@ -186,9 +186,7 @@
         finDeTour(marche);
     }
     void Simulateur::finDeTour(PlateauCentral &marche){
-        cout<<"test avant if"<<endl;
         if(marche.getTour() < 5){
-            cout<<"test if"<<endl;
             string marchandiseTour = marche.getMarchandiseTour();
             marche.addMarchandiseListeTuileCentrale(marchandiseTour,marche.getDeMarchandise()-1);
             /*for(int i =0; i < 7;i++){
@@ -200,51 +198,62 @@
             marche.setTour(marche.getTour()+1);
         }
         else{
-            cout<<"test else"<<endl;
                 int id = 0;
                 while(id < 12){
                     cout<<"test while:"<<id<<endl;
                     int type = marche.getDeMarchandise();
                     if(type == 1){
+                        cout<<"Chateau"<<endl;
                         Chateau c = init.getChateau();
                         marche.addTuileListeTuileCentrale(c.getIdSite(),id/2,(id%2)+6);
                         cout<<c.getIdSite()<<endl;
                         id++;
                     }
                     if(type == 2){
+                        cout<<"Bateau"<<endl;
                         Bateau b = init.getBateau();
                         marche.addTuileListeTuileCentrale(b.getIdSite(),id/2,(id%2)+6);
                         cout<<b.getIdSite()<<endl;
                         id++;
                     }
                     if(type == 3){
+                        cout<<"Mine"<<endl;
                         Mine m = init.getMine();
                         marche.addTuileListeTuileCentrale(m.getIdSite(),id/2,(id%2)+6);
                         cout<<m.getIdSite()<<endl;
                         id++;
                     }
                     if(type == 4){
+                        cout<<"Connaissance"<<endl;
                         Connaissance c = init.getConnaissance();
                         marche.addTuileListeTuileCentrale(c.getIdSite(),id/2,(id%2)+6);
                         cout<<c.getIdSite()<<endl;
                         id++;
                     }
                     if(type == 5){
+                        cout<<"Animal"<<endl;
                         Animal a = init.getAnimal();
                         marche.addTuileListeTuileCentrale(a.getIdSite(),id/2,(id%2)+6);
                         cout<<a.getIdSite()<<endl;
                         id++;
                     }
                     if(type == 6){
+                        cout<<"Batiment"<<endl;
                         Batiment b = init.getBatiment();
                         marche.addTuileListeTuileCentrale(b.getIdSite(),id/2,(id%2)+6);
                         cout<<b.getIdSite()<<endl;
                         id++;
                     }
                 }
+                for(int i =0;i < 4;i++){
+                    string s = init.getDosNoir();
+                    cout<<s<<endl;
+                    marche.addTuileListeTuileCentrale(s,6,i);
+                }
                 for(int i =0;i < 5;i++){
                     cout<<"test for:"<<i<<endl;
                     Marchandise m = init.getMarchandise();
+                    cout<<m.getIdSite()<<endl;
                     marche.setMarchandiseTour(m.getIdSite());
                 }
                 string marchandiseTour = marche.getMarchandiseTour();

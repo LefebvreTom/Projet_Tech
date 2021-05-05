@@ -18,6 +18,7 @@
 #include <string>
 #include <stack>
 #include <vector>
+#include <typeinfo>
 
 class Initialisation
 {
@@ -46,7 +47,7 @@ class Initialisation
         Connaissance getConnaissance();
         Batiment getBatiment();
         Animal getAnimal();
-        DosNoir getDosNoir();
+        std::string getDosNoir();
         Marchandise getMarchandise();
 
         //methode pour vider le vecteur du marche noir

@@ -618,7 +618,7 @@
 	<string>
 	"Initialisation.h"
 
-1620177510 c:\users\alexandre\desktop\c++\initialisation.h
+1620259312 c:\users\alexandre\desktop\c++\initialisation.h
 	"Tuiles.h"
 	"affichageTest.h"
 	"Marchandise.h"
@@ -635,6 +635,7 @@
 	<string>
 	<stack>
 	<vector>
+	<typeinfo>
 
 1620168655 c:\users\alexandre\desktop\c++\plateaujoueur.h
 	"Plateau.h"
@@ -660,10 +661,10 @@
 	<sstream>
 	<queue>
 
-1620177555 source:c:\users\alexandre\desktop\c++\initialisation.cpp
+1620259550 source:c:\users\alexandre\desktop\c++\initialisation.cpp
 	"Initialisation.h"
 
-1620175075 source:c:\users\alexandre\desktop\c++\main.cpp
+1620255073 source:c:\users\alexandre\desktop\c++\main.cpp
 	<iostream>
 	<string>
 	<stack>
@@ -699,7 +700,7 @@
 	<sstream>
 	<iostream>
 
-1620172805 c:\users\alexandre\desktop\c++\simulateur.h
+1620249137 c:\users\alexandre\desktop\c++\simulateur.h
 	"PlateauJoueur.h"
 	"PlateauCentral.h"
 	"Partie.h"
@@ -728,25 +729,24 @@
 1620168708 source:c:\users\alexandre\desktop\c++\plateaujoueur.cpp
 	"PlateauJoueur.h"
 
-1620177196 source:c:\users\alexandre\desktop\c++\simulateur.cpp
+1620259489 source:c:\users\alexandre\desktop\c++\simulateur.cpp
 	"Simulateur.h"
 
 1617552218 source:c:\users\alexandre\desktop\c++\tuiles.cpp
 	"Tuiles.h"
 
-1620142590 c:\users\alexandre\desktop\c++\ia.h
+1620256763 c:\users\alexandre\desktop\c++\ia.h
 	"PlateauJoueur.h"
 	"PlateauCentral.h"
 	"Partie.h"
 	"Simulateur.h"
-	<iostream>
 	<stdio.h>
 	<string>
 	<random>
 	<cstdlib>
 	<stdlib.h>
 
-1620172729 source:c:\users\alexandre\desktop\c++\ia.cpp
+1620256841 source:c:\users\alexandre\desktop\c++\ia.cpp
 	"IA.h"
 
 1620229564 source:c:\users\user\desktop\projet tech\pour bosser\c++\ia.cpp

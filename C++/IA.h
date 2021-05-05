@@ -6,7 +6,6 @@
 #include "Partie.h"
 #include "Simulateur.h"
 
-#include <iostream>
 #include<stdio.h>
 #include<string>
 #include <random>
@@ -22,6 +21,7 @@ public :
         ~IA();
 
         void Monte_Carlo();
+        std::vector<std::string> vecteurBranche(int id);
 
 protected :
     Partie partie;

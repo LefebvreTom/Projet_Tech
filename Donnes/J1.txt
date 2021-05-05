@@ -51,5 +51,3 @@ cb;tb5
 cs;d1
 ouvrier:
 2
-score:
-62

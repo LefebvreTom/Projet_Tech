@@ -168,7 +168,7 @@
         while(TabAnimal[i] == NULL && TabAnimal.){
             i++;
         }*/
-        int r=(rand()%4)+1;
+        int r=(rand()%3)+1;
         Animal a = TabAnimal[r].top();
         TabAnimal[r].pop();
         return a;
@@ -181,10 +181,17 @@
         return b;
     }
     Marchandise Initialisation::getMarchandise(){
+
         int r=(rand()%6)+1;
-        Marchandise m = TabMarchandise[r].top();
-        TabMarchandise[r].pop();
+        Marchandise m = Marchandise(r);
         return m;
+    }
+    string Initialisation::getDosNoir(){
+        Tuiles * t;
+        t=MarcheNoir.back();
+        MarcheNoir.pop_back();
+        string s = t->getIdSite();
+        return s;
     }
     /*PlateauJoueur Initialisation::getJoueur(int id){
         PlateauJoueur resultat;
