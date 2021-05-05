@@ -16,7 +16,7 @@
         cout<<endl;
 
         //lancement du programme python qui met à jour depuis le site
-        //system("python ../Python/login.py ");
+        system("python ../Python/login.py ");
 
         //initialisation des plateaux etc
         Partie partie;
@@ -120,7 +120,7 @@
         }
         cout<<"de1 :"<<joueurcourant.getde(1)<<" /de 2 :"<<joueurcourant.getde(2)<<endl;
 
-    //
+
 
 
 
@@ -180,12 +180,15 @@
 
 
         }*/
+
         finDeTour(marche);
         finDeTour(marche);
         finDeTour(marche);
     }
     void Simulateur::finDeTour(PlateauCentral &marche){
+        cout<<"test avant if"<<endl;
         if(marche.getTour() < 5){
+            cout<<"test if"<<endl;
             string marchandiseTour = marche.getMarchandiseTour();
             marche.addMarchandiseListeTuileCentrale(marchandiseTour,marche.getDeMarchandise()-1);
             /*for(int i =0; i < 7;i++){
@@ -197,42 +200,50 @@
             marche.setTour(marche.getTour()+1);
         }
         else{
+            cout<<"test else"<<endl;
                 int id = 0;
                 while(id < 12){
+                    cout<<"test while:"<<id<<endl;
                     int type = marche.getDeMarchandise();
                     if(type == 1){
                         Chateau c = init.getChateau();
                         marche.addTuileListeTuileCentrale(c.getIdSite(),id/2,(id%2)+6);
-                        //cout<<c.getIdSite()<<endl;
+                        cout<<c.getIdSite()<<endl;
                         id++;
                     }
                     if(type == 2){
                         Bateau b = init.getBateau();
                         marche.addTuileListeTuileCentrale(b.getIdSite(),id/2,(id%2)+6);
+                        cout<<b.getIdSite()<<endl;
                         id++;
                     }
                     if(type == 3){
                         Mine m = init.getMine();
                         marche.addTuileListeTuileCentrale(m.getIdSite(),id/2,(id%2)+6);
+                        cout<<m.getIdSite()<<endl;
                         id++;
                     }
                     if(type == 4){
                         Connaissance c = init.getConnaissance();
                         marche.addTuileListeTuileCentrale(c.getIdSite(),id/2,(id%2)+6);
+                        cout<<c.getIdSite()<<endl;
                         id++;
                     }
                     if(type == 5){
                         Animal a = init.getAnimal();
                         marche.addTuileListeTuileCentrale(a.getIdSite(),id/2,(id%2)+6);
+                        cout<<a.getIdSite()<<endl;
                         id++;
                     }
                     if(type == 6){
                         Batiment b = init.getBatiment();
                         marche.addTuileListeTuileCentrale(b.getIdSite(),id/2,(id%2)+6);
+                        cout<<b.getIdSite()<<endl;
                         id++;
                     }
                 }
                 for(int i =0;i < 5;i++){
+                    cout<<"test for:"<<i<<endl;
                     Marchandise m = init.getMarchandise();
                     marche.setMarchandiseTour(m.getIdSite());
                 }
@@ -241,7 +252,7 @@
                 marche.setTour(1);
                 marche.setPhase(marche.getPhase()+1);
         }
-        //cout<<"Phase : "<<marche.getPhase()<<"Tour : "<<marche.getTour() <<endl;
+        cout<<"Phase : "<<marche.getPhase()<<"Tour : "<<marche.getTour() <<endl;
     }
     //--------------------------------------------------------------------------------------------------------------------------
     //--------------------------------------------------------------------------------------------------------------------------
@@ -258,7 +269,7 @@
 
         //si le de1 est vendu mais pas le de2
         if(de1vendu && !de2vendu){
-            ouvrier=ouvrier+1;
+            ouvrier=ouvrier+2;
             cout<<"vous avez "<<ouvrier<<"ouvriers"<<endl;
             cout<<endl;
             for(int i=1;i<=ouvrier;i++){
@@ -296,7 +307,7 @@
 
         //si le de2 est vendu mais pas le de1
         if(de2vendu && !de1vendu){
-            ouvrier=ouvrier+1;
+            ouvrier=ouvrier+2;
             cout<<"vous avez "<<ouvrier<<"ouvriers"<<endl;
             cout<<endl;
             for(int i=1;i<=ouvrier;i++){
@@ -848,6 +859,210 @@
         return test;
     }
 
+
+ bool Simulateur::achatTuile(PlateauJoueur &joueur,PlateauCentral &marche,int choixDe,int choix){
+
+        int de;
+        if(choixDe==1){
+            de=joueur.getde(1)-1;
+        }
+        else{
+            de=joueur.getde(2)-1;
+            choixDe=2;//on le force à 2
+        }
+
+        if(de==-1){ //si le dé est vendu
+            return false;
+        }
+        else{ //si le dé n'est pas vendu ou utilisé
+
+
+                if(choix<6){//on veut une marchandise
+                    if(marche.getTuileMarche(de,choix)==""){ //s'il n'y a pas de marchandise à cette place
+                        return false;
+                    }
+                    else{ //s'il y a une marchandise
+
+                        string march=marche.getTuileMarche(de,choix); //on recupere cette marchandise
+
+                        //on veut savoir c'est qu'elle marchandise
+                        char numMarch= march.at(1);
+                        int testPlaceMarch=0;
+                        int idVide;
+                        switch(numMarch){
+                            case '1': //si c'est une marchandise de type 1
+                                for(int i=0;i<3;i++){//on regarde si on a deja une marchandise de ce type en reserve
+                                    if(joueur.getMarch(i)==1){
+                                        joueur.setMarch(i,1,joueur.getNbMarch(i)+1);
+                                        return true;
+                                    }
+                                    else if(joueur.getMarch(i)==0){
+                                        idVide=i;
+                                    }
+                                    else{
+                                        testPlaceMarch=testPlaceMarch+1;
+                                    }
+                                }
+                                if(testPlaceMarch==3){ //on ne peut pas stocké la nouvelle marchandise
+                                    return false;
+                                }
+                                else{
+                                    joueur.setMarch(idVide,0,1);
+                                    joueur.setMarch(idVide,1,1);
+                                    return true;
+                                }
+                                break;
+                            case '2':
+                                for(int i=0;i<3;i++){//on regarde si on a deja une marchandise de ce type en reserve
+                                    if(joueur.getMarch(i)==2){
+                                        joueur.setMarch(i,1,joueur.getNbMarch(i)+1);
+                                        return true;
+                                    }
+                                    else if(joueur.getMarch(i)==0){
+                                        idVide=i;
+                                    }
+                                    else{
+                                        testPlaceMarch=testPlaceMarch+1;
+                                    }
+                                }
+                                if(testPlaceMarch==3){ //on ne peut pas stocké la nouvelle marchandise
+                                    return false;
+                                }
+                                else{
+                                    joueur.setMarch(idVide,0,2);
+                                    joueur.setMarch(idVide,1,1);
+                                    return true;
+                                }
+                                break;
+                            case '3':
+                                for(int i=0;i<3;i++){//on regarde si on a deja une marchandise de ce type en reserve
+                                    if(joueur.getMarch(i)==3){
+                                        joueur.setMarch(i,1,joueur.getNbMarch(i)+1);
+                                        return true;
+                                    }
+                                    else if(joueur.getMarch(i)==0){
+                                        idVide=i;
+                                    }
+                                    else{
+                                        testPlaceMarch=testPlaceMarch+1;
+                                    }
+                                }
+                                if(testPlaceMarch==3){ //on ne peut pas stocké la nouvelle marchandise
+                                    return false;
+                                }
+                                else{
+                                    joueur.setMarch(idVide,0,3);
+                                    joueur.setMarch(idVide,1,1);
+                                    return true;
+                                }
+
+                                break;
+                            case '4':
+                                for(int i=0;i<3;i++){//on regarde si on a deja une marchandise de ce type en reserve
+                                    if(joueur.getMarch(i)==4){
+                                        joueur.setMarch(i,1,joueur.getNbMarch(i)+1);
+                                        return true;
+                                    }
+                                    else if(joueur.getMarch(i)==0){
+                                        idVide=i;
+                                    }
+                                    else{
+                                        testPlaceMarch=testPlaceMarch+1;
+                                    }
+                                }
+                                if(testPlaceMarch==3){ //on ne peut pas stocké la nouvelle marchandise
+                                    return false;
+                                }
+                                else{
+                                    joueur.setMarch(idVide,0,4);
+                                    joueur.setMarch(idVide,1,1);
+                                    return true;
+                                }
+                                break;
+                            case '5':
+                                for(int i=0;i<3;i++){//on regarde si on a deja une marchandise de ce type en reserve
+                                    if(joueur.getMarch(i)==5){
+                                        joueur.setMarch(i,1,joueur.getNbMarch(i)+1);
+                                        return true;
+                                    }
+                                    else if(joueur.getMarch(i)==0){
+                                        idVide=i;
+                                    }
+                                    else{
+                                        testPlaceMarch=testPlaceMarch+1;
+                                    }
+                                }
+                                if(testPlaceMarch==3){ //on ne peut pas stocké la nouvelle marchandise
+                                    return false;
+                                }
+                                else{
+                                    joueur.setMarch(idVide,0,5);
+                                    joueur.setMarch(idVide,1,1);
+                                    return true;
+                                }
+                                break;
+                            case '6':
+                                for(int i=0;i<3;i++){//on regarde si on a deja une marchandise de ce type en reserve
+                                    if(joueur.getMarch(i)==6){
+                                        joueur.setMarch(i,1,joueur.getNbMarch(i)+1);
+                                        return true;
+                                    }
+                                    else if(joueur.getMarch(i)==0){
+                                        idVide=i;
+                                    }
+                                    else{
+                                        testPlaceMarch=testPlaceMarch+1;
+                                    }
+                                }
+                                if(testPlaceMarch==3){ //on ne peut pas stocké la nouvelle marchandise
+                                    return false;
+                                }
+                                else{
+                                    joueur.setMarch(idVide,0,6);
+                                    joueur.setMarch(idVide,1,1);
+                                    return true;
+                                }
+                                break;
+                            default :
+                                return false;
+                                break;
+
+                        }
+
+                        return true;
+
+                    }
+                }
+                else{ //on veut une tuile hexagonale
+                    string Reserve[3];
+                    int testPlace=0;
+                    int PlaceVide;
+                    for(int i=0;i<3;i++){
+                        Reserve[i]=joueur.getReserve(i);
+                        if(Reserve[i].compare("")!=0){ //si c'est pas vide
+                            testPlace=testPlace+1;
+                        }
+                        else{ //si la place est vide
+                            PlaceVide=i;
+                        }
+                    }
+
+                    if(testPlace<3){// il y a de la place dans la reserve
+                        joueur.setReserve(PlaceVide,marche.getTuileMarche(de,choix));
+                        marche.setTuile(de,choix,"");
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+                }
+
+
+        }
+
+
+
+    }
 
 
 

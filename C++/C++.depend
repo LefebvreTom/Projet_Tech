@@ -38,7 +38,7 @@
 	<sstream>
 	"Tuiles.h"
 
-1619361876 c:\users\user\desktop\projet tech\pour bosser\c++\de.h
+1620229564 c:\users\user\desktop\projet tech\pour bosser\c++\de.h
 	<stdlib.h>
 	<random>
 	<ctime>
@@ -62,7 +62,7 @@
 	<stack>
 	"Tuiles.h"
 
-1617623908 source:c:\users\user\desktop\projet tech\pour bosser\c++\animal.cpp
+1620229563 source:c:\users\user\desktop\projet tech\pour bosser\c++\animal.cpp
 	"Animal.h"
 
 1617541228 source:c:\users\user\desktop\projet tech\pour bosser\c++\bateau.cpp
@@ -71,7 +71,7 @@
 1617623908 source:c:\users\user\desktop\projet tech\pour bosser\c++\batiment.cpp
 	"Batiment.h"
 
-1617541401 source:c:\users\user\desktop\projet tech\pour bosser\c++\bonus.cpp
+1620229563 source:c:\users\user\desktop\projet tech\pour bosser\c++\bonus.cpp
 	"Bonus.h"
 
 1617543265 c:\users\user\desktop\projet tech\pour bosser\c++\bonus.h
@@ -90,7 +90,7 @@
 1617623908 source:c:\users\user\desktop\projet tech\pour bosser\c++\chateaux.cpp
 	"Chateaux.h"
 
-1617623908 source:c:\users\user\desktop\projet tech\pour bosser\c++\connaissance.cpp
+1620229564 source:c:\users\user\desktop\projet tech\pour bosser\c++\connaissance.cpp
 	"Connaissance.h"
 
 1617543451 c:\users\user\desktop\projet tech\pour bosser\c++\connaissance.h
@@ -100,10 +100,10 @@
 	<stack>
 	"Tuiles.h"
 
-1619361876 source:c:\users\user\desktop\projet tech\pour bosser\c++\de.cpp
+1620229564 source:c:\users\user\desktop\projet tech\pour bosser\c++\de.cpp
 	"De.h"
 
-1617542376 source:c:\users\user\desktop\projet tech\pour bosser\c++\dosnoir.cpp
+1620229564 source:c:\users\user\desktop\projet tech\pour bosser\c++\dosnoir.cpp
 	"DosNoir.h"
 
 1617543482 c:\users\user\desktop\projet tech\pour bosser\c++\dosnoir.h
@@ -129,7 +129,7 @@
 	<string>
 	"Initialisation.h"
 
-1618322265 c:\users\user\desktop\projet tech\pour bosser\c++\initialisation.h
+1620229564 c:\users\user\desktop\projet tech\pour bosser\c++\initialisation.h
 	"Tuiles.h"
 	"affichageTest.h"
 	"Marchandise.h"
@@ -147,7 +147,7 @@
 	<stack>
 	<vector>
 
-1619950074 c:\users\user\desktop\projet tech\pour bosser\c++\plateaujoueur.h
+1620229567 c:\users\user\desktop\projet tech\pour bosser\c++\plateaujoueur.h
 	"Plateau.h"
 	"Case.h"
 	"Marchandise.h"
@@ -161,18 +161,20 @@
 	<stdlib.h>
 	<string>
 
-1619950074 c:\users\user\desktop\projet tech\pour bosser\c++\plateaucentral.h
+1620229567 c:\users\user\desktop\projet tech\pour bosser\c++\plateaucentral.h
 	"Plateau.h"
+	"De.h"
 	<iostream>
 	<stdlib.h>
 	<fstream>
 	<string>
 	<sstream>
+	<queue>
 
-1619534369 source:c:\users\user\desktop\projet tech\pour bosser\c++\initialisation.cpp
+1620229564 source:c:\users\user\desktop\projet tech\pour bosser\c++\initialisation.cpp
 	"Initialisation.h"
 
-1619950074 source:c:\users\user\desktop\projet tech\pour bosser\c++\main.cpp
+1620229564 source:c:\users\user\desktop\projet tech\pour bosser\c++\main.cpp
 	<iostream>
 	<string>
 	<stack>
@@ -184,9 +186,10 @@
 	"affichageTest.h"
 	"FinDePartie.h"
 	"Partie.h"
+	"IA.h"
 	"Simulateur.h"
 
-1618324130 c:\users\user\desktop\projet tech\pour bosser\c++\partie.h
+1620229567 c:\users\user\desktop\projet tech\pour bosser\c++\partie.h
 	"Tuiles.h"
 	"affichageTest.h"
 	"Marchandise.h"
@@ -207,12 +210,14 @@
 	<sstream>
 	<iostream>
 
-1619972326 c:\users\user\desktop\projet tech\pour bosser\c++\simulateur.h
+1620231403 c:\users\user\desktop\projet tech\pour bosser\c++\simulateur.h
 	"PlateauJoueur.h"
 	"PlateauCentral.h"
 	"Partie.h"
+	"De.h"
 	<stdio.h>
 	<string>
+	<random>
 	<cstdlib>
 	<stdlib.h>
 
@@ -222,21 +227,22 @@
 1617542968 source:c:\users\user\desktop\projet tech\pour bosser\c++\mine.cpp
 	"Mine.h"
 
-1619950074 source:c:\users\user\desktop\projet tech\pour bosser\c++\partie.cpp
+1620229567 source:c:\users\user\desktop\projet tech\pour bosser\c++\partie.cpp
 	"Partie.h"
 
 1617539794 source:c:\users\user\desktop\projet tech\pour bosser\c++\plateau.cpp
 	"Plateau.h"
 
-1619950074 source:c:\users\user\desktop\projet tech\pour bosser\c++\plateaucentral.cpp
+1620229567 source:c:\users\user\desktop\projet tech\pour bosser\c++\plateaucentral.cpp
 	"PlateauCentral.h"
 
-1619950074 source:c:\users\user\desktop\projet tech\pour bosser\c++\plateaujoueur.cpp
+1620229567 source:c:\users\user\desktop\projet tech\pour bosser\c++\plateaujoueur.cpp
 	"PlateauJoueur.h"
 
 1619950074 ated upstream
 
-1619968260 source:c:\users\user\desktop\projet tech\pour bosser\c++\simulateur.cpp
+1620236967 source:c:\users\user\desktop\projet tech\pour bosser\c++\simulateur.cpp
+	"Simulateur.h"
 
 1620051136 source:e:\kraken\projet_tech\c++\simulateur.cpp
 	"Simulateur.h"
@@ -742,4 +748,19 @@
 
 1620172729 source:c:\users\alexandre\desktop\c++\ia.cpp
 	"IA.h"
+
+1620229564 source:c:\users\user\desktop\projet tech\pour bosser\c++\ia.cpp
+	"IA.h"
+
+1620229564 c:\users\user\desktop\projet tech\pour bosser\c++\ia.h
+	"PlateauJoueur.h"
+	"PlateauCentral.h"
+	"Partie.h"
+	"Simulateur.h"
+	<iostream>
+	<stdio.h>
+	<string>
+	<random>
+	<cstdlib>
+	<stdlib.h>
 

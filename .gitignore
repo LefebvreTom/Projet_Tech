@@ -1,3 +1,2 @@
-../C++/bin
-../C++/obj
-../C++/C++.depend
+C++/bin/*
+C++/obj/*
