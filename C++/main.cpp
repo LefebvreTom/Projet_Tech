@@ -10,6 +10,7 @@
 
 #include "FinDePartie.h"
 #include "Partie.h"
+#include "IA.h"
 #include "Simulateur.h"
 
 
@@ -29,15 +30,15 @@ int main()
 
 //----------------------------------------------------------------------------------------
     //section de test
-    AffichageTest affichetest;
+    //AffichageTest affichetest;
 
     //lancer de 10 dés pour voir si le random marche
-    De tabDe[10];
+    /*De tabDe[10];
     for(int i=0;i<10;i++){
         tabDe[i]=De(rgen);
         affichetest.AffichageDe(tabDe[i]);
         cout<<endl;
-    }
+    }*/
 
 
 
@@ -51,6 +52,8 @@ int main()
     partie.MajPlateauJoueur("J2");*/
 
     //simulateur
+    /*IA test;
+    test.Monte_Carlo();*/
     Simulateur simulateur;
     simulateur.jouer();
 

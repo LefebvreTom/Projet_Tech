@@ -245,6 +245,7 @@
                                     Case chgt = joueur.getCase(i);
                                     //cout<<"type :"<<morceau<<endl;
                                     chgt.setType(morceau);
+                                    joueur.setCaseDisponible(i);
                                     joueur.setCase(i,chgt);
 
                                 }
@@ -333,4 +334,8 @@
     PlateauCentral Partie::getMarche()
     {
         return marche;
+    }
+    void Partie::updatePhaseTourMarche(PlateauCentral m){
+        marche.setPhase(m.getPhase());
+        marche.setTour(m.getTour());
     }

@@ -60,6 +60,12 @@
 		<Unit filename="DosNoir.h" />
 		<Unit filename="FinDePartie.cpp" />
 		<Unit filename="FinDePartie.h" />
+		<Unit filename="IA.cpp">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="IA.h">
+			<Option target="Debug" />
+		</Unit>
 		<Unit filename="Initialisation.cpp" />
 		<Unit filename="Initialisation.h" />
 		<Unit filename="Marchandise.cpp" />

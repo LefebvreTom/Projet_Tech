@@ -10,7 +10,9 @@ using namespace std;
     {
         Id=idJoueur;
         Type = "joueur";
-
+        for (int i = 0; i < 37; ++i){
+            tabIdCaseDisponible[i] = 0;
+        }
         //on remplie les cases du tableaux avec les cases definit du plateau d'un joueur (voir image)
         //Case(id de la case, numero du dé pour poser la tuile sur la case, couleur de la case)
         tabCase[0] = Case(0,6,"bleu");
@@ -191,6 +193,7 @@ using namespace std;
 
     void PlateauJoueur::setCase(int i,Case resultat){
         tabCase[i]=resultat;
+        //tabIdCaseDisponible[i]=1;
         switch(i) {
 
             case 1: case 2: case 6:
@@ -275,8 +278,290 @@ using namespace std;
         Ouvrier=resultat;
     }
 
+    void PlateauJoueur::setCaseDisponible(int resultat){
+        tabIdCaseDisponible[resultat]=1;
+    }
+
     void PlateauJoueur::setScore(int resultat){
         score=resultat;
+    }
+    void PlateauJoueur::afficheDispo(){
+        for (int i = 0; i < 37; ++i){
+            switch(tabIdCaseDisponible[i]){
+            case 0:
+            cout<<"Case : "<<i<<" disponible"<<endl;
+            break;
+            case 1:
+            cout<<"Case : "<<i<<" pleine"<<endl;
+            break;
+            case -1:
+            cout<<"Case : "<<i<<" indisponible"<<endl;
+            break;
+            }
+        }
+    }
+    bool PlateauJoueur::updateCaseDisponible(int id){
+        switch(id){
+        case 0:
+            if(tabIdCaseDisponible[1]||tabIdCaseDisponible[4]||tabIdCaseDisponible[5]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+        break;
+        case 1:
+            if(tabIdCaseDisponible[0]||tabIdCaseDisponible[2]||tabIdCaseDisponible[5]||tabIdCaseDisponible[6]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+        break;
+        case 2:
+            if(tabIdCaseDisponible[1]||tabIdCaseDisponible[3]||tabIdCaseDisponible[6]||tabIdCaseDisponible[7]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 3:
+            if(tabIdCaseDisponible[2]||tabIdCaseDisponible[7]||tabIdCaseDisponible[8]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 4:
+            if(tabIdCaseDisponible[0]||tabIdCaseDisponible[5]||tabIdCaseDisponible[9]||tabIdCaseDisponible[10]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 5:
+            if(tabIdCaseDisponible[0]||tabIdCaseDisponible[1]||tabIdCaseDisponible[4]||tabIdCaseDisponible[6]||tabIdCaseDisponible[10]||tabIdCaseDisponible[11]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 6:
+            if(tabIdCaseDisponible[1]||tabIdCaseDisponible[2]||tabIdCaseDisponible[5]||tabIdCaseDisponible[7]||tabIdCaseDisponible[11]||tabIdCaseDisponible[12]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 7:
+            if(tabIdCaseDisponible[2]||tabIdCaseDisponible[3]||tabIdCaseDisponible[6]||tabIdCaseDisponible[8]||tabIdCaseDisponible[12]||tabIdCaseDisponible[13]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 8:
+            if(tabIdCaseDisponible[3]||tabIdCaseDisponible[7]||tabIdCaseDisponible[13]||tabIdCaseDisponible[14]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 9:
+            if(tabIdCaseDisponible[4]||tabIdCaseDisponible[10]||tabIdCaseDisponible[15]||tabIdCaseDisponible[16]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 10:
+            if(tabIdCaseDisponible[4]||tabIdCaseDisponible[5]||tabIdCaseDisponible[9]||tabIdCaseDisponible[11]||tabIdCaseDisponible[16]||tabIdCaseDisponible[17]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 11:
+            if(tabIdCaseDisponible[5]||tabIdCaseDisponible[6]||tabIdCaseDisponible[10]||tabIdCaseDisponible[12]||tabIdCaseDisponible[17]||tabIdCaseDisponible[18]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 12:
+            if(tabIdCaseDisponible[6]||tabIdCaseDisponible[7]||tabIdCaseDisponible[11]||tabIdCaseDisponible[13]||tabIdCaseDisponible[18]||tabIdCaseDisponible[19]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 13:
+            if(tabIdCaseDisponible[7]||tabIdCaseDisponible[8]||tabIdCaseDisponible[12]||tabIdCaseDisponible[14]||tabIdCaseDisponible[19]||tabIdCaseDisponible[20]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 14:
+            if(tabIdCaseDisponible[8]||tabIdCaseDisponible[13]||tabIdCaseDisponible[20]||tabIdCaseDisponible[21]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 15:
+            if(tabIdCaseDisponible[9]||tabIdCaseDisponible[16]||tabIdCaseDisponible[22]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 16:
+            if(tabIdCaseDisponible[9]||tabIdCaseDisponible[10]||tabIdCaseDisponible[15]||tabIdCaseDisponible[17]||tabIdCaseDisponible[22]||tabIdCaseDisponible[23]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 17:
+            if(tabIdCaseDisponible[10]||tabIdCaseDisponible[11]||tabIdCaseDisponible[16]||tabIdCaseDisponible[18]||tabIdCaseDisponible[23]||tabIdCaseDisponible[24]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 18:
+            if(tabIdCaseDisponible[11]||tabIdCaseDisponible[12]||tabIdCaseDisponible[17]||tabIdCaseDisponible[19]||tabIdCaseDisponible[24]||tabIdCaseDisponible[25]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 19:
+            if(tabIdCaseDisponible[12]||tabIdCaseDisponible[13]||tabIdCaseDisponible[18]||tabIdCaseDisponible[20]||tabIdCaseDisponible[25]||tabIdCaseDisponible[26]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 20:
+            if(tabIdCaseDisponible[13]||tabIdCaseDisponible[14]||tabIdCaseDisponible[19]||tabIdCaseDisponible[21]||tabIdCaseDisponible[26]||tabIdCaseDisponible[27]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 21:
+            if(tabIdCaseDisponible[14]||tabIdCaseDisponible[20]||tabIdCaseDisponible[27]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 22:
+            if(tabIdCaseDisponible[15]||tabIdCaseDisponible[16]||tabIdCaseDisponible[23]||tabIdCaseDisponible[28]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 23:
+            if(tabIdCaseDisponible[16]||tabIdCaseDisponible[17]||tabIdCaseDisponible[22]||tabIdCaseDisponible[24]||tabIdCaseDisponible[28]||tabIdCaseDisponible[29]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 24:
+            if(tabIdCaseDisponible[17]||tabIdCaseDisponible[18]||tabIdCaseDisponible[23]||tabIdCaseDisponible[25]||tabIdCaseDisponible[29]||tabIdCaseDisponible[30]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 25:
+            if(tabIdCaseDisponible[18]||tabIdCaseDisponible[19]||tabIdCaseDisponible[24]||tabIdCaseDisponible[26]||tabIdCaseDisponible[30]||tabIdCaseDisponible[31]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 26:
+            if(tabIdCaseDisponible[19]||tabIdCaseDisponible[20]||tabIdCaseDisponible[25]||tabIdCaseDisponible[27]||tabIdCaseDisponible[31]||tabIdCaseDisponible[32]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 27:
+            if(tabIdCaseDisponible[20]||tabIdCaseDisponible[21]||tabIdCaseDisponible[26]||tabIdCaseDisponible[32]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 28:
+            if(tabIdCaseDisponible[22]||tabIdCaseDisponible[23]||tabIdCaseDisponible[29]||tabIdCaseDisponible[33]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 29:
+            if(tabIdCaseDisponible[23]||tabIdCaseDisponible[24]||tabIdCaseDisponible[28]||tabIdCaseDisponible[30]||tabIdCaseDisponible[33]||tabIdCaseDisponible[34]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 30:
+            if(tabIdCaseDisponible[24]||tabIdCaseDisponible[25]||tabIdCaseDisponible[29]||tabIdCaseDisponible[31]||tabIdCaseDisponible[34]||tabIdCaseDisponible[35]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 31:
+            if(tabIdCaseDisponible[25]||tabIdCaseDisponible[26]||tabIdCaseDisponible[30]||tabIdCaseDisponible[32]||tabIdCaseDisponible[35]||tabIdCaseDisponible[36]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 32:
+            if(tabIdCaseDisponible[26]||tabIdCaseDisponible[27]||tabIdCaseDisponible[31]||tabIdCaseDisponible[36]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 33:
+            if(tabIdCaseDisponible[28]||tabIdCaseDisponible[29]||tabIdCaseDisponible[34]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 34:
+            if(tabIdCaseDisponible[29]||tabIdCaseDisponible[30]||tabIdCaseDisponible[33]||tabIdCaseDisponible[35]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 35:
+            if(tabIdCaseDisponible[30]||tabIdCaseDisponible[31]||tabIdCaseDisponible[34]||tabIdCaseDisponible[36]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        case 36:
+            if(tabIdCaseDisponible[31]||tabIdCaseDisponible[32]||tabIdCaseDisponible[35]){
+                tabIdCaseDisponible[id]=1;
+                return true;
+            }
+            return false;
+            break;
+        }
     }
 
     /*void PlateauJoueur::printDistrict(){

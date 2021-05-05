@@ -36,7 +36,8 @@ public:
        void setPhase(int resultat);
        void setTour(int resultat);
        void setMarchandiseTour(std::string marchandiseTour);
-       void addListeTuileCentrale(std::string tuile,int i);
+       void addMarchandiseListeTuileCentrale(std::string tuile,int i);
+       void addTuileListeTuileCentrale(std::string tuile,int i,int j);
 
 protected:
     //tableau des references au id_site des tuiles posées sur le plateau commun

@@ -149,7 +149,7 @@
                         Animal animal = Animal(idRace,2);
                         StackAnimal.push(animal);
                         testNb2=testNb2-1;
-                        cout<<"on push un animal :"<<animal.getType()<<" de nombre :"<<animal.getNombre()<<" d'id_site:"<<animal.getIdSite()<<endl;
+                        //cout<<"on push un animal :"<<animal.getType()<<" de nombre :"<<animal.getNombre()<<" d'id_site:"<<animal.getIdSite()<<endl;
                     }
                     break;
                 case 3:
@@ -157,7 +157,7 @@
                         Animal animal = Animal(idRace,3);
                         StackAnimal.push(animal);
                         testNb3=testNb3-1;
-                        cout<<"on push un animal :"<<animal.getType()<<" de nombre :"<<animal.getNombre()<<" d'id_site:"<<animal.getIdSite()<<endl;
+                        //cout<<"on push un animal :"<<animal.getType()<<" de nombre :"<<animal.getNombre()<<" d'id_site:"<<animal.getIdSite()<<endl;
                     }
                     break;
                 case 4:
@@ -165,7 +165,7 @@
                         Animal animal = Animal(idRace,4);
                         StackAnimal.push(animal);
                         testNb4=testNb4-1;
-                        cout<<"on push un animal :"<<animal.getType()<<" de nombre :"<<animal.getNombre()<<" d'id_site:"<<animal.getIdSite()<<endl;
+                        //cout<<"on push un animal :"<<animal.getType()<<" de nombre :"<<animal.getNombre()<<" d'id_site:"<<animal.getIdSite()<<endl;
                     }
                     break;
                 default:

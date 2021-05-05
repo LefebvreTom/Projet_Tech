@@ -22,7 +22,7 @@ using namespace std;
 
         //on test le nombre de tuiles du type qu'il reste a cree
         int testcas[26]={0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,6}; //8*1+10*2+6*1+6
-        cout<<"La pile du Marche Noir"<<endl;
+        //cout<<"La pile du Marche Noir"<<endl;
 
         while(StackDosNoir.size()<40){
 
@@ -38,7 +38,7 @@ using namespace std;
                         Animal* animal =new Animal(1,3,"noir");
                         StackDosNoir.push_back(animal);
                         testcas[1]=testcas[1]-1;
-                        cout<<"on push un animal :"<<animal->getType()<<" de nombre :"<<animal->getNombre()<<" d'id_site:"<<animal->getIdSite()<<endl;
+                        //cout<<"on push un animal :"<<animal->getType()<<" de nombre :"<<animal->getNombre()<<" d'id_site:"<<animal->getIdSite()<<endl;
                     }
                     break;
                 case 2:
@@ -47,7 +47,7 @@ using namespace std;
                         Animal* animal =new Animal(1,4,"noir");
                         StackDosNoir.push_back(animal);
                         testcas[2]=testcas[2]-1;
-                        cout<<"on push un animal :"<<animal->getType()<<" de nombre :"<<animal->getNombre()<<" d'id_site:"<<animal->getIdSite()<<endl;
+                        //cout<<"on push un animal :"<<animal->getType()<<" de nombre :"<<animal->getNombre()<<" d'id_site:"<<animal->getIdSite()<<endl;
                     }
                     break;
                 case 3:
@@ -56,7 +56,7 @@ using namespace std;
                         Animal* animal =new Animal(2,3,"noir");
                         StackDosNoir.push_back(animal);
                         testcas[3]=testcas[3]-1;
-                        cout<<"on push un animal :"<<animal->getType()<<" de nombre :"<<animal->getNombre()<<" d'id_site:"<<animal->getIdSite()<<endl;
+                        //cout<<"on push un animal :"<<animal->getType()<<" de nombre :"<<animal->getNombre()<<" d'id_site:"<<animal->getIdSite()<<endl;
                     }
                     break;
                 case 4:
@@ -65,7 +65,7 @@ using namespace std;
                         Animal* animal =new Animal(2,4,"noir");
                         StackDosNoir.push_back(animal);
                         testcas[4]=testcas[4]-1;
-                        cout<<"on push un animal :"<<animal->getType()<<" de nombre :"<<animal->getNombre()<<" d'id_site:"<<animal->getIdSite()<<endl;
+                        //cout<<"on push un animal :"<<animal->getType()<<" de nombre :"<<animal->getNombre()<<" d'id_site:"<<animal->getIdSite()<<endl;
                     }
                     break;
                 case 5:
@@ -74,7 +74,7 @@ using namespace std;
                         Animal* animal =new Animal(3,3,"noir");
                         StackDosNoir.push_back(animal);
                         testcas[5]=testcas[5]-1;
-                        cout<<"on push un animal :"<<animal->getType()<<" de nombre :"<<animal->getNombre()<<" d'id_site:"<<animal->getIdSite()<<endl;
+                        //cout<<"on push un animal :"<<animal->getType()<<" de nombre :"<<animal->getNombre()<<" d'id_site:"<<animal->getIdSite()<<endl;
                     }
                     break;
                 case 6:
@@ -83,7 +83,7 @@ using namespace std;
                         Animal* animal =new Animal(3,4,"noir");
                         StackDosNoir.push_back(animal);
                         testcas[6]=testcas[6]-1;
-                        cout<<"on push un animal :"<<animal->getType()<<" de nombre :"<<animal->getNombre()<<" d'id_site:"<<animal->getIdSite()<<endl;
+                        //cout<<"on push un animal :"<<animal->getType()<<" de nombre :"<<animal->getNombre()<<" d'id_site:"<<animal->getIdSite()<<endl;
                     }
                     break;
                 case 7:
@@ -92,7 +92,7 @@ using namespace std;
                         Animal* animal =new Animal(4,3,"noir");
                         StackDosNoir.push_back(animal);
                         testcas[7]=testcas[7]-1;
-                        cout<<"on push un animal :"<<animal->getType()<<" de nombre :"<<animal->getNombre()<<" d'id_site:"<<animal->getIdSite()<<endl;
+                        //cout<<"on push un animal :"<<animal->getType()<<" de nombre :"<<animal->getNombre()<<" d'id_site:"<<animal->getIdSite()<<endl;
                     }
                     break;
                 case 8:
@@ -101,7 +101,7 @@ using namespace std;
                         Animal* animal =new Animal(4,4,"noir");
                         StackDosNoir.push_back(animal);
                         testcas[8]=testcas[8]-1;
-                        cout<<"on push un animal :"<<animal->getType()<<" de nombre :"<<animal->getNombre()<<" d'id_site:"<<animal->getIdSite()<<endl;
+                        //cout<<"on push un animal :"<<animal->getType()<<" de nombre :"<<animal->getNombre()<<" d'id_site:"<<animal->getIdSite()<<endl;
                     }
                     break;
 
@@ -111,7 +111,7 @@ using namespace std;
                         Batiment* bat =new Batiment(3,"noir");
                         StackDosNoir.push_back(bat);
                         testcas[9]=testcas[9]-1;
-                        cout<< "On push un Batiment de type : " << bat->getType()<<" et d'id_site :"<<bat->getIdSite()<<endl;
+                        //cout<< "On push un Batiment de type : " << bat->getType()<<" et d'id_site :"<<bat->getIdSite()<<endl;
                     }
                     break;
                 case 10:
@@ -120,7 +120,7 @@ using namespace std;
                         Batiment* bat =new Batiment(6,"noir");
                         StackDosNoir.push_back(bat);
                         testcas[10]=testcas[10]-1;
-                        cout<< "On push un Batiment de type : " << bat->getType()<<" et d'id_site :"<<bat->getIdSite()<<endl;
+                        //cout<< "On push un Batiment de type : " << bat->getType()<<" et d'id_site :"<<bat->getIdSite()<<endl;
                     }
                     break;
                 case 11:
@@ -129,7 +129,7 @@ using namespace std;
                         Batiment* bat =new Batiment(7,"noir");
                         StackDosNoir.push_back(bat);
                         testcas[11]=testcas[11]-1;
-                        cout<< "On push un Batiment de type : " << bat->getType()<<" et d'id_site :"<<bat->getIdSite()<<endl;
+                        //cout<< "On push un Batiment de type : " << bat->getType()<<" et d'id_site :"<<bat->getIdSite()<<endl;
                     }
                     break;
                 case 12:
@@ -138,7 +138,7 @@ using namespace std;
                         Batiment* bat =new Batiment(2,"noir");
                         StackDosNoir.push_back(bat);
                         testcas[12]=testcas[12]-1;
-                        cout<< "On push un Batiment de type : " << bat->getType()<<" et d'id_site :"<<bat->getIdSite()<<endl;
+                        //cout<< "On push un Batiment de type : " << bat->getType()<<" et d'id_site :"<<bat->getIdSite()<<endl;
                     }
                     break;
                 case 13:
@@ -147,7 +147,7 @@ using namespace std;
                         Batiment* bat =new Batiment(4,"noir");
                         StackDosNoir.push_back(bat);
                         testcas[13]=testcas[13]-1;
-                        cout<< "On push un Batiment de type : " << bat->getType()<<" et d'id_site :"<<bat->getIdSite()<<endl;
+                        //cout<< "On push un Batiment de type : " << bat->getType()<<" et d'id_site :"<<bat->getIdSite()<<endl;
                     }
                     break;
                 case 14:
@@ -156,7 +156,7 @@ using namespace std;
                         Batiment* bat =new Batiment(8,"noir");
                         StackDosNoir.push_back(bat);
                         testcas[14]=testcas[14]-1;
-                        cout<< "On push un Batiment de type : " << bat->getType()<<" et d'id_site :"<<bat->getIdSite()<<endl;
+                        //cout<< "On push un Batiment de type : " << bat->getType()<<" et d'id_site :"<<bat->getIdSite()<<endl;
                     }
                     break;
                 case 15:
@@ -165,7 +165,7 @@ using namespace std;
                         Batiment* bat =new Batiment(5,"noir");
                         StackDosNoir.push_back(bat);
                         testcas[15]=testcas[15]-1;
-                        cout<< "On push un Batiment de type : " << bat->getType()<<" et d'id_site :"<<bat->getIdSite()<<endl;
+                        //cout<< "On push un Batiment de type : " << bat->getType()<<" et d'id_site :"<<bat->getIdSite()<<endl;
                     }
                     break;
                 case 16:
@@ -174,7 +174,7 @@ using namespace std;
                         Batiment* bat =new Batiment(1,"noir");
                         StackDosNoir.push_back(bat);
                         testcas[16]=testcas[16]-1;
-                        cout<< "On push un Batiment de type : " << bat->getType()<<" et d'id_site :"<<bat->getIdSite()<<endl;
+                        //cout<< "On push un Batiment de type : " << bat->getType()<<" et d'id_site :"<<bat->getIdSite()<<endl;
                     }
                     break;
                 case 17:
@@ -183,7 +183,7 @@ using namespace std;
                         Mine* mine =new Mine("noir");
                         StackDosNoir.push_back(mine);
                         testcas[17]=testcas[17]-1;
-                        cout <<"On push une mine de couleur : " << mine->getCouleur()<<" d'id_site:"<<mine->getIdSite()<<endl;
+                        //cout <<"On push une mine de couleur : " << mine->getCouleur()<<" d'id_site:"<<mine->getIdSite()<<endl;
                     }
                     break;
                 case 18:
@@ -192,7 +192,7 @@ using namespace std;
                         Chateau* castle =new Chateau("noir");
                         StackDosNoir.push_back(castle);
                         testcas[18]=testcas[18]-1;
-                        cout <<"On push un chateau de couleur : " << castle->getCouleur()<<" d'id_site:"<<castle->getIdSite()<<endl;
+                        //cout <<"On push un chateau de couleur : " << castle->getCouleur()<<" d'id_site:"<<castle->getIdSite()<<endl;
                     }
                     break;
                 case 19:
@@ -201,7 +201,7 @@ using namespace std;
                         Connaissance* connaissance =new Connaissance(7);
                         StackDosNoir.push_back(connaissance);
                         testcas[19]=testcas[19]-1;
-                        cout<<"on push :"<<connaissance->getType()<<endl;
+                        //cout<<"on push :"<<connaissance->getType()<<endl;
                     }
                     break;
                 case 20:
@@ -210,7 +210,7 @@ using namespace std;
                         Connaissance* connaissance =new Connaissance(12);
                         StackDosNoir.push_back(connaissance);
                         testcas[20]=testcas[20]-1;
-                        cout<<"on push :"<<connaissance->getType()<<endl;
+                        //cout<<"on push :"<<connaissance->getType()<<endl;
                     }
                     break;
                 case 21:
@@ -219,7 +219,7 @@ using namespace std;
                         Connaissance* connaissance =new Connaissance(14);
                         StackDosNoir.push_back(connaissance);
                         testcas[21]=testcas[21]-1;
-                        cout<<"on push :"<<connaissance->getType()<<endl;
+                        //cout<<"on push :"<<connaissance->getType()<<endl;
                     }
                     break;
                 case 22:
@@ -228,7 +228,7 @@ using namespace std;
                         Connaissance* connaissance =new Connaissance(15);
                         StackDosNoir.push_back(connaissance);
                         testcas[22]=testcas[22]-1;
-                        cout<<"on push :"<<connaissance->getType()<<endl;
+                        //cout<<"on push :"<<connaissance->getType()<<endl;
                     }
                     break;
                 case 23:
@@ -237,7 +237,7 @@ using namespace std;
                         Connaissance* connaissance =new Connaissance(24);
                         StackDosNoir.push_back(connaissance);
                         testcas[23]=testcas[23]-1;
-                        cout<<"on push :"<<connaissance->getType()<<endl;
+                        //cout<<"on push :"<<connaissance->getType()<<endl;
                     }
                     break;
                 case 24:
@@ -246,7 +246,7 @@ using namespace std;
                         Connaissance* connaissance =new Connaissance(25);
                         StackDosNoir.push_back(connaissance);
                         testcas[24]=testcas[24]-1;
-                        cout<<"on push :"<<connaissance->getType()<<endl;
+                        //cout<<"on push :"<<connaissance->getType()<<endl;
                     }
                     break;
                 case 25:
@@ -255,7 +255,7 @@ using namespace std;
                         Bateau* boat =new Bateau("noir");
                         StackDosNoir.push_back(boat);
                         testcas[25]=testcas[25]-1;
-                        cout <<"On push un bateau de couleur : " << boat->getCouleur()<<" d'id_site:"<<boat->getIdSite()<<endl;
+                       // cout <<"On push un bateau de couleur : " << boat->getCouleur()<<" d'id_site:"<<boat->getIdSite()<<endl;
                     }
                     break;
                 default:
@@ -265,7 +265,7 @@ using namespace std;
         }
 
         //on test la taille de la pile a la fin de sa creation
-        cout<<"taille pile :"<<StackDosNoir.size()<<endl;
+        //cout<<"taille pile :"<<StackDosNoir.size()<<endl;
 
         return StackDosNoir;
 

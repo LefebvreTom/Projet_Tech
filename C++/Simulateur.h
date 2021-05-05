@@ -39,6 +39,8 @@ class Simulateur
     bool venteMarchandise(PlateauJoueur &joueur, int choix);
 
     //attribut
+    protected :
+        Initialisation init;
     //int tour
     //int manche
     //le joueur

@@ -43,6 +43,10 @@ public:
         void setPepite(int resultat);
         void setOuvrier(int resultat);
         void setScore(int resultat);
+        void setCaseDisponible(int resultat);
+        void afficheDispo();
+
+        bool updateCaseDisponible(int id);
 
         bool districtPlein(int id);
         bool couleurPlein(int id);
@@ -54,6 +58,7 @@ protected:
         int Ouvrier; //nbr d'ouvrier du joueur
         int Pepite; //nbr de pepite
         Case tabCase[37]; //son tableau representant son plateau
+        int tabIdCaseDisponible[37];
         std::string Reserve[3]; //reserve des tuiles non posé encore
         int tabMarch[3][2]; //reserve des marchandises non vendues (stocké comme ceci [0][0]=type de march,[0][1]=nbr de march)
         int tabVendu[6]; //ensembles des marchandises vendues (nbr de marchandises de type 1 = tabVendu[0]

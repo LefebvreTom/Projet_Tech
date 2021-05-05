@@ -166,7 +166,7 @@
                         Connaissance connaissance = Connaissance(1);
                         StackConnaissance.push(connaissance);
                         testcas[1]=0;
-                        cout<<"on push :"<<connaissance.getType()<<endl;
+                        //cout<<"on push :"<<connaissance.getType()<<endl;
                     }
                     break;
                 case 2:
@@ -174,7 +174,7 @@
                         Connaissance connaissance = Connaissance(2);
                         StackConnaissance.push(connaissance);
                         testcas[2]=0;
-                        cout<<"on push :"<<connaissance.getType()<<endl;
+                        //cout<<"on push :"<<connaissance.getType()<<endl;
                     }
                     break;
                 case 3:
@@ -182,7 +182,7 @@
                         Connaissance connaissance = Connaissance(3);
                         StackConnaissance.push(connaissance);
                         testcas[3]=0;
-                        cout<<"on push :"<<connaissance.getType()<<endl;
+                        //cout<<"on push :"<<connaissance.getType()<<endl;
                     }
                     break;
                 case 4:
@@ -190,7 +190,7 @@
                         Connaissance connaissance = Connaissance(4);
                         StackConnaissance.push(connaissance);
                         testcas[4]=0;
-                        cout<<"on push :"<<connaissance.getType()<<endl;
+                        //cout<<"on push :"<<connaissance.getType()<<endl;
                     }
                     break;
                 case 5:
@@ -198,7 +198,7 @@
                         Connaissance connaissance = Connaissance(5);
                         StackConnaissance.push(connaissance);
                         testcas[5]=0;
-                        cout<<"on push :"<<connaissance.getType()<<endl;
+                        //cout<<"on push :"<<connaissance.getType()<<endl;
                     }
                     break;
                 case 6:
@@ -206,7 +206,7 @@
                         Connaissance connaissance = Connaissance(6);
                         StackConnaissance.push(connaissance);
                         testcas[6]=0;
-                        cout<<"on push :"<<connaissance.getType()<<endl;
+                        //cout<<"on push :"<<connaissance.getType()<<endl;
                     }
                     break;
                 case 7:
@@ -217,7 +217,7 @@
                         Connaissance connaissance = Connaissance(8);
                         StackConnaissance.push(connaissance);
                         testcas[8]=0;
-                        cout<<"on push :"<<connaissance.getType()<<endl;
+                        //cout<<"on push :"<<connaissance.getType()<<endl;
                     }
                     break;
                 case 9:
@@ -225,7 +225,7 @@
                         Connaissance connaissance = Connaissance(9);
                         StackConnaissance.push(connaissance);
                         testcas[9]=0;
-                        cout<<"on push :"<<connaissance.getType()<<endl;
+                        //cout<<"on push :"<<connaissance.getType()<<endl;
                     }
                     break;
                 case 10:
@@ -233,7 +233,7 @@
                         Connaissance connaissance = Connaissance(10);
                         StackConnaissance.push(connaissance);
                         testcas[10]=0;
-                        cout<<"on push :"<<connaissance.getType()<<endl;
+                        //cout<<"on push :"<<connaissance.getType()<<endl;
                     }
                     break;
                 case 11:
@@ -241,7 +241,7 @@
                         Connaissance connaissance = Connaissance(11);
                         StackConnaissance.push(connaissance);
                         testcas[11]=0;
-                        cout<<"on push :"<<connaissance.getType()<<endl;
+                        //cout<<"on push :"<<connaissance.getType()<<endl;
                     }
                     break;
                 case 12:
@@ -252,7 +252,7 @@
                         Connaissance connaissance = Connaissance(13);
                         StackConnaissance.push(connaissance);
                         testcas[13]=0;
-                        cout<<"on push :"<<connaissance.getType()<<endl;
+                        //cout<<"on push :"<<connaissance.getType()<<endl;
                     }
                     break;
                 case 14:
@@ -266,7 +266,7 @@
                         Connaissance connaissance = Connaissance(16);
                         StackConnaissance.push(connaissance);
                         testcas[16]=0;
-                        cout<<"on push :"<<connaissance.getType()<<endl;
+                        //cout<<"on push :"<<connaissance.getType()<<endl;
                     }
                     break;
                 case 17:
@@ -274,7 +274,7 @@
                         Connaissance connaissance = Connaissance(17);
                         StackConnaissance.push(connaissance);
                         testcas[17]=0;
-                        cout<<"on push :"<<connaissance.getType()<<endl;
+                        //cout<<"on push :"<<connaissance.getType()<<endl;
                     }
                     break;
                 case 18:
@@ -282,7 +282,7 @@
                         Connaissance connaissance = Connaissance(18);
                         StackConnaissance.push(connaissance);
                         testcas[18]=0;
-                        cout<<"on push :"<<connaissance.getType()<<endl;
+                        //cout<<"on push :"<<connaissance.getType()<<endl;
                     }
                     break;
                 case 19:
@@ -290,7 +290,7 @@
                         Connaissance connaissance = Connaissance(19);
                         StackConnaissance.push(connaissance);
                         testcas[19]=0;
-                        cout<<"on push :"<<connaissance.getType()<<endl;
+                        //cout<<"on push :"<<connaissance.getType()<<endl;
                     }
                     break;
                 case 20:
@@ -298,7 +298,7 @@
                         Connaissance connaissance = Connaissance(20);
                         StackConnaissance.push(connaissance);
                         testcas[20]=0;
-                        cout<<"on push :"<<connaissance.getType()<<endl;
+                        //cout<<"on push :"<<connaissance.getType()<<endl;
                     }
                     break;
                 case 21:
@@ -306,7 +306,7 @@
                         Connaissance connaissance = Connaissance(21);
                         StackConnaissance.push(connaissance);
                         testcas[21]=0;
-                        cout<<"on push :"<<connaissance.getType()<<endl;
+                        //cout<<"on push :"<<connaissance.getType()<<endl;
                     }
                     break;
                 case 22:
@@ -314,7 +314,7 @@
                         Connaissance connaissance = Connaissance(22);
                         StackConnaissance.push(connaissance);
                         testcas[22]=0;
-                        cout<<"on push :"<<connaissance.getType()<<endl;
+                        //cout<<"on push :"<<connaissance.getType()<<endl;
                     }
                     break;
                 case 23:
@@ -322,7 +322,7 @@
                         Connaissance connaissance = Connaissance(23);
                         StackConnaissance.push(connaissance);
                         testcas[23]=0;
-                        cout<<"on push :"<<connaissance.getType()<<endl;
+                        //cout<<"on push :"<<connaissance.getType()<<endl;
                     }
                     break;
                 case 24:
@@ -336,7 +336,7 @@
                         Connaissance connaissance = Connaissance(26);
                         StackConnaissance.push(connaissance);
                         testcas[26]=0;
-                        cout<<"on push :"<<connaissance.getType()<<endl;
+                        //cout<<"on push :"<<connaissance.getType()<<endl;
                     }
                     break;
 
@@ -345,7 +345,7 @@
 
         }
         //on test la taille de la pile
-        cout<<"taille de la pile: "<<StackConnaissance.size()<<endl;
+        //cout<<"taille de la pile: "<<StackConnaissance.size()<<endl;
         return StackConnaissance;
     }
 

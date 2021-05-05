@@ -101,28 +101,29 @@
 
     //pile de chateau
     void Initialisation::InitPileChateau(){
-        stack <Chateau> StackCastle = StackChateau.initStackChateau();
+        Chateau c;
+        TabChateau = c.initStackChateau();
         //affichetest.AffichagePileChateau(StackCastle);
     }
 
     //pile de bateau
     void Initialisation::InitPileBateau(){
-
-        stack <Bateau> StackBoat = StackBateau.initStackBateau();
+        Bateau b;
+        TabBateau = b.initStackBateau();
         //affichetest.AffichagePileBateau(StackBoat);
     }
 
     //pile de mines
     void Initialisation::InitPileMines(){
-
-        stack <Mine> StackMines = StackMine.initStackMine();
+        Mine m;
+        TabMine = m.initStackMine();
         //affichetest.AffichagePileMine(StackMines);
     }
 
     //pile de Connaissance
     void Initialisation::InitPileConnaissance(){
-
-        stack <Connaissance> StackConnaissances = StackConnaissance.initStackConnaissance();
+        Connaissance c;
+        TabConnaissance = c.initStackConnaissance();
     }
 
     //pile du marché noir
@@ -138,7 +139,53 @@
         MarcheNoir.clear();
         cout<<"la taille de marche noir est de :"<<MarcheNoir.size()<<endl;
     }
+    Chateau Initialisation::getChateau(){
+        Chateau c = TabChateau.top();
+        TabChateau.pop();
+        return c;
+    }
 
+    Bateau Initialisation::getBateau(){
+        Bateau b = TabBateau.top();
+        TabBateau.pop();
+        return b;
+    }
+
+    Mine Initialisation::getMine(){
+        Mine m = TabMine.top();
+        TabMine.pop();
+        return m;
+    }
+
+    Connaissance Initialisation::getConnaissance(){
+        Connaissance c = TabConnaissance.top();
+        TabConnaissance.pop();
+        return c;
+    }
+
+    Animal Initialisation::getAnimal(){
+        /*int i = 0;
+        while(TabAnimal[i] == NULL && TabAnimal.){
+            i++;
+        }*/
+        int r=(rand()%4)+1;
+        Animal a = TabAnimal[r].top();
+        TabAnimal[r].pop();
+        return a;
+    }
+
+    Batiment Initialisation::getBatiment(){
+        int r=(rand()%8)+1;
+        Batiment b = TabBatiment[r].top();
+        TabBatiment[r].pop();
+        return b;
+    }
+    Marchandise Initialisation::getMarchandise(){
+        int r=(rand()%6)+1;
+        Marchandise m = TabMarchandise[r].top();
+        TabMarchandise[r].pop();
+        return m;
+    }
     /*PlateauJoueur Initialisation::getJoueur(int id){
         PlateauJoueur resultat;
         if (id==1){

@@ -302,11 +302,15 @@ using namespace std;
     void PlateauCentral::setMarchandiseTour(string marchandiseTour){
         listeMarchandisesTours.push(marchandiseTour);
     }
-    void PlateauCentral::addListeTuileCentrale(string tuile,int i){
+    void PlateauCentral::addMarchandiseListeTuileCentrale(string tuile,int i){
         int colonne = 0;
         while(listeTuileCentrale[i][colonne].compare("")!=0)
         {
             colonne=colonne+1;
         }
         listeTuileCentrale[i][colonne]=tuile;
+    }
+
+    void PlateauCentral::addTuileListeTuileCentrale(string tuile,int i,int j){
+        listeTuileCentrale[i][j]=tuile;
     }

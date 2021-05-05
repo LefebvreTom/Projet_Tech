@@ -40,6 +40,14 @@ class Initialisation
         void InitPileConnaissance();
         void InitPileMarcheNoir();
         void InitTabBonus();
+        Chateau getChateau();
+        Bateau getBateau();
+        Mine getMine();
+        Connaissance getConnaissance();
+        Batiment getBatiment();
+        Animal getAnimal();
+        DosNoir getDosNoir();
+        Marchandise getMarchandise();
 
         //methode pour vider le vecteur du marche noir
         void ClearMarcheNoir();
@@ -54,11 +62,11 @@ class Initialisation
         std::stack <Batiment> TabBatiment[8];
         std::stack <Animal> TabAnimal[4];
         std::stack <Bonus> TabBonus[6];
-        Chateau StackChateau;
-        Bateau StackBateau;
-        Mine StackMine;
+        std::stack <Chateau> TabChateau;
+        std::stack <Bateau> TabBateau;
+        std::stack <Mine> TabMine;
         AffichageTest affichetest;
-        Connaissance StackConnaissance;
+        std::stack <Connaissance> TabConnaissance;
         DosNoir dosNoir;
         std::vector<Tuiles*> MarcheNoir;
 

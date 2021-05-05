@@ -65,10 +65,10 @@
         stack<Bonus> StackBonus;
         Bonus bonus = Bonus(idCouleur,"petit");
         StackBonus.push(bonus);
-        cout<<"on push un bonus de couleur :"<<bonus.getCouleur()<<" et de type :"<<bonus.getType()<<endl;
+        //cout<<"on push un bonus de couleur :"<<bonus.getCouleur()<<" et de type :"<<bonus.getType()<<endl;
         Bonus bonus2 = Bonus(idCouleur,"grand");
         StackBonus.push(bonus2);
-        cout<<"on push un bonus de couleur :"<<bonus2.getCouleur()<<" et de type :"<<bonus2.getType()<<endl;
+        //cout<<"on push un bonus de couleur :"<<bonus2.getCouleur()<<" et de type :"<<bonus2.getType()<<endl;
         return StackBonus;
     }
 

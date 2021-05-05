@@ -20,6 +20,7 @@
 
         //initialisation des plateaux etc
         Partie partie;
+        init = Initialisation();
 
         PlateauJoueur joueur1;
         PlateauJoueur joueur2;
@@ -44,6 +45,7 @@
         //----------------------------------------------------------------------------------------------------------------------
         //----------------------------------------------------------------------------------------------------------------------
 
+        cout<<"Bonjour"<<endl;
         //on commence le simulateur
         PlateauJoueur joueurcourant;
         joueurcourant =joueur2;
@@ -180,23 +182,66 @@
         }*/
         finDeTour(marche);
         finDeTour(marche);
+        finDeTour(marche);
     }
     void Simulateur::finDeTour(PlateauCentral &marche){
         if(marche.getTour() < 5){
             string marchandiseTour = marche.getMarchandiseTour();
-            marche.addListeTuileCentrale(marchandiseTour,marche.getDeMarchandise()-1);
-            for(int i =0; i < 7;i++){
+            marche.addMarchandiseListeTuileCentrale(marchandiseTour,marche.getDeMarchandise()-1);
+            /*for(int i =0; i < 7;i++){
                 cout<<"ligne : "<<i<<endl;
                     for(int j =0; j < 8;j++){
                         cout<<marche.getTuileMarche(i,j)<<endl;
                     }
-            }
+            }*/
             marche.setTour(marche.getTour()+1);
         }
         else{
-            marche.setTour(1);
-            marche.setPhase(marche.getPhase()+1);
+                int id = 0;
+                while(id < 12){
+                    int type = marche.getDeMarchandise();
+                    if(type == 1){
+                        Chateau c = init.getChateau();
+                        marche.addTuileListeTuileCentrale(c.getIdSite(),id/2,(id%2)+6);
+                        //cout<<c.getIdSite()<<endl;
+                        id++;
+                    }
+                    if(type == 2){
+                        Bateau b = init.getBateau();
+                        marche.addTuileListeTuileCentrale(b.getIdSite(),id/2,(id%2)+6);
+                        id++;
+                    }
+                    if(type == 3){
+                        Mine m = init.getMine();
+                        marche.addTuileListeTuileCentrale(m.getIdSite(),id/2,(id%2)+6);
+                        id++;
+                    }
+                    if(type == 4){
+                        Connaissance c = init.getConnaissance();
+                        marche.addTuileListeTuileCentrale(c.getIdSite(),id/2,(id%2)+6);
+                        id++;
+                    }
+                    if(type == 5){
+                        Animal a = init.getAnimal();
+                        marche.addTuileListeTuileCentrale(a.getIdSite(),id/2,(id%2)+6);
+                        id++;
+                    }
+                    if(type == 6){
+                        Batiment b = init.getBatiment();
+                        marche.addTuileListeTuileCentrale(b.getIdSite(),id/2,(id%2)+6);
+                        id++;
+                    }
+                }
+                for(int i =0;i < 5;i++){
+                    Marchandise m = init.getMarchandise();
+                    marche.setMarchandiseTour(m.getIdSite());
+                }
+                string marchandiseTour = marche.getMarchandiseTour();
+                marche.addMarchandiseListeTuileCentrale(marchandiseTour,marche.getDeMarchandise()-1);
+                marche.setTour(1);
+                marche.setPhase(marche.getPhase()+1);
         }
+        //cout<<"Phase : "<<marche.getPhase()<<"Tour : "<<marche.getTour() <<endl;
     }
     //--------------------------------------------------------------------------------------------------------------------------
     //--------------------------------------------------------------------------------------------------------------------------

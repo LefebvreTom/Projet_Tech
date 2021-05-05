@@ -29,6 +29,7 @@ class Partie
     //Constructeur
     public :
         Partie();
+
     //Destructeur
 
     //methode
@@ -36,6 +37,7 @@ class Partie
         void MajPlateauJoueur(std::string Joueur);
         PlateauJoueur getJoueur(int id);
         PlateauCentral getMarche();
+        void updatePhaseTourMarche(PlateauCentral marche);
 
     //attribut
     protected:
