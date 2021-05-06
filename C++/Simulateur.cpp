@@ -88,15 +88,15 @@
         cout<<"de 1 modif:"<<joueurcourant.getde(1)<<endl;
 
     //test venteDe -------------------------------------------------------------------------------------------------------------
-        cout<<"***********************************"<<endl;
+       /* cout<<"***********************************"<<endl;
         cout<<"ouvrier :"<<joueurcourant.getOuvrier()<<endl;
         cout<<"en vendant le de 1 "<<endl;
         cout<<venteDe(joueurcourant,1)<<endl;
         cout<<"ouvrier modif:"<<joueurcourant.getOuvrier()<<endl;
-        cout<<"de1 :"<<joueurcourant.getde(1)<<" /de 2 :"<<joueurcourant.getde(2)<<endl;
+        cout<<"de1 :"<<joueurcourant.getde(1)<<" /de 2 :"<<joueurcourant.getde(2)<<endl;*/
 
     //test venteMarchandise
-        cout<<"***********************************"<<endl;
+       /* cout<<"***********************************"<<endl;
         cout<<"pepite :"<<joueurcourant.getPepite()<<endl;
         cout<<"tab march:"<<endl;
         for(int i=0;i<3;i++){
@@ -118,8 +118,73 @@
         for(int i=0;i<6;i++){
             cout<<"march "<<i<<":"<<joueurcourant.getNbMarchVendu(i)<<endl;
         }
-        cout<<"de1 :"<<joueurcourant.getde(1)<<" /de 2 :"<<joueurcourant.getde(2)<<endl;
+        cout<<"de1 :"<<joueurcourant.getde(1)<<" /de 2 :"<<joueurcourant.getde(2)<<endl;*/
 
+
+	//affichage des dés
+        cout<<"de 1:"<<joueurcourant.getde(1)<<"/de 2:"<<joueurcourant.getde(2)<<endl;
+
+        //test achatTuile
+        cout<<"affichage du marche"<<endl;
+        for(int i=0;i<7;i++){
+            for(int j=0;j<8;j++){
+                cout<<marche.getTuileMarche(i,j)<<"/";
+            }
+            cout<<endl;
+        }
+
+        cout<<"test achat"<<endl;
+
+        cout<<"reserve"<<endl;
+        for(int i=0;i<3;i++){
+            cout<<joueurcourant.getReserve(i)<<endl;
+        }
+
+        cout<<"march"<<endl;
+        for(int i=0;i<3;i++){
+            cout<<joueurcourant.getMarch(i)<<"/"<<joueurcourant.getNbMarch(i)<<endl;
+        }
+
+        cout<<achatTuile(joueurcourant,marche,2,6);
+
+        cout<<"test modif"<<endl;
+
+        cout<<"reserve"<<endl;
+        for(int i=0;i<3;i++){
+            cout<<joueurcourant.getReserve(i)<<endl;
+        }
+
+        cout<<"march"<<endl;
+        for(int i=0;i<3;i++){
+            cout<<joueurcourant.getMarch(i)<<"/"<<joueurcourant.getNbMarch(i)<<endl;
+        }
+
+        cout<<achatTuile(joueurcourant,marche,1,0);
+
+        cout<<"test modif"<<endl;
+
+        cout<<"reserve"<<endl;
+        for(int i=0;i<3;i++){
+            cout<<joueurcourant.getReserve(i)<<endl;
+        }
+
+        cout<<"march"<<endl;
+        for(int i=0;i<3;i++){
+            cout<<joueurcourant.getMarch(i)<<"/"<<joueurcourant.getNbMarch(i)<<endl;
+        }
+
+        cout<<"test modif du marche"<<endl;
+        for(int i=0;i<7;i++){
+            for(int j=0;j<8;j++){
+                cout<<marche.getTuileMarche(i,j)<<"/";
+            }
+            cout<<endl;
+        }
+
+        cout<<endl;
+        cout<<endl;
+        cout<<endl;
+        cout<<endl;
 
 
 
@@ -885,7 +950,7 @@
     }
 
 
- bool Simulateur::achatTuile(PlateauJoueur &joueur,PlateauCentral &marche,int choixDe,int choix){
+  bool Simulateur::achatTuile(PlateauJoueur &joueur,PlateauCentral &marche,int choixDe,int choix){
 
         int de;
         if(choixDe==1){
@@ -919,6 +984,7 @@
                                 for(int i=0;i<3;i++){//on regarde si on a deja une marchandise de ce type en reserve
                                     if(joueur.getMarch(i)==1){
                                         joueur.setMarch(i,1,joueur.getNbMarch(i)+1);
+                                        marche.setTuile(de,choix,"");
                                         return true;
                                     }
                                     else if(joueur.getMarch(i)==0){
@@ -934,6 +1000,7 @@
                                 else{
                                     joueur.setMarch(idVide,0,1);
                                     joueur.setMarch(idVide,1,1);
+                                    marche.setTuile(de,choix,"");
                                     return true;
                                 }
                                 break;
@@ -941,6 +1008,7 @@
                                 for(int i=0;i<3;i++){//on regarde si on a deja une marchandise de ce type en reserve
                                     if(joueur.getMarch(i)==2){
                                         joueur.setMarch(i,1,joueur.getNbMarch(i)+1);
+                                        marche.setTuile(de,choix,"");
                                         return true;
                                     }
                                     else if(joueur.getMarch(i)==0){
@@ -956,6 +1024,7 @@
                                 else{
                                     joueur.setMarch(idVide,0,2);
                                     joueur.setMarch(idVide,1,1);
+                                    marche.setTuile(de,choix,"");
                                     return true;
                                 }
                                 break;
@@ -963,6 +1032,7 @@
                                 for(int i=0;i<3;i++){//on regarde si on a deja une marchandise de ce type en reserve
                                     if(joueur.getMarch(i)==3){
                                         joueur.setMarch(i,1,joueur.getNbMarch(i)+1);
+                                        marche.setTuile(de,choix,"");
                                         return true;
                                     }
                                     else if(joueur.getMarch(i)==0){
@@ -978,6 +1048,7 @@
                                 else{
                                     joueur.setMarch(idVide,0,3);
                                     joueur.setMarch(idVide,1,1);
+                                    marche.setTuile(de,choix,"");
                                     return true;
                                 }
 
@@ -986,6 +1057,7 @@
                                 for(int i=0;i<3;i++){//on regarde si on a deja une marchandise de ce type en reserve
                                     if(joueur.getMarch(i)==4){
                                         joueur.setMarch(i,1,joueur.getNbMarch(i)+1);
+                                        marche.setTuile(de,choix,"");
                                         return true;
                                     }
                                     else if(joueur.getMarch(i)==0){
@@ -1001,6 +1073,7 @@
                                 else{
                                     joueur.setMarch(idVide,0,4);
                                     joueur.setMarch(idVide,1,1);
+                                    marche.setTuile(de,choix,"");
                                     return true;
                                 }
                                 break;
@@ -1008,6 +1081,7 @@
                                 for(int i=0;i<3;i++){//on regarde si on a deja une marchandise de ce type en reserve
                                     if(joueur.getMarch(i)==5){
                                         joueur.setMarch(i,1,joueur.getNbMarch(i)+1);
+                                        marche.setTuile(de,choix,"");
                                         return true;
                                     }
                                     else if(joueur.getMarch(i)==0){
@@ -1023,6 +1097,7 @@
                                 else{
                                     joueur.setMarch(idVide,0,5);
                                     joueur.setMarch(idVide,1,1);
+                                    marche.setTuile(de,choix,"");
                                     return true;
                                 }
                                 break;
@@ -1030,6 +1105,7 @@
                                 for(int i=0;i<3;i++){//on regarde si on a deja une marchandise de ce type en reserve
                                     if(joueur.getMarch(i)==6){
                                         joueur.setMarch(i,1,joueur.getNbMarch(i)+1);
+                                        marche.setTuile(de,choix,"");
                                         return true;
                                     }
                                     else if(joueur.getMarch(i)==0){
@@ -1045,6 +1121,7 @@
                                 else{
                                     joueur.setMarch(idVide,0,6);
                                     joueur.setMarch(idVide,1,1);
+                                    marche.setTuile(de,choix,"");
                                     return true;
                                 }
                                 break;
@@ -1088,10 +1165,4 @@
 
 
     }
-
-
-
-
-
-
 
