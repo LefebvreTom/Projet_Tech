@@ -464,6 +464,22 @@
 
     }
 
+    bool Simulateur::testVenteMarchandise(PlateauJoueur joueur, int de, PlateauCentral marche){
+        int tabMarch[3][2];
+        bool test=false;
+        for(int i=0;i<3;i++){
+            tabMarch[i][0]=joueur.getMarch(i);
+            tabMarch[i][1]=joueur.getNbMarch(i);
+            cout<<endl;
+
+            if(tabMarch[i][0]==de){
+                test=true;
+            }
+        }
+        return test;
+
+    }
+
 
     bool Simulateur::testPepite(PlateauJoueur joueur,PlateauCentral marche,int pepite){
         cout<<endl;

@@ -24,6 +24,7 @@ class Simulateur
     void jouer();
     void testOuvrier(PlateauJoueur joueurcourant,int de1, int de2,bool de1vendu,bool de2vendu,PlateauCentral marche);
     void testVenteMarch(PlateauJoueur joueur, int de1, int de2,PlateauCentral marche);
+    bool testVenteMarchandise(PlateauJoueur joueur, int de, PlateauCentral marche);
     bool testPepite(PlateauJoueur joueur,PlateauCentral marche,int pepite);
     void testPosage(PlateauJoueur joueur,int de1, int de2);
     void testAchat(PlateauCentral marche,int de1, int de2);

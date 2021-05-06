@@ -21,7 +21,9 @@ public :
         ~IA();
 
         void Monte_Carlo();
+        int modifValeurDe(int de);
         std::vector<std::string> vecteurBranche(int id);
+
 
 protected :
     Partie partie;
