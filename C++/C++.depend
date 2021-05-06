@@ -700,7 +700,7 @@
 	<sstream>
 	<iostream>
 
-1620249137 c:\users\alexandre\desktop\c++\simulateur.h
+1620303848 c:\users\alexandre\desktop\c++\simulateur.h
 	"PlateauJoueur.h"
 	"PlateauCentral.h"
 	"Partie.h"
@@ -726,16 +726,16 @@
 1620177348 source:c:\users\alexandre\desktop\c++\plateaucentral.cpp
 	"PlateauCentral.h"
 
-1620168708 source:c:\users\alexandre\desktop\c++\plateaujoueur.cpp
+1620304611 source:c:\users\alexandre\desktop\c++\plateaujoueur.cpp
 	"PlateauJoueur.h"
 
-1620259489 source:c:\users\alexandre\desktop\c++\simulateur.cpp
+1620303848 source:c:\users\alexandre\desktop\c++\simulateur.cpp
 	"Simulateur.h"
 
 1617552218 source:c:\users\alexandre\desktop\c++\tuiles.cpp
 	"Tuiles.h"
 
-1620256763 c:\users\alexandre\desktop\c++\ia.h
+1620303848 c:\users\alexandre\desktop\c++\ia.h
 	"PlateauJoueur.h"
 	"PlateauCentral.h"
 	"Partie.h"

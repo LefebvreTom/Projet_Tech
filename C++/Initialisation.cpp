@@ -175,14 +175,14 @@
     }
 
     Batiment Initialisation::getBatiment(){
-        int r=(rand()%8)+1;
+        int r=(rand()%7)+1;
         Batiment b = TabBatiment[r].top();
         TabBatiment[r].pop();
         return b;
     }
     Marchandise Initialisation::getMarchandise(){
 
-        int r=(rand()%6)+1;
+        int r=(rand()%5)+1;
         Marchandise m = Marchandise(r);
         return m;
     }

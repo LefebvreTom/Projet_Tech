@@ -561,7 +561,11 @@ using namespace std;
             }
             return false;
             break;
+        default:
+            return false;
+            break;
         }
+        return false;
     }
 
     /*void PlateauJoueur::printDistrict(){
@@ -654,7 +658,11 @@ using namespace std;
                 }
                 return true;
             break;
+            default:
+                return false;
+            break;
         }
+        return false;
     }
     bool PlateauJoueur::couleurPlein(int id){
         switch(id) {
@@ -713,7 +721,11 @@ using namespace std;
                 }
                 return true;
             break;
+            default:
+                return false;
+                break;
         }
+        return false;
     }
 
 
