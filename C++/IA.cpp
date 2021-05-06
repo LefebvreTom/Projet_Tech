@@ -31,7 +31,7 @@ int IA::modifValeurDe(int de){
 
 
 
-vector<string> IA::vecteurBranche(int id){
+/*vector<string> IA::vecteurBranche(int id){
     vector<string> succ;
 
     //ACHAT Pépite
@@ -198,7 +198,7 @@ vector<string> IA::vecteurBranche(int id){
             succ.push_back("de1aplus3" + partie.getMarche().getTuileMarche(de,7)); //le dé 1 +3 permet l'achat de la case 2
         }
 
-        /*//-3 dé1
+        //-3 dé1
         de = partie.getJoueur(id).getde(1) -3;
         de = modifValeurDe(de);
         if(simulateur.testVenteMarchandise(partie.getJoueur(id), de, partie.getMarche())){
@@ -209,7 +209,7 @@ vector<string> IA::vecteurBranche(int id){
         }
         if(partie.getMarche().getTuileMarche(de,7)!=""){
             succ.push_back("de1amoins3" + partie.getMarche().getTuileMarche(de,7)); //le dé 1 -3 permet l'achat de la case 2
-        }*/
+        }
 
         //+3 dé2
         de = partie.getJoueur(id).getde(2) +3;
@@ -224,7 +224,7 @@ vector<string> IA::vecteurBranche(int id){
             succ.push_back("de2aplus3" + partie.getMarche().getTuileMarche(de,7)); //le dé 2 +3 permet l'achat de la case 2
         }
 
-        /*//-3 dé2
+        //-3 dé2
         de = partie.getJoueur(id).getde(2) -3;
         de = modifValeurDe(de);
         if(simulateur.testVenteMarchandise(partie.getJoueur(id), de, partie.getMarche())){
@@ -235,9 +235,9 @@ vector<string> IA::vecteurBranche(int id){
         }
         if(partie.getMarche().getTuileMarche(de,7)!=""){
             succ.push_back("de2amoins3" + partie.getMarche().getTuileMarche(de,7)); //le dé 2 -3 permet l'achat de la case 2
-        }*/
+        }
 
     }
 
     return succ;
-}
+}*/

@@ -129,7 +129,7 @@
 	<string>
 	"Initialisation.h"
 
-1620229564 c:\users\user\desktop\projet tech\pour bosser\c++\initialisation.h
+1620296250 c:\users\user\desktop\projet tech\pour bosser\c++\initialisation.h
 	"Tuiles.h"
 	"affichageTest.h"
 	"Marchandise.h"
@@ -146,6 +146,7 @@
 	<string>
 	<stack>
 	<vector>
+	<typeinfo>
 
 1620229567 c:\users\user\desktop\projet tech\pour bosser\c++\plateaujoueur.h
 	"Plateau.h"
@@ -171,7 +172,7 @@
 	<sstream>
 	<queue>
 
-1620229564 source:c:\users\user\desktop\projet tech\pour bosser\c++\initialisation.cpp
+1620306346 source:c:\users\user\desktop\projet tech\pour bosser\c++\initialisation.cpp
 	"Initialisation.h"
 
 1620229564 source:c:\users\user\desktop\projet tech\pour bosser\c++\main.cpp
@@ -210,7 +211,7 @@
 	<sstream>
 	<iostream>
 
-1620231403 c:\users\user\desktop\projet tech\pour bosser\c++\simulateur.h
+1620315363 c:\users\user\desktop\projet tech\pour bosser\c++\simulateur.h
 	"PlateauJoueur.h"
 	"PlateauCentral.h"
 	"Partie.h"
@@ -236,12 +237,12 @@
 1620229567 source:c:\users\user\desktop\projet tech\pour bosser\c++\plateaucentral.cpp
 	"PlateauCentral.h"
 
-1620229567 source:c:\users\user\desktop\projet tech\pour bosser\c++\plateaujoueur.cpp
+1620306347 source:c:\users\user\desktop\projet tech\pour bosser\c++\plateaujoueur.cpp
 	"PlateauJoueur.h"
 
 1619950074 ated upstream
 
-1620236967 source:c:\users\user\desktop\projet tech\pour bosser\c++\simulateur.cpp
+1620306486 source:c:\users\user\desktop\projet tech\pour bosser\c++\simulateur.cpp
 	"Simulateur.h"
 
 1620051136 source:e:\kraken\projet_tech\c++\simulateur.cpp
@@ -749,15 +750,14 @@
 1620256841 source:c:\users\alexandre\desktop\c++\ia.cpp
 	"IA.h"
 
-1620229564 source:c:\users\user\desktop\projet tech\pour bosser\c++\ia.cpp
+1620311423 source:c:\users\user\desktop\projet tech\pour bosser\c++\ia.cpp
 	"IA.h"
 
-1620229564 c:\users\user\desktop\projet tech\pour bosser\c++\ia.h
+1620306346 c:\users\user\desktop\projet tech\pour bosser\c++\ia.h
 	"PlateauJoueur.h"
 	"PlateauCentral.h"
 	"Partie.h"
 	"Simulateur.h"
-	<iostream>
 	<stdio.h>
 	<string>
 	<random>

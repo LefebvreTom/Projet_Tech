@@ -52,7 +52,7 @@
 
 
     //test achat ---------------------------------------------------------------------------------------------------------------
-        cout<<"pepite :"<<joueurcourant.getPepite()<<endl;
+        /*cout<<"pepite :"<<joueurcourant.getPepite()<<endl;
         if(testReserveVide(joueurcourant)){
             cout<<"test reserve"<<endl;
         }
@@ -77,13 +77,14 @@
         cout<<"marche noir :"<<endl;
         for(int i=0;i<4;i++){
             cout<<marche.getTuileMarche(6,i)<<endl;
-        }
+        }*/
+
     //test ouvrier -------------------------------------------------------------------------------------------------------------
         cout<<"***********************************"<<endl;
         cout<<"ouvrier :"<<joueurcourant.getOuvrier()<<endl;
         cout<<"de 1:"<<joueurcourant.getde(1)<<endl;
-        cout<<"chgt du de 1 :2 avec 2 ouvrier en moins pour faire un 6"<<endl;
-        cout<<utilisationOuvrier(joueurcourant,1,2,false)<<endl;
+        cout<<"chgt du de 1 :2 avec 2 ouvrier en plus pour faire un 4"<<endl;
+        cout<<utilisationOuvrier(joueurcourant,1,2,true)<<endl;
         cout<<"ouvrier :"<<joueurcourant.getOuvrier()<<endl;
         cout<<"de 1 modif:"<<joueurcourant.getde(1)<<endl;
 
@@ -95,7 +96,7 @@
         cout<<"ouvrier modif:"<<joueurcourant.getOuvrier()<<endl;
         cout<<"de1 :"<<joueurcourant.getde(1)<<" /de 2 :"<<joueurcourant.getde(2)<<endl;*/
 
-    //test venteMarchandise
+    //test venteMarchandise ----------------------------------------------------------------------------------------------------
        /* cout<<"***********************************"<<endl;
         cout<<"pepite :"<<joueurcourant.getPepite()<<endl;
         cout<<"tab march:"<<endl;
@@ -121,10 +122,8 @@
         cout<<"de1 :"<<joueurcourant.getde(1)<<" /de 2 :"<<joueurcourant.getde(2)<<endl;*/
 
 
-	//affichage des dés
-        cout<<"de 1:"<<joueurcourant.getde(1)<<"/de 2:"<<joueurcourant.getde(2)<<endl;
 
-        //test achatTuile
+        //test achatTuile ----------------------------------------------------------------------------------------------
         cout<<"affichage du marche"<<endl;
         for(int i=0;i<7;i++){
             for(int j=0;j<8;j++){
@@ -159,27 +158,17 @@
             cout<<joueurcourant.getMarch(i)<<"/"<<joueurcourant.getNbMarch(i)<<endl;
         }
 
-        cout<<achatTuile(joueurcourant,marche,1,0);
+        //affichage des dés
+        cout<<"de 1:"<<joueurcourant.getde(1)<<"/de 2:"<<joueurcourant.getde(2)<<endl;
 
-        cout<<"test modif"<<endl;
+        //test posage de tuile
+        cout<<"test posage tuile bateau avec le de 2 sur la case 31"<<endl;
+        cout<<posageTuile(joueurcourant,1,2,31)<<endl; //si ca affiche 1 ca marche
 
-        cout<<"reserve"<<endl;
-        for(int i=0;i<3;i++){
-            cout<<joueurcourant.getReserve(i)<<endl;
-        }
+        //affichage des dés
+        cout<<"de 1:"<<joueurcourant.getde(1)<<"/de 2:"<<joueurcourant.getde(2)<<endl;
 
-        cout<<"march"<<endl;
-        for(int i=0;i<3;i++){
-            cout<<joueurcourant.getMarch(i)<<"/"<<joueurcourant.getNbMarch(i)<<endl;
-        }
 
-        cout<<"test modif du marche"<<endl;
-        for(int i=0;i<7;i++){
-            for(int j=0;j<8;j++){
-                cout<<marche.getTuileMarche(i,j)<<"/";
-            }
-            cout<<endl;
-        }
 
         cout<<endl;
         cout<<endl;
@@ -985,6 +974,7 @@
                                     if(joueur.getMarch(i)==1){
                                         joueur.setMarch(i,1,joueur.getNbMarch(i)+1);
                                         marche.setTuile(de,choix,"");
+                                        joueur.setde(choixDe,-1);
                                         return true;
                                     }
                                     else if(joueur.getMarch(i)==0){
@@ -1001,6 +991,7 @@
                                     joueur.setMarch(idVide,0,1);
                                     joueur.setMarch(idVide,1,1);
                                     marche.setTuile(de,choix,"");
+                                    joueur.setde(choixDe,-1);
                                     return true;
                                 }
                                 break;
@@ -1009,6 +1000,7 @@
                                     if(joueur.getMarch(i)==2){
                                         joueur.setMarch(i,1,joueur.getNbMarch(i)+1);
                                         marche.setTuile(de,choix,"");
+                                        joueur.setde(choixDe,-1);
                                         return true;
                                     }
                                     else if(joueur.getMarch(i)==0){
@@ -1025,6 +1017,7 @@
                                     joueur.setMarch(idVide,0,2);
                                     joueur.setMarch(idVide,1,1);
                                     marche.setTuile(de,choix,"");
+                                    joueur.setde(choixDe,-1);
                                     return true;
                                 }
                                 break;
@@ -1033,6 +1026,7 @@
                                     if(joueur.getMarch(i)==3){
                                         joueur.setMarch(i,1,joueur.getNbMarch(i)+1);
                                         marche.setTuile(de,choix,"");
+                                        joueur.setde(choixDe,-1);
                                         return true;
                                     }
                                     else if(joueur.getMarch(i)==0){
@@ -1049,6 +1043,7 @@
                                     joueur.setMarch(idVide,0,3);
                                     joueur.setMarch(idVide,1,1);
                                     marche.setTuile(de,choix,"");
+                                    joueur.setde(choixDe,-1);
                                     return true;
                                 }
 
@@ -1058,6 +1053,7 @@
                                     if(joueur.getMarch(i)==4){
                                         joueur.setMarch(i,1,joueur.getNbMarch(i)+1);
                                         marche.setTuile(de,choix,"");
+                                        joueur.setde(choixDe,-1);
                                         return true;
                                     }
                                     else if(joueur.getMarch(i)==0){
@@ -1074,6 +1070,7 @@
                                     joueur.setMarch(idVide,0,4);
                                     joueur.setMarch(idVide,1,1);
                                     marche.setTuile(de,choix,"");
+                                    joueur.setde(choixDe,-1);
                                     return true;
                                 }
                                 break;
@@ -1082,6 +1079,7 @@
                                     if(joueur.getMarch(i)==5){
                                         joueur.setMarch(i,1,joueur.getNbMarch(i)+1);
                                         marche.setTuile(de,choix,"");
+                                        joueur.setde(choixDe,-1);
                                         return true;
                                     }
                                     else if(joueur.getMarch(i)==0){
@@ -1098,6 +1096,7 @@
                                     joueur.setMarch(idVide,0,5);
                                     joueur.setMarch(idVide,1,1);
                                     marche.setTuile(de,choix,"");
+                                    joueur.setde(choixDe,-1);
                                     return true;
                                 }
                                 break;
@@ -1106,6 +1105,7 @@
                                     if(joueur.getMarch(i)==6){
                                         joueur.setMarch(i,1,joueur.getNbMarch(i)+1);
                                         marche.setTuile(de,choix,"");
+                                        joueur.setde(choixDe,-1);
                                         return true;
                                     }
                                     else if(joueur.getMarch(i)==0){
@@ -1122,6 +1122,7 @@
                                     joueur.setMarch(idVide,0,6);
                                     joueur.setMarch(idVide,1,1);
                                     marche.setTuile(de,choix,"");
+                                    joueur.setde(choixDe,-1);
                                     return true;
                                 }
                                 break;
@@ -1152,6 +1153,7 @@
                     if(testPlace<3){// il y a de la place dans la reserve
                         joueur.setReserve(PlaceVide,marche.getTuileMarche(de,choix));
                         marche.setTuile(de,choix,"");
+                        joueur.setde(choixDe,-1);
                         return true;
                     }
                     else{
@@ -1164,5 +1166,174 @@
 
 
 
+    }
+
+
+
+    bool Simulateur::posageTuile(PlateauJoueur &joueur,int choixDe,int choixTuile,int choixCase){
+        int de;
+        if(choixDe==1){
+            de=joueur.getde(1);
+        }
+        else{
+            de=joueur.getde(2);
+            choixDe=2;//on le force à 2
+        }
+
+        if(de==-1){ //si le dé est vendu ou utilisé
+            return false;
+        }
+        else{
+            if(joueur.getReserve(choixTuile).compare("")==0){//si cette emplacement de reserve est vide
+                return false;
+            }
+            else{//s'il y a une tuile
+                if(joueur.getReserve(choixTuile).at(1)=='a'){//c'est une tuile animal
+                    if(joueur.getCase(choixCase).getType().compare("vert")==0){//on regarde si la case choisi est verte
+                        if(joueur.getCase(choixCase).getnumDe()==de){ //on regarde la valeur du dé et la valeur de la case
+                            if(joueur.updateCaseDisponible(choixCase)){
+                                Case chgt=Case(choixCase,0,joueur.getReserve(choixTuile));
+                                joueur.setCase(choixCase,chgt);
+                                joueur.setReserve(choixTuile,"");
+                                joueur.setde(choixDe,-1);
+                                return true;
+                            }
+                            else{ //la case n'est pas adjacente à une autre du domaine
+                                return false;
+                            }
+                        }
+                        else{ //pas le bon numero de dé
+                            return false;
+                        }
+                    }
+                    else{ //pas la bonne couleur
+                        return false;
+                    }
+                }
+
+                else if(joueur.getReserve(choixTuile).at(1)=='s'){//c'est une tuile animal
+                    if(joueur.getCase(choixCase).getType().compare("bleu")==0){//on regarde si la case choisi est verte
+                        if(joueur.getCase(choixCase).getnumDe()==de){ //on regarde la valeur du dé et la valeur de la case
+                            if(joueur.updateCaseDisponible(choixCase)){
+                                Case chgt=Case(choixCase,0,joueur.getReserve(choixTuile));
+                                joueur.setCase(choixCase,chgt);
+                                joueur.setReserve(choixTuile,"");
+                                joueur.setde(choixDe,-1);
+                                return true;
+                            }
+                            else{ //la case n'est pas adjacente à une autre du domaine
+                                return false;
+                            }
+                        }
+                        else{ //pas le bon numero de dé
+                            return false;
+                        }
+                    }
+                    else{ //pas la bonne couleur
+                        return false;
+                    }
+                }
+
+                else if(joueur.getReserve(choixTuile).at(1)=='k'){//c'est une tuile animal
+                    if(joueur.getCase(choixCase).getType().compare("jaune")==0){//on regarde si la case choisi est verte
+                        if(joueur.getCase(choixCase).getnumDe()==de){ //on regarde la valeur du dé et la valeur de la case
+                            if(joueur.updateCaseDisponible(choixCase)){
+                                Case chgt=Case(choixCase,0,joueur.getReserve(choixTuile));
+                                joueur.setCase(choixCase,chgt);
+                                joueur.setReserve(choixTuile,"");
+                                joueur.setde(choixDe,-1);
+                                return true;
+                            }
+                            else{ //la case n'est pas adjacente à une autre du domaine
+                                return false;
+                            }
+                        }
+                        else{ //pas le bon numero de dé
+                            return false;
+                        }
+                    }
+                    else{ //pas la bonne couleur
+                        return false;
+                    }
+                }
+
+                else if(joueur.getReserve(choixTuile).at(1)=='c'){//c'est une tuile animal
+                    if(joueur.getCase(choixCase).getType().compare("vert fonce")==0){//on regarde si la case choisi est verte
+                        if(joueur.getCase(choixCase).getnumDe()==de){ //on regarde la valeur du dé et la valeur de la case
+                            if(joueur.updateCaseDisponible(choixCase)){
+                                Case chgt=Case(choixCase,0,joueur.getReserve(choixTuile));
+                                joueur.setCase(choixCase,chgt);
+                                joueur.setReserve(choixTuile,"");
+                                joueur.setde(choixDe,-1);
+                                return true;
+                            }
+                            else{ //la case n'est pas adjacente à une autre du domaine
+                                return false;
+                            }
+                        }
+                        else{ //pas le bon numero de dé
+                            return false;
+                        }
+                    }
+                    else{ //pas la bonne couleur
+                        return false;
+                    }
+                }
+
+                else if(joueur.getReserve(choixTuile).at(1)=='b'){//c'est une tuile animal
+                    if(joueur.getCase(choixCase).getType().compare("marron")==0){//on regarde si la case choisi est verte
+                        if(joueur.getCase(choixCase).getnumDe()==de){ //on regarde la valeur du dé et la valeur de la case
+                            if(joueur.updateCaseDisponible(choixCase)){
+                                Case chgt=Case(choixCase,0,joueur.getReserve(choixTuile));
+                                joueur.setCase(choixCase,chgt);
+                                joueur.setReserve(choixTuile,"");
+                                joueur.setde(choixDe,-1);
+                                return true;
+                            }
+                            else{ //la case n'est pas adjacente à une autre du domaine
+                                return false;
+                            }
+                        }
+                        else{ //pas le bon numero de dé
+                            return false;
+                        }
+                    }
+                    else{ //pas la bonne couleur
+                        return false;
+                    }
+                }
+
+                else if(joueur.getReserve(choixTuile).at(1)=='m'){//c'est une tuile animal
+                    if(joueur.getCase(choixCase).getType().compare("gris")==0){//on regarde si la case choisi est verte
+                        if(joueur.getCase(choixCase).getnumDe()==de){ //on regarde la valeur du dé et la valeur de la case
+                            if(joueur.updateCaseDisponible(choixCase)){
+                                Case chgt=Case(choixCase,0,joueur.getReserve(choixTuile));
+                                joueur.setCase(choixCase,chgt);
+                                joueur.setReserve(choixTuile,"");
+                                joueur.setde(choixDe,-1);
+                                return true;
+                            }
+                            else{ //la case n'est pas adjacente à une autre du domaine
+                                return false;
+                            }
+                        }
+                        else{ //pas le bon numero de dé
+                            return false;
+                        }
+                    }
+                    else{ //pas la bonne couleur
+                        return false;
+                    }
+                }
+
+                else{
+                    return false;
+                }
+
+            }
+
+
+
+        }
     }
 
