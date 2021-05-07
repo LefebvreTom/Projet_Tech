@@ -29,6 +29,14 @@ vector<string> IA::createListeTourPossible(int id){
     vector<string> autre;
     vector<string> tour;
     string mov;
+    Partie test1 = Partie(simulateur.copieJoueur(partie.getJoueur(1)),simulateur.copieJoueur(partie.getJoueur(2)),simulateur.copieMarche(partie.getMarche()));
+    cout<<"ouvrier :"<<partie.getJoueur(1).getOuvrier()<<endl;
+    cout<<"ouvrier :"<<test1.getJoueur(1).getOuvrier()<<endl;
+    PlateauJoueur test3;
+    test3 = test1.getJoueur(1);
+    cout<<simulateur.venteDe(test3,1)<<endl;
+    cout<<"ouvrier :"<<partie.getJoueur(1).getOuvrier()<<endl;
+    cout<<"ouvrier :"<<test1.getJoueur(1).getOuvrier()<<endl;
     do{
         mov = test.back();
         test.pop_back();
@@ -166,6 +174,27 @@ vector<string> IA::createListeTourPossible(int id){
         cout << tour[i] << endl;
     }
     //cout<<"test"<<endl;
+}
+
+int IA::simulationNFindeTour(int id, Partie configFils){
+    int victoire=0;
+    //Partie configActuel;
+    Partie configActuel = Partie(simulateur.copieJoueur(configFils.getJoueur(1)),simulateur.copieJoueur(configFils.getJoueur(2)),simulateur.copieMarche(configFils.getMarche()));
+
+    while(configActuel.getMarche().getPhase()<6){
+        //on joue aléatoirement
+    }
+    if(id==1){
+        if(configActuel.getJoueur(1).getScore()>configActuel.getJoueur(2).getScore()){
+            victoire=1;
+        }
+    }
+    else{
+        if(configActuel.getJoueur(1).getScore()<configActuel.getJoueur(2).getScore()){
+            victoire=1;
+        }
+    }
+    return victoire;
 }
 
 int IA::modifValeurDe(int de){

@@ -11,6 +11,11 @@
         marche.recupPlateau();
 
     }
+    Partie::Partie(PlateauJoueur p1, PlateauJoueur p2, PlateauCentral c){
+        J1 = p1;
+        J2 = p2;
+        marche = c;
+    }
 
 
     //methode

@@ -23,6 +23,7 @@ public :
 
         void Monte_Carlo();
         std::vector<std::string> createListeTourPossible(int id);
+        simulationNFindeTour(int id, Partie configFils);
         int modifValeurDe(int de);
         std::vector<std::string> vecteurBranche(int id);
 

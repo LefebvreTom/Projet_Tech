@@ -29,6 +29,7 @@ class Partie
     //Constructeur
     public :
         Partie();
+        Partie(PlateauJoueur p1, PlateauJoueur p2, PlateauCentral c);
 
     //Destructeur
 
