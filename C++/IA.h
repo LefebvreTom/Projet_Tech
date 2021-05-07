@@ -22,6 +22,7 @@ public :
         ~IA();
 
         void Monte_Carlo();
+        int simulationNFindeTour(int N, int id, Partie configFils);
         int modifValeurDe(int de);
         std::vector<std::string> vecteurBranche(int id);
 

@@ -712,7 +712,7 @@
         }
     }
 
-    bool Simulateur::testPosageTuile(PlateauJoueur &joueur, int de, int choixTuile, int choixCase){
+    bool Simulateur::testPosageTuile(PlateauJoueur joueur, int de, int choixTuile, int choixCase){
 
             if(joueur.getReserve(choixTuile).compare("")==0){//si cette emplacement de reserve est vide
                 return false;
