@@ -30,7 +30,7 @@ class Simulateur
     void testAchat(PlateauCentral marche,int de1, int de2);
     bool testReserveVide(PlateauJoueur joueur);
     bool testPosageTuile(PlateauJoueur joueur, int de, int choixTuile, int choixCase);
-    void finDeTour(PlateauCentral &marche);
+    void finDeTour(PlateauCentral &marche,PlateauJoueur &J1,PlateauJoueur &J2);
 
     PlateauJoueur copieJoueur(PlateauJoueur joueur);
     PlateauCentral copieMarche(PlateauCentral marche);
@@ -42,6 +42,12 @@ class Simulateur
     bool venteMarchandise(PlateauJoueur &joueur, int choix);
 	bool achatTuile(PlateauJoueur &joueur,PlateauCentral &marche,int choixDe,int choix);
 	bool posageTuile(PlateauJoueur &joueur,int choixDe,int choixTuile,int choixCase);
+	
+	void actionBateau(PlateauJoueur &joueur,PlateauCentral &marche,int choixZone);
+    void actionPension(PlateauJoueur &joueur);
+    void actionBanque(PlateauJoueur &joueur);
+    void actionEntrepot(PlateauJoueur &joueur,int choixVente);
+    void actionMine(PlateauJoueur &joueur);
 
     //attribut
     protected :
