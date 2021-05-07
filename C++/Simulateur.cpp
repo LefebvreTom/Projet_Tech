@@ -578,7 +578,7 @@
             }
         }
 
-        if(Reserve[0].compare("")==0 && Reserve[1].compare("")==0 && Reserve[0].compare("")==0){
+        if(Reserve[0].compare("")==0 && Reserve[1].compare("")==0 && Reserve[2].compare("")==0){
             cout<<"vous n'avez pas de tuiles en reserve"<<endl;
         }
         else{
@@ -712,6 +712,135 @@
         }
     }
 
+    bool Simulateur::testPosageTuile(PlateauJoueur &joueur, int de, int choixTuile, int choixCase){
+
+            if(joueur.getReserve(choixTuile).compare("")==0){//si cette emplacement de reserve est vide
+                return false;
+            }
+            else{//s'il y a une tuile
+                if(joueur.getReserve(choixTuile).at(1)=='a'){//c'est une tuile animal
+                    if(joueur.getCase(choixCase).getType().compare("vert")==0){//on regarde si la case choisi est verte
+                        if(joueur.getCase(choixCase).getnumDe()==de){ //on regarde la valeur du dé et la valeur de la case
+                            if(joueur.updateCaseDisponible(choixCase)){
+                                return true;
+                            }
+                            else{ //la case n'est pas adjacente à une autre du domaine
+                                return false;
+                            }
+                        }
+                        else{ //pas le bon numero de dé
+                            return false;
+                        }
+                    }
+                    else{ //pas la bonne couleur
+                        return false;
+                    }
+                }
+
+                else if(joueur.getReserve(choixTuile).at(1)=='s'){//c'est une tuile animal
+                    if(joueur.getCase(choixCase).getType().compare("bleu")==0){//on regarde si la case choisi est verte
+                        if(joueur.getCase(choixCase).getnumDe()==de){ //on regarde la valeur du dé et la valeur de la case
+                            if(joueur.updateCaseDisponible(choixCase)){
+                                return true;
+                            }
+                            else{ //la case n'est pas adjacente à une autre du domaine
+                                return false;
+                            }
+                        }
+                        else{ //pas le bon numero de dé
+                            return false;
+                        }
+                    }
+                    else{ //pas la bonne couleur
+                        return false;
+                    }
+                }
+
+                else if(joueur.getReserve(choixTuile).at(1)=='k'){//c'est une tuile animal
+                    if(joueur.getCase(choixCase).getType().compare("jaune")==0){//on regarde si la case choisi est verte
+                        if(joueur.getCase(choixCase).getnumDe()==de){ //on regarde la valeur du dé et la valeur de la case
+                            if(joueur.updateCaseDisponible(choixCase)){
+                                return true;
+                            }
+                            else{ //la case n'est pas adjacente à une autre du domaine
+                                return false;
+                            }
+                        }
+                        else{ //pas le bon numero de dé
+                            return false;
+                        }
+                    }
+                    else{ //pas la bonne couleur
+                        return false;
+                    }
+                }
+
+                else if(joueur.getReserve(choixTuile).at(1)=='c'){//c'est une tuile animal
+                    if(joueur.getCase(choixCase).getType().compare("vert fonce")==0){//on regarde si la case choisi est verte
+                        if(joueur.getCase(choixCase).getnumDe()==de){ //on regarde la valeur du dé et la valeur de la case
+                            if(joueur.updateCaseDisponible(choixCase)){
+                                return true;
+                            }
+                            else{ //la case n'est pas adjacente à une autre du domaine
+                                return false;
+                            }
+                        }
+                        else{ //pas le bon numero de dé
+                            return false;
+                        }
+                    }
+                    else{ //pas la bonne couleur
+                        return false;
+                    }
+                }
+
+                else if(joueur.getReserve(choixTuile).at(1)=='b'){//c'est une tuile animal
+                    if(joueur.getCase(choixCase).getType().compare("marron")==0){//on regarde si la case choisi est verte
+                        if(joueur.getCase(choixCase).getnumDe()==de){ //on regarde la valeur du dé et la valeur de la case
+                            if(joueur.updateCaseDisponible(choixCase)){
+                                return true;
+                            }
+                            else{ //la case n'est pas adjacente à une autre du domaine
+                                return false;
+                            }
+                        }
+                        else{ //pas le bon numero de dé
+                            return false;
+                        }
+                    }
+                    else{ //pas la bonne couleur
+                        return false;
+                    }
+                }
+
+                else if(joueur.getReserve(choixTuile).at(1)=='m'){//c'est une tuile animal
+                    if(joueur.getCase(choixCase).getType().compare("gris")==0){//on regarde si la case choisi est verte
+                        if(joueur.getCase(choixCase).getnumDe()==de){ //on regarde la valeur du dé et la valeur de la case
+                            if(joueur.updateCaseDisponible(choixCase)){
+                                return true;
+                            }
+                            else{ //la case n'est pas adjacente à une autre du domaine
+                                return false;
+                            }
+                        }
+                        else{ //pas le bon numero de dé
+                            return false;
+                        }
+                    }
+                    else{ //pas la bonne couleur
+                        return false;
+                    }
+                }
+
+                else{
+                    return false;
+                }
+
+            }
+
+
+
+        }
 
 
     //--------------------------------------------------------------------------------------------------------------------------

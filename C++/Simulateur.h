@@ -29,6 +29,7 @@ class Simulateur
     void testPosage(PlateauJoueur joueur,int de1, int de2);
     void testAchat(PlateauCentral marche,int de1, int de2);
     bool testReserveVide(PlateauJoueur joueur);
+    bool testPosageTuile(PlateauJoueur &joueur, int de, int choixTuile, int choixCase);
     void finDeTour(PlateauCentral &marche);
 
     PlateauJoueur copieJoueur(PlateauJoueur joueur);

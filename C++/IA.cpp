@@ -214,6 +214,19 @@ vector<string> IA::vecteurBranche(int id){
             succ.push_back("de2a0" + partie.getMarche().getTuileMarche(partie.getJoueur(id).getde(2)-1,7)); //le dé 2 non modifié permet l'achat de la case 2
         }
         //poser une des cases
+        for(int i=0;i<3;i++){
+            if(joueur.getReserve(i).compare("")!=0){
+                for(int j=0;j<37;j++){
+                    if(testPosageTuile(partie.getJoueur(id), partie.getJoueur(id).getde(1)-1, joueur.getReserve(i), joueur.getCase(j))){
+                        succ.push_back("de1p0r" + std::to_string(i) + "case" + std::to_string(j))
+                    }
+                    if(testPosageTuile(partie.getJoueur(id), partie.getJoueur(id).getde(2)-1, joueur.getReserve(i), joueur.getCase(j))){
+                        succ.push_back("de2p0r" + std::to_string(i) + "case" + std::to_string(j))
+                    }
+                }
+            }
+        }
+
         //vendre le de
         succ.push_back("vend_de1"); //vend le dé 1 pour 2 ouvriers
         succ.push_back("vend_de2"); //vend le dé 2 pour 2 ouvriers
@@ -235,6 +248,15 @@ vector<string> IA::vecteurBranche(int id){
         if(partie.getMarche().getTuileMarche(de-1,7)!=""){
             succ.push_back("de1aplus1" + partie.getMarche().getTuileMarche(de-1,7)); //le dé 1 +1 permet l'achat de la case 2
         }
+        for(int i=0;i<3;i++){
+            if(joueur.getReserve(i).compare("")!=0){
+                for(int j=0;j<37;j++){
+                    if(testPosageTuile(partie.getJoueur(id), de-1, joueur.getReserve(i), joueur.getCase(j))){
+                        succ.push_back("de1pplus1r" + std::to_string(i) + "case" + std::to_string(j)) // dé 1 +1 pose la tuile i du reservoir sur la case j
+                    }
+                }
+            }
+        }
 
         //-1 dé1
         de = partie.getJoueur(id).getde(1) -1;
@@ -247,6 +269,15 @@ vector<string> IA::vecteurBranche(int id){
         }
         if(partie.getMarche().getTuileMarche(de-1,7)!=""){
             succ.push_back("de1amoins1" + partie.getMarche().getTuileMarche(de-1,7)); //le dé 1 -1 permet l'achat de la case 2
+        }
+        for(int i=0;i<3;i++){
+            if(joueur.getReserve(i).compare("")!=0){
+                for(int j=0;j<37;j++){
+                    if(testPosageTuile(partie.getJoueur(id), de-1, joueur.getReserve(i), joueur.getCase(j))){
+                        succ.push_back("de1pmoins1r" + std::to_string(i) + "case" + std::to_string(j)) // dé 1 -1 pose la tuile i du reservoir sur la case j
+                    }
+                }
+            }
         }
 
         //+1 dé2
@@ -261,6 +292,15 @@ vector<string> IA::vecteurBranche(int id){
         if(partie.getMarche().getTuileMarche(de-1,7)!=""){
             succ.push_back("de2aplus1" + partie.getMarche().getTuileMarche(de-1,7)); //le dé 2 +1 permet l'achat de la case 2
         }
+        for(int i=0;i<3;i++){
+            if(joueur.getReserve(i).compare("")!=0){
+                for(int j=0;j<37;j++){
+                    if(testPosageTuile(partie.getJoueur(id), de-1, joueur.getReserve(i), joueur.getCase(j))){
+                        succ.push_back("de2pplus1r" + std::to_string(i) + "case" + std::to_string(j)) // dé 2 +1 pose la tuile i du reservoir sur la case j
+                    }
+                }
+            }
+        }
 
         //-1 dé2
         de = partie.getJoueur(id).getde(2) -1;
@@ -274,8 +314,18 @@ vector<string> IA::vecteurBranche(int id){
         if(partie.getMarche().getTuileMarche(de-1,7)!=""){
             succ.push_back("de2amoins1" + partie.getMarche().getTuileMarche(de-1,7)); //le dé 2 -1 permet l'achat de la case 2
         }
+        for(int i=0;i<3;i++){
+            if(joueur.getReserve(i).compare("")!=0){
+                for(int j=0;j<37;j++){
+                    if(testPosageTuile(partie.getJoueur(id), de-1, joueur.getReserve(i), joueur.getCase(j))){
+                        succ.push_back("de2pmoins1r" + std::to_string(i) + "case" + std::to_string(j)) // dé 2 -1 pose la tuile i du reservoir sur la case j
+                    }
+                }
+            }
+        }
 
     }
+
 
     //+/- 2
     if(partie.getJoueur(id).getOuvrier()>=2){
@@ -291,6 +341,15 @@ vector<string> IA::vecteurBranche(int id){
         if(partie.getMarche().getTuileMarche(de-1,7)!=""){
             succ.push_back("de1aplus2" + partie.getMarche().getTuileMarche(de-1,7)); //le dé 1 +2 permet l'achat de la case 2
         }
+        for(int i=0;i<3;i++){
+            if(joueur.getReserve(i).compare("")!=0){
+                for(int j=0;j<37;j++){
+                    if(testPosageTuile(partie.getJoueur(id), de-1, joueur.getReserve(i), joueur.getCase(j))){
+                        succ.push_back("de1pplus2r" + std::to_string(i) + "case" + std::to_string(j)) // dé 1 +2 pose la tuile i du reservoir sur la case j
+                    }
+                }
+            }
+        }
 
         //-2 dé1
         de = partie.getJoueur(id).getde(1) -2;
@@ -303,6 +362,15 @@ vector<string> IA::vecteurBranche(int id){
         }
         if(partie.getMarche().getTuileMarche(de-1,7)!=""){
             succ.push_back("de1amoins2" + partie.getMarche().getTuileMarche(de-1,7)); //le dé 1 -2 permet l'achat de la case 2
+        }
+        for(int i=0;i<3;i++){
+            if(joueur.getReserve(i).compare("")!=0){
+                for(int j=0;j<37;j++){
+                    if(testPosageTuile(partie.getJoueur(id), de-1, joueur.getReserve(i), joueur.getCase(j))){
+                        succ.push_back("de1pmoins2r" + std::to_string(i) + "case" + std::to_string(j)) // dé 1 -2 pose la tuile i du reservoir sur la case j
+                    }
+                }
+            }
         }
 
         //+2 dé2
@@ -317,6 +385,15 @@ vector<string> IA::vecteurBranche(int id){
         if(partie.getMarche().getTuileMarche(de-1,7)!=""){
             succ.push_back("de2aplus2" + partie.getMarche().getTuileMarche(de-1,7)); //le dé 2 +2 permet l'achat de la case 2
         }
+        for(int i=0;i<3;i++){
+            if(joueur.getReserve(i).compare("")!=0){
+                for(int j=0;j<37;j++){
+                    if(testPosageTuile(partie.getJoueur(id), de-1, joueur.getReserve(i), joueur.getCase(j))){
+                        succ.push_back("de2pplus2r" + std::to_string(i) + "case" + std::to_string(j)) // dé 2 +2 pose la tuile i du reservoir sur la case j
+                    }
+                }
+            }
+        }
 
         //-2 dé2
         de = partie.getJoueur(id).getde(2) -2;
@@ -330,7 +407,18 @@ vector<string> IA::vecteurBranche(int id){
         if(partie.getMarche().getTuileMarche(de-1,7)!=""){
             succ.push_back("de2amoins2" + partie.getMarche().getTuileMarche(de-1,7)); //le dé 2 -2 permet l'achat de la case 2
         }
+        for(int i=0;i<3;i++){
+            if(joueur.getReserve(i).compare("")!=0){
+                for(int j=0;j<37;j++){
+                    if(testPosageTuile(partie.getJoueur(id), de-1, joueur.getReserve(i), joueur.getCase(j))){
+                        succ.push_back("de2pmoins2r" + std::to_string(i) + "case" + std::to_string(j)) // dé 2 -2 pose la tuile i du reservoir sur la case j
+                    }
+                }
+            }
+        }
     }
+
+
         //+/- 3
     if(partie.getJoueur(id).getOuvrier()>=3){
         //+3 dé1
@@ -345,8 +433,17 @@ vector<string> IA::vecteurBranche(int id){
         if(partie.getMarche().getTuileMarche(de-1,7)!=""){
             succ.push_back("de1aplus3" + partie.getMarche().getTuileMarche(de-1,7)); //le dé 1 +3 permet l'achat de la case 2
         }
+        for(int i=0;i<3;i++){
+            if(joueur.getReserve(i).compare("")!=0){
+                for(int j=0;j<37;j++){
+                    if(testPosageTuile(partie.getJoueur(id), de-1, joueur.getReserve(i), joueur.getCase(j))){
+                        succ.push_back("de1pplus3r" + std::to_string(i) + "case" + std::to_string(j)) // dé 1 +3 pose la tuile i du reservoir sur la case j
+                    }
+                }
+            }
+        }
 
-        //-3 dé1
+        /*//-3 dé1
         de = partie.getJoueur(id).getde(1) -3;
         de = modifValeurDe(de);
         if(simulateur.testVenteMarchandise(partie.getJoueur(id), de, partie.getMarche())){
@@ -358,6 +455,15 @@ vector<string> IA::vecteurBranche(int id){
         if(partie.getMarche().getTuileMarche(de-1,7)!=""){
             succ.push_back("de1amoins3" + partie.getMarche().getTuileMarche(de-1,7)); //le dé 1 -3 permet l'achat de la case 2
         }
+        for(int i=0;i<3;i++){
+            if(joueur.getReserve(i).compare("")!=0){
+                for(int j=0;j<37;j++){
+                    if(testPosageTuile(partie.getJoueur(id), de-1, joueur.getReserve(i), joueur.getCase(j))){
+                        succ.push_back("de1pmoins3r" + std::to_string(i) + "case" + std::to_string(j)) // dé 1 -3 pose la tuile i du reservoir sur la case j
+                    }
+                }
+            }
+        }*/
 
         //+3 dé2
         de = partie.getJoueur(id).getde(2) +3;
@@ -371,8 +477,17 @@ vector<string> IA::vecteurBranche(int id){
         if(partie.getMarche().getTuileMarche(de-1,7)!=""){
             succ.push_back("de2aplus3" + partie.getMarche().getTuileMarche(de-1,7)); //le dé 2 +3 permet l'achat de la case 2
         }
+        for(int i=0;i<3;i++){
+            if(joueur.getReserve(i).compare("")!=0){
+                for(int j=0;j<37;j++){
+                    if(testPosageTuile(partie.getJoueur(id), de-1, joueur.getReserve(i), joueur.getCase(j))){
+                        succ.push_back("de2pplus3r" + std::to_string(i) + "case" + std::to_string(j)) // dé 2 +3 pose la tuile i du reservoir sur la case j
+                    }
+                }
+            }
+        }
 
-        //-3 dé2
+        /*//-3 dé2
         de = partie.getJoueur(id).getde(2) -3;
         de = modifValeurDe(de);
         if(simulateur.testVenteMarchandise(partie.getJoueur(id), de, partie.getMarche())){
@@ -384,6 +499,15 @@ vector<string> IA::vecteurBranche(int id){
         if(partie.getMarche().getTuileMarche(de-1,7)!=""){
             succ.push_back("de2amoins3" + partie.getMarche().getTuileMarche(de-1,7)); //le dé 2 -3 permet l'achat de la case 2
         }
+        for(int i=0;i<3;i++){
+            if(joueur.getReserve(i).compare("")!=0){
+                for(int j=0;j<37;j++){
+                    if(testPosageTuile(partie.getJoueur(id), de-1, joueur.getReserve(i), joueur.getCase(j))){
+                        succ.push_back("de12pmoins3r" + std::to_string(i) + "case" + std::to_string(j)) // dé 2 -3 pose la tuile i du reservoir sur la case j
+                    }
+                }
+            }
+        }*/
 
     }
 
