@@ -5,10 +5,12 @@
 #include "PlateauCentral.h"
 #include "Partie.h"
 #include "Simulateur.h"
+#include "Noeud.h"
 
 #include<stdio.h>
 #include<string>
 #include <random>
+#include <iostream>
 
 #include <cstdlib>
 #include <stdlib.h>
@@ -23,9 +25,11 @@ public :
 
         void Monte_Carlo();
         std::vector<std::string> createListeTourPossible(int id);
-        simulationNFindeTour(int id, Partie configFils);
+        void jouerCoup(PlateauJoueur &j,PlateauCentral &m,std::string coup);
+        int simulationNFindeTour(int id, Partie configFils);
         int modifValeurDe(int de);
         std::vector<std::string> vecteurBranche(int id);
+        std::vector<Noeud> createListeSuccesseur(std::vector<std::string> tour,PlateauJoueur joueur,int id,PlateauCentral marche);
 
 
 protected :

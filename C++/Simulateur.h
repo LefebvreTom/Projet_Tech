@@ -42,8 +42,8 @@ class Simulateur
     bool venteMarchandise(PlateauJoueur &joueur, int choix);
 	bool achatTuile(PlateauJoueur &joueur,PlateauCentral &marche,int choixDe,int choix);
 	bool posageTuile(PlateauJoueur &joueur,int choixDe,int choixTuile,int choixCase);
-	
-	void actionBateau(PlateauJoueur &joueur,PlateauCentral &marche,int choixZone);
+
+    void actionBateau(PlateauJoueur &joueur,PlateauCentral &marche,int choixZone);
     void actionPension(PlateauJoueur &joueur);
     void actionBanque(PlateauJoueur &joueur);
     void actionEntrepot(PlateauJoueur &joueur,int choixVente);

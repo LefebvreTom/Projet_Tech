@@ -665,7 +665,7 @@
 1620333027 source:c:\users\alexandre\desktop\c++\initialisation.cpp
 	"Initialisation.h"
 
-1620333046 source:c:\users\alexandre\desktop\c++\main.cpp
+1620412407 source:c:\users\alexandre\desktop\c++\main.cpp
 	<iostream>
 	<string>
 	<stack>
@@ -680,7 +680,7 @@
 	"IA.h"
 	"Simulateur.h"
 
-1620143805 c:\users\alexandre\desktop\c++\partie.h
+1620416266 c:\users\alexandre\desktop\c++\partie.h
 	"Tuiles.h"
 	"affichageTest.h"
 	"Marchandise.h"
@@ -701,7 +701,7 @@
 	<sstream>
 	<iostream>
 
-1620398527 c:\users\alexandre\desktop\c++\simulateur.h
+1620407870 c:\users\alexandre\desktop\c++\simulateur.h
 	"PlateauJoueur.h"
 	"PlateauCentral.h"
 	"Partie.h"
@@ -718,37 +718,39 @@
 1617552218 source:c:\users\alexandre\desktop\c++\mine.cpp
 	"Mine.h"
 
-1620168730 source:c:\users\alexandre\desktop\c++\partie.cpp
+1620416256 source:c:\users\alexandre\desktop\c++\partie.cpp
 	"Partie.h"
 
 1617552218 source:c:\users\alexandre\desktop\c++\plateau.cpp
 	"Plateau.h"
 
-1620332867 source:c:\users\alexandre\desktop\c++\plateaucentral.cpp
+1620408230 source:c:\users\alexandre\desktop\c++\plateaucentral.cpp
 	"PlateauCentral.h"
 
 1620304611 source:c:\users\alexandre\desktop\c++\plateaujoueur.cpp
 	"PlateauJoueur.h"
 
-1620398515 source:c:\users\alexandre\desktop\c++\simulateur.cpp
+1620411541 source:c:\users\alexandre\desktop\c++\simulateur.cpp
 	"Simulateur.h"
 
 1617552218 source:c:\users\alexandre\desktop\c++\tuiles.cpp
 	"Tuiles.h"
 
-1620398143 c:\users\alexandre\desktop\c++\ia.h
+1620425536 c:\users\alexandre\desktop\c++\ia.h
 	"PlateauJoueur.h"
 	"PlateauCentral.h"
 	"Partie.h"
 	"Simulateur.h"
+	"Noeud.h"
 	<stdio.h>
 	<string>
 	<random>
+	<iostream>
 	<cstdlib>
 	<stdlib.h>
 	<sstream>
 
-1620399813 source:c:\users\alexandre\desktop\c++\ia.cpp
+1620427258 source:c:\users\alexandre\desktop\c++\ia.cpp
 	"IA.h"
 
 1620311423 source:c:\users\user\desktop\projet tech\pour bosser\c++\ia.cpp
@@ -764,4 +766,28 @@
 	<random>
 	<cstdlib>
 	<stdlib.h>
+
+1620419878 c:\users\alexandre\desktop\c++\noeud.h
+	"Tuiles.h"
+	"affichageTest.h"
+	"Marchandise.h"
+	"Chateaux.h"
+	"Bateau.h"
+	"Mine.h"
+	"Batiment.h"
+	"Animal.h"
+	"Connaissance.h"
+	"DosNoir.h"
+	"Bonus.h"
+	"PlateauJoueur.h"
+	"PlateauCentral.h"
+	"Initialisation.h"
+	<string>
+	<stack>
+	<vector>
+	<sstream>
+	<iostream>
+
+1620419873 source:c:\users\alexandre\desktop\c++\noeud.cpp
+	"Noeud.h"
 

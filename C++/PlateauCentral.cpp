@@ -30,7 +30,7 @@ using namespace std;
         if(monFlux)
         {
             //Tout est prêt pour la lecture.
-            cout<<"fichier ouvert"<<endl;
+            //cout<<"fichier ouvert"<<endl;
 
             string ligne;
 
@@ -135,9 +135,9 @@ using namespace std;
                         //listeTuileCentrale[i]=ligne;
 
                         for (int col=0;col<8;col++){
-                            cout<<listeTuileCentrale[i][col];
+                            //cout<<listeTuileCentrale[i][col];
                         }
-                        cout<<endl;
+                        //cout<<endl;
 
                     }
 
@@ -196,9 +196,9 @@ using namespace std;
 
                     }
                     for (int col=0;col<8;col++){
-                    cout<<listeTuileCentrale[6][col];
+                    //cout<<listeTuileCentrale[6][col];
                     }
-                    cout<<endl;
+                    //cout<<endl;
 
 
                 }
@@ -247,7 +247,7 @@ using namespace std;
             //cout<<listeTuileCentrale[0]<<listeTuileCentrale[1]<<endl;
             //on ferme le fichier
             monFlux.close();
-            cout<<"fichier ferme"<<endl;
+            //cout<<"fichier ferme"<<endl;
         }
         else
         {

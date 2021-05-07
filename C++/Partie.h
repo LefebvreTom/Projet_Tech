@@ -39,6 +39,8 @@ class Partie
         PlateauJoueur getJoueur(int id);
         PlateauCentral getMarche();
         void updatePhaseTourMarche(PlateauCentral marche);
+        void setMarche(PlateauCentral marche);
+        void setJoueur(PlateauJoueur joueur,int id);
 
     //attribut
     protected:

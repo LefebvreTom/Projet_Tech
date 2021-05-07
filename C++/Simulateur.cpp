@@ -24,7 +24,7 @@
 
         PlateauJoueur joueur1;
         PlateauJoueur joueur2;
-
+        //PlateauJoueur test = copieJoueur(joueur1);
         PlateauCentral marche;
 
         partie.MajPlateauJoueur("J1");
@@ -168,7 +168,7 @@
         //affichage des dés
         cout<<"de 1:"<<joueurcourant.getde(1)<<"/de 2:"<<joueurcourant.getde(2)<<endl;
 
-//test action bateau
+        //test action bateau
         cout<<endl;
         cout<<"posage du bateau"<<endl;
         actionBateau(joueurcourant,marche,2); //recup des marchandises de la zone 3 (2 car on commence a 0)
@@ -303,7 +303,7 @@
             marche.setTour(marche.getTour()+1);
         }
         else{
-			//ajouter un test sur les mines et lancer setPepite avec le nombre mine
+                //ajouter un test sur les mines et lancer setPepite avec le nombre mine
                 cout<<endl;
                 cout<<"--------------------------------"<<endl;
                 cout<<"pepite joueur 1:"<<J1.getPepite()<<endl;
@@ -312,7 +312,7 @@
                 actionMine(J2);
                 cout<<"pepite joueur 1 modif:"<<J1.getPepite()<<endl;
                 cout<<"pepite joueur 2 modif:"<<J2.getPepite()<<endl;
-				
+
                 int id = 0;
                 while(id < 12){
                     cout<<"test while:"<<id<<endl;
@@ -913,17 +913,14 @@
 
         Copie.setde(1,joueur.getde(1));
         Copie.setde(2,joueur.getde(2));
-
         Copie.setOuvrier(joueur.getOuvrier());
         Copie.setPepite(joueur.getPepite());
-
         Case tab[37];
 
         for (int i=0;i<37;i++){
             tab[i]=joueur.getCase(i);
             Copie.setCase(i,tab[i]);
         }
-
         string reserve[3];
 
         for(int i=0;i<3;i++){
@@ -945,7 +942,6 @@
             tabVendu[i]=joueur.getNbMarchVendu(i);
             Copie.setVendu(i,tabVendu[i]);
         }
-
         return Copie;
 
     }
@@ -1177,7 +1173,7 @@
     }
 
 
-  bool Simulateur::achatTuile(PlateauJoueur &joueur,PlateauCentral &marche,int choixDe,int choix){
+ bool Simulateur::achatTuile(PlateauJoueur &joueur,PlateauCentral &marche,int choixDe,int choix){
 
         int de;
         if(choixDe==1){
@@ -1194,7 +1190,7 @@
         else{ //si le dé n'est pas vendu ou utilisé
 
 
-                if(choix<6){//on veut une marchandise , mais pas possible 
+                if(choix<6){//on veut une marchandise , mais pas possible
                     return false;
                 }
                 else{ //on veut une tuile hexagonale
@@ -1228,10 +1224,7 @@
 
 
     }
-
-
-
-    bool Simulateur::posageTuile(PlateauJoueur &joueur,int choixDe,int choixTuile,int choixCase){
+bool Simulateur::posageTuile(PlateauJoueur &joueur,int choixDe,int choixTuile,int choixCase){
         int de;
         if(choixDe==1){
             de=joueur.getde(1);
@@ -1614,3 +1607,4 @@
         }
         joueur.setPepite(joueur.getPepite()+nbrMine);
     }
+

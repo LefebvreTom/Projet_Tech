@@ -11,13 +11,12 @@
         marche.recupPlateau();
 
     }
+
     Partie::Partie(PlateauJoueur p1, PlateauJoueur p2, PlateauCentral c){
         J1 = p1;
         J2 = p2;
         marche = c;
     }
-
-
     //methode
     void Partie::MajPlateauJoueur(string Joueur)
     {
@@ -40,7 +39,7 @@
         string fichier="../Donnes/";
         fichier+=Joueur;
         fichier+=".txt";
-        cout<<fichier<<endl;
+        //cout<<fichier<<endl;
 
 
         char fichierChar[fichier.size() + 1];
@@ -49,7 +48,7 @@
 
 
         ifstream monFlux2(fichierChar);  //Ouverture d'un fichier en lecture
-        cout<<"fichier ouvert "<<endl;
+        //cout<<"fichier ouvert "<<endl;
 
         if(monFlux2)
         {
@@ -315,7 +314,7 @@
 
             //on ferme le fichier
             monFlux2.close();
-            cout<<"fichier ferme"<<endl;
+            //cout<<"fichier ferme"<<endl;
         }
         else
         {
@@ -343,4 +342,15 @@
     void Partie::updatePhaseTourMarche(PlateauCentral m){
         marche.setPhase(m.getPhase());
         marche.setTour(m.getTour());
+    }
+    void Partie::setMarche(PlateauCentral m){
+        marche=m;
+    }
+    void Partie::setJoueur(PlateauJoueur joueur,int id){
+        if(id == 1){
+            J1=joueur;
+        }
+        if(id == 2){
+            J2=joueur;
+        }
     }
