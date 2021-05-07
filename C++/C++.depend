@@ -701,7 +701,7 @@
 	<sstream>
 	<iostream>
 
-1620335997 c:\users\alexandre\desktop\c++\simulateur.h
+1620398527 c:\users\alexandre\desktop\c++\simulateur.h
 	"PlateauJoueur.h"
 	"PlateauCentral.h"
 	"Partie.h"
@@ -730,13 +730,13 @@
 1620304611 source:c:\users\alexandre\desktop\c++\plateaujoueur.cpp
 	"PlateauJoueur.h"
 
-1620336252 source:c:\users\alexandre\desktop\c++\simulateur.cpp
+1620398515 source:c:\users\alexandre\desktop\c++\simulateur.cpp
 	"Simulateur.h"
 
 1617552218 source:c:\users\alexandre\desktop\c++\tuiles.cpp
 	"Tuiles.h"
 
-1620332097 c:\users\alexandre\desktop\c++\ia.h
+1620398143 c:\users\alexandre\desktop\c++\ia.h
 	"PlateauJoueur.h"
 	"PlateauCentral.h"
 	"Partie.h"
@@ -748,7 +748,7 @@
 	<stdlib.h>
 	<sstream>
 
-1620349399 source:c:\users\alexandre\desktop\c++\ia.cpp
+1620399813 source:c:\users\alexandre\desktop\c++\ia.cpp
 	"IA.h"
 
 1620311423 source:c:\users\user\desktop\projet tech\pour bosser\c++\ia.cpp
@@ -764,266 +764,4 @@
 	<random>
 	<cstdlib>
 	<stdlib.h>
-
-1620226527 source:d:\git\gitkraken\travail_perso\projet_tech\c++\affichagetest.cpp
-	"AffichageTest.h"
-
-1620226527 d:\git\gitkraken\travail_perso\projet_tech\c++\affichagetest.h
-	<iostream>
-	<string>
-	<stack>
-	"Tuiles.h"
-	"Marchandise.h"
-	"Batiment.h"
-	"Animal.h"
-	"De.h"
-	"Chateaux.h"
-	"Bateau.h"
-	"Mine.h"
-
-1620226528 d:\git\gitkraken\travail_perso\projet_tech\c++\tuiles.h
-	<iostream>
-	<stdlib.h>
-	<string>
-
-1620226527 d:\git\gitkraken\travail_perso\projet_tech\c++\marchandise.h
-	"Tuiles.h"
-	<string>
-	<stack>
-
-1620226527 d:\git\gitkraken\travail_perso\projet_tech\c++\batiment.h
-	<string>
-	<stack>
-	"Tuiles.h"
-
-1620226527 d:\git\gitkraken\travail_perso\projet_tech\c++\animal.h
-	<iostream>
-	<stdlib.h>
-	<string>
-	<stack>
-	<sstream>
-	"Tuiles.h"
-
-1620226527 d:\git\gitkraken\travail_perso\projet_tech\c++\de.h
-	<stdlib.h>
-	<random>
-	<ctime>
-
-1620226527 d:\git\gitkraken\travail_perso\projet_tech\c++\chateaux.h
-	<iostream>
-	<stdlib.h>
-	<string>
-	<stack>
-	"Tuiles.h"
-
-1620226527 d:\git\gitkraken\travail_perso\projet_tech\c++\bateau.h
-	<stdlib.h>
-	<string>
-	<stack>
-	"Tuiles.h"
-
-1620226527 d:\git\gitkraken\travail_perso\projet_tech\c++\mine.h
-	<stdlib.h>
-	<string>
-	<stack>
-	"Tuiles.h"
-
-1620226527 source:d:\git\gitkraken\travail_perso\projet_tech\c++\animal.cpp
-	"Animal.h"
-
-1620226527 source:d:\git\gitkraken\travail_perso\projet_tech\c++\bateau.cpp
-	"Bateau.h"
-
-1620226527 source:d:\git\gitkraken\travail_perso\projet_tech\c++\batiment.cpp
-	"Batiment.h"
-
-1620226527 source:d:\git\gitkraken\travail_perso\projet_tech\c++\bonus.cpp
-	"Bonus.h"
-
-1620226527 d:\git\gitkraken\travail_perso\projet_tech\c++\bonus.h
-	"Tuiles.h"
-	<string>
-	<stack>
-
-1620226527 source:d:\git\gitkraken\travail_perso\projet_tech\c++\case.cpp
-	"Case.h"
-
-1620226527 d:\git\gitkraken\travail_perso\projet_tech\c++\case.h
-	<iostream>
-	<stdlib.h>
-	<string>
-
-1620226527 source:d:\git\gitkraken\travail_perso\projet_tech\c++\chateaux.cpp
-	"Chateaux.h"
-
-1620226527 source:d:\git\gitkraken\travail_perso\projet_tech\c++\connaissance.cpp
-	"Connaissance.h"
-
-1620226527 d:\git\gitkraken\travail_perso\projet_tech\c++\connaissance.h
-	<iostream>
-	<stdlib.h>
-	<string>
-	<stack>
-	"Tuiles.h"
-
-1620226527 source:d:\git\gitkraken\travail_perso\projet_tech\c++\de.cpp
-	"De.h"
-
-1620226527 source:d:\git\gitkraken\travail_perso\projet_tech\c++\dosnoir.cpp
-	"DosNoir.h"
-
-1620226527 d:\git\gitkraken\travail_perso\projet_tech\c++\dosnoir.h
-	<stdlib.h>
-	<string>
-	<stack>
-	"Tuiles.h"
-	"Marchandise.h"
-	"Chateaux.h"
-	"Bateau.h"
-	"Mine.h"
-	"Batiment.h"
-	"Animal.h"
-	"Connaissance.h"
-	<vector>
-
-1620226527 source:d:\git\gitkraken\travail_perso\projet_tech\c++\findepartie.cpp
-	"FinDePartie.h"
-
-1620226527 d:\git\gitkraken\travail_perso\projet_tech\c++\findepartie.h
-	<iostream>
-	<stdlib.h>
-	<string>
-	"Initialisation.h"
-
-1620295149 d:\git\gitkraken\travail_perso\projet_tech\c++\initialisation.h
-	"Tuiles.h"
-	"affichageTest.h"
-	"Marchandise.h"
-	"Chateaux.h"
-	"Bateau.h"
-	"Mine.h"
-	"Batiment.h"
-	"Animal.h"
-	"Connaissance.h"
-	"DosNoir.h"
-	"Bonus.h"
-	"PlateauJoueur.h"
-	"PlateauCentral.h"
-	<string>
-	<stack>
-	<vector>
-	<typeinfo>
-
-1620226528 d:\git\gitkraken\travail_perso\projet_tech\c++\plateaujoueur.h
-	"Plateau.h"
-	"Case.h"
-	"Marchandise.h"
-	<iostream>
-	<stdlib.h>
-	<string>
-	<vector>
-
-1620226528 d:\git\gitkraken\travail_perso\projet_tech\c++\plateau.h
-	<iostream>
-	<stdlib.h>
-	<string>
-
-1620226528 d:\git\gitkraken\travail_perso\projet_tech\c++\plateaucentral.h
-	"Plateau.h"
-	"De.h"
-	<iostream>
-	<stdlib.h>
-	<fstream>
-	<string>
-	<sstream>
-	<queue>
-
-1620381393 source:d:\git\gitkraken\travail_perso\projet_tech\c++\initialisation.cpp
-	"Initialisation.h"
-
-1620381393 source:d:\git\gitkraken\travail_perso\projet_tech\c++\main.cpp
-	<iostream>
-	<string>
-	<stack>
-	<time.h>
-	<stdlib.h>
-	"Tuiles.h"
-	"De.h"
-	"Initialisation.h"
-	"affichageTest.h"
-	"FinDePartie.h"
-	"Partie.h"
-	"IA.h"
-	"Simulateur.h"
-
-1620226528 d:\git\gitkraken\travail_perso\projet_tech\c++\partie.h
-	"Tuiles.h"
-	"affichageTest.h"
-	"Marchandise.h"
-	"Chateaux.h"
-	"Bateau.h"
-	"Mine.h"
-	"Batiment.h"
-	"Animal.h"
-	"Connaissance.h"
-	"DosNoir.h"
-	"Bonus.h"
-	"PlateauJoueur.h"
-	"PlateauCentral.h"
-	"Initialisation.h"
-	<string>
-	<stack>
-	<vector>
-	<sstream>
-	<iostream>
-
-1620397693 d:\git\gitkraken\travail_perso\projet_tech\c++\ia.h
-	"PlateauJoueur.h"
-	"PlateauCentral.h"
-	"Partie.h"
-	"Simulateur.h"
-	<stdio.h>
-	<string>
-	<random>
-	<cstdlib>
-	<stdlib.h>
-	<sstream>
-
-1620397875 d:\git\gitkraken\travail_perso\projet_tech\c++\simulateur.h
-	"PlateauJoueur.h"
-	"PlateauCentral.h"
-	"Partie.h"
-	"De.h"
-	<stdio.h>
-	<string>
-	<random>
-	<cstdlib>
-	<stdlib.h>
-
-1620226527 source:d:\git\gitkraken\travail_perso\projet_tech\c++\marchandise.cpp
-	"Marchandise.h"
-
-1620226527 source:d:\git\gitkraken\travail_perso\projet_tech\c++\mine.cpp
-	"Mine.h"
-
-1620226528 source:d:\git\gitkraken\travail_perso\projet_tech\c++\partie.cpp
-	"Partie.h"
-
-1620226528 source:d:\git\gitkraken\travail_perso\projet_tech\c++\plateau.cpp
-	"Plateau.h"
-
-1620226528 source:d:\git\gitkraken\travail_perso\projet_tech\c++\plateaucentral.cpp
-	"PlateauCentral.h"
-
-1620381393 source:d:\git\gitkraken\travail_perso\projet_tech\c++\plateaujoueur.cpp
-	"PlateauJoueur.h"
-
-1620226528 source:d:\git\gitkraken\travail_perso\projet_tech\c++\tuiles.cpp
-	"Tuiles.h"
-
-1620397852 source:d:\git\gitkraken\travail_perso\projet_tech\c++\simulateur.cpp
-	"Simulateur.h"
-
-1620397797 source:d:\git\gitkraken\travail_perso\projet_tech\c++\ia.cpp
-	"IA.h"
 
