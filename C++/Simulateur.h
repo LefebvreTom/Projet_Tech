@@ -35,6 +35,7 @@ class Simulateur
     PlateauCentral copieMarche(PlateauCentral marche);
 
     bool achatPepite(PlateauJoueur &joueur,PlateauCentral &marche,int choix);
+    bool testAchatPepite(PlateauJoueur joueur,PlateauCentral marche,int choix);
     bool utilisationOuvrier(PlateauJoueur &joueur,int de,int nbr,bool chgt);
     bool venteDe(PlateauJoueur &joueur,int choix);
     bool venteMarchandise(PlateauJoueur &joueur, int choix);

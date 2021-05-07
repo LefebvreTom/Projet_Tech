@@ -524,7 +524,7 @@
         for(int i=0;i<3;i++){
             tabMarch[i][0]=joueur.getMarch(i);
             tabMarch[i][1]=joueur.getNbMarch(i);
-            cout<<endl;
+            //cout<<endl;
 
             if(tabMarch[i][0]==de){
                 test=true;
@@ -536,7 +536,7 @@
 
 
     bool Simulateur::testPepite(PlateauJoueur joueur,PlateauCentral marche,int pepite){
-        cout<<endl;
+        //cout<<endl;
 
         if(pepite==0){
             //cout<<"vous n'avez pas de pepite"<<endl;
@@ -667,7 +667,7 @@
                         }
                     }
 
-                    cout<<endl;
+                    //cout<<endl;
                 }
 
         }
@@ -681,7 +681,7 @@
             for(int col=0;col<6;col++){
                 cout<<marche.getTuileMarche(de1,col)<<" ";
             }
-            cout<<endl;
+            //cout<<endl;
         }
 
         if(de2>0){
@@ -689,7 +689,7 @@
             for(int col=0;col<6;col++){
                 cout<<marche.getTuileMarche(de2,col)<<" ";
             }
-            cout<<endl;
+            //cout<<endl;
         }
 
 
@@ -820,6 +820,54 @@
             }
             else{
                 cout<<"pas de place ou pas de pepite"<<endl;
+                return false;
+            }
+
+
+    }
+
+    bool Simulateur::testAchatPepite(PlateauJoueur joueur,PlateauCentral marche,int choix){
+        int pepite =joueur.getPepite();
+        int nbrTuile=0; // nbr de tuiles presente dans le marche noir
+
+            if(testPepite(joueur,marche,pepite )&& testReserveVide(joueur)){
+               string marcheNoir[4];
+                for(int i=0;i<4;i++){
+                    marcheNoir[i]=marche.getTuileMarche(6,i);
+                    if(marcheNoir[i].compare("")!=0){
+                        nbrTuile=nbrTuile+1; //indique le nbr de tuiles dans le marche noir
+                    }
+                }
+
+                if(choix<nbrTuile){ //le choix doit etre inferieur au nbr car l'id commence à 0
+                    //cout<<"test"<<endl;
+                    /*int test=0; //test nous donnera l'endroit ou mettre la tuile en reserve
+                    for(int i=2;i>=0;i--){
+                        if(joueur.getReserve(i).compare("")==0){
+                            test=i;
+                        }
+                    }
+                    joueur.setReserve(test,marche.getTuileMarche(6,choix));
+                    joueur.setPepite(pepite-2);*/
+
+                    /*marche.setTuile(6,choix,"");
+                    for(int j=choix+1;j<4;j++){
+                        marche.setTuile(6,j-1,marche.getTuileMarche(6,j));
+                        if(j==3){
+                            marche.setTuile(6,j,"");
+                        }
+                    }*/
+                    return true;
+
+                }
+                else{
+                    return false;
+                }
+
+
+            }
+            else{
+                //cout<<"pas de place ou pas de pepite"<<endl;
                 return false;
             }
 

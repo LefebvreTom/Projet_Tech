@@ -12,6 +12,7 @@
 
 #include <cstdlib>
 #include <stdlib.h>
+#include <sstream>
 
 class IA
 {

@@ -8,23 +8,23 @@
 
         //on appelle les methodes d'initialisations des piles et tableaux necessaires au demarrage du jeu
         InitTabMarchandise();
-        cout<<endl;
+        //cout<<endl;
         InitTabBatiment();
-        cout<<endl;
+        //cout<<endl;
         InitPileChateau();
-        cout<<endl;
+        //cout<<endl;
         InitPileBateau();
-        cout<<endl;
+        //cout<<endl;
         InitPileMines();
-        cout<<endl;
+        //cout<<endl;
         InitTabAnimal();
-        cout<<endl;
+        //cout<<endl;
         InitPileConnaissance();
-        cout<<endl;
+        //cout<<endl;
         InitPileMarcheNoir();
-        cout<<endl;
+        //cout<<endl;
         InitTabBonus();
-        cout<<endl;
+        //cout<<endl;
 
 
 

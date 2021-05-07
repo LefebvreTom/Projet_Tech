@@ -44,7 +44,7 @@ int main()
 
     //Initialisation
 
-    cout<<endl;
+    //cout<<endl;
 
     //partie
     /*Partie partie;
@@ -52,10 +52,10 @@ int main()
     partie.MajPlateauJoueur("J2");*/
 
     //simulateur
-    /*IA test;
-    test.Monte_Carlo();*/
-    Simulateur simulateur;
-    simulateur.jouer();
+    IA test;
+    test.Monte_Carlo();
+    /*Simulateur simulateur;
+    simulateur.jouer();*/
 
     //fin de partie
     FinDePartie fin;
