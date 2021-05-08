@@ -511,15 +511,22 @@ def extraireMarche(page,joueurs,fichier):
 """
     On récupére les scores de chaque joueurs
 """
-def extraireScore(donneeS,joueurs):
-    pageS = donneeS.read().decode('utf-8')
-    listeScore = re.findall("<tr class="+ ".*?" + "/tr>", pageS)
+def extraireScore(page,joueurs):
+    listeScore = re.findall("<table border=0 cellpadding=2 cellspacing=2 class=clBody><tr><td class=\"clTexteFort\">"+ ".*?" + "/table>", page)
+    listeScore = re.split("<tr>",listeScore[0])
+    score1 = re.split("<tr>",listeScore[0])
+    scorea= re.split("&nbsp;",listeScore[1])
+    scoreb= re.split("&nbsp;",listeScore[3])
+    scoreJ1=scorea[1]
+    scoreJ2=scoreb[1]
+    print(scoreJ1)
+    print(scoreJ2)
     i = 1
     for joueur in joueurs.keys():
-        fichier = open("e:/Kraken/projet_tech/Donnes/J"+str(i)+".txt", "a")
-        score = re.split("bold\">",listeScore[i])
-        score = re.split("<", score[1])
-        fichier.write("\nscore:\n"+score[0])
+        fichier = open("../Donnes/J"+str(i)+".txt", "a")
+        #fichier = open("e:/Kraken/projet_tech/Donnes/J"+str(i)+".txt", "a")
+        if(i==1):fichier.write("\nscore:\n"+scoreJ1)
+        if(i==2):fichier.write("\nscore:\n"+scoreJ2)
         fichier.close()
         i += 1
 
@@ -535,8 +542,9 @@ def tout(payload):
         extraireDonneeJoueur(joueurs,joueur,page,fichier)
         fichier.close()
         i += 1
-    extraireScore(donneeS,joueurs)
+    extraireScore(page,joueurs)
     #print(page)
+    
     #fichier = open("e:/Kraken/projet_tech/Donnes/marche.txt", "w")
     fichier = open("../Donnes/marche.txt", "w")
     extraireMarche(page,joueurs,fichier)

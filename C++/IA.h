@@ -26,11 +26,11 @@ public :
         void Monte_Carlo();
         std::vector<std::string> createListeTourPossible(int id, Noeud configActuel);
         void jouerCoup(PlateauJoueur &j,PlateauCentral &m,std::string coup);
-        Noeud coupAleatoire(std::vector<std::string> tours,PlateauJoueur joueur,int id, PlateauCentral marche);
+        Noeud coupAleatoire(std::vector<std::string> tours,PlateauJoueur joueur1,PlateauJoueur joueur2,int id, PlateauCentral marche);
         int simulationNFindeTour(int id, Noeud configFils);
         int modifValeurDe(int de);
         std::vector<std::string> vecteurBranche(int id, Noeud configActuel);
-        std::vector<Noeud> createListeSuccesseur(std::vector<std::string> tour,PlateauJoueur joueur,int id,PlateauCentral marche);
+        std::vector<Noeud> createListeSuccesseur(std::vector<std::string> tour,PlateauJoueur joueur1,PlateauJoueur joueur2,int id,PlateauCentral marche);
 
 
 protected :

@@ -28,7 +28,7 @@ void IA::Monte_Carlo(){
     cout<<partie.getJoueur(1).getNbMarchVendu(1)<<endl;*/
     //cout<<"java"<<endl;
     int Max=0;
-    vector<Noeud> toutesConfigFils = createListeSuccesseur(tours,partie.getJoueur(1),1,partie.getMarche());
+    vector<Noeud> toutesConfigFils = createListeSuccesseur(tours,partie.getJoueur(1),partie.getJoueur(2),1,partie.getMarche());
     vector<string> choixCoup={};
     vector<string> tour={};
     do{
@@ -51,26 +51,42 @@ void IA::Monte_Carlo(){
 }
 
 
-vector<Noeud> IA::createListeSuccesseur(vector<string> tours,PlateauJoueur joueur,int id, PlateauCentral marche){
+vector<Noeud> IA::createListeSuccesseur(vector<string> tours,PlateauJoueur joueur1,PlateauJoueur joueur2,int id, PlateauCentral marche){
     vector<Noeud> succ={};
     int pos = 0;
     for(int i = 0; i<tours.size(); i++) {
-        Noeud n(partie.getJoueur(1),partie.getJoueur(2),partie.getMarche());
-        PlateauJoueur j =n.getJoueur(1);
-        PlateauCentral m =n.getMarche();
+        Noeud n(joueur1,joueur2,marche);
+        PlateauJoueur jc;
+        PlateauJoueur jr;
+        if(id == 1){
+            jc =n.getJoueur(id);
+            jr =n.getJoueur(id+1);
+        }
+        if(id == 2){
+            jc =n.getJoueur(id);
+            jr =n.getJoueur(id-1);
+        }
 
-        //IMPORTANT pas bouger!!!
-        //p.setJoueur(J1Alex,1);
+        PlateauCentral m =n.getMarche();
 
         string tour = tours[i];
         while ((pos = tour.find(",")) != string::npos) {
             string coup = tour.substr(0, pos);
-            jouerCoup(j,m,coup);
+            jouerCoup(jc,m,coup);
             tour.erase(0, pos + 1);
         }
-        jouerCoup(j,m,tour);
+        jouerCoup(jc,m,tour);
         //cout << tour << endl;
-        n.setJoueur(j,1);
+        //Peut etre à déplacer
+        simulateur.finDeTour(m,jc,jr);
+        if(id == 1){
+            n.setJoueur(jc,id);
+            n.setJoueur(jr,id+1);
+        }
+        if(id == 2){
+            n.setJoueur(jc,id);
+            n.setJoueur(jr,id-1);
+        }
         n.setMarche(m);
 
         succ.push_back(n);
@@ -79,9 +95,18 @@ vector<Noeud> IA::createListeSuccesseur(vector<string> tours,PlateauJoueur joueu
     return succ;
 }
 
-Noeud IA::coupAleatoire(vector<string> tours,PlateauJoueur joueur,int id, PlateauCentral marche){
-    Noeud succ(partie.getJoueur(1),partie.getJoueur(2),partie.getMarche());
-    PlateauJoueur j =succ.getJoueur(1);
+Noeud IA::coupAleatoire(vector<string> tours,PlateauJoueur joueur1,PlateauJoueur joueur2,int id, PlateauCentral marche){
+    Noeud succ(joueur1,joueur2,marche);
+    PlateauJoueur jc;
+    PlateauJoueur jr;
+    if(id == 1){
+        jc =succ.getJoueur(id);
+        jr =succ.getJoueur(id+1);
+    }
+    if(id == 2){
+        jc =succ.getJoueur(id);
+        jr =succ.getJoueur(id-1);
+    }
     PlateauCentral m =succ.getMarche();
     int r=(rand()%tours.size()-1)+1;
     int pos = 0;
@@ -89,12 +114,20 @@ Noeud IA::coupAleatoire(vector<string> tours,PlateauJoueur joueur,int id, Platea
     while ((pos = tour.find(",")) != string::npos) {
             string coup = tour.substr(0, pos);
             //cout<<coup<<endl;
-            jouerCoup(j,m,coup);
+            jouerCoup(jc,m,coup);
             tour.erase(0, pos + 1);
     }
     //cout<<tour<<endl;
-    jouerCoup(j,m,tour);
-    succ.setJoueur(j,1);
+    jouerCoup(jc,m,tour);
+    simulateur.finDeTour(m,jc,jr);
+    if(id == 1){
+        succ.setJoueur(jc,id);
+        succ.setJoueur(jr,id+1);
+    }
+    if(id == 2){
+        succ.setJoueur(jc,id);
+        succ.setJoueur(jr,id-1);
+    }
     succ.setMarche(m);
     return succ;
 }
@@ -726,7 +759,7 @@ int IA::simulationNFindeTour(int id, Noeud configFils){
         configFils.getJoueur(1).setde(1,r1);
         configFils.getJoueur(1).setde(2,r2);
         vector<string> tours = createListeTourPossible(1, configActuel);
-        configActuel = coupAleatoire(tours,configActuel.getJoueur(1),1,configActuel.getMarche());
+        configActuel = coupAleatoire(tours,configActuel.getJoueur(1),configActuel.getJoueur(2),1,configActuel.getMarche());
     }
     if(id==1){
         if(configActuel.getJoueur(1).getScore()>configActuel.getJoueur(2).getScore()){
