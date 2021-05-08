@@ -26,6 +26,7 @@ public :
         void Monte_Carlo();
         std::vector<std::string> createListeTourPossible(int id);
         void jouerCoup(PlateauJoueur &j,PlateauCentral &m,std::string coup);
+        Noeud coupAleatoire(std::vector<std::string> tours,PlateauJoueur joueur,int id, PlateauCentral marche);
         int simulationNFindeTour(int id, Partie configFils);
         int modifValeurDe(int de);
         std::vector<std::string> vecteurBranche(int id);

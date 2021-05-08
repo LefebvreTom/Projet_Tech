@@ -17,6 +17,7 @@ void IA::Monte_Carlo(){
         cout << tours[i] << endl;
     }*/
     createListeSuccesseur(tours,partie.getJoueur(1),1,partie.getMarche());
+    //coupAleatoire(tours,partie.getJoueur(1),1,partie.getMarche());
     /*while(partie.getMarche().getPhase() < 6){
             PlateauCentral test = partie.getMarche();
             simulateur.finDeTour(test);
@@ -43,12 +44,33 @@ vector<Noeud> IA::createListeSuccesseur(vector<string> tours,PlateauJoueur joueu
             jouerCoup(j,m,coup);
             tour.erase(0, pos + 1);
         }
+        jouerCoup(j,m,tour);
         //cout << tour << endl;
         n.setJoueur(j,1);
         n.setMarche(m);
 
         succ.push_back(n);
     }
+    cout<<succ.size()<<endl;
+    return succ;
+}
+Noeud IA::coupAleatoire(vector<string> tours,PlateauJoueur joueur,int id, PlateauCentral marche){
+    Noeud succ(partie.getJoueur(1),partie.getJoueur(2),partie.getMarche());
+    PlateauJoueur j =succ.getJoueur(1);
+    PlateauCentral m =succ.getMarche();
+    int r=(rand()%tours.size()-1)+1;
+    int pos = 0;
+    string tour = tours[r];
+    while ((pos = tour.find(",")) != string::npos) {
+            string coup = tour.substr(0, pos);
+            //cout<<coup<<endl;
+            jouerCoup(j,m,coup);
+            tour.erase(0, pos + 1);
+    }
+    //cout<<tour<<endl;
+    jouerCoup(j,m,tour);
+    succ.setJoueur(j,1);
+    succ.setMarche(m);
     return succ;
 }
 void IA::jouerCoup(PlateauJoueur &j,PlateauCentral &m,string coup){
@@ -213,6 +235,7 @@ void IA::jouerCoup(PlateauJoueur &j,PlateauCentral &m,string coup){
                         sT << coup;
                         sT >> tuile;
                         simulateur.posageTuile(j,1,reserve,tuile);
+                        simulateur.gestionDistrict(j,m,tuile);
                     }
                     else if(coup.find("pplus1")!=string::npos){
                         simulateur.utilisationOuvrier(j,1,1,true);
@@ -228,6 +251,7 @@ void IA::jouerCoup(PlateauJoueur &j,PlateauCentral &m,string coup){
                         sT << coup;
                         sT >> tuile;
                         simulateur.posageTuile(j,1,reserve,tuile);
+                        simulateur.gestionDistrict(j,m,tuile);
                     }
                     else if(coup.find("pmoins1")!=string::npos){
                         simulateur.utilisationOuvrier(j,1,1,false);
@@ -243,6 +267,7 @@ void IA::jouerCoup(PlateauJoueur &j,PlateauCentral &m,string coup){
                         sT << coup;
                         sT >> tuile;
                         simulateur.posageTuile(j,1,reserve,tuile);
+                        simulateur.gestionDistrict(j,m,tuile);
                     }
                     else if(coup.find("pplus2")!=string::npos){
                         simulateur.utilisationOuvrier(j,1,2,true);
@@ -258,6 +283,7 @@ void IA::jouerCoup(PlateauJoueur &j,PlateauCentral &m,string coup){
                         sT << coup;
                         sT >> tuile;
                         simulateur.posageTuile(j,1,reserve,tuile);
+                        simulateur.gestionDistrict(j,m,tuile);
                     }
                     else if(coup.find("pmoins2")!=string::npos){
                         simulateur.utilisationOuvrier(j,1,2,false);
@@ -273,6 +299,7 @@ void IA::jouerCoup(PlateauJoueur &j,PlateauCentral &m,string coup){
                         sT << coup;
                         sT >> tuile;
                         simulateur.posageTuile(j,1,reserve,tuile);
+                        simulateur.gestionDistrict(j,m,tuile);
                     }
                     else if(coup.find("pplus3")!=string::npos){
                         simulateur.utilisationOuvrier(j,1,3,true);
@@ -288,6 +315,7 @@ void IA::jouerCoup(PlateauJoueur &j,PlateauCentral &m,string coup){
                         sT << coup;
                         sT >> tuile;
                         simulateur.posageTuile(j,1,reserve,tuile);
+                        simulateur.gestionDistrict(j,m,tuile);
                     }
                     else if(coup.find("pmoins3")!=string::npos){
                         simulateur.utilisationOuvrier(j,1,3,false);
@@ -303,6 +331,7 @@ void IA::jouerCoup(PlateauJoueur &j,PlateauCentral &m,string coup){
                         sT << coup;
                         sT >> tuile;
                         simulateur.posageTuile(j,1,reserve,tuile);
+                        simulateur.gestionDistrict(j,m,tuile);
                     }
                     else{
                         cout<<coup<<endl;
@@ -392,6 +421,7 @@ void IA::jouerCoup(PlateauJoueur &j,PlateauCentral &m,string coup){
                         sT << coup;
                         sT >> tuile;
                         simulateur.posageTuile(j,2,reserve,tuile);
+                        simulateur.gestionDistrict(j,m,tuile);
                     }
                     else if(coup.find("pplus1")!=string::npos){
                         simulateur.utilisationOuvrier(j,2,1,true);
@@ -407,6 +437,7 @@ void IA::jouerCoup(PlateauJoueur &j,PlateauCentral &m,string coup){
                         sT << coup;
                         sT >> tuile;
                         simulateur.posageTuile(j,2,reserve,tuile);
+                        simulateur.gestionDistrict(j,m,tuile);
                     }
                     else if(coup.find("pmoins1")!=string::npos){
                         simulateur.utilisationOuvrier(j,2,1,false);
@@ -422,6 +453,7 @@ void IA::jouerCoup(PlateauJoueur &j,PlateauCentral &m,string coup){
                         sT << coup;
                         sT >> tuile;
                         simulateur.posageTuile(j,2,reserve,tuile);
+                        simulateur.gestionDistrict(j,m,tuile);
                     }
                     else if(coup.find("pplus2")!=string::npos){
                         simulateur.utilisationOuvrier(j,2,2,true);
@@ -437,6 +469,7 @@ void IA::jouerCoup(PlateauJoueur &j,PlateauCentral &m,string coup){
                         sT << coup;
                         sT >> tuile;
                         simulateur.posageTuile(j,2,reserve,tuile);
+                        simulateur.gestionDistrict(j,m,tuile);
                     }
                     else if(coup.find("pmoins2")!=string::npos){
                         simulateur.utilisationOuvrier(j,2,2,false);
@@ -452,6 +485,7 @@ void IA::jouerCoup(PlateauJoueur &j,PlateauCentral &m,string coup){
                         sT << coup;
                         sT >> tuile;
                         simulateur.posageTuile(j,2,reserve,tuile);
+                        simulateur.gestionDistrict(j,m,tuile);
                     }
                     else if(coup.find("pplus3")!=string::npos){
                         simulateur.utilisationOuvrier(j,2,3,true);
@@ -467,6 +501,7 @@ void IA::jouerCoup(PlateauJoueur &j,PlateauCentral &m,string coup){
                         sT << coup;
                         sT >> tuile;
                         simulateur.posageTuile(j,2,reserve,tuile);
+                        simulateur.gestionDistrict(j,m,tuile);
                     }
                     else if(coup.find("pmoins3")!=string::npos){
                         simulateur.utilisationOuvrier(j,2,3,false);
@@ -482,6 +517,7 @@ void IA::jouerCoup(PlateauJoueur &j,PlateauCentral &m,string coup){
                         sT << coup;
                         sT >> tuile;
                         simulateur.posageTuile(j,2,reserve,tuile);
+                        simulateur.gestionDistrict(j,m,tuile);
                     }
                     else{
                         cout<<coup<<endl;

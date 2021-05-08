@@ -41,6 +41,7 @@ class Simulateur
     bool venteDe(PlateauJoueur &joueur,int choix);
     bool venteMarchandise(PlateauJoueur &joueur, int choix);
 	bool achatTuile(PlateauJoueur &joueur,PlateauCentral &marche,int choixDe,int choix);
+	void gestionDistrict(PlateauJoueur &joueur,PlateauCentral &marche ,int choixCase);
 	bool posageTuile(PlateauJoueur &joueur,int choixDe,int choixTuile,int choixCase);
 
     void actionBateau(PlateauJoueur &joueur,PlateauCentral &marche,int choixZone);
@@ -51,7 +52,7 @@ class Simulateur
 
     //attribut
     protected :
-        Initialisation init;
+
     //int tour
     //int manche
     //le joueur

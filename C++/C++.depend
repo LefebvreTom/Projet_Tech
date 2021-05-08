@@ -619,7 +619,7 @@
 	<string>
 	"Initialisation.h"
 
-1620259312 c:\users\alexandre\desktop\c++\initialisation.h
+1620435844 c:\users\alexandre\desktop\c++\initialisation.h
 	"Tuiles.h"
 	"affichageTest.h"
 	"Marchandise.h"
@@ -632,19 +632,19 @@
 	"DosNoir.h"
 	"Bonus.h"
 	"PlateauJoueur.h"
-	"PlateauCentral.h"
 	<string>
 	<stack>
 	<vector>
 	<typeinfo>
 
-1620168655 c:\users\alexandre\desktop\c++\plateaujoueur.h
+1620437296 c:\users\alexandre\desktop\c++\plateaujoueur.h
 	"Plateau.h"
 	"Case.h"
 	"Marchandise.h"
 	<iostream>
 	<stdlib.h>
 	<string>
+	<sstream>
 	<vector>
 
 1617552218 c:\users\alexandre\desktop\c++\plateau.h
@@ -652,9 +652,10 @@
 	<stdlib.h>
 	<string>
 
-1620176961 c:\users\alexandre\desktop\c++\plateaucentral.h
+1620431877 c:\users\alexandre\desktop\c++\plateaucentral.h
 	"Plateau.h"
 	"De.h"
+	"Initialisation.h"
 	<iostream>
 	<stdlib.h>
 	<fstream>
@@ -662,10 +663,10 @@
 	<sstream>
 	<queue>
 
-1620333027 source:c:\users\alexandre\desktop\c++\initialisation.cpp
+1620435913 source:c:\users\alexandre\desktop\c++\initialisation.cpp
 	"Initialisation.h"
 
-1620412407 source:c:\users\alexandre\desktop\c++\main.cpp
+1620437523 source:c:\users\alexandre\desktop\c++\main.cpp
 	<iostream>
 	<string>
 	<stack>
@@ -701,7 +702,7 @@
 	<sstream>
 	<iostream>
 
-1620407870 c:\users\alexandre\desktop\c++\simulateur.h
+1620435204 c:\users\alexandre\desktop\c++\simulateur.h
 	"PlateauJoueur.h"
 	"PlateauCentral.h"
 	"Partie.h"
@@ -724,19 +725,19 @@
 1617552218 source:c:\users\alexandre\desktop\c++\plateau.cpp
 	"Plateau.h"
 
-1620408230 source:c:\users\alexandre\desktop\c++\plateaucentral.cpp
+1620431635 source:c:\users\alexandre\desktop\c++\plateaucentral.cpp
 	"PlateauCentral.h"
 
-1620304611 source:c:\users\alexandre\desktop\c++\plateaujoueur.cpp
+1620437259 source:c:\users\alexandre\desktop\c++\plateaujoueur.cpp
 	"PlateauJoueur.h"
 
-1620411541 source:c:\users\alexandre\desktop\c++\simulateur.cpp
+1620437449 source:c:\users\alexandre\desktop\c++\simulateur.cpp
 	"Simulateur.h"
 
 1617552218 source:c:\users\alexandre\desktop\c++\tuiles.cpp
 	"Tuiles.h"
 
-1620425536 c:\users\alexandre\desktop\c++\ia.h
+1620429456 c:\users\alexandre\desktop\c++\ia.h
 	"PlateauJoueur.h"
 	"PlateauCentral.h"
 	"Partie.h"
@@ -750,7 +751,7 @@
 	<stdlib.h>
 	<sstream>
 
-1620427258 source:c:\users\alexandre\desktop\c++\ia.cpp
+1620435553 source:c:\users\alexandre\desktop\c++\ia.cpp
 	"IA.h"
 
 1620311423 source:c:\users\user\desktop\projet tech\pour bosser\c++\ia.cpp

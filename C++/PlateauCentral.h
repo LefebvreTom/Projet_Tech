@@ -3,6 +3,7 @@
 
 #include "Plateau.h"
 #include "De.h"
+#include "Initialisation.h"
 #include <iostream>
 #include <stdlib.h>
 #include <fstream>
@@ -31,6 +32,7 @@ public:
        int getPhase();
        int getTour();
        int getDeMarchandise();
+       Initialisation getInit();
        std::string getMarchandiseTour();
        void setTuile(int i,int j,std::string chgt);
        void setPhase(int resultat);
@@ -48,6 +50,7 @@ protected:
     int phase;
     int tour;
     De deMarchandise;
+    Initialisation init;
 
 };
 

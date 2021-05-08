@@ -45,7 +45,6 @@ int main()
     //Initialisation
 
     //cout<<endl;
-
     //partie
     /*Partie partie;
     partie.MajPlateauJoueur("J1");

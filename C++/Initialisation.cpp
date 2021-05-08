@@ -173,6 +173,12 @@
         TabAnimal[r].pop();
         return a;
     }
+    Bonus Initialisation::getBonus(int i){
+        Bonus b;
+        b=TabBonus[i].top();
+        TabBonus[i].pop();
+        return b;
+    }
 
     Batiment Initialisation::getBatiment(){
         int r=(rand()%7)+1;

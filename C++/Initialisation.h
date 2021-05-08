@@ -13,7 +13,7 @@
 #include "DosNoir.h"
 #include "Bonus.h"
 #include "PlateauJoueur.h"
-#include "PlateauCentral.h"
+
 
 #include <string>
 #include <stack>
@@ -47,6 +47,7 @@ class Initialisation
         Connaissance getConnaissance();
         Batiment getBatiment();
         Animal getAnimal();
+        Bonus getBonus(int i);
         std::string getDosNoir();
         Marchandise getMarchandise();
 

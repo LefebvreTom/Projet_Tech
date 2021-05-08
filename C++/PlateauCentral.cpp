@@ -5,6 +5,7 @@ using namespace std;
 
     //constructeur
     PlateauCentral::PlateauCentral(){
+        init = Initialisation();
         for(int i=0;i<7;i++){
             for(int j=0;j<6;j++){
                 listeTuileCentrale[i][j]="";
@@ -276,6 +277,9 @@ using namespace std;
     int PlateauCentral::getDeMarchandise(){
         deMarchandise.genereResultat();
         return deMarchandise.getResultat();
+    }
+    Initialisation PlateauCentral::getInit(){
+        return init;
     }
     string PlateauCentral::getMarchandiseTour(){
         string tuile = listeMarchandisesTours.front();

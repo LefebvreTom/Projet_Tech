@@ -20,7 +20,7 @@
 
         //initialisation des plateaux etc
         Partie partie;
-        init = Initialisation();
+
 
         PlateauJoueur joueur1;
         PlateauJoueur joueur2;
@@ -285,10 +285,10 @@
 
 
         }*/
-
+        //cout<<joueur2.totalAnimauxDistrict(10)<<endl;
+        /*finDeTour(marche,joueur1,joueur2);
         finDeTour(marche,joueur1,joueur2);
-        finDeTour(marche,joueur1,joueur2);
-        finDeTour(marche,joueur1,joueur2);
+        finDeTour(marche,joueur1,joueur2);*/
     }
     void Simulateur::finDeTour(PlateauCentral &marche,PlateauJoueur &J1,PlateauJoueur &J2){
         if(marche.getTour() < 5){
@@ -319,55 +319,55 @@
                     int type = marche.getDeMarchandise();
                     if(type == 1){
                         cout<<"Chateau"<<endl;
-                        Chateau c = init.getChateau();
+                        Chateau c = marche.getInit().getChateau();
                         marche.addTuileListeTuileCentrale(c.getIdSite(),id/2,(id%2)+6);
                         cout<<c.getIdSite()<<endl;
                         id++;
                     }
                     if(type == 2){
                         cout<<"Bateau"<<endl;
-                        Bateau b = init.getBateau();
+                        Bateau b = marche.getInit().getBateau();
                         marche.addTuileListeTuileCentrale(b.getIdSite(),id/2,(id%2)+6);
                         cout<<b.getIdSite()<<endl;
                         id++;
                     }
                     if(type == 3){
                         cout<<"Mine"<<endl;
-                        Mine m = init.getMine();
+                        Mine m = marche.getInit().getMine();
                         marche.addTuileListeTuileCentrale(m.getIdSite(),id/2,(id%2)+6);
                         cout<<m.getIdSite()<<endl;
                         id++;
                     }
                     if(type == 4){
                         cout<<"Connaissance"<<endl;
-                        Connaissance c = init.getConnaissance();
+                        Connaissance c = marche.getInit().getConnaissance();
                         marche.addTuileListeTuileCentrale(c.getIdSite(),id/2,(id%2)+6);
                         cout<<c.getIdSite()<<endl;
                         id++;
                     }
                     if(type == 5){
                         cout<<"Animal"<<endl;
-                        Animal a = init.getAnimal();
+                        Animal a = marche.getInit().getAnimal();
                         marche.addTuileListeTuileCentrale(a.getIdSite(),id/2,(id%2)+6);
                         cout<<a.getIdSite()<<endl;
                         id++;
                     }
                     if(type == 6){
                         cout<<"Batiment"<<endl;
-                        Batiment b = init.getBatiment();
+                        Batiment b = marche.getInit().getBatiment();
                         marche.addTuileListeTuileCentrale(b.getIdSite(),id/2,(id%2)+6);
                         cout<<b.getIdSite()<<endl;
                         id++;
                     }
                 }
                 for(int i =0;i < 4;i++){
-                    string s = init.getDosNoir();
+                    string s = marche.getInit().getDosNoir();
                     cout<<s<<endl;
                     marche.addTuileListeTuileCentrale(s,6,i);
                 }
                 for(int i =0;i < 5;i++){
                     cout<<"test for:"<<i<<endl;
-                    Marchandise m = init.getMarchandise();
+                    Marchandise m = marche.getInit().getMarchandise();
                     cout<<m.getIdSite()<<endl;
                     marche.setMarchandiseTour(m.getIdSite());
                 }
@@ -1224,7 +1224,35 @@
 
 
     }
-bool Simulateur::posageTuile(PlateauJoueur &joueur,int choixDe,int choixTuile,int choixCase){
+void Simulateur::gestionDistrict(PlateauJoueur &joueur,PlateauCentral &marche ,int choixCase){
+    if(joueur.districtPlein(choixCase)!=0){
+        switch(marche.getPhase()){
+            case 1:
+                joueur.setScore(joueur.getScore()+joueur.districtPlein(choixCase)+10);
+            break;
+            case 2:
+                joueur.setScore(joueur.getScore()+joueur.districtPlein(choixCase)+8);
+            break;
+            case 3:
+                joueur.setScore(joueur.getScore()+joueur.districtPlein(choixCase)+6);
+            break;
+            case 4:
+                joueur.setScore(joueur.getScore()+joueur.districtPlein(choixCase)+4);
+            break;
+            case 5:
+                joueur.setScore(joueur.getScore()+joueur.districtPlein(choixCase)+2);
+            break;
+            default:
+            break;
+        }
+    }
+    if(joueur.couleurPlein(choixCase)!=-1){
+        if(marche.getInit().getBonus(joueur.couleurPlein(choixCase)).getType().compare("grand")==0)joueur.setScore(joueur.getScore()+5);
+        if(marche.getInit().getBonus(joueur.couleurPlein(choixCase)).getType().compare("petit")==0)joueur.setScore(joueur.getScore()+2);
+    }
+}
+
+bool Simulateur::posageTuile(PlateauJoueur &joueur ,int choixDe,int choixTuile,int choixCase){
         int de;
         if(choixDe==1){
             de=joueur.getde(1);
@@ -1250,6 +1278,7 @@ bool Simulateur::posageTuile(PlateauJoueur &joueur,int choixDe,int choixTuile,in
                                 joueur.setCase(choixCase,chgt);
                                 joueur.setReserve(choixTuile,"");
                                 joueur.setde(choixDe,-1);
+                                joueur.setScore(joueur.getScore()+joueur.totalAnimauxDistrict(choixTuile));
                                 return true;
                             }
                             else{ //la case n'est pas adjacente à une autre du domaine
@@ -1273,6 +1302,9 @@ bool Simulateur::posageTuile(PlateauJoueur &joueur,int choixDe,int choixTuile,in
                                 joueur.setCase(choixCase,chgt);
                                 joueur.setReserve(choixTuile,"");
                                 joueur.setde(choixDe,-1);
+                                if(joueur.districtPlein(choixCase)!=0){
+                                    joueur.setScore(joueur.getScore()+joueur.districtPlein(choixCase));
+                                }
                                 return true;
                             }
                             else{ //la case n'est pas adjacente à une autre du domaine
@@ -1338,6 +1370,9 @@ bool Simulateur::posageTuile(PlateauJoueur &joueur,int choixDe,int choixTuile,in
                     if(joueur.getCase(choixCase).getType().compare("marron")==0){//on regarde si la case choisi est verte
                         if(joueur.getCase(choixCase).getnumDe()==de){ //on regarde la valeur du dé et la valeur de la case
                             if(joueur.updateCaseDisponible(choixCase)){
+                                if(joueur.getReserve(choixTuile).compare("tb8") == 0 || joueur.getReserve(choixTuile).compare("tb8")){
+                                    joueur.setScore(joueur.getScore()+4);
+                                }
                                 Case chgt=Case(choixCase,0,joueur.getReserve(choixTuile));
                                 joueur.setCase(choixCase,chgt);
                                 joueur.setReserve(choixTuile,"");

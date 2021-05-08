@@ -8,6 +8,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <string>
+#include <sstream>
 
 
 #include <vector>
@@ -48,8 +49,9 @@ public:
 
         bool updateCaseDisponible(int id);
 
-        bool districtPlein(int id);
-        bool couleurPlein(int id);
+        int districtPlein(int id);
+        int couleurPlein(int id);
+        int totalAnimauxDistrict(int id);
 
 
 protected:
