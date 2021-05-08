@@ -14,9 +14,9 @@ void IA::Monte_Carlo(){
     Noeud configActuel(partie.getJoueur(1),partie.getJoueur(2),partie.getMarche());
     vector<string> tours =createListeTourPossible(1, configActuel);
     cout<<"nombre de coup possible: "<<tours.size()<<endl;
-    /*for(int i = 0; i<tours.size(); i++) {
+    for(int i = 0; i<tours.size(); i++) {
         cout << tours[i] << endl;
-    }*/
+    }
     //createListeSuccesseur(tours,partie.getJoueur(1),1,partie.getMarche());
     //coupAleatoire(tours,partie.getJoueur(1),1,partie.getMarche());
     /*while(partie.getMarche().getPhase() < 6){
@@ -28,26 +28,34 @@ void IA::Monte_Carlo(){
     cout<<partie.getJoueur(1).getNbMarchVendu(1)<<endl;*/
     //cout<<"java"<<endl;
     int Max=0;
+    int Min=20;
     vector<Noeud> toutesConfigFils = createListeSuccesseur(tours,partie.getJoueur(1),partie.getJoueur(2),1,partie.getMarche());
-    vector<string> choixCoup={};
+    vector<string> choixCoupMax={};
+    vector<string> choixCoupMin={};
     vector<string> tour={};
     do{
         int gain=0;
         //jouerCoup(PlateauJoueur &j,PlateauCentral &m,string coup);
         Noeud configFils = toutesConfigFils.back();
-        for(int j=0; j<500; j++){
+        for(int j=0; j<20; j++){
+            cout<<"               "<<j<<endl;
             gain += simulationNFindeTour(1,configFils);
         }
         if(gain>Max){
             Max=gain;
-            choixCoup = tour;
+            choixCoupMax = tour;
+        }
+        if(gain<Min){
+            Min=gain;
+            choixCoupMin = tour;
         }
         toutesConfigFils.pop_back();
     }while(toutesConfigFils.size()>0);
     cout<<"Max :"<<Max<<endl;
-    for(int i = 0; i<choixCoup.size(); i++) {
-        cout << choixCoup[i] << endl;
-    }
+    cout<<"Min :"<<Min<<endl;
+    //for(int i = 0; i<choixCoup.size(); i++) {
+    //  cout << choixCoup[i] << endl;
+    //}
 }
 
 
@@ -218,70 +226,70 @@ void IA::jouerCoup(PlateauJoueur &j,PlateauCentral &m,string coup){
                     coup.erase(0, 3);
                     if(coup.find("a0")!=string::npos){
                         coup.erase(0, 2);
-                        if(m.getTuileMarche(j.getde(1)-1,6).compare(coup)==0){
+                        if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),6).compare(coup)==0){
                             simulateur.achatTuile(j,m,1,6);
                         }
-                        else if(m.getTuileMarche(j.getde(1)-1,7).compare(coup)==0){
+                        else if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),7).compare(coup)==0){
                             simulateur.achatTuile(j,m,1,7);
                         }
                     }
                     else if(coup.find("aplus1")!=string::npos){
                         simulateur.utilisationOuvrier(j,1,1,true);
                         coup.erase(0, 6);
-                        if(m.getTuileMarche(j.getde(1)-1,6).compare(coup)==0){
+                        if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),6).compare(coup)==0){
                             simulateur.achatTuile(j,m,1,6);
                         }
-                        else if(m.getTuileMarche(j.getde(1)-1,7).compare(coup)==0){
+                        else if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),7).compare(coup)==0){
                             simulateur.achatTuile(j,m,1,7);
                         }
                     }
                     else if(coup.find("amoins1")!=string::npos){
                         simulateur.utilisationOuvrier(j,1,1,false);
                         coup.erase(0, 7);
-                        if(m.getTuileMarche(j.getde(1)-1,6).compare(coup)==0){
+                        if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),6).compare(coup)==0){
                             simulateur.achatTuile(j,m,1,6);
                         }
-                        else if(m.getTuileMarche(j.getde(1)-1,7).compare(coup)==0){
+                        else if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),7).compare(coup)==0){
                             simulateur.achatTuile(j,m,1,7);
                         }
                     }
                     else if(coup.find("aplus2")!=string::npos){
                         simulateur.utilisationOuvrier(j,1,2,true);
                         coup.erase(0, 6);
-                        if(m.getTuileMarche(j.getde(1)-1,6).compare(coup)==0){
+                        if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),6).compare(coup)==0){
                             simulateur.achatTuile(j,m,1,6);
                         }
-                        else if(m.getTuileMarche(j.getde(1)-1,7).compare(coup)==0){
+                        else if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),7).compare(coup)==0){
                             simulateur.achatTuile(j,m,1,7);
                         }
                     }
                     else if(coup.find("amoins2")!=string::npos){
                         simulateur.utilisationOuvrier(j,1,2,false);
                         coup.erase(0, 7);
-                        if(m.getTuileMarche(j.getde(1)-1,6).compare(coup)==0){
+                        if(m.getTuileMarche(modifValeurDe(j.getde(1))-1,6).compare(coup)==0){
                             simulateur.achatTuile(j,m,1,6);
                         }
-                        else if(m.getTuileMarche(j.getde(1)-1,7).compare(coup)==0){
+                        else if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),7).compare(coup)==0){
                             simulateur.achatTuile(j,m,1,7);
                         }
                     }
                     else if(coup.find("aplus3")!=string::npos){
                         simulateur.utilisationOuvrier(j,1,3,true);
                         coup.erase(0, 6);
-                        if(m.getTuileMarche(j.getde(1)-1,6).compare(coup)==0){
+                        if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),6).compare(coup)==0){
                             simulateur.achatTuile(j,m,1,6);
                         }
-                        else if(m.getTuileMarche(j.getde(1)-1,7).compare(coup)==0){
+                        else if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),7).compare(coup)==0){
                             simulateur.achatTuile(j,m,1,7);
                         }
                     }
                     else if(coup.find("amoins3")!=string::npos){
                         simulateur.utilisationOuvrier(j,1,3,false);
                         coup.erase(0, 7);
-                        if(m.getTuileMarche(j.getde(1)-1,6).compare(coup)==0){
+                        if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),6).compare(coup)==0){
                             simulateur.achatTuile(j,m,1,6);
                         }
-                        else if(m.getTuileMarche(j.getde(1)-1,7).compare(coup)==0){
+                        else if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),7).compare(coup)==0){
                             simulateur.achatTuile(j,m,1,7);
                         }
                     }
@@ -404,70 +412,70 @@ void IA::jouerCoup(PlateauJoueur &j,PlateauCentral &m,string coup){
                     coup.erase(0, 3);
                     if(coup.find("a0")!=string::npos){
                         coup.erase(0, 2);
-                        if(m.getTuileMarche(j.getde(2)-1,6).compare(coup)==0){
+                        if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),6).compare(coup)==0){
                             simulateur.achatTuile(j,m,2,6);
                         }
-                        else if(m.getTuileMarche(j.getde(2)-1,7).compare(coup)==0){
+                        else if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),7).compare(coup)==0){
                             simulateur.achatTuile(j,m,2,7);
                         }
                     }
                     else if(coup.find("aplus1")!=string::npos){
                         simulateur.utilisationOuvrier(j,2,1,true);
                         coup.erase(0, 6);
-                        if(m.getTuileMarche(j.getde(2)-1,6).compare(coup)==0){
+                        if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),6).compare(coup)==0){
                             simulateur.achatTuile(j,m,2,6);
                         }
-                        else if(m.getTuileMarche(j.getde(2)-1,7).compare(coup)==0){
+                        else if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),7).compare(coup)==0){
                             simulateur.achatTuile(j,m,2,7);
                         }
                     }
                     else if(coup.find("amoins1")!=string::npos){
                         simulateur.utilisationOuvrier(j,2,1,false);
                         coup.erase(0, 7);
-                        if(m.getTuileMarche(j.getde(2)-1,6).compare(coup)==0){
+                        if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),6).compare(coup)==0){
                             simulateur.achatTuile(j,m,2,6);
                         }
-                        else if(m.getTuileMarche(j.getde(2)-1,7).compare(coup)==0){
+                        else if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),7).compare(coup)==0){
                             simulateur.achatTuile(j,m,2,7);
                         }
                     }
                     else if(coup.find("aplus2")!=string::npos){
                         simulateur.utilisationOuvrier(j,2,2,true);
                         coup.erase(0, 6);
-                        if(m.getTuileMarche(j.getde(2)-1,6).compare(coup)==0){
+                        if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),6).compare(coup)==0){
                             simulateur.achatTuile(j,m,2,6);
                         }
-                        else if(m.getTuileMarche(j.getde(2)-1,7).compare(coup)==0){
+                        else if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),7).compare(coup)==0){
                             simulateur.achatTuile(j,m,2,7);
                         }
                     }
                     else if(coup.find("amoins2")!=string::npos){
                         simulateur.utilisationOuvrier(j,2,2,false);
                         coup.erase(0, 7);
-                        if(m.getTuileMarche(j.getde(2)-1,6).compare(coup)==0){
+                        if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),6).compare(coup)==0){
                             simulateur.achatTuile(j,m,2,6);
                         }
-                        else if(m.getTuileMarche(j.getde(2)-1,7).compare(coup)==0){
+                        else if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),7).compare(coup)==0){
                             simulateur.achatTuile(j,m,2,7);
                         }
                     }
                     else if(coup.find("aplus3")!=string::npos){
                         simulateur.utilisationOuvrier(j,2,3,true);
                         coup.erase(0, 6);
-                        if(m.getTuileMarche(j.getde(2)-1,6).compare(coup)==0){
+                        if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),6).compare(coup)==0){
                             simulateur.achatTuile(j,m,2,6);
                         }
-                        else if(m.getTuileMarche(j.getde(2)-1,7).compare(coup)==0){
+                        else if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),7).compare(coup)==0){
                             simulateur.achatTuile(j,m,2,7);
                         }
                     }
                     else if(coup.find("amoins3")!=string::npos){
                         simulateur.utilisationOuvrier(j,2,3,false);
                         coup.erase(0, 7);
-                        if(m.getTuileMarche(j.getde(2)-1,6).compare(coup)==0){
+                        if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),6).compare(coup)==0){
                             simulateur.achatTuile(j,m,2,6);
                         }
-                        else if(m.getTuileMarche(j.getde(2)-1,7).compare(coup)==0){
+                        else if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),7).compare(coup)==0){
                             simulateur.achatTuile(j,m,2,7);
                         }
                     }
@@ -594,7 +602,7 @@ void IA::jouerCoup(PlateauJoueur &j,PlateauCentral &m,string coup){
 
 
 vector<string> IA::createListeTourPossible(int id, Noeud configActuel){
-    vector<string> test =vecteurBranche( id, configActuel);
+    vector<string> test = vecteurBranche( id, configActuel);
     vector<string> de1;
     vector<string> de2;
     vector<string> autre;
@@ -751,15 +759,17 @@ int IA::simulationNFindeTour(int id, Noeud configFils){
     int victoire=0;
     //Partie configActuel = Partie(simulateur.copieJoueur(configFils.getJoueur(1)),simulateur.copieJoueur(configFils.getJoueur(2)),simulateur.copieMarche(configFils.getMarche()));
     Noeud configActuel(configFils.getJoueur(1),configFils.getJoueur(2),configFils.getMarche());
-
+    PlateauJoueur test1;
     while(configActuel.getMarche().getPhase()<6){
+        test1 = configActuel.getJoueur(1);
         //on joue aléatoirement
         int r1=(rand()%6)+1;
         int r2=(rand()%6)+1;
-        configFils.getJoueur(1).setde(1,r1);
-        configFils.getJoueur(1).setde(2,r2);
-        vector<string> tours = createListeTourPossible(1, configActuel);
-        configActuel = coupAleatoire(tours,configActuel.getJoueur(1),configActuel.getJoueur(2),1,configActuel.getMarche());
+        test1.setde(1,r1);
+        test1.setde(2,r2);
+        configActuel.setJoueur(test1,1);
+        vector<string> tours1 = createListeTourPossible(1, configActuel);
+        configActuel = coupAleatoire(tours1,configActuel.getJoueur(1),configActuel.getJoueur(2),1,configActuel.getMarche());
     }
     if(id==1){
         if(configActuel.getJoueur(1).getScore()>configActuel.getJoueur(2).getScore()){
@@ -775,7 +785,7 @@ int IA::simulationNFindeTour(int id, Noeud configFils){
 }
 
 int IA::modifValeurDe(int de){
-    int res = de%6;
+    int res = (de+6)%6;
     if(res==0){
         res=6;
     }
@@ -816,9 +826,7 @@ vector<string> IA::vecteurBranche(int id, Noeud configActuel){
         if(configActuel.getMarche().getTuileMarche(configActuel.getJoueur(id).getde(1)-1,7)!=""){
             succ.push_back("de1a0" + configActuel.getMarche().getTuileMarche(configActuel.getJoueur(id).getde(1)-1,7)); //le dé 1 non modifié permet l'achat de la case 2
         }
-        cout<<configActuel.getJoueur(id).getde(2)<<endl;
         if(configActuel.getMarche().getTuileMarche(configActuel.getJoueur(id).getde(2)-1,6)!=""){
-
             succ.push_back("de2a0" + configActuel.getMarche().getTuileMarche(configActuel.getJoueur(id).getde(2)-1,6)); //le dé 2 non modifié permet l'achat de la case 1
         }
         if(configActuel.getMarche().getTuileMarche(configActuel.getJoueur(id).getde(2)-1,7)!=""){
@@ -992,6 +1000,7 @@ vector<string> IA::vecteurBranche(int id, Noeud configActuel){
         //+2 dé1
         de = configActuel.getJoueur(id).getde(1) +2;
         de = modifValeurDe(de);
+        cout<<de<<endl;
         if(simulateur.testVenteMarchandise(configActuel.getJoueur(id), de, configActuel.getMarche())){
             succ.push_back("vendMde1plus2");
         }
@@ -1085,6 +1094,7 @@ vector<string> IA::vecteurBranche(int id, Noeud configActuel){
         if(simulateur.testVenteMarchandise(configActuel.getJoueur(id), de, configActuel.getMarche())){
             succ.push_back("vendMde2moins2");
         }
+        cout<<"test47-1"<<endl;
         if(configActuel.getMarche().getTuileMarche(de-1,6)!=""){
             succ.push_back("de2amoins2" + configActuel.getMarche().getTuileMarche(de-1,6)); //le dé 2 -2 permet l'achat de la case 1
         }
@@ -1146,6 +1156,7 @@ vector<string> IA::vecteurBranche(int id, Noeud configActuel){
         //-3 dé1
         de = configActuel.getJoueur(id).getde(1) -3;
         de = modifValeurDe(de);
+        cout<<de<<endl;
         if(simulateur.testVenteMarchandise(configActuel.getJoueur(id), de, configActuel.getMarche())){
             succ.push_back("vendMde1moins3");
         }
@@ -1176,6 +1187,7 @@ vector<string> IA::vecteurBranche(int id, Noeud configActuel){
         //+3 dé2
         de = configActuel.getJoueur(id).getde(2) +3;
         de = modifValeurDe(de);
+        cout<<de<<endl;
         if(simulateur.testVenteMarchandise(configActuel.getJoueur(id), de, configActuel.getMarche())){
             succ.push_back("vendMde2plus3");
         }
@@ -1206,6 +1218,7 @@ vector<string> IA::vecteurBranche(int id, Noeud configActuel){
         //-3 dé2
         de = configActuel.getJoueur(id).getde(2) -3;
         de = modifValeurDe(de);
+        cout<<de<<endl;
         if(simulateur.testVenteMarchandise(configActuel.getJoueur(id), de, configActuel.getMarche())){
             succ.push_back("vendMde2moins3");
         }

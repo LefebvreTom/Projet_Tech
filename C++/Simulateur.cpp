@@ -304,71 +304,71 @@
         }
         else{
                 //ajouter un test sur les mines et lancer setPepite avec le nombre mine
-                cout<<endl;
+                /*cout<<endl;
                 cout<<"--------------------------------"<<endl;
                 cout<<"pepite joueur 1:"<<J1.getPepite()<<endl;
-                cout<<"pepite joueur 2:"<<J2.getPepite()<<endl;
+                cout<<"pepite joueur 2:"<<J2.getPepite()<<endl;*/
                 actionMine(J1);
                 actionMine(J2);
-                cout<<"pepite joueur 1 modif:"<<J1.getPepite()<<endl;
-                cout<<"pepite joueur 2 modif:"<<J2.getPepite()<<endl;
+                //cout<<"pepite joueur 1 modif:"<<J1.getPepite()<<endl;
+                //cout<<"pepite joueur 2 modif:"<<J2.getPepite()<<endl;
 
                 int id = 0;
                 while(id < 12){
-                    cout<<"test while:"<<id<<endl;
+                    //cout<<"test while:"<<id<<endl;
                     int type = marche.getDeMarchandise();
                     if(type == 1){
-                        cout<<"Chateau"<<endl;
+                        //cout<<"Chateau"<<endl;
                         Chateau c = marche.getInit().getChateau();
                         marche.addTuileListeTuileCentrale(c.getIdSite(),id/2,(id%2)+6);
-                        cout<<c.getIdSite()<<endl;
+                        //cout<<c.getIdSite()<<endl;
                         id++;
                     }
                     if(type == 2){
-                        cout<<"Bateau"<<endl;
+                        //cout<<"Bateau"<<endl;
                         Bateau b = marche.getInit().getBateau();
                         marche.addTuileListeTuileCentrale(b.getIdSite(),id/2,(id%2)+6);
-                        cout<<b.getIdSite()<<endl;
+                        //cout<<b.getIdSite()<<endl;
                         id++;
                     }
                     if(type == 3){
-                        cout<<"Mine"<<endl;
+                        //cout<<"Mine"<<endl;
                         Mine m = marche.getInit().getMine();
                         marche.addTuileListeTuileCentrale(m.getIdSite(),id/2,(id%2)+6);
-                        cout<<m.getIdSite()<<endl;
+                        //cout<<m.getIdSite()<<endl;
                         id++;
                     }
                     if(type == 4){
-                        cout<<"Connaissance"<<endl;
+                        //cout<<"Connaissance"<<endl;
                         Connaissance c = marche.getInit().getConnaissance();
                         marche.addTuileListeTuileCentrale(c.getIdSite(),id/2,(id%2)+6);
-                        cout<<c.getIdSite()<<endl;
+                        //cout<<c.getIdSite()<<endl;
                         id++;
                     }
                     if(type == 5){
-                        cout<<"Animal"<<endl;
+                        //cout<<"Animal"<<endl;
                         Animal a = marche.getInit().getAnimal();
                         marche.addTuileListeTuileCentrale(a.getIdSite(),id/2,(id%2)+6);
-                        cout<<a.getIdSite()<<endl;
+                        //cout<<a.getIdSite()<<endl;
                         id++;
                     }
                     if(type == 6){
-                        cout<<"Batiment"<<endl;
+                        //cout<<"Batiment"<<endl;
                         Batiment b = marche.getInit().getBatiment();
                         marche.addTuileListeTuileCentrale(b.getIdSite(),id/2,(id%2)+6);
-                        cout<<b.getIdSite()<<endl;
+                        //cout<<b.getIdSite()<<endl;
                         id++;
                     }
                 }
                 for(int i =0;i < 4;i++){
                     string s = marche.getInit().getDosNoir();
-                    cout<<s<<endl;
+                    //cout<<s<<endl;
                     marche.addTuileListeTuileCentrale(s,6,i);
                 }
                 for(int i =0;i < 5;i++){
-                    cout<<"test for:"<<i<<endl;
+                    //cout<<"test for:"<<i<<endl;
                     Marchandise m = marche.getInit().getMarchandise();
-                    cout<<m.getIdSite()<<endl;
+                    //cout<<m.getIdSite()<<endl;
                     marche.setMarchandiseTour(m.getIdSite());
                 }
                 string marchandiseTour = marche.getMarchandiseTour();
@@ -376,7 +376,7 @@
                 marche.setTour(1);
                 marche.setPhase(marche.getPhase()+1);
         }
-        cout<<"Phase : "<<marche.getPhase()<<"Tour : "<<marche.getTour() <<endl;
+        //cout<<"Phase : "<<marche.getPhase()<<"Tour : "<<marche.getTour() <<endl;
     }
     //--------------------------------------------------------------------------------------------------------------------------
     //--------------------------------------------------------------------------------------------------------------------------
@@ -1070,8 +1070,8 @@
         else{
             de=joueur.getde(2);
         }
-
-        if( (nbr<=joueur.getOuvrier())&& (joueur.getOuvrier()!=0) && (de!=-1)) {
+        cout<<"java"<<de<<endl;
+        if( (nbr<=joueur.getOuvrier()) && (joueur.getOuvrier()!=0) && (de!=-1)) {
             if(chgt){ //si chgt=true -> +
                 if((de+nbr)%6==0){
                     de=6;
@@ -1084,17 +1084,17 @@
                 joueur.setOuvrier(joueur.getOuvrier()-nbr);
             }
             else{ //si chgt=false -> -
-                if((de-nbr)%6==0){
+                if((de-nbr+6)%6==0){
                     de=6;
                     joueur.setde(numde,de);
                 }
                 else{
-                    de=(de-nbr)%6;
+                    de=(de-nbr+6)%6;
                     joueur.setde(numde,de);
                 }
                 joueur.setOuvrier(joueur.getOuvrier()-nbr);
             }
-
+            cout<<"kikiki"<<de<<endl;
             return true;
         }
 
@@ -1178,9 +1178,11 @@
         int de;
         if(choixDe==1){
             de=joueur.getde(1)-1;
+            cout<<de<<endl;
         }
         else{
             de=joueur.getde(2)-1;
+            cout<<de<<endl;
             choixDe=2;//on le force à 2
         }
 

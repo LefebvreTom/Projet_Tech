@@ -288,7 +288,6 @@ using namespace std;
     }
 
     string PlateauCentral::getTuileMarche(int i,int j){
-        //cout<<i<<" "<<j<<endl;
         string tuile=listeTuileCentrale[i][j];
         return tuile;
     }
