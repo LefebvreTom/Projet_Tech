@@ -13,10 +13,12 @@ IA :: ~IA(){}
 void IA::Monte_Carlo(){
     Noeud configActuel(partie.getJoueur(1),partie.getJoueur(2),partie.getMarche());
     vector<string> tours =createListeTourPossible(1, configActuel);
-    cout<<"nombre de coup possible: "<<tours.size()<<endl;
-    for(int i = 0; i<tours.size(); i++) {
-        cout << tours[i] << endl;
-    }
+    cout<<"nombre de coup possible: "<<tours.size()<<endl<<endl<<endl;
+    cout<<"Merci de bien vouloir patienter, nous determinons le meilleur coup a faire dans cette situation"<<endl<<endl<<endl;
+    cout<<"Pas de panique, l'action peut prendre quelques minute en fonction de la situation."<<endl<<endl<<endl<<endl;
+    //for(int i = 0; i<tours.size(); i++) {
+    //    cout << tours[i] << endl;
+    //}
     //createListeSuccesseur(tours,partie.getJoueur(1),1,partie.getMarche());
     //coupAleatoire(tours,partie.getJoueur(1),1,partie.getMarche());
     /*while(partie.getMarche().getPhase() < 6){
@@ -30,15 +32,16 @@ void IA::Monte_Carlo(){
     int Max=0;
     int Min=20;
     vector<Noeud> toutesConfigFils = createListeSuccesseur(tours,partie.getJoueur(1),partie.getJoueur(2),1,partie.getMarche());
-    vector<string> choixCoupMax={};
-    vector<string> choixCoupMin={};
-    vector<string> tour={};
+    string choixCoupMax="";
+    string choixCoupMin="";
+    string tour={};
     do{
         int gain=0;
         //jouerCoup(PlateauJoueur &j,PlateauCentral &m,string coup);
         Noeud configFils = toutesConfigFils.back();
+        tour = tours.back();
         for(int j=0; j<20; j++){
-            cout<<"               "<<j<<endl;
+            //cout<<"               "<<j<<endl;
             gain += simulationNFindeTour(1,configFils);
         }
         if(gain>Max){
@@ -50,12 +53,34 @@ void IA::Monte_Carlo(){
             choixCoupMin = tour;
         }
         toutesConfigFils.pop_back();
+        tours.pop_back();
     }while(toutesConfigFils.size()>0);
-    cout<<"Max :"<<Max<<endl;
-    cout<<"Min :"<<Min<<endl;
-    //for(int i = 0; i<choixCoup.size(); i++) {
-    //  cout << choixCoup[i] << endl;
-    //}
+
+    PlateauJoueur j = partie.getJoueur(1);
+    PlateauCentral m = partie.getMarche();
+    int pos = 0;
+    choixCoupMax += ",";
+    choixCoupMin += ",";
+    cout<<"Merci de votre patience. Le meilleur coup est :"<<endl;
+    string meilleurCoup;
+    while ((pos = choixCoupMax.find(',')) != string::npos) {
+        string coup = choixCoupMax.substr(0, pos);
+        meilleurCoup += significationCoup(j,m,coup);
+        choixCoupMax.erase(0, pos + 1);
+    }
+    cout<<meilleurCoup<<endl;
+    cout<<"Taux de victoire : "<<Max<<"/20"<<endl;
+
+    cout<<endl<<"Et le pire coup est :"<<endl;
+    string pireCoup;
+    while ((pos = choixCoupMin.find(',')) != string::npos) {
+        string coup = choixCoupMin.substr(0, pos);
+        pireCoup += significationCoup(j,m,coup);
+        choixCoupMin.erase(0, pos + 1);
+    }
+    cout<<pireCoup<<endl;
+    cout<<"Taux de victoire : "<<Min<<"/20"<<endl;
+    cout<<endl;
 }
 
 
@@ -796,6 +821,7 @@ int IA::modifValeurDe(int de){
 vector<string> IA::vecteurBranche(int id, Noeud configActuel){
 
 
+
     vector<string> succ={};
 
     //ACHAT Pépite
@@ -985,7 +1011,6 @@ vector<string> IA::vecteurBranche(int id, Noeud configActuel){
                         s1 >> idI;
                         s2 << j;
                         s2 >> idJ;
-                        cout<<idI<<" Tom "<<idJ<<endl;
                         succ.push_back("de2pmoins1r" + idI + "case" + idJ); // dé 2 -1 pose la tuile i du reservoir sur la case j
                     }
                 }
@@ -1000,7 +1025,6 @@ vector<string> IA::vecteurBranche(int id, Noeud configActuel){
         //+2 dé1
         de = configActuel.getJoueur(id).getde(1) +2;
         de = modifValeurDe(de);
-        cout<<de<<endl;
         if(simulateur.testVenteMarchandise(configActuel.getJoueur(id), de, configActuel.getMarche())){
             succ.push_back("vendMde1plus2");
         }
@@ -1094,7 +1118,6 @@ vector<string> IA::vecteurBranche(int id, Noeud configActuel){
         if(simulateur.testVenteMarchandise(configActuel.getJoueur(id), de, configActuel.getMarche())){
             succ.push_back("vendMde2moins2");
         }
-        cout<<"test47-1"<<endl;
         if(configActuel.getMarche().getTuileMarche(de-1,6)!=""){
             succ.push_back("de2amoins2" + configActuel.getMarche().getTuileMarche(de-1,6)); //le dé 2 -2 permet l'achat de la case 1
         }
@@ -1156,7 +1179,6 @@ vector<string> IA::vecteurBranche(int id, Noeud configActuel){
         //-3 dé1
         de = configActuel.getJoueur(id).getde(1) -3;
         de = modifValeurDe(de);
-        cout<<de<<endl;
         if(simulateur.testVenteMarchandise(configActuel.getJoueur(id), de, configActuel.getMarche())){
             succ.push_back("vendMde1moins3");
         }
@@ -1187,7 +1209,6 @@ vector<string> IA::vecteurBranche(int id, Noeud configActuel){
         //+3 dé2
         de = configActuel.getJoueur(id).getde(2) +3;
         de = modifValeurDe(de);
-        cout<<de<<endl;
         if(simulateur.testVenteMarchandise(configActuel.getJoueur(id), de, configActuel.getMarche())){
             succ.push_back("vendMde2plus3");
         }
@@ -1218,7 +1239,6 @@ vector<string> IA::vecteurBranche(int id, Noeud configActuel){
         //-3 dé2
         de = configActuel.getJoueur(id).getde(2) -3;
         de = modifValeurDe(de);
-        cout<<de<<endl;
         if(simulateur.testVenteMarchandise(configActuel.getJoueur(id), de, configActuel.getMarche())){
             succ.push_back("vendMde2moins3");
         }
@@ -1250,3 +1270,415 @@ vector<string> IA::vecteurBranche(int id, Noeud configActuel){
 
     return succ;
 }
+
+
+
+string IA::significationCoup(PlateauJoueur &j, PlateauCentral &m, string coup){
+    string res = "";
+
+            if(coup.compare("0a") == 0){
+                res += "N'utilisez pas vos pepites,";
+            }
+            else if(coup.compare("p0") == 0){
+                res += "Achetez la case du haut du marché noir,";
+            }
+            else if(coup.compare("p1") == 0){
+                res += "Achetez la case de droite du marché noir,";
+            }
+            else if(coup.compare("p2") == 0){
+                res += "Achetez la case du bas du marché noir,";
+            }
+            else if(coup.compare("p3") == 0){
+                res += "Achetez la case de gauche du marché noir,";
+            }
+            else if(coup.compare("vendMde1") == 0){
+                res += "vendez la pile de marchandise de votre de 1,";
+            }
+            else if(coup.compare("vendMde1plus1") == 0){
+                res += "vendez la pile de marchandise de votre de 1 en y enlevant 1,";
+            }
+            else if(coup.compare("vendMde1moins1") == 0){
+                res += "vendez la pile de marchandise de votre de 1 en y ajoutant 1,";
+            }
+            else if(coup.compare("vendMde1plus2") == 0){
+                res += "vendez la pile de marchandise de votre de 1 en y ajoutant 2,";
+            }
+            else if(coup.compare("vendMde1moins2") == 0){
+                res += "vendez la pile de marchandise de votre de 1 en y enlevant 2,";
+            }
+            else if(coup.compare("vendMde1plus3") == 0){
+                res += "vendez la pile de marchandise de votre de 1 en y ajoutant 3,";
+            }
+            else if(coup.compare("vendMde1moins3") == 0){
+                res += "vendez la pile de marchandise de votre de 1 en y enlevant 3,";
+            }
+            else if(coup.compare("vendMde2") == 0){
+                res += "vendez la pile de marchandise de votre de 2,";
+            }
+            else if(coup.compare("vendMde2plus1") == 0){
+                res += "vendez la pile de marchandise de votre de 2 en y ajoutant 1,";
+            }
+            else if(coup.compare("vendMde2moins1") == 0){
+                res += "vendez la pile de marchandise de votre de 2 en y enlevant 1,";
+            }
+            else if(coup.compare("vendMde2plus2") == 0){
+                res += "vendez la pile de marchandise de votre de 2 en y ajoutant 2,";
+            }
+            else if(coup.compare("vendMde2moins2") == 0){
+                res += "vendez la pile de marchandise de votre de 2 en y enlevant 2,";
+            }
+            else if(coup.compare("vendMde2plus3") == 0){
+                res += "vendez la pile de marchandise de votre de 2 en y ajoutant 3,";
+            }
+            else if(coup.compare("vendMde2moins3") == 0){
+                res += "vendez la pile de marchandise de votre de 2 en y enlevant 3,";
+            }
+            else if(coup.compare("vend_de1") == 0){
+                res += "sacrifiez votre de 1 pour 2 ouvriers,";
+            }
+            else if(coup.compare("vend_de2") == 0){
+                res += "sacrifiez votre de 2 pour 2 ouvriers,";
+            }
+            else{
+                string diff = coup.substr(0,3);
+                if(diff.compare("de1") == 0){
+                    coup.erase(0, 3);
+                    if(coup.find("a0")!=string::npos){
+                        coup.erase(0, 2);
+                        if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),6).compare(coup)==0){
+                            res += "avec votre de 1 achetez la case du haut de la zone correspondante,";
+                        }
+                        else if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),7).compare(coup)==0){
+                            res += "avec votre de 1 achetez la case du bas de la zone correspondante,";
+                        }
+                    }
+                    else if(coup.find("aplus1")!=string::npos){
+                        coup.erase(0, 6);
+                        if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),6).compare(coup)==0){
+                            res += "avec votre de 1 plus 1 achetez la case du haut de la zone correspondante,";
+                        }
+                        else if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),7).compare(coup)==0){
+                            res += "avec votre de 1 plus 1 achetez la case du bas de la zone correspondante,";
+                        }
+                    }
+                    else if(coup.find("amoins1")!=string::npos){
+                        coup.erase(0, 7);
+                        if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),6).compare(coup)==0){
+                            res += "avec votre de 1 moins 1 achetez la case du haut de la zone correspondante,";
+                        }
+                        else if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),7).compare(coup)==0){
+                            res += "avec votre de 1 moins 1 achetez la case du bas de la zone correspondante,";
+                        }
+                    }
+                    else if(coup.find("aplus2")!=string::npos){
+                        coup.erase(0, 6);
+                        if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),6).compare(coup)==0){
+                            res += "avec votre de 1 plus 2 achetez la case du haut de la zone correspondante,";
+                        }
+                        else if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),7).compare(coup)==0){
+                            res += "avec votre de 1 plus 2 achetez la case du bas de la zone correspondante,";
+                        }
+                    }
+                    else if(coup.find("amoins2")!=string::npos){;
+                        coup.erase(0, 7);
+                        if(m.getTuileMarche(modifValeurDe(j.getde(1))-1,6).compare(coup)==0){
+                            res += "avec votre de 1 moins 2 achetez la case du haut de la zone correspondante,";
+                        }
+                        else if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),7).compare(coup)==0){
+                            res += "avec votre de 1 moins 2 achetez la case du bas de la zone correspondante,";
+                        }
+                    }
+                    else if(coup.find("aplus3")!=string::npos){
+                        coup.erase(0, 6);
+                        if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),6).compare(coup)==0){
+                            res += "avec votre de 1 plus 3 achetez la case du haut de la zone correspondante,";
+                        }
+                        else if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),7).compare(coup)==0){
+                            res += "avec votre de 1 plus 3 achetez la case du bas de la zone correspondante,";
+                        }
+                    }
+                    else if(coup.find("amoins3")!=string::npos){
+                        coup.erase(0, 7);
+                        if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),6).compare(coup)==0){
+                            res += "avec votre de 1 moins 3 achetez la case du haut de la zone correspondante,";
+                        }
+                        else if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),7).compare(coup)==0){
+                            res += "avec votre de 1 moins 3 achetez la case du bas de la zone correspondante,";
+                        }
+                    }
+                    else if(coup.find("p0")!=string::npos){
+                        coup.erase(0, 2);
+                        string sReserve = coup.substr(0,1);
+                        coup.erase(0, 5);
+                        stringstream sR;
+                        stringstream sT;
+                        int reserve;
+                        int tuile;
+                        sR << sReserve;
+                        sR >> reserve;
+                        sT << coup;
+                        sT >> tuile;
+                        res += "avec votre de 1 posez la tuile en reserve " + sReserve + " sur la case " + coup + ",";
+                    }
+                    else if(coup.find("pplus1")!=string::npos){
+                        coup.erase(0, 6);
+                        string sReserve = coup.substr(0,1);
+                        coup.erase(0, 5);
+                        stringstream sR;
+                        stringstream sT;
+                        int reserve;
+                        int tuile;
+                        sR << sReserve;
+                        sR >> reserve;
+                        sT << coup;
+                        sT >> tuile;
+                        res += "avec votre de 1 plus 1 posez la tuile en reserve " + sReserve + " sur la case " + coup + ",";
+                    }
+                    else if(coup.find("pmoins1")!=string::npos){
+                        coup.erase(0, 7);
+                        string sReserve = coup.substr(0,1);
+                        coup.erase(0, 5);
+                        stringstream sR;
+                        stringstream sT;
+                        int reserve;
+                        int tuile;
+                        sR << sReserve;
+                        sR >> reserve;
+                        sT << coup;
+                        sT >> tuile;
+                        res += "avec votre de 1 moins 1 posez la tuile en reserve " + sReserve + " sur la case " + coup + ",";
+                    }
+                    else if(coup.find("pplus2")!=string::npos){
+                        coup.erase(0, 6);
+                        string sReserve = coup.substr(0,1);
+                        coup.erase(0, 5);
+                        stringstream sR;
+                        stringstream sT;
+                        int reserve;
+                        int tuile;
+                        sR << sReserve;
+                        sR >> reserve;
+                        sT << coup;
+                        sT >> tuile;
+                        res += "avec votre de 1 plus 3 posez la tuile en reserve " + sReserve + " sur la case " + coup + ",";
+                    }
+                    else if(coup.find("pmoins2")!=string::npos){
+                        coup.erase(0, 7);
+                        string sReserve = coup.substr(0,1);
+                        coup.erase(0, 5);
+                        stringstream sR;
+                        stringstream sT;
+                        int reserve;
+                        int tuile;
+                        sR << sReserve;
+                        sR >> reserve;
+                        sT << coup;
+                        sT >> tuile;
+                        res += "avec votre de 1 moins 2 posez la tuile en reserve " + sReserve + " sur la case " + coup + ",";
+                    }
+                    else if(coup.find("pplus3")!=string::npos){
+                        coup.erase(0, 6);
+                        string sReserve = coup.substr(0,1);
+                        coup.erase(0, 5);
+                        stringstream sR;
+                        stringstream sT;
+                        int reserve;
+                        int tuile;
+                        sR << sReserve;
+                        sR >> reserve;
+                        sT << coup;
+                        sT >> tuile;
+                        res += "avec votre de 1 plus 3 posez la tuile en reserve " + sReserve + " sur la case " + coup + ",";
+                    }
+                    else if(coup.find("pmoins3")!=string::npos){
+                        coup.erase(0, 7);
+                        string sReserve = coup.substr(0,1);
+                        coup.erase(0, 5);
+                        stringstream sR;
+                        stringstream sT;
+                        int reserve;
+                        int tuile;
+                        sR << sReserve;
+                        sR >> reserve;
+                        sT << coup;
+                        sT >> tuile;
+                        res += "avec votre de 1 moins 3 posez la tuile en reserve " + sReserve + " sur la case " + coup + ",";
+                    }
+                    else{
+                        //cout<<coup<<endl;
+                    }
+                }
+                else if(diff.compare("de2") == 0){
+                    coup.erase(0, 3);
+                    if(coup.find("a0")!=string::npos){
+                        coup.erase(0, 2);
+                        if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),6).compare(coup)==0){
+                            res += "avec votre de 2 achetez la case du haut de la zone correspondante,";
+                        }
+                        else if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),7).compare(coup)==0){
+                            res += "avec votre de 2 achetez la case du bas de la zone correspondante,";
+                        }
+                    }
+                    else if(coup.find("aplus1")!=string::npos){
+                        coup.erase(0, 6);
+                        if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),6).compare(coup)==0){
+                            res += "avec votre de 2 plus 1 achetez la case du haut de la zone correspondante,";
+                        }
+                        else if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),7).compare(coup)==0){
+                            res += "avec votre de 2 plus 1 achetez la case du bas de la zone correspondante,";
+                        }
+                    }
+                    else if(coup.find("amoins1")!=string::npos){
+                        coup.erase(0, 7);
+                        if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),6).compare(coup)==0){
+                            res += "avec votre de 2 moins 1 achetez la case du haut de la zone correspondante,";
+                        }
+                        else if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),7).compare(coup)==0){
+                            res += "avec votre de 2 moins 1 achetez la case du bas de la zone correspondante,";
+                        }
+                    }
+                    else if(coup.find("aplus2")!=string::npos){
+                        coup.erase(0, 6);
+                        if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),6).compare(coup)==0){
+                            res += "avec votre de 2 plus 2 achetez la case du haut de la zone correspondante,";
+                        }
+                        else if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),7).compare(coup)==0){
+                            res += "avec votre de 2 plus 2 achetez la case du bas de la zone correspondante,";
+                        }
+                    }
+                    else if(coup.find("amoins2")!=string::npos){
+                        coup.erase(0, 7);
+                        if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),6).compare(coup)==0){
+                            res += "avec votre de 2 moins 2 achetez la case du haut de la zone correspondante,";
+                        }
+                        else if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),7).compare(coup)==0){
+                            res += "avec votre de 2 moins 2 achetez la case du bas de la zone correspondante,";
+                        }
+                    }
+                    else if(coup.find("aplus3")!=string::npos){
+                        coup.erase(0, 6);
+                        if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),6).compare(coup)==0){
+                            res += "avec votre de 2 plus 3 achetez la case du haut de la zone correspondante,";
+                        }
+                        else if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),7).compare(coup)==0){
+                            res += "avec votre de 2 plus 3 achetez la case du bas de la zone correspondante,";
+                        }
+                    }
+                    else if(coup.find("amoins3")!=string::npos){
+                        coup.erase(0, 7);
+                        if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),6).compare(coup)==0){
+                            res += "avec votre de 2 moins 3 achetez la case du haut de la zone correspondante,";
+                        }
+                        else if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),7).compare(coup)==0){
+                            res += "avec votre de 2 moins 3 achetez la case du bas de la zone correspondante,";
+                        }
+                    }
+                    else if(coup.find("p0")!=string::npos){
+                        coup.erase(0, 2);
+                        string sReserve = coup.substr(0,1);
+                        coup.erase(0, 5);
+                        stringstream sR;
+                        stringstream sT;
+                        int reserve;
+                        int tuile;
+                        sR << sReserve;
+                        sR >> reserve;
+                        sT << coup;
+                        sT >> tuile;
+                        res += "avec votre de 2 posez la tuile en reserve " + sReserve + " sur la case " + coup + ",";
+                    }
+                    else if(coup.find("pplus1")!=string::npos){
+                        coup.erase(0, 6);
+                        string sReserve = coup.substr(0,1);
+                        coup.erase(0, 5);
+                        stringstream sR;
+                        stringstream sT;
+                        int reserve;
+                        int tuile;
+                        sR << sReserve;
+                        sR >> reserve;
+                        sT << coup;
+                        sT >> tuile;
+                        res += "avec votre de 2 plus 1 posez la tuile en reserve " + sReserve + " sur la case " + coup + ",";
+                    }
+                    else if(coup.find("pmoins1")!=string::npos){
+                        coup.erase(0, 7);
+                        string sReserve = coup.substr(0,1);
+                        coup.erase(0, 5);
+                        stringstream sR;
+                        stringstream sT;
+                        int reserve;
+                        int tuile;
+                        sR << sReserve;
+                        sR >> reserve;
+                        sT << coup;
+                        sT >> tuile;
+                        res += "avec votre de 2 moins 1 posez la tuile en reserve " + sReserve + " sur la case " + coup + ",";
+                    }
+                    else if(coup.find("pplus2")!=string::npos){
+                        coup.erase(0, 6);
+                        string sReserve = coup.substr(0,1);
+                        coup.erase(0, 5);
+                        stringstream sR;
+                        stringstream sT;
+                        int reserve;
+                        int tuile;
+                        sR << sReserve;
+                        sR >> reserve;
+                        sT << coup;
+                        sT >> tuile;
+                        res += "avec votre de 2 plus 2 posez la tuile en reserve " + sReserve + " sur la case " + coup + ",";
+                    }
+                    else if(coup.find("pmoins2")!=string::npos){
+                        coup.erase(0, 7);
+                        string sReserve = coup.substr(0,1);
+                        coup.erase(0, 5);
+                        stringstream sR;
+                        stringstream sT;
+                        int reserve;
+                        int tuile;
+                        sR << sReserve;
+                        sR >> reserve;
+                        sT << coup;
+                        sT >> tuile;
+                        res += "avec votre de 2 moins 2 posez la tuile en reserve " + sReserve + " sur la case " + coup + ",";
+                    }
+                    else if(coup.find("pplus3")!=string::npos){
+                        coup.erase(0, 6);
+                        string sReserve = coup.substr(0,1);
+                        coup.erase(0, 5);
+                        stringstream sR;
+                        stringstream sT;
+                        int reserve;
+                        int tuile;
+                        sR << sReserve;
+                        sR >> reserve;
+                        sT << coup;
+                        sT >> tuile;
+                        res += "avec votre de 2 plus 3 posez la tuile en reserve " + sReserve + " sur la case " + coup + ", ";
+                    }
+                    else if(coup.find("pmoins3")!=string::npos){
+                        coup.erase(0, 7);
+                        string sReserve = coup.substr(0,1);
+                        coup.erase(0, 5);
+                        stringstream sR;
+                        stringstream sT;
+                        int reserve;
+                        int tuile;
+                        sR << sReserve;
+                        sR >> reserve;
+                        sT << coup;
+                        sT >> tuile;
+                        res += "avec votre de 2 moins 3 posez la tuile en reserve " + sReserve + " sur la case " + coup + ",";
+                    }
+                    else{
+                    }
+                }
+                else{
+                }
+            }
+    return res;
+}
+
+
+

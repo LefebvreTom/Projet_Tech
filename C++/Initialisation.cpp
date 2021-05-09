@@ -137,7 +137,7 @@
             delete(MarcheNoir.back());
         }
         MarcheNoir.clear();
-        cout<<"la taille de marche noir est de :"<<MarcheNoir.size()<<endl;
+        //cout<<"la taille de marche noir est de :"<<MarcheNoir.size()<<endl;
     }
     Chateau Initialisation::getChateau(){
         Chateau c = TabChateau.top();

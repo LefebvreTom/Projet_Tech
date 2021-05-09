@@ -764,11 +764,11 @@
             }
         }
         if(test<3){
-            cout<<"c'est bon"<<endl;
+            //cout<<"c'est bon"<<endl;
             return true;
         }
         else{
-            cout<<"c'est pas bon"<<endl;
+            //cout<<"c'est pas bon"<<endl;
             return false;
         }
     }
@@ -1005,7 +1005,7 @@
 
             }
             else{
-                cout<<"pas de place ou pas de pepite"<<endl;
+                //cout<<"pas de place ou pas de pepite"<<endl;
                 return false;
             }
 
@@ -1070,7 +1070,6 @@
         else{
             de=joueur.getde(2);
         }
-        cout<<"java"<<de<<endl;
         if( (nbr<=joueur.getOuvrier()) && (joueur.getOuvrier()!=0) && (de!=-1)) {
             if(chgt){ //si chgt=true -> +
                 if((de+nbr)%6==0){
@@ -1094,7 +1093,6 @@
                 }
                 joueur.setOuvrier(joueur.getOuvrier()-nbr);
             }
-            cout<<"kikiki"<<de<<endl;
             return true;
         }
 
@@ -1178,11 +1176,9 @@
         int de;
         if(choixDe==1){
             de=joueur.getde(1)-1;
-            cout<<de<<endl;
         }
         else{
             de=joueur.getde(2)-1;
-            cout<<de<<endl;
             choixDe=2;//on le force à 2
         }
 

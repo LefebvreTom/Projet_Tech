@@ -31,6 +31,7 @@ public :
         int modifValeurDe(int de);
         std::vector<std::string> vecteurBranche(int id, Noeud configActuel);
         std::vector<Noeud> createListeSuccesseur(std::vector<std::string> tour,PlateauJoueur joueur1,PlateauJoueur joueur2,int id,PlateauCentral marche);
+        std::string significationCoup(PlateauJoueur &j, PlateauCentral &m, std::string coup);
 
 
 protected :

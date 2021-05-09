@@ -53,6 +53,9 @@ int main()
     partie.MajPlateauJoueur("J2");*/
 
     //simulateur
+    //string test ="";
+    //test += "test";
+    //for(int i =0; i< test.size(); i++) cout<<test[i];
     IA test;
     test.Monte_Carlo();
     /*Simulateur simulateur;
