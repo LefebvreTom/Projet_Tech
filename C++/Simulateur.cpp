@@ -381,7 +381,16 @@
     //--------------------------------------------------------------------------------------------------------------------------
     //--------------------------------------------------------------------------------------------------------------------------
 
-
+    void Simulateur::scoreFinal(PlateauJoueur &J1){
+        int score = 0;
+        //cout<<"test"<<endl;
+        for(int i = 0;i < 3;i++){
+            score += J1.getNbMarch(i);
+        }
+        score += J1.getPepite();
+        score += J1.getOuvrier()/2;
+        J1.setScore(J1.getScore()+score);
+    }
     void Simulateur::testOuvrier(PlateauJoueur joueurcourant,int de1, int de2,bool de1vendu,bool de2vendu,PlateauCentral marche){
         int ouvrier = joueurcourant.getOuvrier();
 

@@ -16,9 +16,9 @@ void IA::Monte_Carlo(){
     cout<<"nombre de coup possible: "<<tours.size()<<endl<<endl<<endl;
     cout<<"Merci de bien vouloir patienter, nous determinons le meilleur coup a faire dans cette situation"<<endl<<endl<<endl;
     cout<<"Pas de panique, l'action peut prendre quelques minute en fonction de la situation."<<endl<<endl<<endl<<endl;
-    //for(int i = 0; i<tours.size(); i++) {
-    //    cout << tours[i] << endl;
-    //}
+    /*for(int i = 0; i<tours.size(); i++) {
+        cout << tours[i] << endl;
+    }*/
     //createListeSuccesseur(tours,partie.getJoueur(1),1,partie.getMarche());
     //coupAleatoire(tours,partie.getJoueur(1),1,partie.getMarche());
     /*while(partie.getMarche().getPhase() < 6){
@@ -41,8 +41,9 @@ void IA::Monte_Carlo(){
         Noeud configFils = toutesConfigFils.back();
         tour = tours.back();
         for(int j=0; j<20; j++){
-            //cout<<"               "<<j<<endl;
-            gain += simulationNFindeTour(1,configFils);
+            //cout<<""<<j<<endl;
+            gain += simulationNFindeTour(2,configFils);
+
         }
         if(gain>Max){
             Max=gain;
@@ -82,7 +83,6 @@ void IA::Monte_Carlo(){
     cout<<"Taux de victoire : "<<Min<<"/20"<<endl;
     cout<<endl;
 }
-
 
 vector<Noeud> IA::createListeSuccesseur(vector<string> tours,PlateauJoueur joueur1,PlateauJoueur joueur2,int id, PlateauCentral marche){
     vector<Noeud> succ={};
@@ -152,7 +152,6 @@ Noeud IA::coupAleatoire(vector<string> tours,PlateauJoueur joueur1,PlateauJoueur
     }
     //cout<<tour<<endl;
     jouerCoup(jc,m,tour);
-    simulateur.finDeTour(m,jc,jr);
     if(id == 1){
         succ.setJoueur(jc,id);
         succ.setJoueur(jr,id+1);
@@ -625,7 +624,6 @@ void IA::jouerCoup(PlateauJoueur &j,PlateauCentral &m,string coup){
             }
 }
 
-
 vector<string> IA::createListeTourPossible(int id, Noeud configActuel){
     vector<string> test = vecteurBranche( id, configActuel);
     vector<string> de1;
@@ -654,8 +652,31 @@ vector<string> IA::createListeTourPossible(int id, Noeud configActuel){
                                 string tuile1 =de1[j].substr(de1[j].find("t"),de1[j].length());
                                 string tuile2 =de2[k].substr(de2[k].find("t"),de2[k].length());
                                 if(tuile1.compare(tuile2)!=0){
-                                        string coup = autre[i]+","+de1[j]+","+de2[k];
-                                        tour.push_back(coup);
+                                        string ouvrier1;
+                                        string ouvrier2;
+                                        int ouvrier =0;
+                                        if (de1[j].find("pl")!=string::npos){
+                                            ouvrier1 =de1[j].substr(de1[j].find("pl"),5);
+                                        }
+                                        else if (de1[j].find("mo")!=string::npos){
+                                            ouvrier1 =de1[j].substr(de1[j].find("mo"),6);
+                                        }
+                                        if (de2[k].find("pl")!=string::npos){
+                                            ouvrier2 =de2[k].substr(de2[k].find("pl"),5);
+                                        }
+                                        else if (de2[k].find("mo")!=string::npos){
+                                            ouvrier2 =de2[k].substr(de2[k].find("mo"),6);
+                                        }
+                                        ouvrier += verifValeur(ouvrier1);
+                                        ouvrier += verifValeur(ouvrier2);
+                                        if(ouvrier <= configActuel.getJoueur(id).getOuvrier()){
+                                            string coup = autre[i]+","+de1[j]+","+de2[k];
+                                            tour.push_back(coup);
+                                        }
+                                        else{
+                                            string coup = autre[i]+","+de1[j]+","+de2[k];
+                                            //cout<<coup<<endl;
+                                        }
                                 }
                             }
                             //
@@ -676,8 +697,32 @@ vector<string> IA::createListeTourPossible(int id, Noeud configActuel){
                                         if(tuile2.compare("moins2")==0)d2 = partie.getJoueur(id).getde(2)-2;
                                         if(tuile2.compare("moins3")==0)d2 = partie.getJoueur(id).getde(2)+3;
                                         if(d1 != d2){
+                                            string ouvrier1;
+                                        string ouvrier2;
+                                        int ouvrier =0;
+                                        if (de1[j].find("pl")!=string::npos){
+                                            ouvrier1 =de1[j].substr(de1[j].find("pl"),5);
+                                        }
+                                        else if (de1[j].find("mo")!=string::npos){
+                                            ouvrier1 =de1[j].substr(de1[j].find("mo"),6);
+                                        }
+                                        if (de2[k].find("pl")!=string::npos){
+                                            ouvrier2 =de2[k].substr(de2[k].find("pl"),5);
+                                        }
+                                        else if (de2[k].find("mo")!=string::npos){
+                                            ouvrier2 =de2[k].substr(de2[k].find("mo"),6);
+                                        }
+                                        ouvrier += verifValeur(ouvrier1);
+                                        ouvrier += verifValeur(ouvrier2);
+                                        if(ouvrier <= configActuel.getJoueur(id).getOuvrier()){
                                             string coup = autre[i]+","+de1[j]+","+de2[k];
+                                            //cout<<"valide : "<<coup<<endl;
                                             tour.push_back(coup);
+                                        }
+                                        else{
+                                            string coup = autre[i]+","+de1[j]+","+de2[k];
+                                            //cout<<"refus : "<<coup<<endl;
+                                        }
                                         }
                                     }
                                     if(tuile2.compare("de2")==0){
@@ -690,8 +735,32 @@ vector<string> IA::createListeTourPossible(int id, Noeud configActuel){
                                         if(tuile1.compare("moins2")==0)d1 = partie.getJoueur(id).getde(1)-2;
                                         if(tuile1.compare("moins3")==0)d1 = partie.getJoueur(id).getde(1)+3;
                                         if(d1 != d2){
+                                            string ouvrier1;
+                                        string ouvrier2;
+                                        int ouvrier =0;
+                                        if (de1[j].find("pl")!=string::npos){
+                                            ouvrier1 =de1[j].substr(de1[j].find("pl"),5);
+                                        }
+                                        else if (de1[j].find("mo")!=string::npos){
+                                            ouvrier1 =de1[j].substr(de1[j].find("mo"),6);
+                                        }
+                                        if (de2[k].find("pl")!=string::npos){
+                                            ouvrier2 =de2[k].substr(de2[k].find("pl"),5);
+                                        }
+                                        else if (de2[k].find("mo")!=string::npos){
+                                            ouvrier2 =de2[k].substr(de2[k].find("mo"),6);
+                                        }
+                                        ouvrier += verifValeur(ouvrier1);
+                                        ouvrier += verifValeur(ouvrier2);
+                                        if(ouvrier <= configActuel.getJoueur(id).getOuvrier()){
                                             string coup = autre[i]+","+de1[j]+","+de2[k];
+                                            //cout<<"valide : "<<coup<<endl;
                                             tour.push_back(coup);
+                                        }
+                                        else{
+                                            string coup = autre[i]+","+de1[j]+","+de2[k];
+                                            //cout<<"refus : "<<coup<<endl;
+                                        }
                                         }
                                     }
                                 }
@@ -701,19 +770,90 @@ vector<string> IA::createListeTourPossible(int id, Noeud configActuel){
                                     indice1 = indice1[0];
                                     indice2 = indice2[0];
                                     if(indice1.compare(indice2)!= 0){
-                                        string coup = autre[i]+","+de1[j]+","+de2[k];
-                                        //cout<<coup<<endl;
-                                        tour.push_back(coup);
+                                        string ouvrier1;
+                                        string ouvrier2;
+                                        int ouvrier =0;
+                                        if (de1[j].find("pl")!=string::npos){
+                                            ouvrier1 =de1[j].substr(de1[j].find("pl"),5);
+                                        }
+                                        else if (de1[j].find("mo")!=string::npos){
+                                            ouvrier1 =de1[j].substr(de1[j].find("mo"),6);
+                                        }
+                                        if (de2[k].find("pl")!=string::npos){
+                                            ouvrier2 =de2[k].substr(de2[k].find("pl"),5);
+                                        }
+                                        else if (de2[k].find("mo")!=string::npos){
+                                            ouvrier2 =de2[k].substr(de2[k].find("mo"),6);
+                                        }
+                                        ouvrier += verifValeur(ouvrier1);
+                                        ouvrier += verifValeur(ouvrier2);
+                                        if(ouvrier <= configActuel.getJoueur(id).getOuvrier()){
+                                            string coup = autre[i]+","+de1[j]+","+de2[k];
+                                            //cout<<"valide : "<<coup<<endl;
+                                            tour.push_back(coup);
+                                        }
+                                        else{
+                                            string coup = autre[i]+","+de1[j]+","+de2[k];
+                                            //cout<<"refus : "<<coup<<endl;
+                                        }
                                     }
                                 }
                                 else{
-                                    string coup = autre[i]+","+de1[j]+","+de2[k];
-                                    tour.push_back(coup);
+                                    string ouvrier1;
+                                        string ouvrier2;
+                                        int ouvrier =0;
+                                        if (de1[j].find("pl")!=string::npos){
+                                            ouvrier1 =de1[j].substr(de1[j].find("pl"),5);
+                                        }
+                                        else if (de1[j].find("mo")!=string::npos){
+                                            ouvrier1 =de1[j].substr(de1[j].find("mo"),6);
+                                        }
+                                        if (de2[k].find("pl")!=string::npos){
+                                            ouvrier2 =de2[k].substr(de2[k].find("pl"),5);
+                                        }
+                                        else if (de2[k].find("mo")!=string::npos){
+                                            ouvrier2 =de2[k].substr(de2[k].find("mo"),6);
+                                        }
+                                        ouvrier += verifValeur(ouvrier1);
+                                        ouvrier += verifValeur(ouvrier2);
+                                        if(ouvrier <= configActuel.getJoueur(id).getOuvrier()){
+                                            string coup = autre[i]+","+de1[j]+","+de2[k];
+                                            //cout<<"valide : "<<coup<<endl;
+                                            tour.push_back(coup);
+                                        }
+                                        else{
+                                            string coup = autre[i]+","+de1[j]+","+de2[k];
+                                            //cout<<"refus : "<<coup<<endl;
+                                        }
                                 }
                             }
                             else{
-                                string coup = autre[i]+","+de1[j]+","+de2[k];
-                                tour.push_back(coup);
+                                string ouvrier1;
+                                        string ouvrier2;
+                                        int ouvrier =0;
+                                        if (de1[j].find("pl")!=string::npos){
+                                            ouvrier1 =de1[j].substr(de1[j].find("pl"),5);
+                                        }
+                                        else if (de1[j].find("mo")!=string::npos){
+                                            ouvrier1 =de1[j].substr(de1[j].find("mo"),6);
+                                        }
+                                        if (de2[k].find("pl")!=string::npos){
+                                            ouvrier2 =de2[k].substr(de2[k].find("pl"),5);
+                                        }
+                                        else if (de2[k].find("mo")!=string::npos){
+                                            ouvrier2 =de2[k].substr(de2[k].find("mo"),6);
+                                        }
+                                        ouvrier += verifValeur(ouvrier1);
+                                        ouvrier += verifValeur(ouvrier2);
+                                        if(ouvrier <= configActuel.getJoueur(id).getOuvrier()){
+                                            string coup = autre[i]+","+de1[j]+","+de2[k];
+                                            //cout<<"valide : "<<coup<<endl;
+                                            tour.push_back(coup);
+                                        }
+                                        else{
+                                            string coup = autre[i]+","+de1[j]+","+de2[k];
+                                            //cout<<"refus : "<<coup<<endl;
+                                        }
                             }
                     }
             }
@@ -724,8 +864,32 @@ vector<string> IA::createListeTourPossible(int id, Noeud configActuel){
                                 string tuile1 =de1[k].substr(de1[k].find("t"),de1[k].length());
                                 string tuile2 =de2[j].substr(de2[j].find("t"),de2[j].length());
                                 if(tuile1.compare(tuile2)!=0){
-                                        string coup = autre[i]+","+de2[j]+","+de1[k];
-                                        tour.push_back(coup);
+                                        string ouvrier1;
+                                        string ouvrier2;
+                                        int ouvrier =0;
+                                        if (de1[k].find("pl")!=string::npos){
+                                            ouvrier1 =de1[k].substr(de1[k].find("pl"),5);
+                                        }
+                                        else if (de1[k].find("mo")!=string::npos){
+                                            ouvrier1 =de1[k].substr(de1[k].find("mo"),6);
+                                        }
+                                        if (de2[j].find("pl")!=string::npos){
+                                            ouvrier2 =de2[j].substr(de2[j].find("pl"),5);
+                                        }
+                                        else if (de2[j].find("mo")!=string::npos){
+                                            ouvrier2 =de2[j].substr(de2[j].find("mo"),6);
+                                        }
+                                        ouvrier += verifValeur(ouvrier1);
+                                        ouvrier += verifValeur(ouvrier2);
+                                        if(ouvrier <= configActuel.getJoueur(id).getOuvrier()){
+                                            string coup = autre[i]+","+de2[j]+","+de1[k];
+                                            //cout<<"valide : "<<coup<<endl;
+                                            tour.push_back(coup);
+                                        }
+                                        else{
+                                            string coup = autre[i]+","+de2[j]+","+de1[k];
+                                            //cout<<"refus : "<<coup<<endl;
+                                        }
                                 }
                             }
                             //
@@ -745,8 +909,32 @@ vector<string> IA::createListeTourPossible(int id, Noeud configActuel){
                                         if(tuile2.compare("moins2")==0)d2 = partie.getJoueur(id).getde(2)-2;
                                         if(tuile2.compare("moins3")==0)d2 = partie.getJoueur(id).getde(2)+3;
                                         if(d1 != d2){
+                                            string ouvrier1;
+                                        string ouvrier2;
+                                        int ouvrier =0;
+                                        if (de1[k].find("pl")!=string::npos){
+                                            ouvrier1 =de1[k].substr(de1[k].find("pl"),5);
+                                        }
+                                        else if (de1[k].find("mo")!=string::npos){
+                                            ouvrier1 =de1[k].substr(de1[k].find("mo"),6);
+                                        }
+                                        if (de2[j].find("pl")!=string::npos){
+                                            ouvrier2 =de2[j].substr(de2[j].find("pl"),5);
+                                        }
+                                        else if (de2[j].find("mo")!=string::npos){
+                                            ouvrier2 =de2[j].substr(de2[j].find("mo"),6);
+                                        }
+                                        ouvrier += verifValeur(ouvrier1);
+                                        ouvrier += verifValeur(ouvrier2);
+                                        if(ouvrier <= configActuel.getJoueur(id).getOuvrier()){
                                             string coup = autre[i]+","+de2[j]+","+de1[k];
+                                            //cout<<"valide : "<<coup<<endl;
                                             tour.push_back(coup);
+                                        }
+                                        else{
+                                            string coup = autre[i]+","+de2[j]+","+de1[k];
+                                            //cout<<"refus : "<<coup<<endl;
+                                        }
                                         }
                                     }
                                     if(tuile2.compare("de2")==0){
@@ -759,19 +947,91 @@ vector<string> IA::createListeTourPossible(int id, Noeud configActuel){
                                         if(tuile1.compare("moins2")==0)d1 = partie.getJoueur(id).getde(1)-2;
                                         if(tuile1.compare("moins3")==0)d1 = partie.getJoueur(id).getde(1)+3;
                                         if(d1 != d2){
+                                            string ouvrier1;
+                                        string ouvrier2;
+                                        int ouvrier =0;
+                                        if (de1[k].find("pl")!=string::npos){
+                                            ouvrier1 =de1[k].substr(de1[k].find("pl"),5);
+                                        }
+                                        else if (de1[k].find("mo")!=string::npos){
+                                            ouvrier1 =de1[k].substr(de1[k].find("mo"),6);
+                                        }
+                                        if (de2[j].find("pl")!=string::npos){
+                                            ouvrier2 =de2[j].substr(de2[j].find("pl"),5);
+                                        }
+                                        else if (de2[j].find("mo")!=string::npos){
+                                            ouvrier2 =de2[j].substr(de2[j].find("mo"),6);
+                                        }
+                                        ouvrier += verifValeur(ouvrier1);
+                                        ouvrier += verifValeur(ouvrier2);
+                                        if(ouvrier <= configActuel.getJoueur(id).getOuvrier()){
                                             string coup = autre[i]+","+de2[j]+","+de1[k];
+                                            //cout<<"valide : "<<coup<<endl;
                                             tour.push_back(coup);
+                                        }
+                                        else{
+                                            string coup = autre[i]+","+de2[j]+","+de1[k];
+                                            //cout<<"refus : "<<coup<<endl;
+                                        }
                                         }
                                     }
                                 }
                                 else{
-                                    string coup = autre[i]+","+de2[j]+","+de1[k];
-                                    tour.push_back(coup);
+                                    string ouvrier1;
+                                        string ouvrier2;
+                                        int ouvrier =0;
+                                        if (de1[k].find("pl")!=string::npos){
+                                            ouvrier1 =de1[k].substr(de1[k].find("pl"),5);
+                                        }
+                                        else if (de1[k].find("mo")!=string::npos){
+                                            ouvrier1 =de1[k].substr(de1[k].find("mo"),6);
+                                        }
+                                        if (de2[j].find("pl")!=string::npos){
+                                            ouvrier2 =de2[j].substr(de2[j].find("pl"),5);
+                                        }
+                                        else if (de2[j].find("mo")!=string::npos){
+                                            ouvrier2 =de2[j].substr(de2[j].find("mo"),6);
+                                        }
+                                        ouvrier += verifValeur(ouvrier1);
+                                        ouvrier += verifValeur(ouvrier2);
+                                        if(ouvrier <= configActuel.getJoueur(id).getOuvrier()){
+                                            string coup = autre[i]+","+de2[j]+","+de1[k];
+                                            //cout<<"valide : "<<coup<<endl;
+                                            tour.push_back(coup);
+                                        }
+                                        else{
+                                            string coup = autre[i]+","+de2[j]+","+de1[k];
+                                            //cout<<"refus : "<<coup<<endl;
+                                        }
                                 }
                             }
                             else{
-                                string coup = autre[i]+","+de2[j]+","+de1[k];
-                                tour.push_back(coup);
+                                string ouvrier1;
+                                        string ouvrier2;
+                                        int ouvrier =0;
+                                        if (de1[k].find("pl")!=string::npos){
+                                            ouvrier1 =de1[k].substr(de1[k].find("pl"),5);
+                                        }
+                                        else if (de1[k].find("mo")!=string::npos){
+                                            ouvrier1 =de1[k].substr(de1[k].find("mo"),6);
+                                        }
+                                        if (de2[j].find("pl")!=string::npos){
+                                            ouvrier2 =de2[j].substr(de2[j].find("pl"),5);
+                                        }
+                                        else if (de2[j].find("mo")!=string::npos){
+                                            ouvrier2 =de2[j].substr(de2[j].find("mo"),6);
+                                        }
+                                        ouvrier += verifValeur(ouvrier1);
+                                        ouvrier += verifValeur(ouvrier2);
+                                        if(ouvrier <= configActuel.getJoueur(id).getOuvrier()){
+                                            string coup = autre[i]+","+de2[j]+","+de1[k];
+                                            //cout<<"valide : "<<coup<<endl;
+                                            tour.push_back(coup);
+                                        }
+                                        else{
+                                            string coup = autre[i]+","+de2[j]+","+de1[k];
+                                            //cout<<"refus : "<<coup<<endl;
+                                        }
                             }
                     }
             }
@@ -780,29 +1040,112 @@ vector<string> IA::createListeTourPossible(int id, Noeud configActuel){
     return tour;
 }
 
+int IA::verifValeur(string s){
+    if(s.compare("moins1")==0){
+        return 1;
+    }
+    else if(s.compare("plus1")==0){
+        return 1;
+    }
+    else if(s.compare("moins2")==0){
+        return 2;
+    }
+    else if(s.compare("plus2")==0){
+        return 2;
+    }
+    else if(s.compare("moins3")==0){
+        return 3;
+    }
+    else if(s.compare("plus3")==0){
+        return 3;
+    }
+    return 0;
+}
+
 int IA::simulationNFindeTour(int id, Noeud configFils){
     int victoire=0;
     //Partie configActuel = Partie(simulateur.copieJoueur(configFils.getJoueur(1)),simulateur.copieJoueur(configFils.getJoueur(2)),simulateur.copieMarche(configFils.getMarche()));
     Noeud configActuel(configFils.getJoueur(1),configFils.getJoueur(2),configFils.getMarche());
     PlateauJoueur test1;
+    bool tourIA =false;
     while(configActuel.getMarche().getPhase()<6){
-        test1 = configActuel.getJoueur(1);
+        if(!tourIA){
+            if(id == 1){
+                test1 = configActuel.getJoueur(id);
+            }
+            if(id == 2){
+                test1 = configActuel.getJoueur(id);
+            }
+        }
+        if(tourIA){
+            if(id == 1){
+                test1 = configActuel.getJoueur(id+1);
+            }
+            if(id == 2){
+                test1 = configActuel.getJoueur(id-1);
+            }
+        }
         //on joue aléatoirement
         int r1=(rand()%6)+1;
         int r2=(rand()%6)+1;
         test1.setde(1,r1);
         test1.setde(2,r2);
-        configActuel.setJoueur(test1,1);
-        vector<string> tours1 = createListeTourPossible(1, configActuel);
-        configActuel = coupAleatoire(tours1,configActuel.getJoueur(1),configActuel.getJoueur(2),1,configActuel.getMarche());
+        if(!tourIA){
+            if(id == 1){
+                configActuel.setJoueur(test1,id);
+                vector<string> tours1 = createListeTourPossible(id, configActuel);
+                configActuel = coupAleatoire(tours1,configActuel.getJoueur(1),configActuel.getJoueur(2),id,configActuel.getMarche());
+            }
+            if(id == 2){
+                configActuel.setJoueur(test1,id);
+                vector<string> tours1 = createListeTourPossible(id, configActuel);
+                configActuel = coupAleatoire(tours1,configActuel.getJoueur(1),configActuel.getJoueur(2),id,configActuel.getMarche());
+            }
+
+        }
+        if(tourIA){
+            if(id == 1){
+                configActuel.setJoueur(test1,id+1);
+                vector<string> tours1 = createListeTourPossible(id+1, configActuel);
+                configActuel = coupAleatoire(tours1,configActuel.getJoueur(1),configActuel.getJoueur(2),id+1,configActuel.getMarche());
+            }
+            if(id == 2){
+                configActuel.setJoueur(test1,id-1);
+                vector<string> tours1 = createListeTourPossible(id-1, configActuel);
+                configActuel = coupAleatoire(tours1,configActuel.getJoueur(1),configActuel.getJoueur(2),id-1,configActuel.getMarche());
+            }
+        }
+
+
+        if(!tourIA){
+            PlateauCentral marche;
+            PlateauJoueur J1;
+            PlateauJoueur J2;
+            J1 = configActuel.getJoueur(1);
+            J2 = configActuel.getJoueur(2);
+            marche = configActuel.getMarche();
+            simulateur.finDeTour(marche,J1,J2);
+            configActuel.setJoueur(J1,1);
+            configActuel.setJoueur(J2,2);
+            configActuel.setMarche(marche);
+            tourIA=true;
+        }
+        if(tourIA)tourIA=false;
     }
+    //score final
+    PlateauJoueur J1;
+    PlateauJoueur J2;
+    simulateur.scoreFinal(J1);
+    simulateur.scoreFinal(J2);
+    configActuel.setJoueur(J1,1);
+    configActuel.setJoueur(J2,2);
     if(id==1){
-        if(configActuel.getJoueur(1).getScore()>configActuel.getJoueur(2).getScore()){
+        if(configActuel.getJoueur(1).getScore()<configActuel.getJoueur(2).getScore()){
             victoire=1;
         }
     }
     else{
-        if(configActuel.getJoueur(1).getScore()<configActuel.getJoueur(2).getScore()){
+        if(configActuel.getJoueur(1).getScore()>configActuel.getJoueur(2).getScore()){
             victoire=1;
         }
     }
@@ -816,7 +1159,6 @@ int IA::modifValeurDe(int de){
     }
     return(res);
 }
-
 
 vector<string> IA::vecteurBranche(int id, Noeud configActuel){
 
@@ -1270,8 +1612,6 @@ vector<string> IA::vecteurBranche(int id, Noeud configActuel){
 
     return succ;
 }
-
-
 
 string IA::significationCoup(PlateauJoueur &j, PlateauCentral &m, string coup){
     string res = "";

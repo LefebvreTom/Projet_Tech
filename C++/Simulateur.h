@@ -31,6 +31,7 @@ class Simulateur
     bool testReserveVide(PlateauJoueur joueur);
     bool testPosageTuile(PlateauJoueur joueur, int de, int choixTuile, int choixCase);
     void finDeTour(PlateauCentral &marche,PlateauJoueur &J1,PlateauJoueur &J2);
+    void scoreFinal(PlateauJoueur &J1);
 
     PlateauJoueur copieJoueur(PlateauJoueur joueur);
     PlateauCentral copieMarche(PlateauCentral marche);

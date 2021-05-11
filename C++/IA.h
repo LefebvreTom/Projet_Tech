@@ -27,6 +27,7 @@ public :
         std::vector<std::string> createListeTourPossible(int id, Noeud configActuel);
         void jouerCoup(PlateauJoueur &j,PlateauCentral &m,std::string coup);
         Noeud coupAleatoire(std::vector<std::string> tours,PlateauJoueur joueur1,PlateauJoueur joueur2,int id, PlateauCentral marche);
+        int verifValeur(std::string s);
         int simulationNFindeTour(int id, Noeud configFils);
         int modifValeurDe(int de);
         std::vector<std::string> vecteurBranche(int id, Noeud configActuel);
