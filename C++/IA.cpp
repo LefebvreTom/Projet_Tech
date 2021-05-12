@@ -1135,6 +1135,8 @@ int IA::simulationNFindeTour(int id, Noeud configFils){
     //score final
     PlateauJoueur J1;
     PlateauJoueur J2;
+    J1 = configActuel.getJoueur(1);
+    J2 = configActuel.getJoueur(2);
     simulateur.scoreFinal(J1);
     simulateur.scoreFinal(J2);
     configActuel.setJoueur(J1,1);
@@ -1686,68 +1688,82 @@ string IA::significationCoup(PlateauJoueur &j, PlateauCentral &m, string coup){
                     if(coup.find("a0")!=string::npos){
                         coup.erase(0, 2);
                         if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),6).compare(coup)==0){
-                            res += "avec votre de 1 achetez la case du haut de la zone correspondante,";
+                            string c = afficherCase(coup);
+                            res += "avec votre de 1 achetez la case " + c + " de la zone correspondante,";
                         }
                         else if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),7).compare(coup)==0){
-                            res += "avec votre de 1 achetez la case du bas de la zone correspondante,";
+                            string c = afficherCase(coup);
+                            res += "avec votre de 1 achetez la case " + c + " de la zone correspondante,";
                         }
                     }
                     else if(coup.find("aplus1")!=string::npos){
                         coup.erase(0, 6);
                         if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),6).compare(coup)==0){
-                            res += "avec votre de 1 plus 1 achetez la case du haut de la zone correspondante,";
+                            string c = afficherCase(coup);
+                            res += "avec votre de 1 achetez la case " + c + " de la zone correspondante,";
                         }
                         else if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),7).compare(coup)==0){
-                            res += "avec votre de 1 plus 1 achetez la case du bas de la zone correspondante,";
+                            string c = afficherCase(coup);
+                            res += "avec votre de 1 achetez la case " + c + " de la zone correspondante,";
                         }
                     }
                     else if(coup.find("amoins1")!=string::npos){
                         coup.erase(0, 7);
                         if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),6).compare(coup)==0){
-                            res += "avec votre de 1 moins 1 achetez la case du haut de la zone correspondante,";
+                            string c = afficherCase(coup);
+                            res += "avec votre de 1 achetez la case " + c + " de la zone correspondante,";
                         }
                         else if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),7).compare(coup)==0){
-                            res += "avec votre de 1 moins 1 achetez la case du bas de la zone correspondante,";
+                            string c = afficherCase(coup);
+                            res += "avec votre de 1 achetez la case " + c + " de la zone correspondante,";
                         }
                     }
                     else if(coup.find("aplus2")!=string::npos){
                         coup.erase(0, 6);
                         if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),6).compare(coup)==0){
-                            res += "avec votre de 1 plus 2 achetez la case du haut de la zone correspondante,";
+                            string c = afficherCase(coup);
+                            res += "avec votre de 1 achetez la case " + c + " de la zone correspondante,";
                         }
                         else if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),7).compare(coup)==0){
-                            res += "avec votre de 1 plus 2 achetez la case du bas de la zone correspondante,";
+                            string c = afficherCase(coup);
+                            res += "avec votre de 1 achetez la case " + c + " de la zone correspondante,";
                         }
                     }
                     else if(coup.find("amoins2")!=string::npos){;
                         coup.erase(0, 7);
                         if(m.getTuileMarche(modifValeurDe(j.getde(1))-1,6).compare(coup)==0){
-                            res += "avec votre de 1 moins 2 achetez la case du haut de la zone correspondante,";
+                            string c = afficherCase(coup);
+                            res += "avec votre de 1 achetez la case " + c + " de la zone correspondante,";
                         }
                         else if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),7).compare(coup)==0){
-                            res += "avec votre de 1 moins 2 achetez la case du bas de la zone correspondante,";
+                            string c = afficherCase(coup);
+                            res += "avec votre de 1 achetez la case " + c + " de la zone correspondante,";
                         }
                     }
                     else if(coup.find("aplus3")!=string::npos){
                         coup.erase(0, 6);
                         if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),6).compare(coup)==0){
-                            res += "avec votre de 1 plus 3 achetez la case du haut de la zone correspondante,";
+                            string c = afficherCase(coup);
+                            res += "avec votre de 1 achetez la case " + c + " de la zone correspondante,";
                         }
                         else if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),7).compare(coup)==0){
-                            res += "avec votre de 1 plus 3 achetez la case du bas de la zone correspondante,";
+                            string c = afficherCase(coup);
+                            res += "avec votre de 1 achetez la case " + c + " de la zone correspondante,";
                         }
                     }
                     else if(coup.find("amoins3")!=string::npos){
                         coup.erase(0, 7);
                         if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),6).compare(coup)==0){
-                            res += "avec votre de 1 moins 3 achetez la case du haut de la zone correspondante,";
+                            string c = afficherCase(coup);
+                            res += "avec votre de 1 achetez la case " + c + " de la zone correspondante,";
                         }
                         else if(m.getTuileMarche(modifValeurDe(j.getde(1)-1),7).compare(coup)==0){
-                            res += "avec votre de 1 moins 3 achetez la case du bas de la zone correspondante,";
+                            string c = afficherCase(coup);
+                            res += "avec votre de 1 achetez la case " + c + " de la zone correspondante,";
                         }
                     }
                     else if(coup.find("p0")!=string::npos){
-                        coup.erase(0, 2);
+                        coup.erase(0, 3);
                         string sReserve = coup.substr(0,1);
                         coup.erase(0, 5);
                         stringstream sR;
@@ -1758,10 +1774,10 @@ string IA::significationCoup(PlateauJoueur &j, PlateauCentral &m, string coup){
                         sR >> reserve;
                         sT << coup;
                         sT >> tuile;
-                        res += "avec votre de 1 posez la tuile en reserve " + sReserve + " sur la case " + coup + ",";
+                        res += "avec votre de 1 posez la tuile en reserve a l'indice " + sReserve + " sur la case " + coup + ",";
                     }
                     else if(coup.find("pplus1")!=string::npos){
-                        coup.erase(0, 6);
+                        coup.erase(0, 7);
                         string sReserve = coup.substr(0,1);
                         coup.erase(0, 5);
                         stringstream sR;
@@ -1772,10 +1788,10 @@ string IA::significationCoup(PlateauJoueur &j, PlateauCentral &m, string coup){
                         sR >> reserve;
                         sT << coup;
                         sT >> tuile;
-                        res += "avec votre de 1 plus 1 posez la tuile en reserve " + sReserve + " sur la case " + coup + ",";
+                        res += "avec votre de 1 plus 1 posez la tuile en reserve a l'indice " + sReserve + " sur la case " + coup + ",";
                     }
                     else if(coup.find("pmoins1")!=string::npos){
-                        coup.erase(0, 7);
+                        coup.erase(0, 8);
                         string sReserve = coup.substr(0,1);
                         coup.erase(0, 5);
                         stringstream sR;
@@ -1786,10 +1802,10 @@ string IA::significationCoup(PlateauJoueur &j, PlateauCentral &m, string coup){
                         sR >> reserve;
                         sT << coup;
                         sT >> tuile;
-                        res += "avec votre de 1 moins 1 posez la tuile en reserve " + sReserve + " sur la case " + coup + ",";
+                        res += "avec votre de 1 moins 1 posez la tuile en reserve a l'indice " + sReserve + " sur la case " + coup + ",";
                     }
                     else if(coup.find("pplus2")!=string::npos){
-                        coup.erase(0, 6);
+                        coup.erase(0, 7);
                         string sReserve = coup.substr(0,1);
                         coup.erase(0, 5);
                         stringstream sR;
@@ -1800,10 +1816,10 @@ string IA::significationCoup(PlateauJoueur &j, PlateauCentral &m, string coup){
                         sR >> reserve;
                         sT << coup;
                         sT >> tuile;
-                        res += "avec votre de 1 plus 3 posez la tuile en reserve " + sReserve + " sur la case " + coup + ",";
+                        res += "avec votre de 1 plus 3 posez la tuile en reserve a l'indice " + sReserve + " sur la case " + coup + ",";
                     }
                     else if(coup.find("pmoins2")!=string::npos){
-                        coup.erase(0, 7);
+                        coup.erase(0, 8);
                         string sReserve = coup.substr(0,1);
                         coup.erase(0, 5);
                         stringstream sR;
@@ -1814,23 +1830,9 @@ string IA::significationCoup(PlateauJoueur &j, PlateauCentral &m, string coup){
                         sR >> reserve;
                         sT << coup;
                         sT >> tuile;
-                        res += "avec votre de 1 moins 2 posez la tuile en reserve " + sReserve + " sur la case " + coup + ",";
+                        res += "avec votre de 1 moins 2 posez la tuile en reserve a l'indice " + sReserve + " sur la case " + coup + ",";
                     }
                     else if(coup.find("pplus3")!=string::npos){
-                        coup.erase(0, 6);
-                        string sReserve = coup.substr(0,1);
-                        coup.erase(0, 5);
-                        stringstream sR;
-                        stringstream sT;
-                        int reserve;
-                        int tuile;
-                        sR << sReserve;
-                        sR >> reserve;
-                        sT << coup;
-                        sT >> tuile;
-                        res += "avec votre de 1 plus 3 posez la tuile en reserve " + sReserve + " sur la case " + coup + ",";
-                    }
-                    else if(coup.find("pmoins3")!=string::npos){
                         coup.erase(0, 7);
                         string sReserve = coup.substr(0,1);
                         coup.erase(0, 5);
@@ -1842,7 +1844,21 @@ string IA::significationCoup(PlateauJoueur &j, PlateauCentral &m, string coup){
                         sR >> reserve;
                         sT << coup;
                         sT >> tuile;
-                        res += "avec votre de 1 moins 3 posez la tuile en reserve " + sReserve + " sur la case " + coup + ",";
+                        res += "avec votre de 1 plus 3 posez la tuile en reserve a l'indice " + sReserve + " sur la case " + coup + ",";
+                    }
+                    else if(coup.find("pmoins3")!=string::npos){
+                        coup.erase(0, 8);
+                        string sReserve = coup.substr(0,1);
+                        coup.erase(0, 5);
+                        stringstream sR;
+                        stringstream sT;
+                        int reserve;
+                        int tuile;
+                        sR << sReserve;
+                        sR >> reserve;
+                        sT << coup;
+                        sT >> tuile;
+                        res += "avec votre de 1 moins 3 posez la tuile en reserve a l'indice " + sReserve + " sur la case " + coup + ",";
                     }
                     else{
                         //cout<<coup<<endl;
@@ -1853,68 +1869,82 @@ string IA::significationCoup(PlateauJoueur &j, PlateauCentral &m, string coup){
                     if(coup.find("a0")!=string::npos){
                         coup.erase(0, 2);
                         if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),6).compare(coup)==0){
-                            res += "avec votre de 2 achetez la case du haut de la zone correspondante,";
+                            string c = afficherCase(coup);
+                            res += "avec votre de 1 achetez la case " + c + " de la zone correspondante,";
                         }
                         else if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),7).compare(coup)==0){
-                            res += "avec votre de 2 achetez la case du bas de la zone correspondante,";
+                            string c = afficherCase(coup);
+                            res += "avec votre de 1 achetez la case " + c + " de la zone correspondante,";
                         }
                     }
                     else if(coup.find("aplus1")!=string::npos){
                         coup.erase(0, 6);
                         if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),6).compare(coup)==0){
-                            res += "avec votre de 2 plus 1 achetez la case du haut de la zone correspondante,";
+                            string c = afficherCase(coup);
+                            res += "avec votre de 1 achetez la case " + c + " de la zone correspondante,";
                         }
                         else if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),7).compare(coup)==0){
-                            res += "avec votre de 2 plus 1 achetez la case du bas de la zone correspondante,";
+                            string c = afficherCase(coup);
+                            res += "avec votre de 1 achetez la case " + c + " de la zone correspondante,";
                         }
                     }
                     else if(coup.find("amoins1")!=string::npos){
                         coup.erase(0, 7);
                         if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),6).compare(coup)==0){
-                            res += "avec votre de 2 moins 1 achetez la case du haut de la zone correspondante,";
+                            string c = afficherCase(coup);
+                            res += "avec votre de 1 achetez la case " + c + " de la zone correspondante,";
                         }
                         else if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),7).compare(coup)==0){
-                            res += "avec votre de 2 moins 1 achetez la case du bas de la zone correspondante,";
+                            string c = afficherCase(coup);
+                            res += "avec votre de 1 achetez la case " + c + " de la zone correspondante,";
                         }
                     }
                     else if(coup.find("aplus2")!=string::npos){
                         coup.erase(0, 6);
                         if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),6).compare(coup)==0){
-                            res += "avec votre de 2 plus 2 achetez la case du haut de la zone correspondante,";
+                            string c = afficherCase(coup);
+                            res += "avec votre de 1 achetez la case " + c + " de la zone correspondante,";
                         }
                         else if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),7).compare(coup)==0){
-                            res += "avec votre de 2 plus 2 achetez la case du bas de la zone correspondante,";
+                            string c = afficherCase(coup);
+                            res += "avec votre de 1 achetez la case " + c + " de la zone correspondante,";
                         }
                     }
                     else if(coup.find("amoins2")!=string::npos){
                         coup.erase(0, 7);
                         if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),6).compare(coup)==0){
-                            res += "avec votre de 2 moins 2 achetez la case du haut de la zone correspondante,";
+                            string c = afficherCase(coup);
+                            res += "avec votre de 1 achetez la case " + c + " de la zone correspondante,";
                         }
                         else if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),7).compare(coup)==0){
-                            res += "avec votre de 2 moins 2 achetez la case du bas de la zone correspondante,";
+                            string c = afficherCase(coup);
+                            res += "avec votre de 1 achetez la case " + c + " de la zone correspondante,";
                         }
                     }
                     else if(coup.find("aplus3")!=string::npos){
                         coup.erase(0, 6);
                         if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),6).compare(coup)==0){
-                            res += "avec votre de 2 plus 3 achetez la case du haut de la zone correspondante,";
+                            string c = afficherCase(coup);
+                            res += "avec votre de 1 achetez la case " + c + " de la zone correspondante,";
                         }
                         else if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),7).compare(coup)==0){
-                            res += "avec votre de 2 plus 3 achetez la case du bas de la zone correspondante,";
+                            string c = afficherCase(coup);
+                            res += "avec votre de 1 achetez la case " + c + " de la zone correspondante,";
                         }
                     }
                     else if(coup.find("amoins3")!=string::npos){
                         coup.erase(0, 7);
                         if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),6).compare(coup)==0){
-                            res += "avec votre de 2 moins 3 achetez la case du haut de la zone correspondante,";
+                            string c = afficherCase(coup);
+                            res += "avec votre de 1 achetez la case " + c + " de la zone correspondante,";
                         }
                         else if(m.getTuileMarche(modifValeurDe(j.getde(2)-1),7).compare(coup)==0){
-                            res += "avec votre de 2 moins 3 achetez la case du bas de la zone correspondante,";
+                            string c = afficherCase(coup);
+                            res += "avec votre de 1 achetez la case " + c + " de la zone correspondante,";
                         }
                     }
                     else if(coup.find("p0")!=string::npos){
-                        coup.erase(0, 2);
+                        coup.erase(0, 3);
                         string sReserve = coup.substr(0,1);
                         coup.erase(0, 5);
                         stringstream sR;
@@ -1925,10 +1955,10 @@ string IA::significationCoup(PlateauJoueur &j, PlateauCentral &m, string coup){
                         sR >> reserve;
                         sT << coup;
                         sT >> tuile;
-                        res += "avec votre de 2 posez la tuile en reserve " + sReserve + " sur la case " + coup + ",";
+                        res += "avec votre de 2 posez la tuile en reserve a l'indice " + sReserve + " sur la case " + coup + ",";
                     }
                     else if(coup.find("pplus1")!=string::npos){
-                        coup.erase(0, 6);
+                        coup.erase(0, 7);
                         string sReserve = coup.substr(0,1);
                         coup.erase(0, 5);
                         stringstream sR;
@@ -1939,10 +1969,10 @@ string IA::significationCoup(PlateauJoueur &j, PlateauCentral &m, string coup){
                         sR >> reserve;
                         sT << coup;
                         sT >> tuile;
-                        res += "avec votre de 2 plus 1 posez la tuile en reserve " + sReserve + " sur la case " + coup + ",";
+                        res += "avec votre de 2 plus 1 posez la tuile en reserve a l'indice " + sReserve + " sur la case " + coup + ",";
                     }
                     else if(coup.find("pmoins1")!=string::npos){
-                        coup.erase(0, 7);
+                        coup.erase(0, 8);
                         string sReserve = coup.substr(0,1);
                         coup.erase(0, 5);
                         stringstream sR;
@@ -1953,10 +1983,10 @@ string IA::significationCoup(PlateauJoueur &j, PlateauCentral &m, string coup){
                         sR >> reserve;
                         sT << coup;
                         sT >> tuile;
-                        res += "avec votre de 2 moins 1 posez la tuile en reserve " + sReserve + " sur la case " + coup + ",";
+                        res += "avec votre de 2 moins 1 posez la tuile en reserve a l'indice " + sReserve + " sur la case " + coup + ",";
                     }
                     else if(coup.find("pplus2")!=string::npos){
-                        coup.erase(0, 6);
+                        coup.erase(0, 7);
                         string sReserve = coup.substr(0,1);
                         coup.erase(0, 5);
                         stringstream sR;
@@ -1967,10 +1997,10 @@ string IA::significationCoup(PlateauJoueur &j, PlateauCentral &m, string coup){
                         sR >> reserve;
                         sT << coup;
                         sT >> tuile;
-                        res += "avec votre de 2 plus 2 posez la tuile en reserve " + sReserve + " sur la case " + coup + ",";
+                        res += "avec votre de 2 plus 2 posez la tuile en reserve a l'indice " + sReserve + " sur la case " + coup + ",";
                     }
                     else if(coup.find("pmoins2")!=string::npos){
-                        coup.erase(0, 7);
+                        coup.erase(0, 8);
                         string sReserve = coup.substr(0,1);
                         coup.erase(0, 5);
                         stringstream sR;
@@ -1981,23 +2011,9 @@ string IA::significationCoup(PlateauJoueur &j, PlateauCentral &m, string coup){
                         sR >> reserve;
                         sT << coup;
                         sT >> tuile;
-                        res += "avec votre de 2 moins 2 posez la tuile en reserve " + sReserve + " sur la case " + coup + ",";
+                        res += "avec votre de 2 moins 2 posez la tuile en reserve a l'indice " + sReserve + " sur la case " + coup + ",";
                     }
                     else if(coup.find("pplus3")!=string::npos){
-                        coup.erase(0, 6);
-                        string sReserve = coup.substr(0,1);
-                        coup.erase(0, 5);
-                        stringstream sR;
-                        stringstream sT;
-                        int reserve;
-                        int tuile;
-                        sR << sReserve;
-                        sR >> reserve;
-                        sT << coup;
-                        sT >> tuile;
-                        res += "avec votre de 2 plus 3 posez la tuile en reserve " + sReserve + " sur la case " + coup + ", ";
-                    }
-                    else if(coup.find("pmoins3")!=string::npos){
                         coup.erase(0, 7);
                         string sReserve = coup.substr(0,1);
                         coup.erase(0, 5);
@@ -2009,7 +2025,21 @@ string IA::significationCoup(PlateauJoueur &j, PlateauCentral &m, string coup){
                         sR >> reserve;
                         sT << coup;
                         sT >> tuile;
-                        res += "avec votre de 2 moins 3 posez la tuile en reserve " + sReserve + " sur la case " + coup + ",";
+                        res += "avec votre de 2 plus 3 posez la tuile en reserve a l'indice " + sReserve + " sur la case " + coup + ", ";
+                    }
+                    else if(coup.find("pmoins3")!=string::npos){
+                        coup.erase(0, 8);
+                        string sReserve = coup.substr(0,1);
+                        coup.erase(0, 5);
+                        stringstream sR;
+                        stringstream sT;
+                        int reserve;
+                        int tuile;
+                        sR << sReserve;
+                        sR >> reserve;
+                        sT << coup;
+                        sT >> tuile;
+                        res += "avec votre de 2 moins 3 posez la tuile en reserve a l'indice " + sReserve + " sur la case " + coup + ",";
                     }
                     else{
                     }
@@ -2021,4 +2051,73 @@ string IA::significationCoup(PlateauJoueur &j, PlateauCentral &m, string coup){
 }
 
 
-
+std::string IA::afficherCase( std::string c ){
+    if(c=="ts")return"Navire Normale";
+    else if(c=="tsb")return"Navire Noire";
+    else if(c=="tb1")return"Entrepot";
+    else if(c=="tb1b")return"Entrepot(Noire)";
+    else if(c=="tb2")return"Atelier de menuiserie";
+    else if(c=="tb2b")return"Atelier de menuiserie(Noire)";
+    else if(c=="tb3")return"Eglise";
+	else if(c=="tb3b")return"Eglise(Noire)";
+    else if(c=="tb4")return"Marche";
+	else if(c=="tb4b")return"Marche(Noire)";
+    else if(c=="tb5")return"Pension";
+    else if(c=="tb5b")return"Pension (Noire)";
+	else if(c=="tb6")return"Banque";
+    else if(c=="tb6b")return"Banque (Noire)";
+    else if(c=="tb7")return"Hotel de ville";
+    else if(c=="tb7b")return"Hotel de ville(Noire)";
+    else if(c=="tb8")return"Tour de guet";
+    else if(c=="tb8b")return"Tour de guet(Noire)";
+    else if(c=="tm")return"Mine normale";
+	else if(c=="tac2")return"2 cochon";
+	else if(c=="tac3")return"3 cochon";
+    else if(c=="tac4")return"4 cochon";
+	else if(c=="tac3b")return"3 cochon(Noire)";
+    else if(c=="tac4b")return"4 cochon(Noire)";
+    else if(c=="tam2")return"2 mouton";
+    else if(c=="tam3")return"3 mouton";
+	else if(c=="tam4")return"4 mouton";
+	else if(c=="tam3b")return"3 mouton(Noire)";
+	else if(c=="tam4b")return"4 mouton(Noire)";
+	else if(c=="tap2")return"2 poule";
+    else if(c=="tap3")return"3 poule";
+	else if(c=="tap4")return"4 poule";
+    else if(c=="tap3b")return"3 poule(Noire)";
+	else if(c=="tap4b")return"4 poule(Noire)";
+	else if(c=="tav2")return"2 vache";
+    else if(c=="tav3")return"3 vache";
+    else if(c=="tav4")return"4 vache";
+	else if(c=="tav3b")return"3 vache(Noire)";
+    else if(c=="tav4b")return"4 vache(Noire)";
+	else if(c=="tk1")return"Autorisation multi batiments dans chaque ville";
+	else if(c=="tk2")return"Obtention ouvrier mine";
+	else if(c=="tk3")return"Boost vente marchandise";
+	else if(c=="tk4")return"Obtention ouvrier vente marchandise";
+    else if(c=="tk5")return"Boost navires";
+	else if(c=="tk6")return"Achat boostee";
+	else if(c=="tk7b")return"Boost tuile animal(Noire)";
+    else if(c=="tk8")return"Boost ouvrier";
+    else if(c=="tk9")return"Boost ajustement batiments";
+    else if(c=="tk10")return"Boost ajustement navires/animaux";
+	else if(c=="tk11")return"Ajustement gratuit Chateau mine connaissance";
+	else if(c=="tk12b")return"Ajustement gratuit Marche(Noire)";
+	else if(c=="tk13")return"Obtention pepite vente de De";
+    else if(c=="tk14b")return"Boost vente des De (Noire)";
+	else if(c=="tk15b")return"3 point victoire par type marchandise vendu";
+	else if(c=="tk16")return"Boost point victoire entrepot";
+	else if(c=="tk17")return"Boost point victoire tour de guet";
+	else if(c=="tk18")return"Boost point victoire atelier de menuiserie";
+    else if(c=="tk19")return"Boost point victoire eglise";
+    else if(c=="tk20")return"Boost point victoire marche";
+	else if(c=="tk21")return"Boost point victoire pension";
+    else if(c=="tk22")return"Boost point victoire banque";
+    else if(c=="tk23")return"Boost point victoire hotel de ville";
+	else if(c=="tk24b")return"Boost point victoire type animaux";
+    else if(c=="tk25b")return"Boost point victoire marchandise vendu(Noire)";
+    else if(c=="tk26")return"Boost point victoire tuile bonus";
+    else if(c=="tc")return"Chateau normale";
+    else if(c=="tcb")return"Chateau noire";
+    else{return"";}
+}
