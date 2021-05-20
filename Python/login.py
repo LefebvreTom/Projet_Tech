@@ -104,8 +104,8 @@ def lancerPartie(payload):
     partie = "http://www.boiteajeux.net/jeux/cdb/partie.php?id="
     score = "http://www.boiteajeux.net/jeux/cdb/decompte.php?id="
     #idpartie = input("Entrez un id de partie : ")
-    idpartie = "530217"
-    #idpartie = "530531"
+    #idpartie = "530217"
+    idpartie = "539962"
     url = request.urlopen(partie + idpartie)
     urlS = request.urlopen(score + idpartie)
     return url,urlS
@@ -304,7 +304,7 @@ def extraireDonneeJoueur(listeJoueurs,joueur,page,fichier):
         listeMarchandise = re.findall("dvGoods",donneeJoueurSplit[0])
     listeMarchandise = re.findall("clmar",donneeJoueurSplit[0])
     fichier.write("marchandise_vendu:\n")
-    while(len(listeMarchandise)!=1):
+    while(len(listeMarchandise)>1):
         extraireMarchandise(donneeJoueurSplit,fichier)
         listeMarchandise = re.findall("clMar",donneeJoueurSplit[0])
     donneeJoueurSplit.pop(0)
@@ -519,8 +519,8 @@ def extraireScore(page,joueurs):
     scoreb= re.split("&nbsp;",listeScore[3])
     scoreJ1=scorea[1]
     scoreJ2=scoreb[1]
-    print(scoreJ1)
-    print(scoreJ2)
+    #print(scoreJ1)
+    #print(scoreJ2)
     i = 1
     for joueur in joueurs.keys():
         fichier = open("../Donnes/J"+str(i)+".txt", "a")

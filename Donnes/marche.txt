@@ -1,18 +1,18 @@
 Phase/tours:
-3;3
+1;1
 tuile_centrale:
-[]
-['tk10', 'm4']
-['m3', 'm6']
-['ts', 'tb8']
-['tm', 'tk26']
-['tb1', 'tav4', 'm4', 'm3']
-['tap3b', 'tb1b', 'tb5b']
+['ts', 'tb4']
+['tk22', 'tc']
+['tav2', 'tb6']
+['ts', 'tb1', 'm3']
+['tm', 'tk11']
+['tb4', 'tam4']
+['tcb', 'tap3b', 'tb5b', 'tk7b']
 marchandises_tours:
-m1;m6
+m5;m2;m1;m4
 pions:
-[271, 596, 'p1']
-[235, 596, 'p0']
+[163, 596, 'p0']
+[163, 588, 'p1']
 bonus:
 ['bk1']
 ['bk2']
